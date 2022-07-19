@@ -89,8 +89,13 @@
             margin-bottom: 10px;
         }
 
+        .article h4 {
+            font-weight: normal;
+        }
+
         .article p {
             margin-bottom: 10px;
+            color: #666;
         }
 
         .article .box {
@@ -142,48 +147,17 @@
             </ul>
         </nav>
         <article class="article">
-            <h2>마크업 기본 문법 규칙</h2>
-            <p>마크업을 할 때 기본적으로 알고 있어야 하는 문법 규칙</p>
-            <h3>1. 요소는 시작 태그와 종료 태그가 있어야 합니다.</h3>
-            <p class="box">
-                &lt;p&gt;요소는 시작 태그와 종료 태그가 있어야 한다.&lt;/p&gt; (O)<br>
-                &lt;p&gt;요소는 시작 태그와 종료 태그가 있어야 한다. (X)
-            </p>
+            <h2>블록 레벨 요소(Block-level Elements)</h2>
+            <p>블록 레벨 요소는 마크업을 할 때 줄이 바뀌는 특성을 가지고 있는데, 다음 예제로 설명하겠습니다.</p>
+<pre><p class="box">&lt;body&gt;
+    <h1>&lt;h1&gt;블록 레벨 요소&lt;/h1&gt;</h1>
+    <h2>&lt;h2&gt;블록 레벨 요소 성질&lt;/h2&gt;</h2>
+    <h3>p&gt;줄 바꿈이 생깁니다.&lt;/p&gt;</h3>
+&lt;/body&gt;
+</p></pre>
+            <h4>Note</h4>
             <p>
-                태그 중에는 종료 태그가 없는 요소들도 있습니다. 이러한 요소를 '빈 요소(empty element)'라고 하는데, 자주 사용되는 빈 요소에는 &lt;br&gt;, &lt;hr&gt;,
-                &lt;img&gt;, &lt;input&gt;, &lt;meta&gt;, &lt;link&gt; 등이 있습니다.
-            </p>
-            <h3>2. 요소는 제대로 중첩되어야 합니다.</h3>
-            <p class="box">
-                &lt;p&gt;중첩된 요소가 있을 때는 &lt;strong&gt;바르게&lt;/strong&gt; 표현해야 한다.&lt;/p&gt;   (O)<br>
-                &lt;p&gt;중첩된 요소가 있을 때는 &lt;strong&gt;바르게&lt;/p&gt; 표현해야 한다.&lt;/p&gt;   (X)
-            </p>
-            <p>
-                마지막에 정의한 태그를 가장 먼저 닫아야 한다는 뜻인데, 이러한 중첩 관계를 부모, 자식 관계라고도 합니다.<br>&lt;p&gt;부모 요소, &lt;strong&gt;자식 요소
-            </p>
-            <h3>3. img 태그에는 alt 속성이 있어야 합니다.</h3>
-            <p class="box">
-                &lt;img src="images/today.gif" alt="오늘"&gt;   (O)<br>
-                &lt;img src="images/today.gif"&gt;  (X)
-            </p>
-            <p>
-                문법적으로도 필요하지만, 이미지를 볼 수 없는 환경에서도 그 이미지에 대한 정보를 충분히 제공해 주어야 하기 때문입니다.
-            </p>
-            <h3>4. 권장하는 사항도 있습니다.</h3>
-            <p class="box">
-                &lt;p&gt;태그나 속성은 소문자로 마크업 하는 것을 권장한다.&lt;/p&gt;<br>
-                &lt;p title="속성 값"&gt;속성의 값에는 따옴표 처리를 권장한다.&lt;/p&gt;
-            </p>
-            <p>
-                HTML은 대소문자를 구분하지는 않지만 가급적 소문자로 통일한 마크업과, 속성에 대한 따옴표 처리를 권장합니다.
-            </p>
-            <h3>5. 주석처리 방법</h3>
-            <p class="box">
-                &lt;!-- header --&gt;<br>
-                &lt;!-- 여기서부터 공지 사항입니다. --&gt;
-            </p>
-            <p>
-                설명문으로, 주석 내용은 브라우저 화면에 출력되지 않습니다.
+                실제 마크업을 할 때는 작업자마다 콘텐츠의 의미를 해석하는 차이가 조금 있을 수도 있지만 가급적 시멘틱하게 마크업을 하려고 노력해야합니다.
             </p>
         </article>
     </section>
