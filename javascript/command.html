@@ -38,6 +38,32 @@
             padding: 15px;
         }
 
+        #contents .table {
+            width: 100%;
+            border: 1px solid #cdcdcd;
+            border-spacing: 0;
+            /* 테이블간 여백 제거 */
+            border-collapse: collapse;
+            /* 테이블 중첩 경계선 합침 */
+            margin-bottom: 10px;
+        }
+
+        #contents .table tr th {
+            border: 1px solid #dedede;
+            padding: 10px;
+            font-weight: normal;
+            background: #f5f5f5;
+        }
+
+        #contents .table tr td {
+            border: 1px solid #dedede;
+            padding: 10px;
+        }
+
+        #contents .table .center {
+            text-align: center;
+        }
+
         /* 모바일용 미디어 쿼리 */
         @media (max-width: 800px) {
             #header h1 {
@@ -79,38 +105,37 @@
         </nav>
     </header>
     <section id="contents">
-        <h3>자바스크립트 기본 규칙</h3>
-        <ol class="numList">
-            <li>하나의 실행문이 끝나면 마지막에 세미콜론(;)를 붙여 줍니다.
-                <br>* 세미콜론(;)을 붙여 주지 않아도 상관은 없음.
-                <p class="box">
-                    var num = 5;
-                    document.write(num);
-                </p>
-            </li>
-            <li>대소문자를 구분합니다.
-                <p class="box">
-                    var num = 5;<br>
-                    document.write(num); (O)<br>
-                    document.write(Num); (X)
-                </p>
-            </li>
-            <li>가독성을 위해 들여쓰기를 사용합니다.
-            <p class="box">
-                var avgDistance = funtion() {<br>
-                var speed = distance * time;<br>
-                }
-            </p>
-            </li>
-            <li>주석(comment) 처리 방법에는 한 줄 주석처리와 여러 줄 주석처리가 있습니다.
-            <p class="box">
-                // 한 줄 주석 처리 방법입니다.<br>
-                /* 여러 줄 주석 처리 방법입니다.*/
-            </p>
-            </li>
-        </ol>
+        <h3>기본 명령어</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>분류</th>
+                    <th>명령어</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="center">입력</td>
+                    <td>promt('입력 제목', '입력 내용')</td>
+                </tr>
+                <tr>
+                    <td class="center" rowspan="3">출력</td>
+                    <td>document.write('출력 내용')</td>
+                </tr>
+                <tr>
+                    <td>alert('출력 내용')</td>
+                </tr>
+                <tr>
+                    <td>console.log('출력 내용')</td>
+                </tr>
+                <tr>
+                    <td class="center">확인</td>
+                    <td>confirm('확인 내용')</td>
+                </tr>
+            </tbody>
+        </table>
     </section>
-        <footer id="footer">
+    <footer id="footer">
         <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
     </footer>
     <!-- //footer -->
