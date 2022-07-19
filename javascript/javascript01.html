@@ -177,17 +177,17 @@
             <div id="sample01" class="sample">
                 <h2>01. 변수 : 데이터 저장</h2>
                 <div class="code">
-                    <pre><code class="language-js"> <!--<pre> = 띄어쓰기를 입력한대로 유지-->{
-                            var x = 100;          // 변수 x 저장소에 숫자 100을 저장함
-                            var y = 200;          // 변수 y 저장소에 숫자 200을 저장함
-                            var z = "javascript"; // 변수 z 저장소에 문자열 "javascript"를 저장함
-                
-                            // var x = 300; 입력시 x값 300으로 변경(var과 let의 차이)
-                
-                            document.write("01. 변수");
-                            document.write(x);
-                            document.write(y);
-                            document.write(z);
+<pre><code class="language-js"> <!--<pre> = 띄어쓰기를 입력한대로 유지-->{
+    var x = 100;          // 변수 x 저장소에 숫자 100을 저장함
+    var y = 200;          // 변수 y 저장소에 숫자 200을 저장함
+    var z = "javascript"; // 변수 z 저장소에 문자열 "javascript"를 저장함
+
+    // var x = 300; 입력시 x값 300으로 변경(var과 let의 차이)
+
+    document.write("01. 변수");
+    document.write(x);
+    document.write(y);
+    document.write(z);
 }
 </code></pre>
                 </div>
@@ -195,22 +195,22 @@
             <div id="sample01" class="sample">
                 <h2>02. 변수 : 데이터 저장 + 데이터 변경</h2>
                 <div class="code">
-                    <pre><code class="language-js">{
-                            let x = 100;            // 변수 x 저장소에 숫자 100을 저장함
-                            let y = 200;            // 변수 y 저장소에 숫자 200을 저장함
-                            let z = "javascript";   // 변수 z 저장소에 문자열 "javascript"를 저장함
-                
-                            // let x = 300; 입력시 x값 300으로 변경X -> 오류(var과 let의 차이)
-                            // x = 300; 입력시 x값 300으로 변경
-                
-                            x = 300;                // 변수 x의 값이 100에서 300으로 변경
-                            y = 400;                // 변수 y의 값이 200에서 400으로 변경
-                            z = "jquery";           // 변수 z의 값이 javascript에서 jquery로 변경
-                
-                            document.write("02. 변수");
-                            document.write(x);
-                            document.write(y);
-                            document.write(z);
+<pre><code class="language-js">{
+    let x = 100;            // 변수 x 저장소에 숫자 100을 저장함
+    let y = 200;            // 변수 y 저장소에 숫자 200을 저장함
+    let z = "javascript";   // 변수 z 저장소에 문자열 "javascript"를 저장함
+
+    // let x = 300; 입력시 x값 300으로 변경X -> 오류(var과 let의 차이)
+    // x = 300; 입력시 x값 300으로 변경
+
+    x = 300;                // 변수 x의 값이 100에서 300으로 변경
+    y = 400;                // 변수 y의 값이 200에서 400으로 변경
+    z = "jquery";           // 변수 z의 값이 javascript에서 jquery로 변경
+
+    document.write("02. 변수");
+    document.write(x);
+    document.write(y);
+    document.write(z);
 }
 </code></pre>
                 </div>
@@ -218,19 +218,19 @@
             <div id="sample01" class="sample">
                 <h2>03. 변수 : 데이터 저장 + 데이터 변경 + 데이터 추가</h2>
                 <div class="code">
-                    <pre><code class="language-js">{
-                            let x = 100;
-                            let y = 200;
-                            let z = "javascript"
-                
-                            x += 300;                // x = x + 300
-                            y += 400;                // y = y + 400
-                            z += "jquery";           // z = z + "jquery"
-                
-                            document.write("03. 변수");
-                            document.write(x);
-                            document.write(y);
-                            document.write(z);
+<pre><code class="language-js">{
+    let x = 100;
+    let y = 200;
+    let z = "javascript"
+
+    x += 300;                // x = x + 300
+    y += 400;                // y = y + 400
+    z += "jquery";           // z = z + "jquery"
+
+    document.write("03. 변수");
+    document.write(x);
+    document.write(y);
+    document.write(z);
 }
 </code></pre>
                 </div>
@@ -238,24 +238,24 @@
             <div id="sample01" class="sample">
                 <h2>04. 변수 : 종류(지역변수 + 매개변수)</h2>
                 <div class="code">
-                    <pre><code class="language-js">{
-                            let x = 100;            // 전역변수
-                            let y = 200;
-                
-                            function func() {
-                                let x = 100;        // 지역변수
-                                let y = 200;
-                
-                                x = 300;            // 지역변수 x값이 100에서 300으로 변경
-                
-                                document.write("04. 변수 : 함수 안");
-                                document.write(x);
-                                document.write(y);
-                            }
-                            func();                 // 전역변수 출력
-                            document.write("04. 변수 : 함수 밖");
-                            document.write(x);
-                            document.write(y);
+<pre><code class="language-js">{
+    let x = 100;            // 전역변수
+    let y = 200;
+
+    function func() {
+        let x = 100;        // 지역변수
+        let y = 200;
+
+        x = 300;            // 지역변수 x값이 100에서 300으로 변경
+
+        document.write("04. 변수 : 함수 안");
+        document.write(x);
+        document.write(y);
+    }
+    func();                 // 전역변수 출력
+    document.write("04. 변수 : 함수 밖");
+    document.write(x);
+    document.write(y);
 }
 </code></pre>
                 </div>
@@ -263,17 +263,17 @@
             <div id="sample01" class="sample">
                 <h2>05. 상수 : 데이터 저장 + 데이터 변경X</h2>
                 <div class="code">
-                    <pre><code class="language-js">{
-                        const x = 100;
-                        const y = 200;
-                        const z = "javascript";
-            
-                        // x = 400; -> 상수는 데이터 변경이 불가능하여 에러발생
-            
-                        document.write("05. 상수");
-                        document.write(x);
-                        document.write(y);
-                        document.write(z);
+<pre><code class="language-js">{
+    const x = 100;
+    const y = 200;
+    const z = "javascript";
+
+    // x = 400; -> 상수는 데이터 변경이 불가능하여 에러발생
+
+    document.write("05. 상수");
+    document.write(x);
+    document.write(y);
+    document.write(z);
 }
 </code></pre>
                 </div>
@@ -281,16 +281,16 @@
             <div id="sample01" class="sample">
                 <h2>06. 배열 : 여러개의 데이터를 저장 : 표현 방법1</h2>
                 <div class="code">
-                    <pre><code class="language-js">{
-                            const arr = new Array();
-                            arr[0] = 100;
-                            arr[1] = 200;
-                            arr[2] = "javascript";
-                
-                            document.write("06. 배열");
-                            document.write(arr[0]);
-                            document.write(arr[1]);
-                            document.write(arr[2]);
+<pre><code class="language-js">{
+    const arr = new Array();
+    arr[0] = 100;
+    arr[1] = 200;
+    arr[2] = "javascript";
+
+    document.write("06. 배열");
+    document.write(arr[0]);
+    document.write(arr[1]);
+    document.write(arr[2]);
 }
 </code></pre>
                 </div>
@@ -298,13 +298,13 @@
             <div id="sample01" class="sample">
                 <h2>07. 배열 : 여러개의 데이터를 저장 : 표현 방법2</h2>
                 <div class="code">
-                    <pre><code class="language-js">{
-                            const arr = new Array(100, 200, "javascript");
-                
-                            document.write("07. 배열");
-                            document.write(arr[0]);
-                            document.write(arr[1]);
-                            document.write(arr[2]);
+<pre><code class="language-js">{
+    const arr = new Array(100, 200, "javascript");
+
+    document.write("07. 배열");
+    document.write(arr[0]);
+    document.write(arr[1]);
+    document.write(arr[2]);
 }
 </code></pre>
                 </div>
@@ -312,16 +312,16 @@
             <div id="sample01" class="sample">
                 <h2>08. 배열 : 여러개의 데이터를 저장 : 표현 방법3</h2>
                 <div class="code">
-                    <pre><code class="language-js">{
-                            const arr = [];
-                            arr[0] = 100;
-                            arr[1] = 200;
-                            arr[2] = "javascript";
-                
-                            document.write("08. 배열");
-                            document.write(arr[0]);
-                            document.write(arr[1]);
-                            document.write(arr[2]);
+<pre><code class="language-js">{
+    const arr = [];
+    arr[0] = 100;
+    arr[1] = 200;
+    arr[2] = "javascript";
+
+    document.write("08. 배열");
+    document.write(arr[0]);
+    document.write(arr[1]);
+    document.write(arr[2]);
 }
 </code></pre>
                 </div>
@@ -329,13 +329,13 @@
             <div id="sample01" class="sample">
                 <h2>09. 배열 : 여러개의 데이터를 저장 : 표현 방법4</h2>
                 <div class="code">
-                    <pre><code class="language-js">{
-                            const arr = [100, 200, "javascript"]
-                
-                            document.write("09. 배열");
-                            document.write(arr[0]);
-                            document.write(arr[1]);
-                            document.write(arr[2]);
+<pre><code class="language-js">{
+    const arr = [100, 200, "javascript"]
+
+    document.write("09. 배열");
+    document.write(arr[0]);
+    document.write(arr[1]);
+    document.write(arr[2]);
 }
 </code></pre>
                 </div>
