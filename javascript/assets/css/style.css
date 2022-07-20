@@ -133,7 +133,7 @@ body {
 }
 
 .document hr {
-    border: 0;
+    border: 0px;
     border-top: 1px dashed #dcdcdc;
     margin-top: 45px;
 }
