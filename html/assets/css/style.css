@@ -59,7 +59,7 @@ body {
 
 #main {
     padding: 20px;
-    min-width: 1300px;
+    max-width: 1300px;
     margin: 0 auto;
 }
 
@@ -206,7 +206,7 @@ body {
     }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 460px) {
     .main_header h2 {
         font-size: 30px;
         padding: 20px;
