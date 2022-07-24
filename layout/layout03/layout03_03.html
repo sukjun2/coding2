@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>레이아웃3 - flex</title>
+</head>
+<style>
+    * {
+        margin: 0;
+    }
+
+    body {
+        background-color: #E1F5FE;
+    }
+
+    #wrap {
+        width: 1200px;
+        margin: 0 auto;
+    }
+
+    #header {
+        width: 100%;
+        height: 100px;
+        background-color: #B3E5FC;
+    }
+
+    #nav {
+        width: 100%;
+        height: 100px;
+        background-color: #81D4FA;
+    }
+
+    #main {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        height: 780px;
+    }
+
+    #aside {
+        width: 25%;
+        height: 780px;
+        background-color: #4FC3F7;
+    }
+
+    #section_01 {
+        width: 75%;
+        height: 260px;
+        background-color: #29B6F6;
+    }
+
+    #section_02 {
+        width: 75%;
+        height: 260px;
+        background-color: #03A9F4;
+    }
+
+    #section_03 {
+        width: 75%;
+        height: 260px;
+        background-color: #039BE5;
+    }
+
+    #footer {
+        width: 100%;
+        height: 100px;
+        background-color: #0288D1;
+    }
+
+    @media (max-width:1280px) {}
+
+    @media (max-width:768px) {}
+
+    @media (max-width:480px) {}
+</style>
+
+<body>
+    <div id="wrap">
+        <div id="header"></div>
+        <div id="nav"></div>
+        <div id="main">
+            <div id="aside"></div>
+            <div id="section_01"></div>
+            <div id="section_02"></div>
+            <div id="section_03"></div>
+        </div>
+        <div id="footer"></div>
+    </div>
+</body>
+
+</html>

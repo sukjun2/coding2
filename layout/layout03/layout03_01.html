@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>레이아웃3</title>
+    <title>레이아웃3 - float(clearfix)</title>
 </head>
 <style>
     * {
@@ -13,7 +13,7 @@
     }
 
     body {
-        background-color: rgb(239, 250, 255);
+        background-color: #E1F5FE;
     }
 
     #wrap {
@@ -24,47 +24,62 @@
     #header {
         width: 1200px;
         height: 100px;
-        background-color: rgb(217, 251, 253);
+        background-color: #B3E5FC;
     }
 
     #nav {
         width: 1200px;
         height: 100px;
-        background-color: rgb(184, 231, 231);
+        background-color: #81D4FA;
+    }
+
+    #main {
+        width: 1200px;
     }
 
     #aside {
         width: 300px;
         height: 780px;
-        background-color: rgb(141, 200, 202);
+        background-color: #4FC3F7;
         float: left;
     }
 
     #section_01 {
         width: 900px;
         height: 260px;
-        background-color: rgb(93, 159, 168);
+        background-color: #29B6F6;
         float: left;
     }
 
     #section_02 {
         width: 900px;
         height: 260px;
-        background-color: rgb(51, 135, 146);
+        background-color: #03A9F4;
         float: left;
     }
 
     #section_03 {
         width: 900px;
         height: 260px;
-        background-color: rgb(31, 93, 97);
+        background-color: #039BE5;
         float: left;
     }
 
     #footer {
         width: 1200px;
         height: 100px;
-        background-color: rgb(10, 61, 63);
+        background-color: #0288D1;
+    }
+
+    /* clearfix */
+    .clearfix::before,
+    .clearfix::after {
+        content: '';
+        display: block;
+        line-height: 0;
+    }
+
+    .clearfix::after {
         clear: both;
     }
 </style>
@@ -73,10 +88,12 @@
     <div id="wrap">
         <div id="header"></div>
         <div id="nav"></div>
-        <div id="aside"></div>
-        <div id="section_01"></div>
-        <div id="section_02"></div>
-        <div id="section_03"></div>
+        <div id="main" class="clearfix">
+            <div id="aside"></div>
+            <div id="section_01"></div>
+            <div id="section_02"></div>
+            <div id="section_03"></div>
+        </div>
         <div id="footer"></div>
     </div>
 </body>

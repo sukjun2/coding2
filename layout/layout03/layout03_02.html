@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>레이아웃3 - float(미디어)</title>
+</head>
+<style>
+    * {
+        margin: 0;
+    }
+
+    body {
+        background-color: #E1F5FE;
+    }
+
+    #wrap {
+        width: 1200px;
+        margin: 0 auto;
+    }
+
+    #header {
+        height: 100px;
+        background-color: #B3E5FC;
+    }
+
+    #nav {
+        height: 100px;
+        background-color: #81D4FA;
+    }
+
+    #main {
+    }
+
+    #aside {
+        width: 25%;
+        height: 780px;
+        background-color: #4FC3F7;
+        float: left;
+    }
+
+    #section_01 {
+        width: 75%;
+        height: 260px;
+        background-color: #29B6F6;
+        float: left;
+    }
+
+    #section_02 {
+        width: 75%;
+        height: 260px;
+        background-color: #03A9F4;
+        float: left;
+    }
+
+    #section_03 {
+        width: 75%;
+        height: 260px;
+        background-color: #039BE5;
+        float: left;
+    }
+
+    #footer {
+        height: 100px;
+        background-color: #0288D1;
+    }
+
+    /* clearfix */
+    .clearfix::before,
+    .clearfix::after {
+        content: '';
+        display: block;
+        line-height: 0;
+    }
+
+    .clearfix::after {
+        clear: both;
+    }
+
+    @media (max-width:1280px) {
+        #wrap {
+            width: 96%;
+        }
+
+        #section_02 {
+            width: 37.5%;
+            height: 520px;
+        }
+
+        #section_03 {
+            width: 37.5%;
+            height: 520px;
+        }
+    }
+
+    @media (max-width:768px) {
+        #wrap {
+            width: 100%;
+        }
+
+        #aside {
+            width: 32.5%;
+            height: 780px;
+        }
+
+        #section_01 {
+            width: 67.5%;
+            height: 390px;
+        }
+
+        #section_02 {
+            width: 67.5%;
+            height: 390px;
+        }
+
+        #section_03 {
+            display: none;
+        }
+    }
+
+    @media (max-width:480px) {
+        #aside {
+            width: 100%;
+            height: 200px;
+        }
+
+        #section_01 {
+            width: 100%;
+            height: 430px;
+        }
+
+        #section_02 {
+            width: 100%;
+            height: 150px;
+        }
+    }
+</style>
+
+<body>
+    <div id="wrap">
+        <div id="header"></div>
+        <div id="nav"></div>
+        <div id="main" class="clearfix">
+            <div id="aside"></div>
+            <div id="section_01"></div>
+            <div id="section_02"></div>
+            <div id="section_03"></div>
+        </div>
+        <div id="footer"></div>
+    </div>
+</body>
+
+</html>
