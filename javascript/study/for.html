@@ -43,7 +43,7 @@
     <main id="main">
         <div class="document">
             <h2 class="t_tit">반복문</h2>
-            <p class="t_desc">
+            <p class="t_desc2">
                 반복문은 프로그램에서 필요한 결과 값을 도출하기 위해 실행문의 순서를 반복적으로 실행시키는 문법입니다.<br>
                 반복문에는 while문, do while문, for문이 있으며, for문을 가장 많이 사용합니다.
             </p>
@@ -276,14 +276,14 @@ document.write(table);
                     }
                 </style>
                 <script>
-                    let table = "<table class='testTable'>";
+                    let table = "<table class = 'testTable'>";
 
                     for (let i = 0; i < 10; i++) {
                         table += "<tr>";
-                        for (let j = 0; j < 10; j++) {
-                            table += "<td>1</td>"
+                        for (let j = 0; j <= 10; j++) {
+                            table += "<td>" + j + "</td>"
                         }
-                        table += "</tr>";
+                        table += "</tr>"
                     }
                     table += "</table>"
 
@@ -384,17 +384,17 @@ document.write(table);
 
         // for문을 이용해서 테이블 만들기
         {
-            let table = "<table class = 'testTable'>";
+            // let table = "<table class = 'testTable'>";
 
-            for (let i = 0; i < 10; i++) {
-                table += "<tr>";
-                for (let j = 0; j <= 10; j++) {
-                    table += "<td>" + j + "</td>"
-                }
-                table += "</tr>"
-            }
-            table += "</table>"
-            document.write(table);
+            // for (let i = 0; i < 10; i++) {
+            //     table += "<tr>";
+            //     for (let j = 0; j <= 10; j++) {
+            //         table += "<td>" + j + "</td>"
+            //     }
+            //     table += "</tr>"
+            // }
+            // table += "</table>"
+            // document.write(table);
         }
 
         // 데이터 타입(자료형)
