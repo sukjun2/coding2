@@ -36,6 +36,7 @@
                 <li><a href="study/for.html">반복문</a></li>
                 <li><a href="study/if.html">조건문</a></li>
                 <li><a href="study/type.html">데이터 타입</a></li>
+                <li><a href="study/function.html">함수</a></li>
             </ul>
         </nav>
     </header>
@@ -181,7 +182,6 @@ if (num == 100) {
                     <details>
                         <summary>결과보기</summary>
                         <div class="sample05_result">
-                            true<br>
                             true
                         </div>
                     </details>
@@ -216,7 +216,128 @@ switch (num) {
                     <details>
                         <summary>결과보기</summary>
                         <div class="sample06_result">
+                            실행되었습니다(num == 100).
+                        </div>
+                    </details>
+                </div>
+            </div>
 
+            <div id="sample07" class="sample">
+                <h3>07. while문</h3>
+                <p></p>
+                <div class="script">
+                    <pre><code class="language-js">let num = 1;
+
+while (num &lt;= 5) {
+    document.write("실행되었습니다.");
+    num++;
+}
+</code></pre>
+                </div>
+                <div class="result">
+                    <details>
+                        <summary>결과보기</summary>
+                        <div class="sample07_result">
+                            실행되었습니다.<br>
+                            실행되었습니다.<br>
+                            실행되었습니다.<br>
+                            실행되었습니다.<br>
+                            실행되었습니다.
+                        </div>
+                    </details>
+                </div>
+            </div>
+            <div id="sample08" class="sample">
+                <h3>08. do while문</h3>
+                <p></p>
+                <div class="script">
+                    <pre><code class="language-js">let num = 1;
+
+do {
+    document.write("실행되었습니다2.");
+    num++;
+} while (num &lt;= 5);
+</code></pre>
+                </div>
+                <div class="result">
+                    <details>
+                        <summary>결과보기</summary>
+                        <div class="sample08_result">
+                            실행되었습니다2.<br>
+                            실행되었습니다2.<br>
+                            실행되었습니다2.<br>
+                            실행되었습니다2.<br>
+                            실행되었습니다2.
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <div id="sample09" class="sample">
+                <h3>09. for문</h3>
+                <p></p>
+                <div class="script">
+                    <pre><code class="language-js">for (let i = 1; i &lt; 100; i++) {
+    document.write(i + ". 실행되었습니다.");
+}
+
+// 
+
+let num = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+for (let i = 0; i &lt; num.length; i++) {
+    document.write(num[i] + ". 실행되었습니다.");
+}
+</code></pre>
+                </div>
+                <div class="result">
+                    <details>
+                        <summary>결과보기</summary>
+                        <div class="sample09_result">
+                            1. 실행되었습니다. ~ 100. 실행되었습니다. // 1부터 100까지 출력<br>
+                            1. 실행되었습니다. ~ 9. 실행되었습니다. // 1부터 9까지 출력
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <div id="sample10" class="sample">
+                <h3>10. 중첩 for문</h3>
+                <p></p>
+                <div class="script">
+                    <pre><code class="language-js">for (let i = 0; i &lt;= 2; i++) {
+    document.write(i + "실행<br>");     // 0부터 2까지 총 3회 출력
+    for (let j = 0; j &lt;= 5; j++) {
+        document.write(j + "실행<br>");     // i값이 1번 출력할때마다 0~5까지 출력
+    }
+}
+</code></pre>
+                </div>
+                <div class="result">
+                    <details>
+                        <summary>결과보기</summary>
+                        <div class="sample10_result">
+                            0실행<br>
+                            0실행<br>
+                            1실행<br>
+                            2실행<br>
+                            3실행<br>
+                            4실행<br>
+                            5실행<br>
+                            1실행<br>
+                            0실행<br>
+                            1실행<br>
+                            2실행<br>
+                            3실행<br>
+                            4실행<br>
+                            5실행<br>
+                            2실행<br>
+                            0실행<br>
+                            1실행<br>
+                            2실행<br>
+                            3실행<br>
+                            4실행<br>
+                            5실행
                         </div>
                     </details>
                 </div>
@@ -252,7 +373,7 @@ switch (num) {
             // }
         }
 
-        document.write("<br><br>");
+        // document.write("<br><br>");
 
         // 02. if문 생략
         {
@@ -262,7 +383,7 @@ switch (num) {
             // else document.write("실행되었습니다(false).");
         }
 
-        document.write("<br><br>");
+        // document.write("<br><br>");
 
         // 03. 다중 if문
         {
@@ -281,7 +402,7 @@ switch (num) {
             // }
         }
 
-        document.write("<br><br>");
+        // document.write("<br><br>");
 
         // 04. 중첩 if문
         {
@@ -300,7 +421,7 @@ switch (num) {
             // }
         }
 
-        document.write("<br><br>");
+        // document.write("<br><br>");
 
         // 05. 조건부 연산자(상함 연산자)
         {
@@ -315,7 +436,7 @@ switch (num) {
             // (num == 100) ? document.write("true") : document.write("false");
         }
 
-        document.write("<br><br>");
+        // document.write("<br><br>");
 
         // 06. switch문
         {
@@ -339,57 +460,55 @@ switch (num) {
             // }
         }
 
-        document.write("<br><br>");
+        // document.write("<br><br>");
 
         // 07. while문
         {
-            let num = 1;
+            // let num = 1;
 
-            while (num <= 5) {
-                document.write("실행되었습니다.");
-                num++;
-            }
-
-            // for (let i = 0; i < 5; i++) {
+            // while (num <= 5) {
             //     document.write("실행되었습니다.");
+            //     num++;
             // }
         }
 
-        document.write("<br><br>");
+        // document.write("<br><br>");
 
         // 08. do while문(반복문)
         {
-            let num = 1;
+            // let num = 1;
 
-            do {
-                document.write("실행되었습니다2.");
-                num++;
-            } while (num <= 5);
+            // do {
+            //     document.write("실행되었습니다2.");
+            //     num++;
+            // } while (num <= 5);
         }
 
         // 09. for문
         {
-            for (let i = 1; i < 100; i++) {
-                document.write(i + ". 실행되었습니다.");
-            }
+            // for (let i = 1; i < 100; i++) {
+            //     document.write(i + ". 실행되었습니다.");
+            // }
 
-            let num = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+            // // 
 
-            for (let i = 0; i < num.length; i++) {
-                document.write(num[i] + ". 실행되었습니다.");
-            }
+            // let num = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+            // for (let i = 0; i < num.length; i++) {
+            //     document.write(num[i] + ". 실행되었습니다.");
+            // }
         }
 
-            document.write("<br><br>")
+        //     document.write("<br><br>")
 
         // 10. 중첩 for문
         {
-            for (let i = 0; i <= 2; i++) {
-                document.write(i + "실행<br>");
-                for (let j = 0; j <= 5; j++) {
-                    document.write(j + "실행<br>");
-                }
-            }
+            // for (let i = 0; i <= 2; i++) {
+            //     document.write(i + "실행<br>");
+            //     for (let j = 0; j <= 5; j++) {
+            //         document.write(j + "실행<br>");
+            //     }
+            // }
         }
     </script>
 </body>
