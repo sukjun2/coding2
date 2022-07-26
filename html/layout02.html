@@ -116,14 +116,6 @@ body {
     background-color: #43A047;
 }
 </code></pre>
-                    <div class="t_iframe">
-                        <iframe src="https://codepen.io/sukjun2/embed/rNdzyNz?default-tab=result" frameborder="no"
-                            loading="lazy" allowtransparency="true" allowfullscreen="true">
-                            See the Pen <a href="https://codepen.io/sukjun2/pen/rNdzyNz">
-                                Layout 02_01</a> by sukjun2 (<a href="https://codepen.io/sukjun2">@sukjun2</a>)
-                            on <a href="https://codepen.io">CodePen</a>.
-                        </iframe>
-                    </div>
                 </div>
 
                 <h3 class="t_tit2">flex를 이용한 레이아웃</h3>
@@ -180,21 +172,102 @@ body {
     background-color: #43A047;
 }
 </code></pre>
-                    <div class="t_iframe">
-                        <iframe src="https://codepen.io/sukjun2/embed/oNqeZXa?default-tab=result" frameborder="no"
-                            loading="lazy" allowtransparency="true" allowfullscreen="true">
-                            See the Pen <a href="https://codepen.io/sukjun2/pen/oNqeZXa">
-                                Layout 02_03</a> by sukjun2 (<a href="https://codepen.io/sukjun2">@sukjun2</a>)
-                            on <a href="https://codepen.io">CodePen</a>.
-                        </iframe>
-                    </div>
                 </div>
 
                 <h3 class="t_tit2">grid를 이용한 레이아웃 : 반응형 적용</h3>
                 <p class="t_desc2"></p>
                 <div class="t_code">
-                    <pre><code class="language-css">
+                    <pre><code class="language-css">* {
+    margin: 0;
+}
 
+body {
+    background-color: #E8F5E9;
+}
+
+#wrap {
+    width: 1200px;
+    height: 100px;
+    margin: 0 auto;
+}
+
+#header {
+    height: 100px;
+    background-color: #C8E6C9;
+}
+
+#nav {
+    height: 100px;
+    background-color: #A5D6A7;
+}
+
+#main {
+    display: grid;
+    grid-template-areas:
+        "aside section article";
+    grid-template-columns: 25% 50% 25%;
+    grid-template-rows: 780px;
+}
+
+#aside {
+    background-color: #81C784;
+}
+
+#section {
+    background-color: #4CAF50;
+}
+
+#article {
+    background-color: #66BB6A;
+}
+
+#footer {
+    height: 100px;
+    background-color: #43A047;
+}
+
+@media (max-width:1280px) {
+    #wrap {
+        width: 96%;
+    }
+}
+
+@media (max-width:768px) {
+    #wrap {
+        width: 100%;
+    }
+
+    #main {
+        grid-template-areas:
+            "aside section"
+            "article article";
+        grid-template-columns: 40% 60%;
+        grid-template-rows: 630px 150px;
+    }
+
+    #aside {
+        grid-area: aside;
+    }
+
+    #section {
+        grid-area: section;
+    }
+
+    #article {
+        grid-area: article;
+    }
+}
+
+@media (max-width:480px) {
+    #main {
+        grid-template-areas:
+            "aside"
+            "section"
+            "article";
+        grid-template-columns: 100%;
+        grid-template-rows: 200px 430px 150px;
+    }
+}
 </code></pre>
                     <div class="t_iframe">
                         <iframe src="https://codepen.io/sukjun2/embed/RwMZpWO?default-tab=result" frameborder="no"
