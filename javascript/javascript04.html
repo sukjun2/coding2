@@ -37,6 +37,7 @@
                 <li><a href="study/if.html">조건문</a></li>
                 <li><a href="study/type.html">데이터 타입</a></li>
                 <li><a href="study/function.html">함수</a></li>
+                <li><a href="study/var.html">지역변수/전역변수</a></li>
             </ul>
         </nav>
     </header>
@@ -190,7 +191,10 @@ if (num == 100) {
 
             <div id="sample06" class="sample">
                 <h3>06. switch문</h3>
-                <p></p>
+                <p>
+                    switch(값)의 값과 case의 값들을 하나씩 비교하여 일치하는 case를 실행시켜 줍니다.<br>
+                    switch문은 if문과 다르게 특정조건에 만족 했을 때 블록{}을 스스로 빠져나가지 못합니다.
+                </p>
                 <div class="script">
                     <pre><code class="language-js">const num = 100;
 
@@ -343,6 +347,50 @@ for (let i = 0; i &lt; num.length; i++) {
                 </div>
             </div>
 
+            <div id="sample11" class="sample">
+                <h3>11. break문</h3>
+                <p>코드 실행 중 break문을 만나게 되면 현재 실행문을 중지시키고 다음 실행문으로 넘어가게 합니다.</p>
+                <div class="script">
+                    <pre><code class="language-js">for (let i = 1; i &lt;= 20; i++) {
+    document.write(i);
+    if (i == 10) {        // === : 숫자인지, 문자인지, 함수인지도 확인합니다.
+        break;      // 10에서 출력을 멈춥니다.
+    }
+}
+</code></pre>
+                </div>
+                <div class="result">
+                    <details>
+                        <summary>결과보기</summary>
+                        <div class="sample11_result">
+                            12345678910
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <div id="sample12" class="sample">
+                <h3>12. continue문</h3>
+                <p>continue문은 특정 조건을 만족 했을 때 그 해당하는 값만 건너뛰기 할 수 있습니다.</p>
+                <div class="script">
+                    <pre><code class="language-js">for (let i = 1; i &lt;= 20; i++) {
+    if (i == 10) {
+        continue;      // 10을 생략하고 다음부터 출력합니다.
+    }
+    document.write(i);      // 실행문의 순서가 중요합니다.
+}
+</code></pre>
+                </div>
+                <div class="result">
+                    <details>
+                        <summary>결과보기</summary>
+                        <div class="sample11_result">
+                            123456789&nbsp;11121314151617181920
+                        </div>
+                    </details>
+                </div>
+            </div>
+
         </div>
 
         <div class="main_script"></div>
@@ -364,7 +412,7 @@ for (let i = 0; i &lt; num.length; i++) {
         // (제어문 : 조건문, 반복문, 중지, 건너뛰기)
         // 01. if문
         {
-            // false, 0, undefined, null
+            // false, 0, undefined, null, ""
             // true, 1, "0", "1", 0<10, [], {}
             // if (1) {
             //     document.write("실행되었습니다(true).");
@@ -508,6 +556,37 @@ for (let i = 0; i &lt; num.length; i++) {
             //     for (let j = 0; j <= 5; j++) {
             //         document.write(j + "실행<br>");
             //     }
+            // }
+        }
+
+        // 11. break문
+        // while문을 이용해서 1~20까지 출력
+        {
+            // let num = 1;
+
+            // while (num <= 20) {
+            //     document.write(num);
+            //     num++;
+            // }
+        }
+        // for문을 이용해서 1~20까지 출력
+        {
+            // for (let i = 1; i <= 20; i++) {
+            //     document.write(i);
+            //     if (i == 10) {        // === : 숫자인지, 문자인지, 함수인지도 확인합니다.
+            //         break;      // 10에서 출력을 멈춥니다.
+            //     }
+            // }
+        }
+
+        // 12. continue문
+        // for문을 이용해서 1~20까지 출력
+        {
+            // for (let i = 1; i <= 20; i++) {
+            //     if (i == 10) {
+            //         continue;      // 10을 생략하고 다음부터 출력합니다.
+            //     }
+            //     document.write(i);      // 실행문의 순서가 중요합니다.
             // }
         }
     </script>
