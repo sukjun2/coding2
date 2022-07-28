@@ -84,10 +84,9 @@
                 getScore();<br>
                 console.log(kor); // <i>100</i>
             </p>
-
             <p class="t_desc">예제1에서 함수 블록{}안에 있는 kor 변수는 전역 변수입니다. 따라서 getScore() 함수를 호출하게 되면 kor 변수 값이 90에서 100으로 바뀌게
                 됩니다.</p>
-
+            <br>
             <h3 class="t_tit3">예시2</h3>
             <p class="t_box">
                 <i>var kor = 90;</i><br>
@@ -126,17 +125,15 @@
                 console.log(num); // <i>10</i>
             </p>
 
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="t_box"><i>const num =
-                    10;</i>
-                {
-                &nbsp;&nbsp;&nbsp;&nbsp;<i>const num = 20;</i> // num은 지역 변수입니다.
-                &nbsp;&nbsp;&nbsp;&nbsp;console.log(num); // <i>20</i>
-                }
+            <p class="t_box">
+                const num = 10;<br>
+                {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<i>const num = 20;</i> // num은 지역 변수입니다.<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;console.log(num); // <i>20</i><br>
+                }<br>
                 console.log(num); // <i>10</i>
             </p>
-
-            <p class="t_desc">블록{} 안에서 let과 const로 선언된 변수는 예제처럼 블록{}의 지역 변수로 인식합니다.</p>
-
+            <br>
             <h3 class="t_tit3">예시2</h3>
             <p class="t_box">
                 var num = 10;<br>
@@ -146,15 +143,14 @@
                 console.log(sum); //<i>20</i>
             </p>
             <p class="t_box">
-                var num = 10;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;if (num === 10)<br>
+                let num = 10;<br>
+                if (num === 10)<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;<i>let sum = 20;</i> // 지역 변수<br>
                 }<br>
                 console.log(sum); //<i>에러</i>
             </p>
-
             <p class="t_desc">제어문 블록{}안에서 let으로 선언된 변수는 지역 변수이기 때문에 제어문 블록{}밖에서 호출할 수 없습니다.</p>
-
+            <br>
             <h3 class="t_tit3">예제</h3>
             <p class="t_box">
                 &lt;!DOCTYPE html&gt;<br>
