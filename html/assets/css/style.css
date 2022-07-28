@@ -281,13 +281,6 @@ body {
 }
 
 /* 미디어 쿼리 */
-
-@media (max-width: 800px) {
-    body {
-        padding: 20px;
-    }
-}
-
 @media (max-width: 900px) {
     #header {
         display: none;

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //01. 선언적 함수
+        {
+            function func() {
+                document.write("함수를 실행합니다1.<br>");
+            }
+            func();
+        }
+        //02. 익명 함수
+        {
+            const func = function () {
+                document.write("함수를 실행합니다2.<br>");
+            }
+            func();
+        }
+        //03. 매개변수 함수
+        {
+            function func(str) {
+                document.write(str);
+            }
+            func("함수를 실행합니다3.<br>");
+        }
+        //04. 리턴값 함수
+        {
+            function func() {
+                const str = "함수를 실행합니다4.<br>";
+                return str;
+            }
+            document.write(func());
+        }
+
+        //05. 화살표 함수
+        {
+            func = () => document.write("함수를 실행합니다5.<br>");
+
+            func();
+        }
+
+        //06. 화살표 함수
+        {
+            const func = () => document.write("함수를 실행합니다6.<br>");
+
+            func();
+        }
+
+        //07. 화살표 함수
+        {
+            func = (str) => {
+                document.write(str);
+            }
+            func("함수를 실행합니다7.<br>");
+        }
+
+        //08. 화살표 함수
+        {
+            func = () => {
+                const str = "함수를 실행합니다8.<br>";
+                return str;
+            }
+            document.write(func());
+        }
+
+
+        //09. for, forEach, map, for in, for of문을 사용하여 데이터 출력하기
+        {
+            const arr = [100, 200, 300, 400, 500];
+
+            for (i = 0; i < arr.length; i++) {
+                document.write(arr[i] + "<br>");
+            }
+
+            arr.forEach(function (element) {
+                document.write(element + "<br>");
+            });
+
+            arr.map(function (element) {
+                document.write(element + "<br>");
+            });
+
+            for (i = 0; i < arr.length; i++) {
+                for (let i in arr) {
+                    document.write(arr[i] + "<br>");
+                }
+            }
+
+            for (i = 0; i < arr.length; i++) {
+                for (let i of arr) {
+                    document.write(i + "<br>");
+                }
+            }
+        }
+
+        // 10. 구구단 만들기
+        {
+            for (i = 8; i <= 8; i++) {
+                for (j = 1; j <= 9; j++) {
+                    let sum = i * j;
+                    document.write(i + "*" + j + "=" + sum + "<br>");
+                }
+            }
+        }
+
+        // 11. 테이블 만들기
+        {
+            let table = "<table class = 'testTable'>";
+
+            for (let i = 0; i < 10; i++) {
+                table += "<tr>";
+                for (let j = 0; j < 10; j++) {
+                    table += "<td>" + j + "</td>"
+                }
+                table += "</tr>";
+            }
+            table += "</table>"
+            document.write(table);
+        }
+
+        // 12. 테이블 만들기
+        {
+            let table = "<table class = 'testTable'>"
+
+            for (i = 0; i < 10; i++) {
+                table += '<tr>';
+                for (j = 0; j < 10; j++) {
+                    table += '<td>' + j + '</td>'
+                }
+                table += '</tr>';
+            }
+            table += '</table>';
+            document.write(table);
+        }
+
+    </script>
+</body>
+
+</html>
