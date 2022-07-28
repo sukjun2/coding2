@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //01 선언적 함수
+        {
+            function func() {
+                document.write("함수가 실행되었습니다.1<br>");
+            }
+            func();
+        }
+        //02 익명 함수
+        {
+            let func = function(){
+                document.write("함수가 실행되었습니다.2<br>");
+            }
+            func();
+        }
+        //03 매개변수 함수
+        {
+            function func(str) {
+                document.write(str);
+            }
+            func("함수가 실행되었습니다.3<br>");
+        }
+        //04 리턴값함수
+        {
+            function func() {
+                const str = "함수가 실행되었습니다.4<br>";
+                return str;
+            }
+            document.write(func());
+        }
+        //05 화살표함수
+        {
+            // func = () => {
+            //     document.write("함수가 실행되었습니다.5<br>");
+            // }
+            // func();
+
+
+            func = () => document.write("함수가 실행되었습니다.5<br>");
+
+            func();
+        }
+        //06 화살표함수
+        {
+            // let func = () => {
+            //     document.write("함수가 실행되었습니다.6<br>");
+            // }
+            // func();
+
+            
+            let func = () => document.write("함수가 실행되었습니다.6<br>");
+
+            func();
+        }
+        //07 화살표함수
+        {
+            // func = (str) => {
+            //     document.write(str);
+            // }
+            // func("함수가 실행되었습니다.7<br>");
+
+
+            func = str => document.write(str);
+
+            func("함수가 실행되었습니다.7<br>");
+        }
+        //08 화살표함수
+        {
+            func = () => {
+                const str = "함수가 실행되었습니다.8<br>";
+                return str;
+            }
+            document.write(func());
+        }
+    </script>
+</body>
+
+</html>
