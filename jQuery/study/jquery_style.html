@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제이쿼리 : 스타일 관련 메서드</title>
+    <link rel="stylesheet" href="/javascript/assets/css/style.css">
+    <link rel="stylesheet" href="/javascript/assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">jQuery 스타일 관련 메서드</h2>
+
+            <hr>
+
+            <h3 class="t_tit2">css() 메서드.</h3>
+            <table class="t_table">
+                <thead>
+                    <tr>
+                        <th>실행 분류</th>
+                        <th>형식</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="ce">취득</td>
+                        <td>$("div").css("width");</td>
+                    </tr>
+                    <tr>
+                        <td class="ce" rowspan="2">생성, 변경</td>
+                        <td>$("div").css("background-color", "red").css("padding", "10px");</td>
+                    </tr>
+                    <tr>
+                        <td>$("div").css({"background-color: "red", padding: "10px"});</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">콜백 함수</td>
+                        <td>
+                            $("div").attr("width", function(index, w) {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;// index는 각 div 요소의 index 0, 1, 2<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;// w는 각 div 요소의 width 값<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;return css 속성 // 각 div 요소의 css 속성을 생성 및 변경합니다.<br>
+                            });<br>
+                            ....<br>
+                            &lt;div&gt;내용&lt;/div&gt;<br>
+                            &lt;div&gt;내용&lt;/div&gt;<br>
+                            &lt;div&gt;내용&lt;/div&gt;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3 class="t_tit3">예제</h3>
+            <p class="t_desc">상세한 코드는 아래 코드펜을 확인해주세요.</p>
+            <div class="t_iframe" style="min-height: 400px; padding-top: 0;">
+                <iframe height="300" style="width: 100%;" scrolling="no" title="ex 4-22"
+                    src="https://codepen.io/sukjun2/embed/XWqJbXZ?default-tab=js%2Cresult" frameborder="no"
+                    loading="lazy" allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href="https://codepen.io/sukjun2/pen/XWqJbXZ">
+                        ex 4-22</a> by sukjun2 (<a href="https://codepen.io/sukjun2">@sukjun2</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                </iframe>
+            </div>
+            <div class="t_iframe" style="min-height: 400px; padding-top: 0;">
+                <iframe height="300" style="width: 100%;" scrolling="no" title="ex 4-23"
+                    src="https://codepen.io/sukjun2/embed/KKRwpzW?default-tab=js%2Cresult" frameborder="no"
+                    loading="lazy" allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href="https://codepen.io/sukjun2/pen/KKRwpzW">
+                        ex 4-23</a> by sukjun2 (<a href="https://codepen.io/sukjun2">@sukjun2</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                </iframe>
+            </div>
+
+            <h3 class="t_tit2">위치 관련 메서드</h3>
+            <table class="t_table">
+                <thead>
+                    <tr>
+                        <th>메서드 종류</th>
+                        <th colspan="2">설명</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="ce">offset()</td>
+                        <td>
+                            $("div").offset().left;<br>
+                            $("div").offset().top;<br>
+                            $("div").offset({left: 10, top: 10})
+                        </td>
+                        <td>html 기준으로 left, top 값을 취득, 변경 할 수 있습니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce" rowspan="2">position()</td>
+                        <td>
+                            $("div").position().left<br>
+                            $("div").position().top<br>
+                        </td>
+                        <td>부모 요소 기준으로 left, top 값을 취득할 수 있습니다.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 class="t_tit3">예제</h3>
+            <p class="t_desc">상세한 코드는 아래 코드펜을 확인해주세요.</p>
+            <div class="t_iframe" style="min-height: 400px; padding-top: 0;">
+                <iframe height="300" style="width: 100%;" scrolling="no" title="ex 4-24"
+                    src="https://codepen.io/sukjun2/embed/GRdgJqK?default-tab=js%2Cresult" frameborder="no"
+                    loading="lazy" allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href="https://codepen.io/sukjun2/pen/GRdgJqK">
+                        ex 4-24</a> by sukjun2 (<a href="https://codepen.io/sukjun2">@sukjun2</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                </iframe>
+            </div>
+
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="/javascript/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>

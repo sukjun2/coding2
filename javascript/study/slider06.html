@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>자바스크립트 : 슬라이드 이펙트06</title>
+
+        <link rel="stylesheet" href="../assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/dracula.css" />
+    </head>
+
+    <body>
+        <header id="header"></header>
+        <!-- //header -->
+
+        <main id="main">
+            <div class="document">
+                <h2 class="t_tit">sliderEffect06 - 이미지 슬라이드(버튼, 닷 메뉴, 무한)</h2>
+                <p class="t_desc2">버튼에 따라 넘어가는 슬라이드를 구현, 1 ~ 5번까지의 이미지에서 5번까지 넘어갔다면 뒤에 다시 1번부터 이미지가 순간이동하여 이어지도록 하였습니다. 닷 메뉴는 만들어놨지만, 슬라이드 이펙트 7번에서 구현해볼게요 ㅎㅎ..?</p>
+
+                <hr />
+
+                <h3 class="t_tit2">참고</h3>
+                <p class="t_box">슬라이드 이펙트 06 페이지 우측하단 소스 보기를 클릭하시면 JAVASCRIPT, HTML, CSS를 확인할 수 있습니다.<br /></p>
+
+                <div class="t_iframe" style="min-height: 950px; padding-top: 0">
+                    <iframe src="https://sukjun2.github.io/coding2/javascript/effect/sliderEffect06.html" frameborder="0"></iframe>
+                </div>
+
+                <div class="t_link" style="display: flex">
+                    <a href="https://github.com/sukjun2/coding2/blob/main/javascript/effect/sliderEffect06.html">원본 소스 보기</a>
+                    <a href="https://sukjun2.github.io/coding2/javascript/effect/sliderEffect.html">메인 페이지 보기</a>
+                </div>
+
+                <h3 class="t_tit2">JAVASCRIPT</h3>
+                <p class="t_box">
+                    필요한 선택자와 변수를 선언하고 appendChild를 사용하여 복사한 첫 번째 이미지 cloneFirst를 맨마지막 요소의 뒤에 넣어줍니다. 또 insertBefore를 사용해 복사한 마지막 이미지를 맨처음 요소의 앞에 넣어줍니다.<br />
+                    init()함수로 닷 메뉴를 이미지 개수에 맞게 출력하고, 첫 번째 닷 메뉴에 active 상태를 부여합니다. 그리고 gotoSlider()함수로 이미지가 움직이는 영역에 offsetLeft값을 변수에 저장, 조건문을 사용하여 이미지의 이동값을 지정해줍니다.<br />
+                    이미지가 맨 앞, 맨 뒤로 순간이동 할 때 인덱스값을 확인하여 마지막과 처음 이미지에서 순간 이동이 실행되도록 설정합니다. 마지막으로 이전, 다음 버튼에 이벤트를 부여하여주는데, 버튼을 너무 빠르게 누르면 이미지가 순간이동하기 전에 넘어가 출력되지 않는 현상을 방지하기 위해 setTimeout을 사용해 버튼을 한 번 클릭하면 0.3초간 비활성화 되도록 설정해줍니다. transitionend 이벤트 또한
+                    트랜지션이 종료되기 전에 이미지가 넘어가는 것을 방지합니다.
+                </p>
+                <div class="t_code">
+                    <pre><code class="language-js">const sliderWrap = document.querySelector('.slider__wrap');
+const sliderImg = document.querySelector('.slider__img'); // 보여지는 영역
+const sliderInner = document.querySelector('.slider__inner'); // 움직이는 영역
+const slider = document.querySelectorAll('.slider'); // 각각 이미지
+const sliderDot = document.querySelector('.slider__dot'); // 닷 메뉴
+const sliderBtn = document.querySelector('.slider__btn'); // 버튼
+const sliderBtnPrev = document.querySelector('.slider__btn .prev'); // 왼쪽 버튼
+const sliderBtnNext = document.querySelector('.slider__btn .next'); // 오른쪽 버튼
+
+let currentIndex = 0, // 현재 이미지
+    sliderLength = slider.length, // 이미지 갯수
+    sliderWidth = slider[0].offsetWidth, // 이미지 가로값
+    sliderFirst = slider[0], // 첫번째 이미지
+    sliderLast = slider[sliderLength - 1], // 마지막 이미지
+    cloneFirst = sliderFirst.cloneNode(true), // 첫번째 이미지 복사
+    cloneLast = sliderLast.cloneNode(true), // 마지막 이미지 복사
+    dotIndex = '';
+
+sliderInner.appendChild(cloneFirst);
+sliderInner.insertBefore(cloneLast, sliderFirst);
+
+function init() {
+    for (let i = 0; i < sliderLength; i++) {
+        dotIndex += "&lt;a href='#' class='dot'>이미지1&lt;/a>";
+    }
+    sliderDot.innerHTML = dotIndex;
+    // 첫 번째 닷 버튼에 활성화 표시(active)
+    sliderDot.firstElementChild.classList.add('active');
+    // firstElementChild : 첫 번째 요소를 선택 = firstChild
+}
+init();
+
+function gotoSlider(direction) {
+    sliderInner.classList.add('transition');
+    sliderBtn.classList.add('disable');
+
+    posInitial = sliderInner.offsetLeft;
+    // console.log(posInitial);
+
+    if (direction == -1) {
+        sliderInner.style.left = posInitial + sliderWidth + 'px';
+        currentIndex--;
+    } else if (direction == 1) {
+        sliderInner.style.left = posInitial - sliderWidth + 'px';
+        currentIndex++;
+    }
+}
+
+// 순간이동 이미지 슬라이드
+function checkIndex() {
+    sliderInner.classList.remove('transition');
+
+    // console.log(currentIndex);
+
+    // 마지막 이미지
+    if (currentIndex == slider.length) {
+        sliderInner.style.left = -(1 * sliderWidth) + 'px';
+        currentIndex = 0;
+    }
+
+    // 처음 이미지
+    if (currentIndex == -1) {
+        sliderInner.style.left = -(sliderLength * sliderWidth) + 'px';
+        currentIndex = sliderLength - 1;
+    }
+}
+
+sliderBtnPrev.addEventListener('click', () => {
+    gotoSlider(-1);
+    setTimeout(() => {
+        sliderBtn.classList.remove('disable');
+    }, 300);
+});
+sliderBtnNext.addEventListener('click', () => {
+    gotoSlider(1);
+    setTimeout(() => {
+        sliderBtn.classList.remove('disable');
+    }, 300);
+});
+sliderInner.addEventListener('transitionend', checkIndex);
+</code></pre>
+                </div>
+            </div>
+        </main>
+        <!-- //main -->
+
+        <footer id="footer">
+            <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+        </footer>
+        <!-- //footer -->
+
+        <script src="../assets/js/highlight.min.js"></script>
+        <script src="../assets/js/common.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>

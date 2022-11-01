@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : split()</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">문자열 메서드 : split()</h2>
+            <p class="t_desc2">
+                문자열에서 원하는 값을 추출하여 배열로 반환합니다.
+            </p>
+            <div class="t_box">
+                "문자열".split(구분자);<br>
+                "문자열".split(정규식 표현);<br>
+                "문자열".split(구분자, 갯수);
+            </div>
+            <div class="t_code">
+<pre><code class="language-js">const str1 = "javascript reference";
+
+const currentStr1 = str1.split('');     //['j', 'a', 'v', 'a', 's', 'c', 'r', 'i', 'p', 't', '', 'r', 'e', 'f', 'e', 'r', 'e', 'n', 'c', 'e']
+const currentStr2 = str1.split(' ');     //['javascript', 'reference']
+const currentStr3 = str1.split('', 1);     //['j']
+const currentStr4 = str1.split('', 2);     //['j', 'a']
+const currentStr5 = str1.split(' ', 1);     //['javascript']
+const currentStr6 = str1.split(' ', 2);     //['javascript reference']
+const currentStr7 = str1.split('j');     //['avascript reference']
+const currentStr8 = str1.split('a');     //['j', 'v', 'script reference']
+const currentStr9 = str1.split('e');     //['javascript r', 'f', 'r', 'nc', '']
+
+const str2 = "java/script/refer/ence";
+const currentStr10 = str2.split('/');       // ['java', 'script', 'refer', 'ence']
+
+const str3 = "java&script&refer!ence";
+const currentStr11 = str3.split('!');       // ['java&script&refer', 'ence']
+const currentStr12 = str3.split('&');       // ['java', 'script', 'refer!ence']
+const currentStr13 = str3.split(/&|\!/);       // ['java', 'script', 'refer', 'ence']
+
+const str4 = "javascript reference";
+const currentStr14 = str4.split('').join();     //j,a,v,a,s,c,r,i,p,t, ,r,e,f,e,r,e,n,c,e
+const currentStr15 = str4.split('').join('*');     //j*a*v*a*s*c*r*i*p*t* *r*e*f*e*r*e*n*c*e
+const currentStr16 = str4.split('').reverse().join();     //e,c,n,e,r,e,f,e,r, ,t,p,i,r,c,s,a,v,a,j
+const currentStr17 = str4.split('').reverse().join('/');     //e/c/n/e/r/e/f/e/r/ /t/p/i/r/c/s/a/v/a/j 
+</code></pre>
+            </div>
+            <h3 class="t_tit2">split() 사용하기</h3>
+            <p class="t_desc">빈 문자열이 주어졌을 경우 split()은 빈 배열이 아니라 빈 문자열을 포함한 배열을 반환합니다. 문자열과 separator가 모두 빈 문자열일 때는 빈 배열을 반환합니다.</p>
+            <div class="t_code">
+<pre><code class="language-js">const myString = '';
+const splits = myString.split();
+
+console.log(splits);
+
+// ↪ [""]
+</code></pre>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>

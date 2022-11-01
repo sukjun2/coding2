@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Javascript Test05</title>
+        <link rel="stylesheet" href="../assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/dracula.css" />
+    </head>
+
+    <body>
+        <main id="main">
+            <div class="document">
+                <h2 class="t_tit">Javascript Test</h2>
+                <p class="t_desc2">오답노트03</p>
+
+                <hr />
+
+                <!-- quiz start -->
+
+                <h3 class="t_tit2">01. 다음의 결괏값을 작성하시오</h3>
+                <p class="t_box">
+                    while문을 통하여 num값인 1996을 10으로 나눈 나머지값을 answer에 저장, 나누고 소수점으로 떨어진 num값을 parseInt를 통해 정수로 반환 후 10으로 나누어 다음 num값을 계산합니다.<br />
+                    1996 % 10 = 6 -> 199 % 10 = 9 -> 19 % 19 = 9 -> 1 % 10 = 1 이므로 6 + 9 + 9 + 1 = 25가 정답이 됩니다.<br />
+                    (parseInt(x) : x의 자료형을 숫자(정수)로 바꿔줌, 숫자가 아니면 NaN을 반환합니다.)
+                </p>
+                <div class="t_code">
+                    <pre><code class="language-js">function q1(num) {
+    let answer = 0;
+    while(num) {
+        answer += num % 10;
+        num = parseInt(num / 10);
+    }
+    return answer;
+}
+
+console.log(q1(1996));
+</code></pre>
+                </div>
+                <div class="t_result">
+                    <details>
+                        <summary>결과 확인하기</summary>
+                        <div class="result_01">25</div>
+                    </details>
+                </div>
+                <!-- 01 -->
+
+                <h3 class="t_tit2">02. 다음의 결괏값을 작성하시오</h3>
+                <p class="t_box">sort() 메서드는 배열의 요소를 적절한 위치에 정렬한 후 그 배열을 반환합니다. 아무런 조건없이 sort를 사용하면 숫자의 맨 앞자리를 우선기준으로 정렬하게됩니다.</p>
+                <div class="t_code">
+                    <pre><code class="language-js">function q2() {
+    const array = [10, 31, 1, 2, 3 ,4, 32];
+    return array.sort();
+}
+
+console.log(q2());
+</code></pre>
+                </div>
+                <div class="t_result">
+                    <details>
+                        <summary>결과 확인하기</summary>
+                        <div class="result_02">[1, 10, 2, 3, 31, 32, 4]</div>
+                    </details>
+                </div>
+                <!-- 02 -->
+
+                <h3 class="t_tit2">03. 다음의 결괏값을 작성하시오</h3>
+                <p class="t_box">숫자 배열 array에 filter메서드를 사용하여 String(x)를 사용해 엘리먼트값을 문자로 변경하고 length >= 2를 통해 문자열이 2자릿수 이상인 값을 배열로 반환합니다.</p>
+                <div class="t_code">
+                    <pre><code class="language-js">function q3() {
+    const array = [10, 31, 1, 2, 3 ,4, 32];
+    return array.filter(x => String(x).length >= 2);
+}
+
+console.log(q3());
+</code></pre>
+                </div>
+                <div class="t_result">
+                    <details>
+                        <summary>결과 확인하기</summary>
+                        <div class="result_03">[10, 31, 32]</div>
+                    </details>
+                </div>
+                <!-- 03 -->
+
+                <h3 class="t_tit2">04. 다음의 결괏값을 작성하시오</h3>
+                <p class="t_box">
+                    reduce메서드를 사용한 문제입니다. (이전값, 현재값) => 이전값 += 현재값, 0(초기값) / 5 가 됩니다. 초기값부터 배열 엘리먼트값을 모두 더하여 0 + 10 + 20 + 30 + 40 + 50 = 150 / 5 =>
+                    30이 정답이 됩니다.
+                </p>
+                <div class="t_code">
+                    <pre><code class="language-js">function q4() {
+    const array = [10,20,30,40,50];
+    return array.reduce((prev, curr) => prev += curr, 0) / array.length;
+}
+
+console.log(q4());
+</code></pre>
+                </div>
+                <div class="t_result">
+                    <details>
+                        <summary>결과 확인하기</summary>
+                        <div class="result_04">30</div>
+                    </details>
+                </div>
+                <!-- 04 -->
+
+                <h3 class="t_tit2">08. 다음의 결괏값을 작성하시오</h3>
+                <p class="t_box">배열에 for문, if(includes)를 통해 포함하는 숫자만큼 answer에 1을 더하는 것 같지만, if의 &&조건이 fasle이기 때문에 결괏값은 0이 됩니다.</p>
+                <div class="t_code">
+                    <pre><code class="language-js">function q8() {
+    let answer = 0;
+    const array = [1,2,3,4,5];
+    for(let i = 3; i &lt; 8; i++) {
+        if(array.includes(i) && 0) {
+            answer++;
+        }
+    }
+    return answer;
+}
+
+console.log(q8());
+</code></pre>
+                </div>
+                <div class="t_result">
+                    <details>
+                        <summary>결과 확인하기</summary>
+                        <div class="result_08">0</div>
+                    </details>
+                </div>
+                <!-- 08 -->
+
+                <h3 class="t_tit2">10. 다음의 결괏값을 작성하시오</h3>
+                <p class="t_box">2,6,8,14의 공통적인 배수일때 while문이 멈추므로, 최소공배수가 정답인 문제입니다.</p>
+                <div class="t_code">
+                    <pre><code class="language-js">function q10(arr) {
+    let flag = false;
+    let n = 1;
+    while(!flag) {
+        n++;
+        for(let i = 1; i &lt; arr.length; i++) {
+            if((arr[0] * n) % arr[i] === 0) {
+                flag = true;
+            }
+            else {
+                flag = false;
+                break;
+            }
+        }
+    }
+    return arr[0] * n
+}
+
+console.log(q10([2,6,8,14]));
+</code></pre>
+                </div>
+                <div class="t_result">
+                    <details>
+                        <summary>결과 확인하기</summary>
+                        <div class="result_10">168</div>
+                    </details>
+                </div>
+                <!-- 10 -->
+            </div>
+        </main>
+        <!-- //main -->
+
+        <footer id="footer">
+            <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+        </footer>
+        <!-- //footer -->
+
+        <script src="../assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+
+        <script>
+            // document.write("****** 정답 ******<br><br>");
+            //sample1
+            //01
+            {
+                function q1(num) {
+                    let answer = 0;
+                    while (num) {
+                        answer += num % 10;
+                        num = parseInt(num / 10);
+                    }
+                    return answer;
+                }
+
+                console.log(q1(1996));
+            }
+
+            //02
+            {
+                function q2() {
+                    const array = [10, 31, 1, 2, 3, 4, 32];
+                    return array.sort();
+                }
+
+                console.log(q2());
+            }
+
+            //03
+            {
+                {
+                    function q3() {
+                        const array = [10, 31, 1, 2, 3, 4, 32];
+                        return array.filter((x) => String(x).length >= 2);
+                    }
+
+                    console.log(q3());
+                }
+            }
+
+            //04
+            {
+                {
+                    function q4() {
+                        const array = [10, 20, 30, 40, 50];
+                        return array.reduce((prev, curr) => (prev += curr), 0) / array.length;
+                    }
+
+                    console.log(q4());
+                }
+            }
+
+            //08
+            {
+                {
+                    function q8() {
+                        let answer = 0;
+                        const array = [1, 2, 3, 4, 5];
+                        for (let i = 3; i < 8; i++) {
+                            if (array.includes(i) && 0) {
+                                answer++;
+                            }
+                        }
+                        return answer;
+                    }
+
+                    console.log(q8());
+                }
+            }
+
+            //10
+            {
+                function q10(arr) {
+                    let flag = false;
+                    let n = 1;
+                    while (!flag) {
+                        n++;
+                        for (let i = 1; i < arr.length; i++) {
+                            console.log(i);
+                            if ((arr[0] * n) % arr[i] === 0) {
+                                flag = true;
+                            } else {
+                                flag = false;
+
+                                break;
+                            }
+                        }
+                    }
+                    return arr[0] * n;
+                }
+
+                console.log(q10([2, 6, 8, 14]));
+            }
+        </script>
+    </body>
+</html>

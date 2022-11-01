@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>자바스크립트 : 마우스 이펙트05</title>
+        <link rel="stylesheet" href="../assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/dracula.css" />
+    </head>
+
+    <body>
+        <main id="main">
+            <div class="document">
+                <h2 class="t_tit">mouseEffect05</h2>
+                <p class="t_desc2">마우스 이펙트05번 - 기울기 효과 / 글씨 반전 효과 입니다. 마우스를 따라서 3d처럼 기울여지는 컨텐츠와 마우스 커서 내부가 색이 반전되는 효과를 만들어봤습니다.</p>
+
+                <hr />
+
+                <div class="t_iframe" style="min-height: 650px; padding-top: 0">
+                    <iframe src="https://sukjun2.github.io/coding2/javascript/effect/mouseEffect05.html" frameborder="0"></iframe>
+                </div>
+
+                <div class="t_link" style="display: flex">
+                    <a href="https://github.com/sukjun2/coding2/blob/main/javascript/effect/mouseEffect05.html">원본 소스 보기</a>
+                    <a href="https://sukjun2.github.io/coding2/javascript/effect/mouseEffect05.html">원본 사이트 보기</a>
+                </div>
+
+                <h3 class="t_tit2">HTML</h3>
+                <p class="t_box">반전 효과를 줄 mouse__cursor영역과 기울기 효과를 넣을 mouse__img 영역, 마우스 좌표값 / 기울기를 확인할 영역을 만들었습니다.</p>
+                <div class="t_code">
+                    <pre><code class="language-html">&lt;main id="main"&gt;
+    &lt;section id="mouseType"&gt;
+        &lt;div class="mouse__cursor"&gt;&lt;/div&gt;
+        &lt;div class="mouse__wrap"&gt;
+            &lt;div class="mouse__img"&gt;
+                &lt;figure&gt;
+                    &lt;img src="../assets//img/effect_bg15-min.jpg" alt="이미지"&gt;
+                &lt;/figure&gt;
+                &lt;figcaption&gt;
+                    &lt;p&gt;When you give up, I start.&lt;/p&gt;
+                    &lt;p&gt;당신이 포기할 때, 나는 시작한다.&lt;/p&gt;
+                &lt;/figcaption&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;div class="mouse__info"&gt;
+        &lt;ul&gt;
+            &lt;li&gt;mousePageX : &lt;span class="mousePageX"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;mousePageY : &lt;span class="mousePageY"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;centerPageX : &lt;span class="centerPageX"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;centerPageY : &lt;span class="centerPageY"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;maxPageX : &lt;span class="maxPageX"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;maxPageY : &lt;span class="maxPageY"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;anglePageX : &lt;span class="anglePageX"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;anglePageY : &lt;span class="anglePageY"&gt;0&lt;/span&gt;px&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/main&gt;
+&lt;!-- //main --&gt;
+</code></pre>
+                </div>
+
+                <h3 class="t_tit2">CSS</h3>
+                <p class="t_box">
+                    transform: perspective 속성은 3D 공간에서 요소와 관측점과의 거리, 원근감을 지정하는 속성입니다.<br />
+                    (값이 작을수록 가깝게 보이고, 멀수록 멀게 보임)<br />
+                    figure에 before 가상 요소를 생성하여 filter 속성을 통해 그림자 같은 효과를 만들 수 있습니다.<br />
+                    mix-blend-mode 속성은 요소를 겹치는 효과입니다.
+                </p>
+                <div class="t_code">
+                    <pre><code class="language-css">/* mouseType */
+.mouse__wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #fff;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    cursor: none;
+}
+
+.mouse__img {
+    transform: perspective(600px) rotateX(0deg) rotateY(0deg);
+    transform-style: preserve-3d;
+    will-change: transform;
+    transform: all 0.3s;
+}
+
+.mouse__wrap figure {
+    width: 50vw;
+    position: relative;
+}
+
+.mouse__wrap figure::before {
+    content: '';
+    position: absolute;
+    left: 5%;
+    bottom: -30px;
+    width: 90%;
+    height: 40px;
+    background: url(../assets//img/effect_bg15-min.jpg) center no-repeat;
+    background-size: 100% 40px;
+    filter: blur(15px) grayscale(50%);
+    z-index: -1;
+    opacity: 0.7;
+}
+
+.mouse__wrap figcaption {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    font-size: 1vw;
+    line-height: 1.6;
+    transform: translate3d(-50%, -50%, 100px);
+    padding: 1vw;
+    white-space: nowrap;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.mouse__cursor {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #fff;
+    z-index: 1000;
+    pointer-events: none;
+    user-select: none;
+    mix-blend-mode: difference;
+}
+
+.mouse__info {
+    position: absolute;
+    left: 20px;
+    bottom: 10px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #fff;
+}
+</code></pre>
+                </div>
+
+                <h3 class="t_tit2">JAVASCRIPT</h3>
+                <p class="t_box">
+                    마우스 좌표값을 저장 후 출력합니다. 다음은 이전 마우스 효과04번과 동일하게 마우스 좌표의 기준점을 가운데로 변경해줍니다.<br />
+                    이미지가 기울어지는 정도가 너무 클 수 있으니, XY좌표값의 최대, 최소값을 설정하고 추가적으로 각도와 부드러운 정도를 설정해줍니다.<br />
+                    이미지를 기울이기 위해 이미지 선택자를 선언하고 CSS와 동일하게 style.transform을 통해 원근감 효과와 X, Y축 회전정도를 설정해줍니다.<br />
+                    마우스 좌표값 출력은 이전 마우스 효과들과 같습니다. 마지막으로 mousemove 이벤트를 추가해주고 실행해주면 끝입니다.
+                </p>
+                <div class="t_code">
+                    <pre><code class="language-js">const mouseMove = (e) => {
+    // 마우스 좌표값
+    let mousePageX = e.pageX;
+    let mousePageY = e.pageY;
+
+    // 마우스 좌표 기준점을 가운데로 변경
+    let centerPageX = Math.round(window.innerWidth / 2 - mousePageX);
+    let centerPageY = Math.round(window.innerHeight / 2 - mousePageY);
+
+    // 최소값은 -100 /  최대값은 100 설정
+    let maxPageX = Math.max(-200, Math.min(200, centerPageX));
+    let maxPageY = Math.max(-200, Math.min(200, centerPageY));
+    // console.log(maxPageX);
+
+    // 각도 줄이는 설정
+    let anglePageX = maxPageX * 0.1;
+    let anglePageY = maxPageY * 0.1;
+
+    // 부드럽게 설정
+    let softPageX = 0, softPageY = 0;
+    softPageX += (anglePageX - softPageX) * 0.4;
+    softPageY += (anglePageY - softPageY) * 0.4;
+
+    // 이미지 움직이기
+    const imgMove = document.querySelector(".mouse__img");
+    imgMove.style.transform = "perspective(600px) rotateX(" + softPageY + "deg) rotateY(" + -softPageX + "deg)";
+
+    // 커서
+    gsap.to(".mouse__cursor", { duration: .3, left: mousePageX - 50, top: mousePageY - 50 })
+
+    // 마우스 좌표값 출력
+    document.querySelector(".mousePageX").textContent = mousePageX;
+    document.querySelector(".mousePageY").textContent = mousePageY;
+    document.querySelector(".centerPageX").textContent = centerPageX;
+    document.querySelector(".centerPageY").textContent = centerPageY;
+    document.querySelector(".maxPageX").textContent = maxPageX;
+    document.querySelector(".maxPageY").textContent = maxPageY;
+    document.querySelector(".anglePageX").textContent = Math.round(anglePageX);
+    document.querySelector(".anglePageY").textContent = Math.round(anglePageY);
+}
+window.addEventListener("mousemove", mouseMove);
+</code></pre>
+                </div>
+            </div>
+        </main>
+        <!-- //main -->
+
+        <footer id="footer">
+            <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+        </footer>
+        <!-- //footer -->
+
+        <script src="../assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 요소 크기 메서드</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">요소 크기 메서드</h2>
+            <table class="t_table">
+                <thead>
+                    <tr>
+                        <th>종류</th>
+                        <th>제이쿼리</th>
+                        <th>자바스크립트</th>
+                        <th>설명</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="10" class="ce">Dimensions</td>
+                        <td>width()</td>
+                        <td>-</td>
+                        <td>요소의 가로(패딩/보더/마진 미포함)</td>
+                    </tr>
+                    <tr>
+                        <td>height()</td>
+                        <td>-</td>
+                        <td>요소의 세로(패딩/보더/마진 미포함)</td>
+                    </tr>
+                    <tr>
+                        <td>innerWidth()</td>
+                        <td>clientWidth</td>
+                        <td>요소의 가로(패딩 포함, 보더/마진 미포함)</td>
+                    </tr>
+                    <tr>
+                        <td>innerHeight()</td>
+                        <td>clientHeight</td>
+                        <td>요소의 세로(패딩 포함, 보더/마진 미포함)</td>
+                    </tr>
+                    <tr>
+                        <td>outerWidth()</td>
+                        <td>offsetWidth</td>
+                        <td>요소의 가로(패딩/보더 포함, 마진 미포함)</td>
+                    </tr>
+                    <tr>
+                        <td>outerHeight()</td>
+                        <td>offsetHeight</td>
+                        <td>요소의 세로(패딩/보더 포함, 마진 미포함)</td>
+                    </tr>
+                    <tr>
+                        <td>outerWidth(true)</td>
+                        <td>-</td>
+                        <td>요소의 가로(패딩/보더/마진 포함)</td>
+                    </tr>
+                    <tr>
+                        <td>outerHeight(true)</td>
+                        <td>-</td>
+                        <td>요소의 세로(패딩/보더/마진 포함)</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <div class="t_frame">
+                <iframe height="800" style="width: 100%;" scrolling="no" title="element_size"
+                    src="https://codepen.io/sukjun2/embed/ExLYEJW?default-tab=result" frameborder="no" loading="lazy"
+                    allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href="https://codepen.io/sukjun2/pen/ExLYEJW">
+                        element_size</a> by sukjun2 (<a href="https://codepen.io/sukjun2">@sukjun2</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                </iframe>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>

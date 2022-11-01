@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>프로그래머스 1단계 : 약수의 합</title>
+        <link rel="stylesheet" href="../assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/dracula.css" />
+    </head>
+
+    <body>
+        <main id="main">
+            <div class="document">
+                <h2 class="t_tit">프로그래머스 1단계 : 정수 n을 입력받아 n의 약수를 모두 더한 값을 리턴하는 함수, solution을 완성해주세요.</h2>
+                <p class="t_desc2">
+                    자연수 n이 매개변수로 주어집니다. n을 x로 나눈 나머지가 1이 되도록 하는 가장 작은 자연수 x를 return 하도록 solution 함수를 완성해주세요. 답이 항상 존재함은 증명될 수 있습니다.
+                </p>
+                <hr />
+                <br />
+                <h3>※ 제한사항</h3>
+                <div class="t_box">n은 0 이상 3000이하인 정수입니다.</div>
+                <br />
+                <h3>※ 입출력 예</h3>
+                <table class="t_table">
+                    <thead>
+                        <tr>
+                            <th>n</th>
+                            <th>result</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>12</td>
+                            <td>28</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>6</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br />
+                <div class="t_code">
+                    <pre><code class="language-js">function solution(n) {
+    let answer = 0;
+    for (let i = 1; i <= n; i++) {
+      if (n % i === 0) answer += i;
+    }
+    return answer;
+  }
+</code></pre>
+                </div>
+                <br />
+                <div class="t_box">
+                    주어진 n값의 약수를 먼저 찾기 위해 for문을 사용하여 n을 1부터 시작하는 i값으로 나눈 나머지값이 0인 값이 n의 약수가 됩니다. 반환된 모든 i(n의 약수)값을 더해 answer에 출력해주면
+                    됩니다.
+                </div>
+            </div>
+        </main>
+        <!-- //main -->
+
+        <footer id="footer">
+            <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+        </footer>
+        <!-- //footer -->
+
+        <script src="../assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>

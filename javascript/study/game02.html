@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>자바스크립트 : 게임 이펙트</title>
+
+        <link rel="stylesheet" href="../assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/dracula.css" />
+    </head>
+
+    <body>
+        <header id="header"></header>
+        <!-- //header -->
+
+        <main id="main">
+            <div class="document">
+                <h2 class="t_tit">gameEffect</h2>
+
+                <hr />
+
+                <div class="t_iframe" style="min-height: 950px; padding-top: 0">
+                    <iframe src="https://sukjun2.github.io/coding2/javascript/effect/gameEffect01.html" frameborder="0"></iframe>
+                </div>
+
+                <div class="t_link" style="display: flex">
+                    <a href="https://github.com/sukjun2/coding2/blob/main/javascript/effect/gameEffect01.html">원본 소스 보기</a>
+                    <a href="https://sukjun2.github.io/coding2/javascript/effect/gameEffect.html">메인 페이지 보기</a>
+                </div>
+
+                <h3 class="t_tit2">JAVASCRIPT01</h3>
+                <p class="t_box">뮤직 플레이어를 만들어 보았습니다. allMusic 변수에 10곡의 노래 정보를 저장하고, 스크립트할 영역을 선택하여 변수로 선언합니다.</p>
+                <div class="t_code">
+                    <pre><code class="language-js">const allMusic = [
+    {
+        name: "1. Cattle",
+        artist: "Telecasted",
+        img: "music_view01",
+        audio: "music_audio01",
+    },
+    {
+        name: "2. Fat Man",
+        artist: "Yung Logos",
+        img: "music_view02",
+        audio: "music_audio02",
+    },
+    {
+        name: "3. Faultlines",
+        artist: "Asher Fulero",
+        img: "music_view03",
+        audio: "music_audio03",
+    },
+    ...
+];
+
+// 아티스트, 음악, 타이틀 선택자
+const musicWrap = document.querySelector(".music__wrap");
+const musicView = musicWrap.querySelector(".music__view .img img");
+const musicName = musicWrap.querySelector(".music__view .title h3");
+const musicArtist = musicWrap.querySelector(".music__view .title p");
+const musicAudio = musicWrap.querySelector("#main-audio");
+// 컨트롤 버튼 선택자
+const musicPlay = musicWrap.querySelector("#control-play");
+const musicPause = musicWrap.querySelector("#control-stop");
+const musicPrevBtn = musicWrap.querySelector("#control-prev");
+const musicNextBtn = musicWrap.querySelector("#control-next");
+const musicRepeat = musicWrap.querySelector("#control-repeat");
+const musicListBtn = musicWrap.querySelector("#control-list");
+const musicList = musicWrap.querySelector(".music__list");
+const musicListUl = musicWrap.querySelector(".music__list ul");
+// 진행바, 시간 선택자
+const musicProgress = musicWrap.querySelector(".progress");
+const musicProgressBar = musicWrap.querySelector(".progress .bar");
+const musicProgressCurrent = musicWrap.querySelector(".progress .timer .current");
+const musicProgressDuration = musicWrap.querySelector(".progress .timer .duration");
+</code></pre>
+                </div>
+
+                <h3 class="t_tit2">JAVASCRIPT02</h3>
+                <p class="t_box">
+                    음악을 재생하고, 재생한 음악의 이름, 아티스트 등을 표시하기 위한 함수를 작성합니다. num - 1의 이유는 인덱스값의 시작값이 0이기 때문입니다.<br />
+                    재생, 정지버튼 함수는 클릭 이벤트를 부여하기 위한 셋팅이라고 보시면 됩니다. setAttribute를 사용하여 속성값을 변경해주도록 작성합니다. 끝에는 play, pause() 메서드로 오디오를 재생, 정지 시키도록 합니다.<br />
+                    이전곡, 다음곡은 musicIndex변수의 값과 전체 음악곡 수를 기준으로 설정, 조건에 만족하는 값으로 음악 재생 함수를 실행시킵니다.
+                </p>
+                <div class="t_code">
+                    <pre><code class="language-js">let musicIndex = 1; // 현재 뮤직 인덱스
+
+// 음악 재생
+function loadMusic(num) {
+    musicName.innerText = allMusic[num - 1].name; // 뮤직 이름 로드
+    musicArtist.innerText = allMusic[num - 1].artist; // 뮤직 아티스트 로드
+    musicView.src = `../assets/img/${allMusic[num - 1].img}.png`; // 뮤직 이미지 로드
+    musicView.alt = allMusic[num - 1].name; // 뮤직 이미지 alt 로드
+    musicAudio.src = `../assets/music/${allMusic[num - 1].audio}.mp3`; // 뮤직 로드
+}
+
+// 재생 버튼
+function playMusic() {
+    musicWrap.classList.add("paused");
+    musicPlay.setAttribute("title", "정지");
+    musicPlay.setAttribute("class", "stop");
+    musicAudio.play();
+}
+
+// 정지 버튼
+function pauseMusic() {
+    musicWrap.classList.remove("paused");
+    musicPlay.setAttribute("title", "재생");
+    musicPlay.setAttribute("class", "play");
+    musicAudio.pause();
+}
+
+// 이전곡 듣기 버튼
+function prevMusic() {
+    musicIndex == 1 ? (musicIndex = allMusic.length) : musicIndex--; // 뮤직인덱스 값 위치가 첫 곡 일때
+    loadMusic(musicIndex);
+    playMusic();
+    playListMusic();
+}
+
+// 다음곡 듣기 버튼
+function nextMusic() {
+    musicIndex == allMusic.length ? (musicIndex = 1) : musicIndex++; // 뮤직인덱스 값 위치가 마지막 곡 일때
+    loadMusic(musicIndex);
+    playMusic();
+    playListMusic();
+}
+</code></pre>
+                </div>
+
+                <h3 class="t_tit2">JAVASCRIPT03</h3>
+                <p class="t_box">
+                    음악의 총 시간과 현재 진행중인 시간을 바 형태로 표시해주는 이벤트를 작성합니다. 백분위를 기준으로 음악 재생시 게이지바가 점점 차오르는 것을 볼 수 있습니다.<br />
+                    각 음악에 전체 시간을 게이지바 우측 끝에 표시하기 위해 오디오 파일의 전체 시간을 분, 초 단위로 쪼개어 저장하고 출력합니다.<br />
+                    진행시간 또한 전체시간 스크립트와 동일합니다.
+                </p>
+                <div class="t_code">
+                    <pre><code class="language-js">// 뮤직 진행바
+musicAudio.addEventListener("timeupdate", (e) => {
+    // console.log(e);
+
+    const currentTime = e.target.currentTime; // 현재 재생 시간
+    const duration = e.target.duration; // 오디오의 총 길이
+
+    let progressWidth = (currentTime / duration) * 100; // 전체 길이에서 현재 진행되는 시간을 백분위로 나눔
+
+    musicProgressBar.style.width = `${progressWidth}%`;
+
+    // 전체시간
+    musicAudio.addEventListener("loadeddata", () => {
+        let audioDuration = musicAudio.duration;
+        let totalMin = Math.floor(audioDuration / 60); // 전체 시간(초)을 분단위로 쪼갬
+        let totalSec = Math.floor(audioDuration % 60); // 남은 초를 저장
+        if (totalSec < 10) totalSec = `0${totalSec}`; // 초가 한 자릿수 일때 앞에 0을 붙임
+        musicProgressDuration.innerText = `${totalMin}:${totalSec}`; // 완성된 시간 문자열을 출력
+    });
+
+    // 진행시간
+    let currentMin = Math.floor(currentTime / 60);
+    let currentSec = Math.floor(currentTime % 60);
+    if (currentSec < 10) currentSec = `0${currentSec}`;
+    musicProgressCurrent.innerText = `${currentMin}:${currentSec}`;
+});
+</code></pre>
+                </div>
+                <br />
+                <p class="t_desc2">gameEffect01 두 번째 게시글입니다. js양이 굉장해서 나눠서 올릴 예정입니다..</p>
+                <!-- //javascript01 -->
+            </div>
+        </main>
+
+        <footer id="footer">
+            <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+        </footer>
+        <!-- //footer -->
+
+        <script src="../assets/js/highlight.min.js"></script>
+        <script src="../assets/js/common.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>

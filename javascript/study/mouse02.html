@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 마우스 이펙트02</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">mouseEffect02</h2>
+            <p class="t_desc2">
+                마우스 이펙트02번 입니다.
+            </p>
+
+            <hr>
+
+            <div class="t_iframe" style="min-height: 650px; padding-top: 0;">
+                <iframe src="https://sukjun2.github.io/coding2/javascript/effect/mouseEffect02.html"
+                    frameborder="0"></iframe>
+            </div>
+
+            <div class="t_link" style="display: flex;">
+                <a href="https://github.com/sukjun2/coding2/blob/main/javascript/effect/mouseEffect02.html">원본 소스
+                    보기</a>
+                <a href="https://sukjun2.github.io/coding2/javascript/effect/mouseEffect02.html">원본 사이트 보기</a>
+            </div>
+
+            <h3 class="t_tit2">CSS</h3>
+            <p class="t_box">
+                CSS입니다. 마우스 오버시 변화될 애니메이션 효과와 마우스 커서의 모양을 설정합니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-css">/* mouseType */
+.mouse__wrap {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #fff;
+    overflow: hidden;
+    cursor: none;
+}
+
+.mouse__wrap p {
+    font-size: 2vw;
+    line-height: 2;
+    font-weight: 300;
+}
+
+.mouse__wrap p:last-child {
+    font-size: 3vw;
+    font-weight: 300;
+}
+
+.mouse__wrap p span {
+    border-bottom: 0.15vw dashed orange;
+    color: orange;
+}
+
+
+@media (max-width: 800px) {
+    .mouse__wrap p {
+        padding: 0 20px;
+        font-size: 20px;
+        line-height: 1.5;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .mouse__wrap p:last-child {
+        font-size: 40px;
+        line-height: 1.5;
+        text-align: center;
+        word-break: keep-all;
+    }
+}
+
+.mouse__cursor {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    z-index: 9999;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    user-select: none;
+    pointer-events: none;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.mouse__cursor2 {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    z-index: 9999;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    user-select: none;
+    pointer-events: none;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.mouse__cursor.active {
+    transform: scale(0);
+}
+
+.mouse__cursor2.active {
+    transform: scale(5);
+    background: rgba(255, 166, 0, 0.6);
+}
+
+.mouse__cursor.active2 {
+    transform: scale(0);
+}
+
+.mouse__cursor2.active2 {
+    transform: scale(2) skew(30deg);
+    border-radius: 0;
+    background: rgba(255, 88, 0, 0.6);
+}
+
+.mouse__cursor.active3 {
+    transform: scale(0);
+}
+
+.mouse__cursor2.active3 {
+    transform: scale(3) rotateY(720deg);
+
+    background: rgba(72, 255, 26, 0.6);
+}
+
+#header {
+    cursor: none;
+}
+
+#header ul li a {
+    cursor: none;
+}
+
+#footer .modal__btn {
+    cursor: none;
+    }
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">JAVASCRIPT</h3>
+            <p class="t_box">
+                사용할 변수를 선언하고, css로 만든 2개의 원형 커서의 좌표값을 할당합니다. 이 때 GSAP를 사용하여 더욱 부드러운 효과를 연출합니다.<br>
+                mouseenter, mouseover 이벤트를 사용하여 마우스 오버시 헤더 리스트, 본문에 em태그로 감싸준 단어, 푸터의 소스 보기 버튼에 active 클래스가 추가되게합니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-js">const cursor = document.querySelector(".mouse__cursor");
+const cursor2 = document.querySelector(".mouse__cursor2");
+const span = document.querySelectorAll(".mouse__wrap span")
+const header = document.querySelectorAll("#header ul li a")
+const footer = document.querySelectorAll("#footer .modal__btn")
+
+window.addEventListener("mousemove", e => {
+    // 커서 좌표값 할당
+    // cursor.style.left = e.pageX - 5 + "px";
+    // cursor.style.top = e.pageY - 5 + "px";
+    // cursor2.style.left = e.pageX - 15 + "px";
+    // cursor2.style.top = e.pageY - 15 + "px";
+
+    // GSAP
+    gsap.to(cursor, { duration: 0.3, left: e.pageX - 5, top: e.pageY - 5 });
+    gsap.to(cursor2, { duration: 0.8, left: e.pageX - 15, top: e.pageY - 15 });
+
+    // 오버 효과
+    // mouseenter / mouseover / 이벤트 버블링
+    span.forEach(span => {
+        span.addEventListener("mouseenter", () => {
+            cursor.classList.add("active");
+            cursor2.classList.add("active");
+        });
+        span.addEventListener("mouseleave", () => {
+            cursor.classList.remove("active");
+            cursor2.classList.remove("active");
+        });
+    });
+
+    header.forEach(header => {
+        header.addEventListener("mouseenter", () => {
+            cursor.classList.add("active2");
+            cursor2.classList.add("active2");
+        });
+        header.addEventListener("mouseleave", () => {
+            cursor.classList.remove("active2");
+            cursor2.classList.remove("active2");
+        });
+    });
+
+    footer.forEach(footer => {
+        footer.addEventListener("mouseenter", () => {
+            cursor.classList.add("active3");
+            cursor2.classList.add("active3");
+        });
+        footer.addEventListener("mouseleave", () => {
+            cursor.classList.remove("active3");
+            cursor2.classList.remove("active3");
+        });
+    });
+});
+</code></pre>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>

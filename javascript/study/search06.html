@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>자바스크립트 : 서치 이펙트06</title>
+        <link rel="stylesheet" href="../assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/dracula.css" />
+    </head>
+
+    <body>
+        <header id="header"></header>
+        <!-- //header -->
+
+        <main id="main">
+            <div class="document">
+                <h2 class="t_tit">searchEffect06</h2>
+                <p class="t_desc2">sort(), reverse()메서드와 피셔 예이츠 알고리즘 이용하여 정렬해 보았습니다.</p>
+
+                <hr />
+
+                <div class="t_iframe" style="min-height: 650px; padding-top: 0">
+                    <iframe src="https://sukjun2.github.io/coding2/javascript/effect/searchEffect06.html" frameborder="0"></iframe>
+                </div>
+
+                <div class="t_link" style="display: flex">
+                    <a href="https://github.com/sukjun2/coding2/blob/main/javascript/effect/searchEffect06.html">원본 소스 보기</a>
+                    <a href="https://sukjun2.github.io/coding2/javascript/effect/searchEffect06.html">원본 사이트 보기</a>
+                </div>
+
+                <h3 class="t_tit2">HTML</h3>
+                <p class="t_box">사용할 정렬의 종류별 버튼을 만들어주고, css속성 list를 스크립트를 사용하여 넣어줄 공간인 line 클래스 영역을 생성하여줍니다.</p>
+                <div class="t_code">
+                    <pre><code class="language-html">&lt;main id="main"&gt;
+    &lt;div class="search__wrap"&gt;
+        &lt;span&gt;
+            sort(), reverse()를 이용하여 정렬하기,&lt;br /&gt;
+            피셔 예이츠 알고리즘 이용하여 정렬하기
+        &lt;/span&gt;
+        &lt;h1&gt;&lt;a href="searchEffect.html"&gt;CSS 속성 정렬하기&lt;/a&gt;&lt;/h1&gt;
+
+        &lt;div class="search__click"&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href="#" class="btn1"&gt;반대로 정렬하기&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#" class="btn2"&gt;내림차순 정렬하기&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#" class="btn3"&gt;오름차순 정렬하기&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#" class="btn4"&gt;알파벳순(a~z)&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#" class="btn5"&gt;알파벳순(z~a)&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#" class="btn6"&gt;랜덤 정렬하기&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+
+        &lt;div class="search__info"&gt;
+            &lt;div&gt;전체 속성 갯수 : &lt;span class="num"&gt;0&lt;/span&gt;&lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class="search__list"&gt;
+            &lt;ul class="line"&gt;&lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/main&gt;
+&lt;!-- //main --&gt;
+</code></pre>
+                </div>
+
+                <h3 class="t_tit2">JAVASCRIPT</h3>
+                <p class="t_box">
+                    cssProperty 변수에 css 속성들을 배열로 저장 후 cssProp 변수에 빈 배열을 저장합니다. updateList 함수를 생성하여 cssProperty 저장값을 cssProp[index값] 변수에 넘겨줍니다. 그리고 cssList 선택자에 cssProp변수에 저장된 배열값을 join()메서드로 문자열로 변경하여 저장합니다.<br />
+                    그리고 함수를 실행시키면 css 속성들이 출력되게됩니다. 다음으로 각 정렬 버튼의 기능을 설정해줍니다. 반대로 정렬 -> reverse() 메서드 사용, 클릭시 이벤트 부여하면 끝입니다.<br />
+                    내림차순, 오름차순, 알파벳 정렬은 sort()메서드를 사용하며 동일하게 이벤트를 부여해줍니다.<br />
+                    피셔-예이츠 셔플은 유한 수열의 무작위 순열을 생성하기 위한 알고리즘입니다. 즉, 이 알고리즘은 수열을 무작위로 섞습니다. 이것을 이용하여 데이터값을 무작위로 섞어 선택자 cssList에 입력해줍니다. 다음 랜덤 정렬 버튼에 클릭 이벤트를 부여하는데, 클릭시 화면 최상단으로 이동하는 이벤트를 제거하고 기존에 추가되어있는 cssList 내부의 내용을 삭제시켜 클릭마다 내용이 추가되지 않도록
+                    해줍니다. 그리고 shuffle 함수를 실행시켜주면 끝!
+                </p>
+                <div class="t_code">
+                    <pre><code class="language-js">const cssProperty = [
+    { num: 1, name: 'accent-color', desc: '특정 요소에 색상을 지정할 때 사용됩니다.' },
+    { num: 2, name: 'align-content', desc: '콘텐츠 아이템의 상하관계 정렬 상태를 설정합니다.' },
+    { num: 3, name: 'align-items', desc: '콘텐츠 아이템의 내부 상하관계 정렬 상태를 설정합니다.' },
+    { num: 4, name: 'align-self', desc: '개별적인 콘텐츠 아이템의 정렬 상태를 설정합니다.' },
+    { num: 5, name: 'all', desc: '요소의 속성을 초기화 또는 상속을 설정합니다.' },
+    { num: 6, name: 'animation', desc: '애니메이션과 관련된 속성을 일괄적으로 설정합니다.' },
+    { num: 7, name: 'animation-delay', desc: '애니메이션 지연 시간을 설정합니다.' },
+    { num: 8, name: 'animation-direction', desc: '애니메이션 움직임 방향을 설정합니다.' },
+    { num: 9, name: 'animation-duration', desc: '애니메이션 움직임 시간을 설정합니다.' },
+    { num: 10, name: 'animation-fill-mode', desc: '애니메이션이 끝난 후의 상태를 설정합니다.' },
+    ...
+];
+
+const cssList = document.querySelector('.search__list .line');
+
+let cssProp = [];
+// 데이터 출력하기
+const updateList = () => {
+    // let listCSS = '';
+    // cssProperty.forEach((data, index) => {
+    //     listCSS += `&lt;li>${data.num}. ${data.name} : ${data.desc}&lt;/li>`;
+    // });
+    // cssList.innerHTML = listCSS;
+
+    cssProperty.map((data, index) => {
+        cssProp[index] = `&lt;li>${data.num}. ${data.name} : ${data.desc}&lt;/li>`;
+    });
+    cssList.innerHTML = cssProp.join('');
+};
+updateList();
+
+// 반대로 정렬
+function sortReverse() {
+    cssProperty.reverse();
+    updateList();
+}
+// 반대로 정렬 클릭
+document.querySelector('.btn1').addEventListener('click', () => {
+    sortReverse();
+});
+
+// 내림차순 정렬
+function sortDescending() {
+    cssProperty.sort((a, b) => {
+        return b.num - a.num;
+    });
+    updateList();
+}
+// 내림차순 정렬 클릭
+document.querySelector('.btn2').addEventListener('click', () => {
+    sortDescending();
+});
+
+// 오름차순 정렬
+function sortAscending() {
+    cssProperty.sort((a, b) => {
+        return a.num - b.num;
+    });
+    updateList();
+}
+// 오름차순 정렬 클릭
+document.querySelector('.btn3').addEventListener('click', () => {
+    sortAscending();
+});
+
+// 알파벳 정렬(a~z)
+function sortAlphabet() {
+    cssProperty.sort(function (a, b) {
+        if (a.name > b.name) return 1;
+        else if (a.name < b.name) return -1;
+        else return 0;
+    });
+    updateList();
+}
+// 알파벳 정렬 클릭(a~z)
+document.querySelector('.btn4').addEventListener('click', () => {
+    sortAlphabet();
+});
+
+// 알파벳 정렬(z~a)
+function sortAlphabetZ() {
+    cssProperty.sort(function (a, b) {
+        if (a.name < b.name) return 1;
+        else if (a.name > b.name) return -1;
+        else return 0;
+    });
+    updateList();
+}
+// 알파벳 정렬 클릭(z~a)
+document.querySelector('.btn5').addEventListener('click', () => {
+    sortAlphabetZ();
+});
+
+// 피셔 에이츠 알고리즘
+function shuffle(data) {
+    // console.log(data);
+    for (let i = data.length - 1; i >= 0; i--) {
+        const randomIndex = Math.floor(Math.random() * (i + 1));
+        // console.log(randomIndex);
+        [data[i], data[randomIndex]] = [data[randomIndex], data[i]]; // 중복된 수가 나오지 않도록 설정
+        cssList.innerHTML += data[i];
+    }
+}
+// 랜덤 정렬
+document.querySelector('.btn6').addEventListener('click', (e) => {
+    e.preventDefault();
+    cssList.innerHTML = '';
+    shuffle(cssProp);
+});
+</code></pre>
+                </div>
+            </div>
+        </main>
+        <!-- //main -->
+
+        <footer id="footer">
+            <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+        </footer>
+        <!-- //footer -->
+
+        <script src="../assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>

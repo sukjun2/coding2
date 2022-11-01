@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>프로그래머스 1단계 : 나머지가 1이 되는 수 찾기</title>
+        <link rel="stylesheet" href="../assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/dracula.css" />
+    </head>
+
+    <body>
+        <main id="main">
+            <div class="document">
+                <h2 class="t_tit">프로그래머스 1단계 : 나머지가 1이 되는 수 찾기</h2>
+                <p class="t_desc2">
+                    자연수 n이 매개변수로 주어집니다. n을 x로 나눈 나머지가 1이 되도록 하는 가장 작은 자연수 x를 return 하도록 solution 함수를 완성해주세요. 답이 항상 존재함은 증명될 수 있습니다.
+                </p>
+                <hr />
+                <br />
+                <h3>※ 제한사항</h3>
+                <div class="t_box">3 ≤ n ≤ 1,000,000</div>
+                <br />
+                <h3>※ 입출력 예</h3>
+                <table class="t_table">
+                    <thead>
+                        <tr>
+                            <th>n</th>
+                            <th>result</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>10</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>12</td>
+                            <td>11</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br />
+                <div class="t_code">
+                    <pre><code class="language-js">function solution(n) {
+    let answer = 0;
+    for (let x = n - 1; x >= 2; x--) {
+        if(n % x === 1) answer = x
+    }
+    return answer;
+}
+</code></pre>
+                </div>
+                <br />
+                <div class="t_box">n값이 10, 12일 때 나머지가 1이 되도록하는 가장 작은 자연수 x는 10 % 3 == 1, 12 % 11 == 1 이므로, 3과 11이 출력되도록 for문을 작성하여 x--값을 적용하면 됩니다.</div>
+            </div>
+        </main>
+        <!-- //main -->
+
+        <footer id="footer">
+            <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+        </footer>
+        <!-- //footer -->
+
+        <script src="../assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>

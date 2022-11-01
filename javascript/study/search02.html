@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 서치 이펙트02</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+    </header>
+    <!-- //header -->
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">searchEffect02</h2>
+            <p class="t_desc2">
+                <i>includesOf()</i> 문자열 메서드를 사용하여 CSS 속성을 검색할 수 있게 코딩하였습니다.
+            </p>
+
+            <hr>
+
+            <div class="t_iframe" style="min-height: 650px; padding-top: 0;">
+                <iframe src="https://sukjun2.github.io/coding2/javascript/effect/searchEffect02.html"
+                    frameborder="0"></iframe>
+            </div>
+
+            <div class="t_link" style="display: flex;">
+                <a href="https://github.com/sukjun2/coding2/blob/main/javascript/effect/searchEffect02.html">원본 소스 보기</a>
+                <a href="https://sukjun2.github.io/coding2/javascript/effect/searchEffect02.html">원본 사이트 보기</a>
+            </div>
+
+            <h3 class="t_tit2">HTML</h3>
+            <p class="t_box">
+                전체적인 HTML 구조는 동일하며, search__list(속성 리스트)에 data-type 속성을 추가하여 타입으로도 검색이 가능하도록 하였습니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-html">&lt;header id="header"&gt;
+    &lt;nav&gt;
+        &lt;ul&gt;
+            &lt;li class="active"&gt;&lt;a href="searchEffect01_css.html"&gt;1&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="searchEffect02.html"&gt;2&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="searchEffect03.html"&gt;3&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="searchEffect04.html"&gt;4&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="searchEffect05.html"&gt;5&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="searchEffect06.html"&gt;6&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+&lt;/header&gt;
+&lt;!-- //header --&gt;
+
+&lt;main id="main"&gt;
+    &lt;div class="search__wrap"&gt;
+        &lt;span&gt;indexOf()를 이용하여 검색하기&lt;/span&gt;
+        &lt;h1&gt;CSS 속성 검색하기&lt;/h1&gt;
+        &lt;div class="search__box"&gt;
+            &lt;label for="search"&gt;검색하기&lt;/label&gt;
+            &lt;!-- 웹표준 준수(숨김처리) --&gt;
+            &lt;input type="text" id="search" placeholder="CSS 속성을 입력해주세요!"&gt;
+            &lt;!-- 검색창 기본 문구 --&gt;
+        &lt;/div&gt;
+        &lt;div class="search__info"&gt;
+            &lt;div&gt;전체 속성 갯수&lt;span class="num"&gt;0&lt;/span&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="search__list"&gt;
+            &lt;div class="html"&gt;
+                &lt;ul&gt;
+                    &lt;li data-name="accent-color" data-type="플렉스"&gt;&lt;strong&gt;accent-color&lt;/strong&gt; : 특정 요소에 색상을 지정할 때
+                    사용됩니다.&lt;/li&gt;
+                    &lt;li data-name="align-content" data-type="플렉스"&gt;&lt;strong&gt;align-content&lt;/strong&gt; : 콘텐츠 아이템의 상하관계 정렬
+                        상태를 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="align-items" data-type="플렉스"&gt;&lt;strong&gt;align-items&lt;/strong&gt; : 콘텐츠 아이템의 내부 상하관계 정렬
+                        상태를 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="align-self" data-type="플렉스"&gt;&lt;strong&gt;align-self&lt;/strong&gt; : 개별적인 콘텐츠 아이템의 정렬 상태를
+                        설정합니다.&lt;/li&gt;
+                    &lt;li data-name="all" data-type="기타"&gt;&lt;strong&gt;all&lt;/strong&gt; : 요소의 속성을 초기화 또는 상속을 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="animation" data-type="애니메이션"&gt;&lt;strong&gt;animation&lt;/strong&gt; : 애니메이션과 관련된 속성을 일괄적으로
+                        설정합니다.&lt;/li&gt;
+                    &lt;li data-name="animation-delay" data-type="애니메이션"&gt;&lt;strong&gt;animation-delay&lt;/strong&gt; : 애니메이션 지연
+                        시간을 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="animation-direction" data-type="애니메이션"&gt;&lt;strong&gt;animation-direction&lt;/strong&gt; :
+                        애니메이션 움직임 방향을 설정합니다.
+                    &lt;/li&gt;
+                    &lt;li data-name="animation-duration" data-type="애니메이션"&gt;&lt;strong&gt;animation-duration&lt;/strong&gt; : 애니메이션
+                        움직임 시간을 설정합니다.
+                    &lt;/li&gt;
+                    &lt;li data-name="animation-fill-mode" data-type="애니메이션"&gt;&lt;strong&gt;animation-fill-mode&lt;/strong&gt; :
+                        애니메이션이 끝난 후의 상태를
+                        설정합니다.&lt;/li&gt;
+                    &lt;li data-name="animation-iteration-count" data-type="애니메이션"&gt;
+                        &lt;strong&gt;animation-iteration-count&lt;/strong&gt; : 애니메이션의 반복
+                        횟수를 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="animation-name" data-type="애니메이션"&gt;&lt;strong&gt;animation-name&lt;/strong&gt; : 애니메이션
+                        keyframe 이름을 설정합니다.&lt;/li&gt;
+                    &lt;li data-name="animation-play-state" data-type="애니메이션"&gt;&lt;strong&gt;animation-play-state&lt;/strong&gt; :
+                        애니메이션 진행상태를 설정합니다.
+                    &lt;/li&gt;
+                    &lt;li data-name="animation-timeline" data-type="애니메이션"&gt;&lt;strong&gt;animation-timeline&lt;/strong&gt; : &lt;/li&gt;
+                    &lt;li data-name="animation-timing-function" data-type="애니메이션"&gt;
+                    &lt;strong&gt;animation-timing-function&lt;/strong&gt; : 애니메이션
+                        움직임의 속도를 설정합니다.&lt;/li&gt;
+                    ...
+                &lt;/ul&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/main&gt;
+&lt;!-- //main --&gt;
+
+&lt;footer id="footer"&gt;
+    &lt;a href="mailto:tjrwns3650@gmail.com"&gt;tjrwns3650@gmail.com&lt;/a&gt;
+&lt;/footer&gt;
+&lt;!-- //footer --&gt;
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">JAVASCRIPT</h3>
+            <p class="t_box">
+                js 코딩은 앞의 01번과 동일하나, indexOf() -> includes()를 사용하여 사용자가 검색한 문자열이 data-name의 특정 요소를 포함하고 있다면
+                true를 반환하여 클래스 hide를 제거하도록하고, false라면 hide를 추가하여 숨겨지도록 하였습니다.<br>
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">//선택자
+const searchBox = document.querySelector(".search__box input");   //input 박스
+const searchList = document.querySelectorAll(".search__list ul li");    //목록 리스트
+const searchInfo = document.querySelector(".search__info .num");     //전체 갯수
+
+//속성 갯수 설정하기
+searchInfo.textContent = searchList.length;
+
+//검색 영역
+searchBox.addEventListener("keyup", () => {
+    const searchWord = searchBox.value;     //사용자가 입력한 키워드
+    const searchType = searchBox.value;     //사용자가 입력한 타입
+
+    searchList.forEach(el => {
+        const cssName = el.dataset.name;        //CSS 속성 모든 값
+        const cssType = el.dataset.type;        //CSS 타입 모든 값
+        // console.log(cssName);
+
+        if (cssName.includes(searchWord) | cssType.includes(searchType)) {
+            el.classList.remove("hide");
+        } else {
+            el.classList.add("hide");
+        }
+
+    });
+});
+</code></pre>
+            </div>
+
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>

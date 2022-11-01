@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS : loading_screen 애니메이션</title>
+    <link rel="stylesheet" href="/javascript/assets/css/style.css">
+    <link rel="stylesheet" href="/javascript/assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">loading_screen 애니메이션</h2>
+            <p class="t_desc2">
+                Code pen을 사용하여 loading_screen 애니메이션을 만들어보았습니다.
+            </p>
+
+            <hr>
+
+            <div class="t_iframe" style="min-height: 600px; padding-top: 0;">
+                <iframe height="300" style="width: 100%;" scrolling="no" title="loading_screen"
+                    src="https://codepen.io/sukjun2/embed/RwyLode?default-tab=result" frameborder="no" loading="lazy"
+                    allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href="https://codepen.io/sukjun2/pen/RwyLode">
+                        loading_screen</a> by sukjun2 (<a href="https://codepen.io/sukjun2">@sukjun2</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                </iframe>
+            </div>
+
+            <h3 class="t_tit2">HTML</h3>
+            <p class="t_box">
+                loader 클래스 div 태그 하위에 10개의 자식 ball 클래스인 div 태그를 만들어줍니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-html">&lt;div class="loader"&gt;
+    &lt;div class="ball"&gt;&lt;/div&gt;
+    &lt;div class="ball"&gt;&lt;/div&gt;
+    &lt;div class="ball"&gt;&lt;/div&gt;
+    &lt;div class="ball"&gt;&lt;/div&gt;
+    &lt;div class="ball"&gt;&lt;/div&gt;
+    &lt;div class="ball"&gt;&lt;/div&gt;
+    &lt;div class="ball"&gt;&lt;/div&gt;
+    &lt;div class="ball"&gt;&lt;/div&gt;
+    &lt;div class="ball"&gt;&lt;/div&gt;
+    &lt;div class="ball"&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">CSS</h3>
+            <p class="t_box">
+                배경색을 설정하고, loader 클래스의 위치와 애니메이션을 설정합니다.<br>
+                하위 ball 클래스의 크기와 위치, 배경색을 지정하고 각 nth-child에 애니메이션 지연시간을 설정합니다. @keyframes으로 0%, 100%구간을 설정해주면 끝입니다..!
+            </p>
+            <div class="t_code">
+<pre><code class="language-css">body {
+    background-color: rgb(58, 124, 97);
+}
+
+.loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    animation: spin .6s linear infinite reverse;
+}
+
+.ball {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+    animation: spin 1s infinite ease-in-out;
+}
+
+.ball:after {
+    position: absolute;
+    content: '';
+    background-color: rgb(123, 157, 588);
+    width: 5px;
+    height: 5px;
+    border-radius: 100%;
+    top: 0;
+}
+
+.ball:nth-child(2) {
+    animation-delay: -0.1s;
+}
+
+.ball:nth-child(3) {
+    animation-delay: -0.2s;
+}
+
+.ball:nth-child(4) {
+    animation-delay: -0.3s;
+}
+
+.ball:nth-child(5) {
+    animation-delay: -0.4s;
+}
+
+.ball:nth-child(6) {
+    animation-delay: -0.5s;
+}
+
+.ball:nth-child(7) {
+    animation-delay: -0.6s;
+}
+
+.ball:nth-child(8) {
+    animation-delay: -0.7s;
+}
+
+.ball:nth-child(9) {
+    animation-delay: -0.8s;
+}
+
+.ball:nth-child(10) {
+    animation-delay: -0.9s;
+}
+
+@keyframes spin {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg)
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg)
+    }
+}
+</code></pre>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="/javascript/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>

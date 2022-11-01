@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Javascript Test05</title>
+        <link rel="stylesheet" href="../assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/dracula.css" />
+    </head>
+
+    <body>
+        <main id="main">
+            <div class="document">
+                <h2 class="t_tit">Javascript Test</h2>
+                <p class="t_desc2">오답노트04</p>
+
+                <hr />
+
+                <!-- quiz start -->
+
+                <h3 class="t_tit2">01. 다음의 결괏값을 작성하시오</h3>
+                <p class="t_box"></p>
+                <div class="t_code">
+                    <pre><code class="language-js">
+</code></pre>
+                </div>
+                <div class="t_result">
+                    <details>
+                        <summary>결과 확인하기</summary>
+                        <div class="result_01"></div>
+                    </details>
+                </div>
+                <!-- 01 -->
+            </div>
+        </main>
+        <!-- //main -->
+
+        <footer id="footer">
+            <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+        </footer>
+        <!-- //footer -->
+
+        <script src="../assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+
+        <script>
+            // document.write("****** 정답 ******<br><br>");
+            //sample1
+            //01
+            {
+                const arr = [1, 1, 3, 3, 0, 1, 1];
+
+                function solution(arr) {
+                    return arr.filter((item, idx) => item !== arr[idx + 1]);
+                }
+                console.log(solution(arr));
+            }
+        </script>
+    </body>
+</html>

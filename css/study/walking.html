@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS : Walking 애니메이션</title>
+    <link rel="stylesheet" href="/javascript/assets/css/style.css">
+    <link rel="stylesheet" href="/javascript/assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+    </header>
+    <!-- //header -->
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">Walking 애니메이션</h2>
+            <p class="t_desc2">
+                Code pen을 사용하여 커피잔이 걸어가는 애니메이션을 만들었습니다.
+            </p>
+
+            <hr>
+
+            <div class="t_iframe" style="min-height: 600px; padding-top: 0;">
+                <iframe height="300" style="width: 100%;" scrolling="no" title="Untitled" src="https://codepen.io/sukjun2/embed/abGvjJQ?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href="https://codepen.io/sukjun2/pen/abGvjJQ">
+                    Untitled</a> by sukjun2 (<a href="https://codepen.io/sukjun2">@sukjun2</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                  </iframe>
+            </div>
+
+            <h3 class="t_tit2">HTML</h3>
+            <p class="t_box">
+                HTML 영역입니다. 애니메이션 백그라운드 영역을 설정하고 내부에 이미지와 시작/정지 영역을 설정합니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-html">&lt;div class="timing step"&gt;
+    &lt;div class="stepbox"&gt;&lt;/div&gt;
+    &lt;span class="stepBtn"&gt;
+        &lt;a href="#" class="stepBtnStart"&gt;Start&lt;/a&gt;
+        &lt;a href="#" class="stepBtnStop"&gt;Stop&lt;/a&gt;
+    &lt;/span&gt;
+&lt;/div&gt;
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">CSS</h3>
+            <p class="t_box">
+                이미지는 bg url을 사용하였습니다. 포토샵을 통하여 800px * 600px 크기의 32개 이미지를 일렬로 설정하고 jpg로 저장합니다.<br>
+                이미지의 위치는 position과 transform으로 잡아주었고, 1초 단위로 1개씩 이미지가 무한정 지나가도록 애니메이션 설정을 해줍니다.<br>
+                배경이미지가 움직이지 않도록 background-position으로 고정하여줍니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-css">
+.step {
+    height: 700px;
+    background: #ffe8d9;
+    position: relative;
+}
+
+.step .stepbox {
+    width: 800px;
+    height: 600px;
+    background: url(https://raw.githubusercontent.com/sukjun2/coding2/main/animation/img/ani1.jpg);
+    border-radius: 0;
+    position: absolute;
+    left: 50%;
+    top: 51%;
+    transform: translate(-50%, -50%);
+    animation: ani 1s steps(32, start) infinite;
+}
+
+.step .stepbox.start {
+    animation-play-state: running;
+}
+
+.step .stepbox.stop {
+    animation-play-state: paused;
+}
+
+@keyframes ani {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: -25600px 0;
+    }
+}
+
+.stepBtn {
+    position: absolute;
+    left: 15px;
+    top: 20px;
+}
+
+.stepBtn a {
+    background: #e16162;
+    color: #fff;
+    padding: 10px;
+    margin: 3px;
+    border-radius: 3px;
+}
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">Javascript</h3>
+            <p class="t_box">
+                Start버튼과 Stop버튼에 클래스 추가/삭제 이벤트를 작성합니다.<br>
+                Start버튼 클릭시 stop클래스를 제거하고 start클래스를 추가합니다. Stop버튼은 반대겠죠?
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">$(".stepBtnStart").click(function (e) {
+    e.preventDefault();
+    $(".stepbox").removeClass("stop").addClass("start");
+});
+$(".stepBtnStop").click(function (e) {
+    e.preventDefault();
+    $(".stepbox").removeClass("start").addClass("stop");
+});
+</code></pre>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="/javascript/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>

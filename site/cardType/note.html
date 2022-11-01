@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카드 유형03</title>
+    <style>
+        /* fonts */
+        @import url('https://webfontworld.github.io/score/SCoreDream.css');
+
+        .score {
+            font-family: 'SCoreDream';
+            font-weight: 500;
+        }
+
+        /* reset */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: normal;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        /* common */
+        body {
+            background-color: #7DDBE1;
+        }
+
+        .container {
+            width: 1160px;
+            padding: 0 20px;
+            margin: 0 auto;
+            min-width: 1160px;
+        }
+
+        .section {
+            padding: 120px 0;
+        }
+
+        /* 접근성에 문제 없음 */
+        .blind {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            clip: rect(0 0 0 0);
+            overflow: hidden;
+        }
+
+        .section>h2 {
+            font-size: 50px;
+            line-height: 1;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .section>p {
+            font-size: 22px;
+            font-weight: 300;
+            color: #666;
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        /* cardType03 */
+        .card__inner {
+            display: flex;
+        }
+
+        .card__inner .card {
+            width: 33.3333%;
+            background-color: #f5f5f5;
+            padding: 26px;
+        }
+
+        .card__inner .card:nth-child(1) {
+            border-right: 1px solid #eee;
+        }
+
+        .card__inner .card:nth-child(2) {
+            border-right: 1px solid #eee;
+        }
+
+        .card__header {
+            position: relative;
+        }
+
+        .card__header img {
+            border-radius: 10px;
+            box-shadow: 4px 4px 5px 0 rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+        }
+
+        .card__header figcaption {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+        }
+
+        .card__contents {}
+
+        .card__contents h3 {
+            font-size: 20px;
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+
+        .card__contents p {
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .card__footer {
+            display: flex;
+            justify-content: end;
+        }
+
+        .card__footer h4 {
+            color: red;
+            text-align: right;
+        }
+
+        .card__footer h4 em {
+            display: block;
+            color: #666;
+            font-style: normal;
+        }
+
+        .card__footer span {
+            width: 40px;
+            height: 40px;
+            display: block;
+            overflow: hidden;
+            margin-left: 10px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="cardType03" class="card__wrap section score">
+        <h2 class="blind">기묘한 이야기</h2>
+        <div class="card__inner container">
+            <article class="card">
+                <figure class="card__header">
+                    <img src="img/card_bg03_01.jpg" alt="human">
+                    <figcaption>sibal</figcaption>
+                </figure>
+                <div class="card__contents">
+                    <h3>건축은 건물이나 다른 구조물을 계획하고 설계하고 건설하는 과정과 그 결과..</h3>
+                    <p>건축적인, 미학적인 고려가 전체적으로 기능성에 종속되어야 한다는 개념이 대중성, 회의론과 만났을 때, 그것은 비트루비우스의 '유용성을...</p>
+                </div>
+                <div class="card__footer">
+                    <h4>건축 박사 <em>asdawdawd</em></h4>
+                    <span><img src="img/card_bg03_icon01.png" alt="sfd"></span>
+                </div>
+            </article>
+        </div>
+    </section>
+</body>
+
+</html>

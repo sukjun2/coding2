@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>텍스트 유형 01</title>
+    <link rel="stylesheet" href="/javascript/assets/css/style.css">
+    <link rel="stylesheet" href="/javascript/assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">사이트 만들기 : 텍스트 유형1</h2>
+            <p class="t_desc2">
+                사이트 만들기 세번째 텍스트 유형입니다, 카드 유형과 만드는 방법은 유사하며 칸마다 마우스 오버 효과를 주었습니다.
+            </p>
+            <div class="t_iframe">
+                <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450"
+                    src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Ft8ZQorO0K3bCMVcc91XcF9%2F%25EC%2582%25AC%25EC%259D%25B4%25ED%258A%25B8-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0%3Fnode-id%3D318%253A1479"
+                    allowfullscreen></iframe>
+            </div>
+
+            <h3 class="t_tit2">HTML</h3>
+            <p class="t_box">
+                HTML은 카드유형과 유사합니다. container내부에 6개의 text영역을 만들어줍니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-html">&lt;section id="textType01" class="text__wrap nexon section"&gt;
+    &lt;p&gt;텍스트 유형01&lt;/p&gt;
+    &lt;h2&gt;자습이 절실한 하루&lt;/h2&gt;
+    &lt;div class="container text__inner"&gt;
+        &lt;article class="text"&gt;
+            &lt;img src="img/Group 237.svg" alt="icon"&gt;
+            &lt;h2&gt;자습 원해요&lt;/h2&gt;
+            &lt;p&gt;내일은 웹디자인기능사 시험을 보는 날 입니다. 같은 반 학우가 시험에 합격했다고 하니, 우리 모두 합격을 위해 기능사 CBT를&lt;/p&gt;
+            &lt;a href="#"&gt;더보기&lt;/a&gt;
+        &lt;/article&gt;
+        &lt;article class="text"&gt;
+            &lt;img src="img/Group 238.svg" alt="icon"&gt;
+            &lt;h2&gt;자습 투해요&lt;/h2&gt;
+            &lt;p&gt;내일은 웹디자인기능사 시험을 보는 날 입니다. 같은 반 학우가 시험에 합격했다고 하니, 우리 모두 합격을 위해 기능사 CBT를&lt;/p&gt;
+            &lt;a href="#"&gt;더보기&lt;/a&gt;
+        &lt;/article&gt;
+        &lt;article class="text"&gt;
+            &lt;img src="img/Group 239.svg" alt="icon"&gt;
+            &lt;h2&gt;자습 쓰리해요&lt;/h2&gt;
+            &lt;p&gt;내일은 웹디자인기능사 시험을 보는 날 입니다. 같은 반 학우가 시험에 합격했다고 하니, 우리 모두 합격을 위해 기능사 CBT를&lt;/p&gt;
+            &lt;a href="#"&gt;더보기&lt;/a&gt;
+        &lt;/article&gt;
+        &lt;article class="text"&gt;
+            &lt;img src="img/Group 240.svg" alt="icon"&gt;
+            &lt;h2&gt;자습 포해요&lt;/h2&gt;
+            &lt;p&gt;내일은 웹디자인기능사 시험을 보는 날 입니다. 같은 반 학우가 시험에 합격했다고 하니, 우리 모두 합격을 위해 기능사 CBT를&lt;/p&gt;
+            &lt;a href="#"&gt;더보기&lt;/a&gt;
+        &lt;/article&gt;
+        &lt;article class="text"&gt;
+            &lt;img src="img/Group 241.svg" alt="icon"&gt;
+            &lt;h2&gt;자습 파이브해요&lt;/h2&gt;
+            &lt;p&gt;내일은 웹디자인기능사 시험을 보는 날 입니다. 같은 반 학우가 시험에 합격했다고 하니, 우리 모두 합격을 위해 기능사 CBT를&lt;/p&gt;
+            &lt;a href="#"&gt;더보기&lt;/a&gt;
+        &lt;/article&gt;
+        &lt;article class="text"&gt;
+            &lt;img src="img/Group 242.svg" alt="icon"&gt;
+            &lt;h2&gt;자습 식스해요&lt;/h2&gt;
+            &lt;p&gt;내일은 웹디자인기능사 시험을 보는 날 입니다. 같은 반 학우가 시험에 합격했다고 하니, 우리 모두 합격을 위해 기능사 CBT를&lt;/p&gt;
+            &lt;a href="#"&gt;더보기&lt;/a&gt;
+        &lt;/article&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">CSS</h3>
+            <p class="t_box">
+                초기화, 공통부분 css를 제외한 코드입니다.<br>
+                각 text 영역의 아이콘은 svg파일로 넣어주었습니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-css">/* textType */
+.text__inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.text__inner .text {
+    width: 32%;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.text__inner .text:hover {
+    background-color: #f3a5a5;
+}
+
+.text__inner .text:nth-child(4),
+.text__inner .text:nth-child(5),
+.text__inner .text:nth-child(6) {
+    margin-top: 20px;
+}
+
+.text__inner img {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(239, 74, 74, 0.7);
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.text__inner h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.text__inner p {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.4;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.text__inner a {
+    font-size: 16px;
+    font-weight: 300;
+    color: #666;
+    text-decoration: underline;
+    margin-bottom: 20px;
+}
+</code></pre>
+            </div>
+            <div class="t_iframe" style="min-height: 950px; padding-top: 0;">
+                <iframe src="https://sukjun2.github.io/coding2/site/textType/textType01.html" frameborder="0"></iframe>
+            </div>
+            <div class="t_link" style="display: flex;">
+                <a href="https://github.com/sukjun2/coding2/blob/main/site/textType/textType01.html">원본 소스 보기</a>
+                <a href="https://sukjun2.github.io/coding2/site/textType/textType01.html">원본 사이트 보기</a>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="/javascript/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>

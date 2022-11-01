@@ -1,0 +1,646 @@
+@import url("https://webfontworld.github.io/naver/NanumGothic.css");
+
+.nanum {
+    font-family: "NanumGothic";
+    font-weight: 500;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+li {
+    list-style: none;
+}
+
+em {
+    font-style: normal;
+}
+
+img {
+    vertical-align: top;
+}
+
+/* container */
+.container {
+    margin: 0 auto;
+    width: 1100px;
+}
+
+/* headerType */
+.header__inner {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 180px;
+    margin-top: 50px;
+    align-items: end;
+    margin-bottom: 10px;
+}
+
+.header__inner img {
+    width: 200px;
+    height: 50px;
+}
+
+.header__inner ul {
+    padding-bottom: 10px;
+}
+
+.header__inner ul li {
+    display: inline;
+    font-size: 16px;
+    margin-left: 30px;
+    font-weight: 600;
+}
+
+.header__inner ul li a {}
+
+/* bannerType */
+.banner__wrap {
+    overflow: hidden;
+    width: 4110px;
+}
+
+.banner__inner {
+    width: 100%;
+    background: #ddd;
+}
+
+.banner__imgs {
+    display: flex;
+    position: relative;
+}
+
+.banner__imgs .banner_desc {
+    width: 350px;
+    padding: 10px 20px;
+    font-size: 30px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.4);
+    line-height: 1.5;
+    position: absolute;
+    bottom: 0;
+    margin: 3% 21%;
+    font-weight: 500;
+}
+
+.banner__imgs .banner_desc em {
+    font-size: 16px;
+}
+
+.banner__imgs .banner__img1 {
+    width: 100%;
+}
+
+.banner__imgs .banner__img2 {
+    width: 100%;
+    height: 500px;
+}
+
+.banner__imgs .banner__img3 {
+    width: 100%;
+    height: 500px;
+}
+
+.left__arrow {
+    width: 70px;
+    height: 110px;
+    left: 10px;
+    top: 350px;
+    position: absolute;
+    background: url(../img/left_arrow.png) no-repeat;
+    cursor: pointer;
+    scale: 0.5;
+}
+
+.right__arrow {
+    width: 70px;
+    height: 110px;
+    top: 350px;
+    right: 5px;
+    position: absolute;
+    background: url(../img/right_arrow.png) no-repeat;
+    cursor: pointer;
+    scale: 0.5;
+}
+
+/* cardtextType */
+.card__text {
+    background-color: #e9e9e9;
+}
+
+.card__text__inner {
+    padding: 50px 180px;
+    position: relative;
+}
+
+.card__text__inner h2 {
+    font-size: 26px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.card__text__inner .btn {
+    position: absolute;
+    right: 173px;
+    top: 50px;
+    width: 40px;
+    height: 40px;
+    background: url(../img/Plus.svg) no-repeat;
+    cursor: pointer;
+}
+
+.card__inner {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card {
+    width: 24%;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    padding: 30px 20px;
+    background-color: #fff;
+    position: relative;
+}
+
+.cast__info {
+    width: 90px;
+    padding: 5px;
+    font-size: 12px;
+    text-align: center;
+    color: #486283;
+    border: 1px solid #486283;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.cast__desc {
+    font-weight: 600;
+}
+
+.cast__box {
+    margin-top: 20px;
+    font-size: 12px;
+}
+
+.cast__box .cast__box1 {
+    background-color: #688fd0;
+    color: #fff;
+    border-radius: 3px;
+    width: 60px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.cast__box .cast__box1:last-child {
+    margin-bottom: 0;
+}
+
+.cast__box .cast__box2 {
+    background-color: #688fd0;
+    color: #fff;
+    border-radius: 3px;
+    width: 60px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.cast__box .span1 {
+    position: absolute;
+    bottom: 70px;
+    right: 30px;
+    color: #646464;
+}
+
+.cast__box .span2 {
+    position: absolute;
+    bottom: 35px;
+    right: 30px;
+    color: #646464;
+}
+
+/* imgTextType */
+.img__text__inner {
+    padding: 50px 180px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.left {
+    width: 390px;
+}
+
+.left__top {
+    border: 1px solid #ddd;
+    padding: 20px 30px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.left__top .btn {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    width: 40px;
+    height: 40px;
+    background: url(../img/Plus.svg) no-repeat;
+    cursor: pointer;
+}
+
+.left__top h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.left__top h3 em {
+    color: #ccc;
+}
+
+.left__top .left__top__desc {
+    font-size: 16px;
+    color: #222;
+    margin-bottom: 5px;
+}
+
+.left__top p {
+    font-size: 14px;
+    color: #cdcdcd;
+    margin-bottom: 30px;
+}
+
+.left__top p:last-child {
+    margin-bottom: 10px;
+}
+
+.left__bom {
+    color: #fff;
+    height: 200px;
+    border: 1px solid #ddd;
+    padding: 20px 30px;
+    background: url(../img/aside_sg01.jpg);
+    box-sizing: border-box;
+}
+
+.left__bom h3 {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.left__bom p {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.left__bom a {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    border: 2px solid #fff;
+    padding: 5px 30px;
+}
+
+.right {
+    width: 690px;
+}
+
+.right__top {
+    border: 1px solid #ddd;
+    padding: 20px 30px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.right__top .btn {
+    position: absolute;
+    right: 25px;
+    top: 15px;
+    width: 40px;
+    height: 40px;
+    background: url(../img/Plus.svg) no-repeat;
+    cursor: pointer;
+}
+
+.right__top h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.right__top .list1 {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.right__top .list1>div {
+    color: #fff;
+    background-color: #3174cf;
+    padding: 0px 10px;
+    padding-top: 2px;
+    text-align: center;
+    box-sizing: border-box;
+    width: 100px;
+    font-size: 12px;
+    margin-right: 20px;
+}
+
+.right__top .list1>span {
+    color: #222;
+}
+
+.right__top .list1>p {
+    color: #cdcdcd;
+    margin-left: 140px;
+}
+
+.right__top .list2 {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.right__top .list2>div {
+    color: #fff;
+    background-color: #3174cf;
+    padding: 0px 10px;
+    text-align: center;
+    box-sizing: border-box;
+    width: 100px;
+    font-size: 12px;
+    padding-top: 2px;
+    margin-right: 20px;
+}
+
+.right__top .list2>span {
+    color: #222;
+}
+
+.right__top .list2>p {
+    color: #cdcdcd;
+    margin-left: 140px;
+}
+
+.right__top .list3 {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.right__top .list3>div {
+    color: #fff;
+    background-color: #3174cf;
+    padding: 0px 10px;
+    text-align: center;
+    box-sizing: border-box;
+    width: 100px;
+    font-size: 12px;
+    padding-top: 2px;
+    margin-right: 20px;
+}
+
+.right__top .list3>span {
+    color: #222;
+}
+
+.right__top .list3>p {
+    color: #cdcdcd;
+    margin-left: 140px;
+}
+
+.right__top .list4 {
+    display: flex;
+    margin-bottom: 14px;
+}
+
+.right__top .list4>div {
+    color: #fff;
+    background-color: #3174cf;
+    padding: 0px 10px;
+    text-align: center;
+    box-sizing: border-box;
+    width: 100px;
+    font-size: 12px;
+    padding-top: 2px;
+    margin-right: 20px;
+}
+
+.right__top .list4>span {
+    color: #222;
+}
+
+.right__top .list4>p {
+    color: #cdcdcd;
+    margin-left: 140px;
+}
+
+.right__bom {
+    border: 1px solid #ddd;
+    padding: 20px 30px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.right__bom .btn {
+    position: absolute;
+    right: 25px;
+    top: 15px;
+    width: 40px;
+    height: 40px;
+    background: url(../img/Plus.svg) no-repeat;
+    cursor: pointer;
+}
+
+.right__bom h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.right__bom .bom__left {
+    padding-right: 20px;
+    border-right: 1px solid #ddd;
+}
+
+.right__bom .bom__right {
+    padding-left: 20px;
+}
+
+.right__bom .right__bom__inner {
+    display: flex;
+    justify-content: space-between;
+}
+
+.right__bom .text__desc {
+    font-size: 15px;
+    color: #222;
+    margin-bottom: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.right__bom p {
+    font-size: 14px;
+    color: #ccc;
+    margin-bottom: 7px;
+}
+
+/* footerType */
+#footer {
+    background-color: #27405f;
+    height: 250px;
+    color: #acb9ca;
+    position: relative;
+}
+
+.footer__menu {}
+
+.footer__menu ul {
+    padding: 30px 0;
+}
+
+.footer__menu ul li {
+    font-size: 14px;
+    display: inline;
+    border-right: 1px solid #acb9ca;
+}
+
+.footer__menu ul li:nth-last-child(2) {
+    border-right: 0;
+}
+
+.footer__menu ul li:last-child {
+    float: right;
+}
+
+.footer__menu ul li a {
+    color: #acb9ca;
+    margin: 0 10px;
+}
+
+.footer__bom {
+    display: flex;
+    font-size: 14px;
+    position: relative;
+    margin-top: 40px;
+}
+
+.footer__logo {
+    width: 200px;
+}
+
+.footer__icon {
+    width: 120px;
+}
+
+.footer__icon img {
+    padding-top: 15px;
+}
+
+.footer__bom em {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.footer__bom>div:last-child {
+    right: 0;
+    position: absolute;
+    color: #dae6f7;
+    padding-top: 20px;
+    padding-left: 20px;
+    border-left: 1px solid #dae6f7;
+}
+
+.last {
+    border: 1px solid #acb9ca;
+    width: 150px;
+    height: 40px;
+    line-height: 35px;
+    position: relative;
+    padding: 0 15px;
+    box-sizing: border-box;
+    margin-top: -10px;
+    cursor: pointer;
+}
+
+.last img {
+    width: 18px;
+    top: 10px;
+    right: 10px;
+    position: absolute;
+}
+
+.footer__line {
+    border-bottom: 1px solid #acb9ca;
+    position: absolute;
+    width: 100%;
+    top: 80px;
+}
+
+address {
+    padding: 15px 30px;
+    line-height: 2;
+    font-style: normal;
+}
+
+/* tabMenu */
+.tab__menu1 {
+    transition: all 0.3s;
+}
+
+.tab__list {
+    display: flex;
+}
+
+.tab__list .tab1 {
+    padding-right: 10px;
+    border-right: 2px solid #000;
+    cursor: pointer;
+}
+
+.tab__list .tab2 {
+    padding-left: 10px;
+    color: #ccc;
+    cursor: pointer;
+}
+
+.tab__list .tab1.hide {
+    padding-right: 10px;
+    color: #ccc;
+}
+
+.tab__list .tab2.show {
+    padding-left: 10px;
+    color: #222;
+}
+
+.tab__menu2 {
+    display: none;
+    transition: all 0.3s;
+}
+
+.tab__menu1.hide {
+    display: none;
+}
+
+.tab__menu2.show {
+    display: block;
+}

@@ -1,0 +1,253 @@
+/* fonts */
+@import url('https://webfontworld.github.io/utoImagetree/UtoImageTree.css');
+
+.nexon {
+    font-family: 'UtoImageTree';
+    font-weight: 400;
+}
+
+
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+li {
+    list-style: none;
+}
+
+em {
+    font-style: normal;
+}
+
+/* layout */
+.container {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+/* header */
+#header {
+    width: 1200px;
+    height: 100px;
+}
+
+#header a img {
+    width: 130px;
+    padding-top: 45px;
+}
+
+#header .nav {
+    float: right;
+}
+
+#header .nav li {
+    display: inline;
+}
+
+#header .nav li a {
+    display: inline-block;
+    padding: 50px 30px 0px 30px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* banner */
+#section {
+    position: relative;
+}
+
+#section .section__image {
+    width: 1200px;
+    height: 467px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+#section img.banner {
+    width: 100%;
+}
+
+#section .sub__section {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+#section .sub__section1 {
+    width: 49%;
+    padding: 30px;
+    background-color: #f2f2f2;
+    box-sizing: border-box;
+    position: relative;
+}
+
+#section .sub__section2 {
+    width: 49%;
+    padding: 30px;
+    background-color: #f2f2f2;
+    box-sizing: border-box;
+    position: relative;
+}
+
+#section .sub__section .title {
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 30px;
+}
+
+#section .sub__section .desc {
+    margin-bottom: 20px;
+    color: #666;
+}
+
+#section .sub__section .search {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#section .sub__section .search img {
+    width: 14px;
+}
+
+#section .sub__section .search em {
+    color: #666;
+    font-size: 14px;
+}
+
+#section .sub__section .icon img {
+    width: 80px;
+    position: absolute;
+    bottom: 45px;
+    right: 40px;
+}
+
+/* info */
+#info h2 {
+    font-weight: bold;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+
+#info h2>span {
+    color: #666;
+    font-size: 26px;
+}
+
+#info .img__info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+#info .img__info .card {
+    width: 32%;
+    font-weight: bold;
+    position: relative;
+}
+
+#info .img__info .card .box {
+    width: 60px;
+    height: 60px;
+    background-color: #000;
+    color: #fff;
+    box-sizing: border-box;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    line-height: 60px;
+    text-align: center;
+}
+
+#info .img__info .card:first-child .box {
+    line-height: 1;
+    text-align: left;
+    padding: 14px;
+}
+
+#info .img__info .card img {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#info .img__info .card p {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+#info .img__info .card span {
+    font-size: 18px;
+}
+
+#info .img__info .card span>em {
+    color: #666;
+    font-size: 14px;
+}
+
+#info .img__info .card .shop a img {
+    width: 35px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-bottom: 0;
+}
+
+/* footer */
+#footer {
+    width: 100%;
+    padding: 40px 0;
+    color: #666;
+    font-size: 14px;
+    background-color: #202020;
+}
+
+.footer {
+    width: 1200px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer__left img {
+    width: 130px;
+}
+
+.footer__right ul li {
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.footer__right ul li a {
+    padding: 0 20px;
+    color: #fff;
+    font-weight: bold;
+    border-right: 1px solid #666;
+}
+
+.footer__right .pl a {
+    padding-left: 0;
+}
+
+.footer__right p {
+    margin-bottom: 10px;
+}
+
+/* script */
+.tab1.active {
+    background-color: #000;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.tab2.active {
+    background-color: #000;
+    color: #fff;
+    border-radius: 5px;
+}

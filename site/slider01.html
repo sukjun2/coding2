@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>슬라이드 유형01</title>
+    <link rel="stylesheet" href="/javascript/assets/css/style.css">
+    <link rel="stylesheet" href="/javascript/assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">사이트 만들기 : 슬라이드 유형01</h2>
+            <p class="t_desc2">
+                사이트 만들기 - 슬라이드 유형입니다. 헤더 이후로 바로 보이는 페이지로 글씨가 잘 보이도록 이미지 선정이 중요합니다.
+            </p>
+            <div class="t_iframe">
+                <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450"
+                    src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Ft8ZQorO0K3bCMVcc91XcF9%2F%25EC%2582%25AC%25EC%259D%25B4%25ED%258A%25B8-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0%3Fnode-id%3D648%253A1983"
+                    allowfullscreen></iframe>
+            </div>
+
+            <h3 class="t_tit2">HTML</h3>
+            <p class="t_box">
+                HTML 영역입니다. 제목을 blind 처리해주고, 슬라이드 영역 내부에 이미지, 본문, 버튼 등이 모두 들어있도록 구성해줍니다.<br>
+                이전, 다음으로 넘어가거나 재생, 일시정지 아이콘들에는 웹표준 준수를 위하여 ir 클래스를 사용해줍니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-html">&lt;section id="sliderType" class="slider__wrap"&gt;
+    &lt;h2 class="blind"&gt;슬라이드 영역&lt;/h2&gt;
+    &lt;div class="slider__inner"&gt;
+        &lt;div class="slider"&gt;
+            &lt;div class="slider__img"&gt;
+                &lt;div class="desc"&gt;
+                    &lt;span&gt;DEVELOPER&lt;/span&gt;
+                    &lt;h3&gt;NEW PROJECT&lt;/h3&gt;
+                    &lt;p&gt;
+                        너무 무리하지 말아요! 이미 당신은 잘하고 있고!&lt;br&gt;
+                        앞으로도 잘 할 수 있어요!
+                    &lt;/p&gt;
+                    &lt;div class="btn"&gt;
+                        &lt;a href="#"&gt;자세히 보기&lt;/a&gt;
+                        &lt;a href="#" class="black"&gt;사이트 보기&lt;/a&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="slider__arrow"&gt;
+                &lt;a href="#" class="left"&gt;&lt;span class="ir"&gt;이전 이미지&lt;/span&gt;&lt;/a&gt;
+                &lt;a href="#" class="right"&gt;&lt;span class="ir"&gt;다음 이미지&lt;/span&gt;&lt;/a&gt;
+            &lt;/div&gt;
+            &lt;div class="slider__dot"&gt;
+                &lt;a href="#" class="dot active"&gt;&lt;span class="ir"&gt;1&lt;/span&gt;&lt;/a&gt;
+                &lt;a href="#" class="dot"&gt;&lt;span class="ir"&gt;2&lt;/span&gt;&lt;/a&gt;
+                &lt;a href="#" class="dot"&gt;&lt;span class="ir"&gt;3&lt;/span&gt;&lt;/a&gt;
+                &lt;a href="#" class="play"&gt;&lt;span class="ir"&gt;플레이&lt;/span&gt;&lt;/a&gt;
+                &lt;a href="" class="stop"&gt;&lt;span class="ir"&gt;정지&lt;/span&gt;&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">CSS</h3>
+            <p class="t_box">
+                CSS 속성은 ir이나 blind 같은 공통부분을 제외한 sliderType만 가져왔습니다.<br>
+                background-position을 사용해 아이콘 반전효과, 위치 지정을하였습니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-css">/* sliderType */
+.slider__inner {
+    margin-top: 70px;
+}
+
+.slider {
+    position: relative;
+}
+
+.slider__img {
+    background: url(img/slider_bg01.jpg) no-repeat center / cover;
+}
+
+.slider__img .desc {
+    width: 1160px;
+    margin: 0 auto;
+    padding: 100px 20px;
+}
+
+.slider__img .desc span {
+    font-size: 16px;
+    background-color: #fff;
+    padding: 1px 14px 0 14px;
+    border-radius: 30px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.slider__img .desc h3 {
+    font-size: 110px;
+    font-weight: 300;
+    line-height: 1;
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    margin-left: -8px;
+}
+
+.slider__img .desc p {
+    font-size: 20px;
+    font-weight: 300;
+    color: #fff;
+    line-height: 1.35;
+    margin-bottom: 130px;
+}
+
+.slider__img .desc .btn a {
+    font-size: 16px;
+    background-color: #fff;
+    padding: 11px 50px;
+    display: inline-block;
+}
+
+.slider__img .desc .btn a.black {
+    background: #000;
+    color: #fff;
+}
+
+.slider__arrow a {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 56px;
+    background-image: url(img/slider_icon.svg);
+}
+
+.slider__arrow a.left {
+    left: 20px;
+}
+
+.slider__arrow a.right {
+    right: 20px;
+    background-position: -50px 0;
+}
+
+.slider__dot {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 25px;
+}
+
+.slider__dot a {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-image: url(../img/slider_icon.svg);
+    background-position: -20px -70px;
+}
+
+.slider__dot a.active {
+    background-position: 0px -70px;
+}
+
+.slider__dot a.play {
+    background-position: -40px -70px;
+}
+
+.slider__dot a.stop {
+    background-position: -60px -70px;
+}
+</code></pre>
+            </div>
+            <div class="t_iframe" style="min-height: 950px; padding-top: 0;">
+                <iframe src="https://sukjun2.github.io/coding2/site/sliderType/sliderType01.html"
+                    frameborder="0">headerType01</iframe>
+            </div>
+            <div class="t_link" style="display: flex;">
+                <a href="https://github.com/sukjun2/coding2/blob/main/site/sliderType/sliderType01.html">원본 소스 보기</a>
+                <a href="https://sukjun2.github.io/coding2/site/sliderType/sliderType01.html">원본 사이트 보기</a>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="/javascript/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>

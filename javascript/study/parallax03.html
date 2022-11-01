@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>자바스크립트 : 패럴랙스 이펙트03</title>
+        <link rel="stylesheet" href="../assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/dracula.css" />
+    </head>
+
+    <body>
+        <main id="main">
+            <div class="document">
+                <h2 class="t_tit">parallaxEffect03</h2>
+                <p class="t_desc2">
+                    패럴랙스 이펙트03번 - 모바일 웹페이지 형식처럼 스크롤을 아래로 내리면 상단의 메뉴바가 사라지고, 위로 드래그하면 메뉴바가 나타나도록 하였습니다.<br />
+                    스크롤이 하단 끝에 도달하면 Top 버튼이 하단 중앙부에서 올라와 클릭시 최상단으로 올라가도록 기능을 만들었습니다.
+                </p>
+
+                <hr />
+
+                <div class="t_iframe" style="min-height: 650px; padding-top: 0">
+                    <iframe src="https://sukjun2.github.io/coding2/javascript/effect/parallaxEffect03.html" frameborder="0"></iframe>
+                </div>
+
+                <div class="t_link" style="display: flex">
+                    <a href="https://github.com/sukjun2/coding2/blob/main/javascript/effect/parallaxEffect03.html">원본 소스 보기</a>
+                    <a href="https://sukjun2.github.io/coding2/javascript/effect/parallaxEffect03.html">원본 사이트 보기</a>
+                </div>
+
+                <h3 class="t_tit2">HTML</h3>
+                <p class="t_box">패럴랙스 2번과 동일한 구조에 Top 버튼을 추가하기 위해 parallax__top 영역을 추가하였습니다.</p>
+                <div class="t_code">
+                    <pre><code class="language-html">&lt;nav id="parallax__nav"&gt;
+    &lt;ul&gt;
+        &lt;li class="active"&gt;&lt;a href="#section1"&gt;메뉴1&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section2"&gt;메뉴2&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section3"&gt;메뉴3&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section4"&gt;메뉴4&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section5"&gt;메뉴5&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section6"&gt;메뉴6&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section7"&gt;메뉴7&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section8"&gt;메뉴8&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section9"&gt;메뉴9&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;
+&lt;!-- //parallax__nav --&gt;
+
+&lt;div id="parallax__top"&gt;
+    Top
+&lt;/div&gt;
+&lt;!-- //parallax__top --&gt;
+
+&lt;main id="parallax__cont"&gt;
+    &lt;div id="contents"&gt;
+        &lt;section id="section1" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;01&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section1&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc"&gt;내일은 내일의 태양이 뜬다.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- //section1 --&gt;
+
+        &lt;section id="section2" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;02&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section2&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc"&gt;삶이 있는 한 희망은 있다.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- //section2 --&gt;
+
+        &lt;section id="section3" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;03&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section3&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc"&gt;먼저 자신을 비웃어라, 다른 사람이 당신을 비웃기 전에.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- //section3 --&gt;
+        ...
+    &lt;/div&gt;
+&lt;/main&gt;
+&lt;!-- //main --&gt;
+
+&lt;aside id="parallax__info"&gt;
+    &lt;div class="scroll"&gt;scrollTop : &lt;span&gt;0&lt;/span&gt;px&lt;/div&gt;
+&lt;/aside&gt;
+&lt;!-- //parallax__info --&gt;
+</code></pre>
+                </div>
+
+                <h3 class="t_tit2">JAVASCRIPT</h3>
+                <p class="t_box">
+                    우선적으로, 스크롤의 위치값 찾기 위해 scrollTop값을 변수에 저장/출력합니다.<br />
+                    scrollTop값은 ceil 수학 메서드를 사용하여 소수점 숫자를 올림값으로 반환되도록 처리합니다.<br />
+                    추가한 Top버튼이 나타나는 스크롤 위치값을 구하기 위해 <i>전체 문서 높이 값 - 브라우저 높이 값</i>이 브라우저의 scrollTop값 보다 작다면 Top 버튼이 보이도록 이벤트를 부여합니다.<br />
+                    추가적으로 Top버튼을 클릭시 최상단으로 올라가는 효과를 부드럽게하는 이벤트를 추가합니다.<br />
+                    <br />
+                    트리거 변수를 사용하여, 스크롤이 실행되면 now Scroll = true가 되어 if문이 실행되고 다시 now Scroll = false로 바뀌면서 hasScroll 함수가 실행되도록 했습니다.<br />
+                    (now scroll = false로 바꾸는 이유는 스크롤 이동시에만 hasScroll 함수를 실행시키기 위함)<br />
+                    hasScroll 함수는 scrollTop값이 lastScroll보다 작다면, 상단의 메뉴바가 하단 스크롤시 사라지고 / 상단 스크롤시 나타나도록 합니다.<br />
+                    (lastScroll = scrollTop 은 lastScroll값에 scrollTop값을 적용시켜 함수 재실행을 위함)
+                </p>
+                <div class="t_code">
+                    <pre><code class="language-js">window.addEventListener("scroll", () => {
+    let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
+
+    //01
+    // if(scrollTop > 0){
+    //     document.querySelector("#parallax__nav").classList.add("show");
+    // } else {
+    //     document.querySelector("#parallax__nav").classList.remove("show");
+    // } // 스크롤바 0보다 커지면 메뉴가 나옵니다.
+
+    // 02
+    if (scrollTop > (document.body.scrollHeight - window.outerHeight)) {
+        document.querySelector("#parallax__top").classList.add("show");
+    } else {
+        document.querySelector("#parallax__top").classList.remove("show");
+    }
+
+    document.querySelector("#parallax__info span").innerText = Math.ceil(scrollTop);
+})
+
+// top 버튼
+document.querySelector("#parallax__top").addEventListener("click", () => {
+    window.scrollTo({ left: 0, top: 0, behavior: "smooth" });
+});
+
+//03
+let nowScroll = true;
+let lastScroll = 0;
+
+function scrollProgress() {
+    nowScroll = true;
+
+    setInterval(() => {
+        if (nowScroll) {
+            nowScroll = false;
+            hasScroll();
+        }
+    }, 300);
+}
+
+function hasScroll() {
+    let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
+
+    if (scrollTop &lt; lastScroll) {
+        document.querySelector("#parallax__nav").classList.add("show");
+    } else {
+        document.querySelector("#parallax__nav").classList.remove("show");
+    }
+    lastScroll = scrollTop;
+}
+
+window.addEventListener("scroll", scrollProgress);
+</code></pre>
+                </div>
+            </div>
+        </main>
+        <!-- //main -->
+
+        <footer id="footer">
+            <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+        </footer>
+        <!-- //footer -->
+
+        <script src="../assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>

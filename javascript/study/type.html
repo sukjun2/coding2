@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 데이터 타입</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">데이터 타입</h2>
+            <p class="t_desc2">
+                데이터 타입(Data Type)은 프로그래밍 언어에서 사용할 수 있는 데이터(숫자, 문자열, 불리언 등)의 종류를 말한다.<br>
+                코드에서 사용되는 모든 데이터는 메모리에 저장하고 참조할 수 있어야 한다.
+            </p>
+            <h3 class="t_tit2">number(숫자) 데이터</h3>
+            <p class="t_desc">
+                number 데이터는 정수, 소수점, 지수를 표현할 수 있습니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-js">var num1 = 10;
+var num2 = 10.5;
+var num3 = 1e+2;
+
+console.log(num1); // 10
+console.log(num2); // 10.5
+console.log(num3); // 100, 1e+2는 1*10의 2승을 의미합니다.
+</code></pre>
+        </div>
+
+            <h3 class="t_tit2">string(문자) 데이터</h3>
+            <p class="t_desc">
+                string 데이터는 ''또는 ""으로 표현할 수 있습니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-js">var str1 = '문자';
+var str2 = "문자";
+
+console.log(str1); // 문자
+console.log(str2); // 문자
+</code></pre>
+        </div>
+
+            <h3 class="t_tit2">boolean(논리) 데이터</h3>
+            <p class="t_desc">
+                boolean 데이터는 true(참)와 false(거짓)의 값을 표현합니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-js">var temp1 = (5 > 4);
+var temp2 = (5 &lt; 4);
+
+console.log(temp1); // true
+console.log(temp2); // false
+</code></pre>
+        </div>
+            <p class="t_desc">
+                boolean에서 0값은 false를 의미하며 0값 이외의 숫자나 문자 값은 true를 의미합니다.<br>
+                <i>Boolean() 명령어는 변수의 값을 false나 true로 변환</i>시켜주는 명령어입니다.
+            </p>
+
+            <h3 class="t_tit2">undefined 데이터</h3>
+            <p class="t_desc">
+                undefined 데이터는 변수는 선언하였으나 데이터 값을 지정하지 않았을 경우나 객체의 속성 값을 지정하지 않았을 경우에 자동으로 저장되는 값입니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-js">var temp1 = 10;
+var temp2;
+
+console.log(temp1); // 10
+console.log(temp2); // undefined -> 변수에 데이터 값이 없기 때문에 undefined가 저장됩니다.
+</code></pre>
+        </div>
+
+            <h3 class="t_tit2">null 데이터</h3>
+            <p class="t_desc">
+                null 데이터는 undefined와 유사하지만 변수를 빈(empty) 상태(초기화)로 만들거나, 데이터를 저장하였으나 값이 존재하지 않을 때 null값을 반환합니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-js">var obj = 10;
+obj = null
+
+console.log(obj); // null, 변수를 빈(empty) 상태로 만듭니다.
+</code></pre>
+        </div>
+            <p class="t_desc">
+                undefined와 null의 boolean은 false입니다.
+            </p>
+
+            <h3 class="t_tit2">typeof 명령</h3>
+            <p class="t_desc">
+                변수에 저장 되어 있는 데이터의 타입을 알아보려면 typeof 명령을 사용합니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-js">var num = 10;
+var str = '문자';
+
+console.log(typeof num); // number
+console.log(typeof str); // string
+</code></pre>
+        </div>
+            <p class="t_desc">
+                <i>console.log()의 결과 확인은 크롬 실행 후 개발자 도구(F12) console 탭에서 확인할 수 있습니다.</i>
+            </p>
+
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>

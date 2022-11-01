@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 패럴랙스 이펙트01</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">parallaxEffect01</h2>
+            <p class="t_desc2">
+                패럴랙스 이펙트01번 입니다. 스크롤 기준으로, 요소의 좌표값과 메뉴 버튼의 활성화 상태가 변경되도록 하였습니다.
+            </p>
+
+            <hr>
+
+            <div class="t_iframe" style="min-height: 650px; padding-top: 0;">
+                <iframe src="https://sukjun2.github.io/coding2/javascript/effect/parallaxEffect01.html"
+                    frameborder="0"></iframe>
+            </div>
+
+            <div class="t_link" style="display: flex;">
+                <a href="https://github.com/sukjun2/coding2/blob/main/javascript/effect/parallaxEffect01.html">원본 소스
+                    보기</a>
+                <a href="https://sukjun2.github.io/coding2/javascript/effect/parallaxEffect01.html">원본 사이트 보기</a>
+            </div>
+
+            <h3 class="t_tit2">HTML</h3>
+            <p class="t_box">
+                헤더와, 연결(nav), 콘텐츠, 사이드, 푸터 영역으로 나누었습니다.<br>
+                nav 영역은 현재 스크롤 영역이 어디인지, 클릭하면 그 메뉴의 영역을 볼 수 있도록 구성하였습니다.<br>
+                contents 영역은 이미지와 명언이 들어가는 본문 영역입니다.<br>
+                사이드(info) 영역은 현재 스크롤 좌표, 각 메뉴 요소들의 세로 좌표값을 js코드를 통해 볼 수 있도록 하였습니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-html">&lt;nav id="parallax__nav"&gt;
+    &lt;ul&gt;
+        &lt;li class="active"&gt;&lt;a href="#section1"&gt;메뉴1&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section2"&gt;메뉴2&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section3"&gt;메뉴3&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section4"&gt;메뉴4&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section5"&gt;메뉴5&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section6"&gt;메뉴6&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section7"&gt;메뉴7&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section8"&gt;메뉴8&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section9"&gt;메뉴9&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;
+&lt;!-- //parallax__nav --&gt;
+
+&lt;main id="parallax__cont"&gt;
+    &lt;div id="contents"&gt;
+        &lt;section id="section1" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;01&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section1&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc"&gt;내일은 내일의 태양이 뜬다.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- //section1 --&gt;
+
+        &lt;section id="section2" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;02&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section2&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc"&gt;삶이 있는 한 희망은 있다.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- //section2 --&gt;
+
+        &lt;section id="section3" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;03&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section3&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc"&gt;먼저 자신을 비웃어라, 다른 사람이 당신을 비웃기 전에.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- //section3 --&gt;
+
+        &lt;section id="section4" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;04&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section4&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc"&gt;평생 살 것처럼 꿈을 꾸어라, 그리고 내일 죽을 것처럼 오늘을 살아라.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- //section4 --&gt;
+
+        &lt;section id="section5" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;05&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section5&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc"&gt;꿈을 계속 간직하고 있으면 반드시 실현할 때가 온다.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- //section5 --&gt;
+
+        &lt;section id="section6" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;06&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section6&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc"&gt;고개 숙이지 마십시오. 세상을 똑바로 정면으로 바라보십시오.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- //section6 --&gt;
+
+        &lt;section id="section7" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;07&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section7&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc"&gt;신을 내보여라, 그러면 재능이 드러날 것이다.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- //section7 --&gt;
+
+        &lt;section id="section8" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;08&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section8&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc"&gt;최고에 도달하려면 최저에서 시작하라.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- //section8 --&gt;
+
+        &lt;section id="section9" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;09&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section9&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc"&gt;인생을 다시 산다면 다음번에는 더 많은 실수를 저지르리라.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- //section9 --&gt;
+    &lt;/div&gt;
+&lt;/main&gt;
+&lt;!-- //main --&gt;
+
+&lt;aside id="parallax__info"&gt;
+    &lt;div class="scroll"&gt;scrollTop : &lt;span&gt;0&lt;/span&gt;px&lt;/div&gt;
+    &lt;div class="info"&gt;
+        &lt;ul&gt;
+            &lt;li&gt;#section1 offset() : &lt;span class="offset1"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;#section2 offset() : &lt;span class="offset2"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;#section3 offset() : &lt;span class="offset3"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;#section4 offset() : &lt;span class="offset4"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;#section5 offset() : &lt;span class="offset5"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;#section6 offset() : &lt;span class="offset6"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;#section7 offset() : &lt;span class="offset7"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;#section8 offset() : &lt;span class="offset8"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;#section9 offset() : &lt;span class="offset9"&gt;0&lt;/span&gt;px&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/aside&gt;
+&lt;!-- //parallax__info --&gt;
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">JAVASCRIPT</h3>
+            <p class="t_box">
+                1. 요소의 세로 스크롤 값을 구하기 위해 scroll 이벤트 함수를 선언합니다.<br>
+                2. for문 or forEach문을 사용하여 스크롤 위치에 따른 메뉴의 활성화(active) 상태를 추가/제거합니다.<br>
+                (scrollTop:브라우저의 최상단에서 스크롤 한 값이 .content__item 클래스 요소의 상단과의 거리 값의 이상이라면)<br>
+                3. scroll span태그에 들어가는 scrollTop값이 반올림이 되도록 설정합니다.<br>
+                3-1. for문을 사용하여 offsetN클래스들의 offsetTop값을 출력합니다.<br>
+                4. 메뉴 이동이 부드러워지도록 클릭시 이벤트를 설정합니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-js">window.addEventListener("scroll", () => {
+    // let scrollTop = window.pageYOffset;
+    // let scrollTop = window.scrollY;
+    // let scrollTop = document.documentElement.scrollTop;
+    let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
+    //브라우저 호환에 따라 셋 중 한가지가 사용되도록 함
+
+    //for문
+    // for (let i = 1; i &lt;= 9; i++) {
+    //     if (scrollTop >= document.getElementById("section" + i).offsetTop) {
+    //         document.querySelectorAll("#parallax__nav li").forEach(li => {
+    //             li.classList.remove("active");
+    //         });
+    //         document.querySelector("#parallax__nav li:nth-child(" + i + ")").classList.add("active")
+    //     };
+    // }
+
+    //forEach문
+    document.querySelectorAll(".content__item").forEach((el, i) => {
+        if (scrollTop >= el.offsetTop - 2) {
+            document.querySelectorAll("#parallax__nav li").forEach(li => {
+                li.classList.remove("active");
+            });
+            document.querySelector("#parallax__nav li:nth-child(" + (i + 1) + ")").classList.add("active")
+        }
+    });
+    //스크롤을 계속 감지하기 때문에 과부하가 걸릴 수 밖에 없습니다.
+
+    //info
+    document.querySelector(".scroll span").innerText = Math.round(scrollTop);
+
+    for (let i = 1; i &lt;= 9; i++) {
+        document.querySelector(".offset" + i).innerText = document.getElementById("section" + i).offsetTop;
+    }
+});
+
+//스크롤 이동
+document.querySelectorAll("#parallax__nav li a").forEach(li => {
+    li.addEventListener("click", (e) => {
+        e.preventDefault();
+        document.querySelector(li.getAttribute("href")).scrollIntoView({
+            behavior: "smooth"
+        });
+    });
+});
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">이미지 참고자료</p>
+
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>

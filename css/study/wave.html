@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS : 웨이브 애니메이션</title>
+    <link rel="stylesheet" href="/javascript/assets/css/style.css">
+    <link rel="stylesheet" href="/javascript/assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">웨이브 애니메이션</h2>
+            <p class="t_desc2">
+                Code pen을 사용하여 꿀렁이는 웨이브 애니메이션을 만들어봤습니다.
+            </p>
+
+            <hr>
+
+            <div class="t_iframe" style="min-height: 600px; padding-top: 0;">
+                <iframe height="300" style="width: 100%;" scrolling="no" title="Wave Animation"
+                    src="https://codepen.io/sukjun2/embed/GRdmOBm?default-tab=result" frameborder="no" loading="lazy"
+                    allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href="https://codepen.io/sukjun2/pen/GRdmOBm">
+                        Wave Animation</a> by sukjun2 (<a href="https://codepen.io/sukjun2">@sukjun2</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                </iframe>
+            </div>
+
+            <h3 class="t_tit2">HTML</h3>
+            <p class="t_box">
+                html을 조금 더 세련되게 쓸 수 있는 템플릿 언어 pug를 사용하였습니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-html">div.circle-wrap
+- for (var x =1; x &lt;= 12; x++)
+    div.row
+    - for (var y = 1; y &lt;= 12; y++)
+        div.circle
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">CSS</h3>
+            <p class="t_box">
+                SCSS를 사용했습니다. mixin은 여러 여러 컴포넌트 간에 공통으로 사용하고 있는 로직, 기능들을 재사용하는 방법 정도로만 알고계시면 될거같습니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-css">@mixin center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body {
+    @include center;
+    height: 100vh;
+    background-image: linear-gradient(45deg, #00dbde 0%, #fc00ff 100%)
+}
+
+.row {
+        display: flex;
+}
+
+.circle {
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    margin: 5px 10px;
+    border-radius: 50%;
+    transform-origin: top center;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0%{transform: scale(1.1) rotate(0deg)}
+    50%{transform: scale(0.2) rotate(180deg)}
+    100%{transform: scale(1.1) rotate(360deg)}
+}
+/*   .row:nth-child(1) .circle {animation-delay: 100ms}
+.row:nth-child(2) .circle {animation-delay: 200ms}
+.row:nth-child(3) .circle {animation-delay: 300ms}
+.row:nth-child(4) .circle {animation-delay: 400ms} */
+@for $i from 1 through 12 {
+    .row:nth-child(#{$i}) .circle {animation-delay: 100ms * $i}
+}
+</code></pre>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="/javascript/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>

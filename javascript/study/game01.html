@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>자바스크립트 : 게임 이펙트</title>
+
+        <link rel="stylesheet" href="../assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/dracula.css" />
+    </head>
+
+    <body>
+        <header id="header"></header>
+        <!-- //header -->
+
+        <main id="main">
+            <div class="document">
+                <h2 class="t_tit">gameEffect</h2>
+
+                <hr />
+
+                <div class="t_iframe" style="min-height: 950px; padding-top: 0">
+                    <iframe src="https://sukjun2.github.io/coding2/javascript/effect/gameEffect01.html" frameborder="0"></iframe>
+                </div>
+
+                <div class="t_link" style="display: flex">
+                    <a href="https://github.com/sukjun2/coding2/blob/main/javascript/effect/gameEffect01.html">원본 소스 보기</a>
+                    <a href="https://sukjun2.github.io/coding2/javascript/effect/gameEffect.html">메인 페이지 보기</a>
+                </div>
+
+                <h3 class="t_tit2">JAVASCRIPT01</h3>
+                <p class="t_box">
+                    배경의 아이콘들이 드래그가 가능하도록 draggable메서드를 사용하여 설정하고, 아이콘을 드래그할 때 마우스 커서가 변경되도록 jquery attr메서드로 커서 이미지를 불러옵니다.<br />
+                    우상단 헤더에 시간을 출력해주기 위해 now변수에 new연산자를 사용해 Date 생성자를 호출해 저장합니다. 그리고 nowTime 변수에 년, 월, 일, 시, 분, 초를 쿼리문을 사용해 저장후 seTimeout을 통해 1초 단위로 업데이트 시켜줍니다.<br />
+                    am, pm표시와 각 숫자가 10의 자리 이하일 때, 앞에 0을 붙여 좀 더 자연스러운 디지털 시계처럼 만들어줍니다.<br />
+                    푸터에는 맥, 윈도우, 아이폰, 안드로이드 각 체제 사용여부, 화면크기를 출력해주도록 스크립트를 작성합니다.(navigator : navigator 객체는 브라우저에 대한 정보를 가지고 있는 객체입니다.)<br />
+                    헤더의 시간, 푸터의 운영체제 정보 and 화면크기를 출력해주는 함수를 실행시키고, 변경한 마우스 커서와 기존 마우스 커서의 위치값을 정렬해줍니다.
+                </p>
+                <div class="t_code">
+                    <pre><code class="language-js">$(".icon1").draggable({
+    drag: function () {
+        $(".cursor img").attr("src", "../assets/img/cursor1.png");
+    },
+});
+$(".icon2").draggable({
+    drag: function () {
+        $(".cursor img").attr("src", "../assets/img/cursor2.png");
+    },
+});
+$(".icon3").draggable({
+    drag: function () {
+        $(".cursor img").attr("src", "../assets/img/cursor3.png");
+    },
+});
+$(".icon4").draggable({
+    drag: function () {
+        $(".cursor img").attr("src", "../assets/img/cursor4.png");
+    },
+});
+$(".icon5").draggable({
+    drag: function () {
+        $(".cursor img").attr("src", "../assets/img/cursor5.png");
+    },
+});
+$(".icon6").draggable({
+    drag: function () {
+        $(".cursor img").attr("src", "../assets/img/cursor3.png");
+    },
+});
+$(".music__inner").draggable();
+
+function printTime() {
+    const clock = document.querySelector(".time");
+    const now = new Date();
+    let hours = now.getHours();
+    const minutes = now.getMinutes();
+    const seconds = now.getSeconds();
+
+    const ampm = hours >= 12 ? "pm" : "am";
+    hours = hours % 12 || 12;
+
+    // const nowTime = now.getFullYear() + "년 " + (now.getMonth() + 1) + "월 " + now.getDate() + "일 " + now.getHours() + ":" + now.getMinutes() + ()":"now.()getMnow.getS now.()getSeconds();
+    const nowTime = `${now.getFullYear()}년 ${now.getMonth() + 1}월 ${now.getDate()}일 ${hours < 10 ? `0${hours}` : `${hours}`}:${minutes < 10 ? `0${minutes}` : `${minutes}`}:${seconds < 10 ? `0${seconds}` : `${seconds}`} ${ampm}`;
+    clock.innerText = nowTime;
+    setTimeout("printTime()", 1000);
+}
+
+function printAgent() {
+    const agent = document.querySelector(".agent");
+    const os = navigator.userAgent.toLocaleLowerCase();
+
+    agent.innerHTML = os;
+
+    if (os.indexOf("window") >= 0) {
+        agent.innerText = "현재 윈도우를 사용하고 있으며, 화면크기는 " + screen.width + "*" + screen.height + "입니다.";
+        document.querySelector("body").classList.add("window");
+    } else if (os.indexOf("macintosh") >= 0) {
+        agent.innerText = "현재 맥을 사용하고 있으며, 화면크기는 " + screen.width + "*" + screen.height + "입니다.";
+        document.querySelector("body").classList.add("mac");
+    } else if (os.indexOf("iphone") >= 0) {
+        agent.innerText = "현재 아이폰을 사용하고 있으며, 화면크기는 " + screen.width + "*" + screen.height + "입니다.";
+        document.querySelector("body").classList.add("iphone");
+    } else if (os.indexOf("android") >= 0) {
+        agent.innerText = "현재 안드로이드폰을 사용하고 있으며, 화면크기는 " + screen.width + "*" + screen.height + "입니다.";
+        document.querySelector("body").classList.add("android");
+    }
+}
+
+window.onload = function () {
+    printTime();
+    printAgent();
+};
+
+const cursor = document.querySelector(".cursor");
+
+window.addEventListener("mousemove", (e) => {
+    gsap.to(cursor, { duration: 0, left: e.pageX - 3, top: e.pageY - 3 });
+});
+</code></pre>
+                </div>
+
+                <h3 class="t_tit2">JAVASCRIPT02</h3>
+                <p class="t_box">소스 보기 아이콘 클릭시 이벤트를 부여하는 스크립트입니다.</p>
+                <div class="t_code">
+                    <pre><code class="language-js">const modalBtnIcon = document.querySelector(".icon6");
+const modalClose = document.querySelector(".modal__close");
+const modalCont = document.querySelector(".modal__cont");
+
+modalBtnIcon.addEventListener("click", () => {
+    modalCont.classList.add("show");
+    modalCont.classList.remove("hide");
+});
+modalClose.addEventListener("click", () => {
+    modalCont.classList.add("hide");
+}); 
+</code></pre>
+                </div>
+                <br />
+                <p class="t_desc2">gameEffect01 첫 번째 게시글입니다. js양이 굉장해서 나눠서 올릴 예정입니다..ㅜ</p>
+                <!-- //javascript01 -->
+            </div>
+        </main>
+
+        <footer id="footer">
+            <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+        </footer>
+        <!-- //footer -->
+
+        <script src="../assets/js/highlight.min.js"></script>
+        <script src="../assets/js/common.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>

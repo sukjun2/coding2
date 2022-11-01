@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 문자열 결합 / 템플릿 문자열</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">문자열 : 문자열 결합 / 템플릿 문자열</h2>
+            <p class="t_desc2">
+                템플릿 리터럴은 백틱(`) 문자로 구분된 리터럴로, 여러 줄 문자열 , 포함된 표현식을 사용한 문자열 보간 및 태그가 지정된 템플릿 이라는 특수 구성을 허용 합니다.<br>
+                따옴표 대신 ``(백틱) 문자로 문자열을 감싸서 만드는데 ${} 안에 표현식을 넣어 값이나 간단한 식 등 자바스크립트 문법을 문자열 안에 사용할 수 있습니다.
+            </p>
+            <table class="t_table" style="text-align: center;">
+                <thead>
+                    <tr>
+                        <th>번호</th>
+                        <th>기본값</th>
+                        <th>메서드</th>
+                        <th>리턴값</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>자바스크립트, 제이쿼리</td>
+                        <td>문자열(string) 결합</td>
+                        <td>자바스크립트제이쿼리</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>100, 200</td>
+                        <td>숫자(number) 결합</td>
+                        <td>300</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>모던, 자바스크립트, 핵심</td>
+                        <td>문자열(string) 결합</td>
+                        <td>나는 모던(modern) 자바스크립트(javascript) 핵심을 배우고 싶다.</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>모던, 자바스크립트, 핵심</td>
+                        <td>템플릿 문자열</td>  
+                        <td>나는 모던(modern) 자바스크립트(javascript) 핵심을 배우고 싶다.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- 01 -->
+            <div class="t_code">
+<pre><code class="language-js">//01
+const str1 = "자바스크립트";
+const str2 = "제이쿼리";
+
+document.querySelector(".sample01_N1").innerHTML = "1";
+document.querySelector(".sample01_Q1").innerHTML = "자바스크립트, 제이쿼리";
+document.querySelector(".sample01_M1").innerHTML = "문자열(string) 결합";
+document.querySelector(".sample01_P1").innerHTML = str1 + str2;
+
+//02
+const num1 = 100;
+const num2 = 200;
+
+document.querySelector(".sample01_N2").innerHTML = "2";
+document.querySelector(".sample01_Q2").innerHTML = "100, 200";
+document.querySelector(".sample01_M2").innerHTML = "숫자(number) 결합";
+document.querySelector(".sample01_P2").innerHTML = num1 + num2;
+
+//03
+const text1 = "모던";
+const text2 = "자바스크립트";
+const text3 = "핵심";
+
+document.querySelector(".sample01_N3").innerHTML = "3";
+document.querySelector(".sample01_Q3").innerHTML = "모던, 자바스크립트, 핵심";
+document.querySelector(".sample01_M3").innerHTML = "문자열(string) 결합";
+document.querySelector(".sample01_P3").innerHTML = "나는 " + text1 + "(modern) " + text2 + "(javascript) " + text3 + "을 배우고 싶다.";
+
+//04
+document.querySelector(".sample01_N4").innerHTML = "4";
+document.querySelector(".sample01_Q4").innerHTML = "모던, 자바스크립트, 핵심";
+document.querySelector(".sample01_M4").innerHTML = "템플릿 문자열";
+document.querySelector(".sample01_P4").innerHTML = `나는 ${text1}(modern) ${text2}(javascript) ${text3}을 배우고 싶다.`;
+</code></pre>
+            </div>
+            <h3 class="t_tit2">예제</h3>
+            <p class="t_desc">문자열을 작성하는데 ${}으로 원하는 변수의 값을 넣고 쭉 작성하면 됩니다.</p>
+            <div class="t_code">
+<pre><code class="language-js">var string1 = '안녕하세요?';
+var name = 'CrackCo'
+var string2 = '입니다.';
+var result = `${string1} ${name}${string2}`
+console.log(result);
+// 안녕하세요? CrackCo입니다.
+</code></pre>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

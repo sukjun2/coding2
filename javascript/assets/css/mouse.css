@@ -1,0 +1,465 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "NexonLv1Gothic";
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+body.img01 {
+    background: url(../img/effect_bg01@2x-min.jpg) no-repeat center / cover;
+}
+
+body.img02 {
+    background: url(../img/effect_bg02@2x-min.jpg) no-repeat center / cover;
+}
+
+body.img03 {
+    background: url(../img/effect_bg03@2x-min.jpg) no-repeat center / cover;
+}
+
+body.img04 {
+    background: url(../img/effect_bg04@2x-min.jpg) no-repeat center / cover;
+}
+
+body.img05 {
+    background: url(../img/effect_bg05@2x-min.jpg) no-repeat center / cover;
+}
+
+body.img06 {
+    background: url(../img/effect_bg06@2x-min.jpg) no-repeat center / cover;
+}
+
+body.img07 {
+    background: url(../img/effect_bg07@2x-min.jpg) no-repeat center / cover;
+}
+
+body.img08 {
+    background: url(../img/effect_bg08@2x-min.jpg) no-repeat center / cover;
+}
+
+body.img09 {
+    background: url(../img/effect_bg09@2x-min.jpg) no-repeat center / cover;
+}
+
+body.img10 {
+    background: url(../img/effect_bg10@2x-min.jpg) no-repeat center / cover;
+}
+
+body::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(214, 81, 81, 0.2);
+    z-index: -1;
+}
+
+img {
+    width: 100%;
+    vertical-align: top;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+em {
+    font-style: normal;
+}
+
+li {
+    list-style: none;
+}
+
+/* layout */
+#header {
+    z-index: 2000;
+}
+
+#main {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    z-index: 1000;
+}
+
+#footer {
+    position: relative;
+    z-index: 3000;
+}
+
+/* header */
+#header {
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #fff;
+    padding: 20px;
+}
+
+#header h1 {
+    display: inline-block;
+    font-weight: 300;
+    margin-bottom: 10px;
+    border-bottom: 1px dashed #fff;
+}
+
+#header p {
+    margin-bottom: 10px;
+}
+
+#header li {
+    display: inline-block;
+}
+
+#header li a {
+    border: 1px solid #fff;
+    border-radius: 50%;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 16px;
+}
+
+#header li.active a {
+    background-color: #fff;
+    color: #33377d;
+}
+
+/* footer */
+#footer .source {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    border: 1px solid #fff;
+    border-radius: 40px;
+    padding: 10px 20px 5px;
+    font-size: 14px;
+}
+
+/* modal__wrap */
+.modal__btn {
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 50px;
+    display: inline-block;
+    padding: 15px 20px 15px 20px;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.modal__btn:hover {
+    background-color: #fff;
+    color: #3b3d63;
+}
+
+.modal__cont {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.3);
+    position: fixed;
+    left: 0;
+    top: 0;
+    overflow-x: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0);
+}
+
+/*  요소를 안보이게 하는 방법
+        1. display: none;       (애니메이션X, 영역X)
+        2. opacity: 0;          (애니메이션O, 영역O)
+        3. visibility: hidden;  (애니메이션X, 영역X)
+        4. transform: scale(0); (애니메이션O, 영역X)
+        5. width: 0; height: 0; (애니메이션X, 영역X) : blind
+*/
+
+.modal__box {
+    width: 70%;
+    height: 70vh;
+    border-radius: 0.6rem;
+    box-shadow: 0 10px 20px -5px hsl(180deg 2% 10%);
+    transform: scale(0);
+}
+
+.modal__box .title {
+    padding-inline: 1rem;
+    cursor: grab;
+    background-color: #36110e;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    height: 50px;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+}
+
+.modal__box .title .dot {
+    width: 15px;
+    height: 15px;
+    background-color: #f3ec2f;
+    display: inline-block;
+    border-radius: 50%;
+    position: relative;
+    margin-left: 30px;
+}
+
+.modal__box .title .dot::before {
+    content: "";
+    position: absolute;
+    left: 25px;
+    top: 0;
+    width: 15px;
+    height: 15px;
+    background-color: #f32525;
+    border-radius: 50%;
+}
+
+.modal__box .title .dot::after {
+    content: "";
+    position: absolute;
+    right: 25px;
+    top: 0;
+    width: 15px;
+    height: 15px;
+    background-color: #51ec46;
+    border-radius: 50%;
+}
+
+.modal__box .title .plus {
+    background-color: #705a58;
+    padding: 0.5rem 0.5rem 0.25rem 0.5rem;
+    border-radius: 0.5rem;
+}
+
+.modal__box .title .tabs {
+    display: flex;
+    margin-left: 50px;
+}
+
+.modal__box .title .tabs > div {
+    color: hsl(39, 33%, 66%);
+    background-color: hsl(0, 0%, 20%);
+    padding: 0.35rem 0.8rem 0.35rem 0.8rem;
+    margin-right: 0.5rem;
+    display: flex;
+    align-items: center;
+    border-radius: 0.4rem;
+    text-transform: uppercase;
+}
+
+.modal__box .title .tabs > div.active {
+    background-color: #c9685f;
+}
+
+.modal__box .title .tabs > div em {
+    font-style: normal;
+}
+
+.modal__box .title .tabs > div .favicon {
+    margin-right: 0.4rem;
+    margin-top: 0.3rem;
+}
+
+.modal__box .title .tabs > div .close {
+    margin-left: 5rem;
+}
+
+.modal__box .cont {
+    background-color: #282936;
+    height: 100%;
+    overflow-y: auto;
+    box-sizing: border-box;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+}
+
+.modal__box .cont > div {
+    display: none;
+}
+
+.modal__box .cont > div.active {
+    display: block;
+    height: 100%;
+}
+
+.modal__close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    background-color: #f32525;
+    padding: 1rem 1rem 0.7rem 1rem;
+    border-radius: 5px;
+    box-shadow: 0 5px 7px -5px hsl(180deg 2% 10%);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.modal__close:hover {
+    background-color: #c9685f;
+}
+
+.modal__close svg {
+    color: #fff;
+}
+
+/* 모달 애니메이션 */
+.modal__cont.show {
+    /* visibility: visible; */
+    animation: foldOut 0.7s forwards ease;
+}
+
+.modal__cont.show .modal__box {
+    animation: zoomOut 0.4s 0.5s ease forwards;
+}
+
+.modal__cont.show .modal__close {
+    animation: CloseOut 0.3s 1s ease forwards;
+    opacity: 0;
+}
+
+.modal__cont.show.hide {
+    /* visibility: visible; */
+    animation: foldIn 0.3s 0.6s ease backwards;
+}
+
+.modal__cont.show.hide .modal__box {
+    animation: zoomIn 0.3s 0.3s ease backwards;
+}
+
+.modal__cont.show.hide .modal__close {
+    animation: CloseIn 0.3s ease backwards;
+}
+
+@keyframes foldOut {
+    0% {
+        transform: scaleX(0) scaleY(0.001);
+    }
+
+    50% {
+        transform: scaleX(1) scaleY(0.001);
+    }
+
+    100% {
+        transform: scaleX(1) scaleY(1);
+    }
+}
+
+@keyframes foldIn {
+    0% {
+        transform: scaleX(1) scaleY(1);
+    }
+
+    50% {
+        transform: scaleX(1) scaleY(0.001);
+    }
+
+    100% {
+        transform: scaleX(0) scaleY(0.001);
+    }
+}
+
+@keyframes zoomOut {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes zoomIn {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(0);
+    }
+}
+
+@keyframes CloseOut {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes CloseIn {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* 미디어 쿼리 */
+
+@media (max-width: 1100px) {
+    .modal__box .title {
+        overflow: hidden;
+    }
+
+    .modal__box .title .dot {
+        display: none;
+    }
+
+    .modal__box .title .tabs {
+        margin-left: 0;
+    }
+
+    .modal__box .title .tabs > div .close {
+        display: none;
+    }
+}
+
+@media (max-width: 800px) {
+    #header {
+        width: 100%;
+        text-align: center;
+    }
+
+    #header h1 {
+        line-height: 1.4;
+    }
+
+    .modal__box {
+        width: 96%;
+    }
+}
+
+/* scroll */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(203, 104, 98, 0.1);
+    border-radius: 20px;
+}

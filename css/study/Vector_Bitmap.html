@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS : 벡터와 비트맵</title>
+    <link rel="stylesheet" href="/javascript/assets/css/style.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">벡터와 비트맵</h2>
+            <hr>
+            <h3 class="t_tit2">벡터</h3>
+            <p class="t_desc2">벡터 방식은 <i>점과 점을 연결해만든 곡선</i>으로 이미지를 구성하는 방식으로, 수학적으로 계산된 함수 관계로 이미지를 표현하여 선과 면을 만들어냅니다.</p>
+            <p class="t_box">
+                벡터는 기본적인 점의 위치 정보 정도만 기억하면 되기 때문에 파일의 크기가 작고, 이미지를 축소하거나 확대해도 이미지에 손상을 주지 않는 것이 큰 장점입니다.<br>
+                하지만 컬러의 자연스러운 변화나 세밀한 그림을 표현하기 어렵고, 이미지를 구성하는 객체가 다양하고 많아질 수록 그래픽 처리 시간도 많이 소요된다는 단점이 있습니다.<br>
+                때문에 주로 단순한 아이콘이나 캐릭터등의 일러스트 이미지, 로고 디자인 등에 많이 사용됩니다.
+            </p>
+            <h3 class="t_tit2">비트맵</h3>
+            <p class="t_desc2">비트맵 이미지는 이미지 정보를 가진 <i>정사각형 모양의 픽셀</i> 수백개가 모여 전체 이미지를 구성하는 방식입니다.</p>
+            <p class="t_box">
+                비트맵은 비트bit로 이루어진 지도map란 뜻으로, 각 픽셀에 저장된 일련된 비트 정보 집합을 말합니다. 8비트 이미지는 한 픽셀당 8비트의 정보를 담고 있다는 뜻입니다.<br>
+                비트맵은 벡터와 다르게 픽셀의 점 하나 하나가 이미지를 이루는 요소이기 때문에, 저마다 다른 색상 정보가 들어있는 픽셀이 몇 개가 사용됐는지에 따라 이미지의 질이 달라집니다.<br>
+                이미지의 색상을 최대한 자연스럽게 표현하고 싶다면 많은 픽셀을 사용하면 됩니다.
+            </p>
+
+            <h3 class="t_tit2">벡터와 비트맵의 장,단점(차이)</h3>
+            <table class="t_table">
+                <colgroup>
+                    <col width="10%">
+                    <col>
+                    <col>
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>장점</th>
+                        <th>단점</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="ce">벡터</td>
+                        <td>
+                            자유롭게 확대하거나 축소해도 해상도에 영향을 받지 않습니다.<br>
+                            용량이 많이 늘어나지 않습니다.
+                        </td>
+                        <td>
+                            사진이나 이미지처럼 정교한 그래픽 표현에는 한계가 있습니다.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="ce">비트맵</td>
+                        <td>많은 픽셀로 <i>정교하고 다양한 색상</i>을 가진 이미지를 만들 수 있습니다.</td>
+                        <td>이미지를 확대하고 축소할 수는 있으나, 깨짐 현상과 이미지 품질이 저하됩니다.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 class="t_tit2">이미지의 종류 및 특징</h3>
+            <table class="t_table">
+                <colgroup>
+                    <col width="10%">
+                    <col>
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>종류</th>
+                        <th>특징</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="ce">JPG<br>(JPEG)</td>
+                        <td>
+                            - 손실 압축(이미지를 손상시키면서 저장<br>
+                            - 표현 색상도(24비트 컬러, 약 1600만 색상)가 뛰어나 고해상도 표시 장치에 적합함<br>
+                            - 가장 널리 쓰이는 이미지 포맷.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="ce">GIF</td>
+                        <td>
+                            - 비손실 압축<br>
+                            - 이미지 파일 내에 이미지 및 문자열 같은 정보들을 저장할 수 있음<br>
+                            - 8비트 컬러만 지원
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="ce">PNG</td>
+                        <td>
+                            - 비손실 압축<br>
+                            - 8비트(256 색상)/24비트(약 1600만 색상) 컬러 이미지 동시 지원 및 처리<br>
+                            - W3C의 권장 포맷
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="ce">WEBP</td>
+                        <td>
+                            구글에서 개발한 .jpg, .png, .gif를 모두 대체할 수 있는 이미지 포맷<br>
+                            - 완벽한 손실/비손실 압축 동시 지원(선택 사용 가능)<br>
+                            - 지원 브라우저에 제한이 있음(Explorer에서는 지원하지 않음)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="ce">SVG</td>
+                        <td>
+                            - 마크업 언어(HTML/XML) 기반의 Vector 그래픽을 표현하는 포맷<br>
+                            - 해상도의 영향에서 자유로움<br>
+                            - CSS로 어느 정도의 스타일링 가능<br>
+                            - JavaScript로 Event Handling 가능<br>
+                            - 코드 혹은 파일로 사용 가능
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>

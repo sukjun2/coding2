@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : mouseenter / mouseover 차이점</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">mouseenter / mouseover 차이점</h2>
+            <p class="t_desc">마우스 이벤트의 종류</p>
+            <p class="t_desc2">
+                click : 마우스를 클릭할 때 발생<br>
+                dbclick : 마우스를 더블 클릭할 때 발생<br>
+                mousedown : 마우스 버튼을 누를 때 발생<br>
+                mouseup : 마우스 버튼을 뗄 때 발생<br>
+                <i>mouseenter</i> : 마우스가 요소의 경계 외부에서 내부로 이동할 때 발생<br>
+                mouseleave : 마우스가 요소의 경계 내부에서 외부로 이동할 때 발생<br>
+                mousemove : 마우스를 움직일 때 발생<br>
+                mouseout : 마우스가 요소를 벗어날 때 발생<br>
+                <i>mouseover</i> : 마우스를 요소 안에 들어올 때 발생
+            </p>
+
+            <hr>
+
+            <h3 class="t_tit2">mouseenter</h3>
+            <p class="t_box">
+                JS 에서는 Explorer전용 이벤트이나 jQuery 에서는 브라우저를 고려하지 않고 작동이 되도록 구성요소에 마우스 포인터가 진입하면 발생합니다.<br>
+                (<i>오직 자기 자신에게 마우스 포인터가 와야만 발생합니다.</i>)
+            </p>
+
+            <h3 class="t_tit2">mouseover</h3>
+            <p class="t_box">
+                <i>직접 이벤트를 걸지 않은 자식요소에 마우스 포인터가 와도 발생합니다.</i>
+            </p>
+            
+            <p class="t_desc">
+                왼쪽이 mouseover, 오른쪽이 mouseenter입니다. 천천히 마우스를 움직여 차이점을 확인해보세요!
+            </p>
+            <div class="t_frame" style="min-height: 600px; padding-top: 0;">
+                <iframe height="300" style="width: 100%;" scrolling="no" title="Untitled"
+                    src="https://codepen.io/sukjun2/embed/QWrwxKK?default-tab=result" frameborder="no" loading="lazy"
+                    allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href="https://codepen.io/sukjun2/pen/QWrwxKK">
+                        Untitled</a> by sukjun2 (<a href="https://codepen.io/sukjun2">@sukjun2</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                </iframe>
+            </div>
+
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>

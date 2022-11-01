@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>프로그래머스 1단계 : 짝수와 홀수</title>
+        <link rel="stylesheet" href="../assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/dracula.css" />
+    </head>
+
+    <body>
+        <main id="main">
+            <div class="document">
+                <h2 class="t_tit">프로그래머스 1단계 : 짝수와 홀수</h2>
+                <p class="t_desc2">정수 num이 짝수일 경우 "Even"을 반환하고 홀수인 경우 "Odd"를 반환하는 함수, solution을 완성해주세요.</p>
+                <hr />
+                <br />
+                <h3>※ 제한사항</h3>
+                <div class="t_box">
+                    num은 int 범위의 정수입니다. <br />
+                    0은 짝수입니다
+                </div>
+                <br />
+                <h3>※ 입출력 예</h3>
+                <table class="t_table">
+                    <thead>
+                        <tr>
+                            <th>num</th>
+                            <th>return</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>3</td>
+                            <td>"Odd"</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>"Even"</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br />
+                <div class="t_code">
+                    <pre><code class="language-js">function solution(num) {
+    let answer = '';
+    if(num % 2 == 0){
+        answer = 'Even';
+    } else {
+        answer = 'Odd';
+    }
+    return answer;
+}
+</code></pre>
+                </div>
+                <br />
+                <div class="t_box">num값을 2로 나눈 나머지값이 0이면 짝수가 되므로 Even을 출력하고, 아니라면 Odd를 출력하도록 if문을 사용하여 작성합니다.</div>
+            </div>
+        </main>
+        <!-- //main -->
+
+        <footer id="footer">
+            <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+        </footer>
+        <!-- //footer -->
+
+        <script src="../assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>

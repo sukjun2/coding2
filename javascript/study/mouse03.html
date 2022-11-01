@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 마우스 이펙트03</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">mouseEffect03</h2>
+            <p class="t_desc2">
+                마우스 이펙트03번 - 조명 효과 입니다. 마우스 포인터를 원형 도형으로 변경하여 내부에 조명을 비추는 듯한 효과를 주었습니다.
+            </p>
+
+            <hr>
+
+            <div class="t_iframe" style="min-height: 650px; padding-top: 0;">
+                <iframe src="https://sukjun2.github.io/coding2/javascript/effect/mouseEffect03.html"
+                    frameborder="0"></iframe>
+            </div>
+
+            <div class="t_link" style="display: flex;">
+                <a href="https://github.com/sukjun2/coding2/blob/main/javascript/effect/mouseEffect03.html">원본 소스
+                    보기</a>
+                <a href="https://sukjun2.github.io/coding2/javascript/effect/mouseEffect03.html">원본 사이트 보기</a>
+            </div>
+
+            <h3 class="t_tit2">CSS</h3>
+            <p class="t_box">
+                CSS에 추가한 코드만 가져왔습니다. 커서를 원형으로 변경하고 원형 내부에 배경과 동일한 백그라운드 이미지를 삽입하고 사이즈와 출력되는 위치를 설정합니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-css">.mouse__cursor {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 200px;
+    height: 200px;
+    z-index: -1;
+    border-radius: 50%;
+    background-image: url(../assets/img/effect_bg06@2x-min.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    border: 5px solid #fff;
+}
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">JAVASCRIPT</h3>
+            <p class="t_box">
+                cursor변수를 선언하고, 포인터의 크기를 알기 위해 getBoundingClientRect함수를 사용해줍니다.<br>
+                console.log를 통해 getBoundingClientRect함수의 값을 확인할 수 있습니다.<br>
+                이벤트를 부여하고 부드러운 효과를 위해 gsap를 사용합니다. 이벤트 효과에 0.5초의 지연율을 주고, 이벤트가 일어나는 원형의 중앙부를 커서와 일치시킵니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-js">const cursor = document.querySelector(".mouse__cursor");
+
+// const circleW = cursor.offsetWidth; //200
+// const circleH = cursor.offsetHeight; //200
+// const circle2 = cursor.clientWidth; //190 : 보더값 제외
+
+const circle = cursor.getBoundingClientRect();  // 엘리먼트의 크기와 뷰포트에 상대적인 위치 정보를 제공하는 DOMRect 객체를 반환합니다.
+
+console.log(circle);
+// const DOMRect = {
+//     x: 0, 
+//     y: 0,
+//     bottom: 200,
+//     height: 200,
+//     left: 0,
+//     right: 200,
+//     top: 0,
+//     width: 200
+// }
+
+window.addEventListener("mousemove", (e) => {
+    gsap.to(cursor, {
+        duration: 0.5,
+        left: e.pageX - circle.width / 2,
+        top: e.pageY - circle.height / 2
+    });
+});
+</code></pre>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>

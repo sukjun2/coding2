@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>자바스크립트 : 패럴랙스 이펙트06</title>
+        <link rel="stylesheet" href="../assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/dracula.css" />
+    </head>
+
+    <body>
+        <main id="main">
+            <div class="document">
+                <h2 class="t_tit">parallaxEffect06</h2>
+                <p class="t_desc2">패럴랙스 이펙트06 - 텍스트 효과</p>
+
+                <hr />
+
+                <div class="t_iframe" style="min-height: 650px; padding-top: 0">
+                    <iframe src="https://sukjun2.github.io/coding2/javascript/effect/parallaxEffect06.html" frameborder="0"></iframe>
+                </div>
+
+                <div class="t_link" style="display: flex">
+                    <a href="https://github.com/sukjun2/coding2/blob/main/javascript/effect/parallaxEffect06.html">원본 소스 보기</a>
+                    <a href="https://sukjun2.github.io/coding2/javascript/effect/parallaxEffect06.html">원본 사이트 보기</a>
+                </div>
+
+                <h3 class="t_tit2">JAVASCRIPT</h3>
+                <p class="t_box">
+                    split(), join() 메서드를 사용하여 각 content__item의 명언을 각 한글자씩 span태그로 쪼개(?)줍니다.<br />
+                    (aria-hidden : true를 주어 불필요한 스크린 리더와 같은 보조기술 사용자의 콘텐츠 탐색을 제한합니다.)<br />
+                    (span태그로 인해 쪼개(?)진 span태그를 한 글자씩 인식하는 것을 방지하기 위해 text.setAttribute("aria-label", splitText) 사용)<br />
+                    scroll()함수를 사용하여 scrollTop값을 저장 후 출력, index값을 통해 한 글자씩 CSS의 애니메이션 효과로 출력되도록합니다.
+                </p>
+                <div class="t_code">
+                    <pre><code class="language-js">// 글씨 쪼개(?)기(다중이)
+document.querySelectorAll(".split").forEach((text) => {
+    let splitText = text.innerText;
+    let splitWrap = splitText.split("").join("&lt;/span>&lt;span aria-hidden='true'>");
+    splitWrap = "&lt;span aria-hidden='true'>" + splitWrap + "&lt;/span>";
+    text.innerHTML = splitWrap;
+    text.setAttribute("aria-label", splitText);
+});
+
+function scroll() {
+    let scrollTop = window.scrollY;
+    document.querySelector("#parallax__info .scroll span").innerText = Math.round(scrollTop);
+
+    document.querySelectorAll(".content__item").forEach((item) => {
+        if (scrollTop >= item.offsetTop) {
+            item.querySelectorAll(".split span").forEach((span, i) => {
+                span.classList.add("show");
+
+                span.style.transition = i + "00ms";
+
+                // item.querySelectorAll(".split span.show").forEach((el, i) => {
+                //     el.classList.add(`:nth-child${i}`);
+                //     el.style.transition = i + "00ms";
+                // });
+            });
+        }
+    });
+    requestAnimationFrame(scroll);
+
+    // 첫 번째 span --> 0.01s --> (i)  10ms
+    // 두 번째 span --> 0.02s          20ms
+    // 세 번째 span --> 0.03s          30ms
+}
+scroll();
+</code></pre>
+                </div>
+            </div>
+        </main>
+        <!-- //main -->
+
+        <footer id="footer">
+            <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+        </footer>
+        <!-- //footer -->
+
+        <script src="../assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>

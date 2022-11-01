@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS : 이미지 스프라이트 / IR 효과 / 백그라운드 표현</title>
+    <link rel="stylesheet" href="/javascript/assets/css/style.css">
+    <link rel="stylesheet" href="/javascript/assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">이미지 스프라이트 / IR 효과 / 백그라운드 표현</h2>
+
+            <hr>
+
+            <h3 class="t_tit2">이미지 스프라이트</h3>
+            <p class="t_desc2">
+                이미지 스프라이트(image sprite)란 <i>여러 개의 이미지를 하나의 이미지로 합쳐서</i> 관리하는 이미지를 의미합니다.
+            </p>
+            <div class="t_box">
+                이미지 스프라이트(image sprite)를 사용하면 이미지를 다운받기 위한 서버 요청을 단 몇 번으로 줄일 수 있습니다.<br>
+                모바일 환경과 같이 한정된 자원을 사용하는 플랫폼(platform)에서는 웹 페이지의 <i>로딩 시간을 단축</i>해주는 효과가 있습니다.<br>
+                또한, 많은 이미지 파일을 관리하는 대신 몇 개의 스프라이트 이미지(sprite image) 파일만을 관리하면 되므로 매우 간편합니다.
+            </div>
+            <h3 class="t_tit3">예제</h3>
+            <p class="t_desc">
+                다음 예제는 하나의 이미지를 가지고 다섯 개의 아이콘을 만드는 예제입니다.<br>
+                다섯 개의 아이콘을 만들기 위해 다섯 개의 이미지를 사용하는 것이 아닌 다음 이미지 하나만을 가지고 작업하게 됩니다.
+            </p>
+            <div class="t_iframe">
+                <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450"
+                    src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Ft8ZQorO0K3bCMVcc91XcF9%2F%25EC%2582%25AC%25EC%259D%25B4%25ED%258A%25B8-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0%3Fnode-id%3D12%253A1558"
+                    allowfullscreen></iframe>
+            </div>
+            <br>
+            <div class="t_code">
+                <pre><code class="language-css">.image__inner .image:nth-child(1) {
+    grid-area: box1;
+    background: url(img/img_bg03_01.jpg) no-repeat;
+    background-size: cover;
+}
+
+.image__inner .image:nth-child(2) {
+    grid-area: box2;
+}
+
+.image__inner .image:nth-child(3) {
+    grid-area: box3;
+}
+
+.image__inner .image:nth-child(4) {
+    grid-area: box4;
+}
+
+.image__inner .image:nth-child(5) {
+    grid-area: box5;
+}
+</code></pre>
+            </div>
+            <p class="t_desc">
+                사이트 만들기 - 이미지 유형03에 쓰였던 css를 예시로 가져왔습니다. 적용된 이미지는 게시글을 확인하여주세요!
+            </p>
+
+            <hr>
+
+            <h3 class="t_tit2">IR 효과</h3>
+            <p class="t_desc2">
+                IR 기법은 <i>이미지 대체 텍스트를 제공</i>하기 위한 CSS 기법으로 다양한 CSS기법을 사용하여 이미지 대체 텍스트를 제공할 수 있습니다.
+            </p>
+            <h3 class="t_tit3">IR 기법(Image Replacement)의 종류</h3>
+            <p class="t_box">
+                1. Phark Method : 의미있는 이미지의 대체 텍스트를 제공하는 경우에 사용합니다.<br>
+                2. WA IR : 의미있는 이미지의 대체 텍스트로 이미지가 없어도 대체 텍스트를 보여주고자 할 때 사용합니다.<br>
+                3. Screen out : 대체 텍스트가 아닌 접근성을 위한 숨김 텍스트를 제공할 때 사용합니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-css">/* Phark Method */
+.ir_pm {
+    display: block;
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -9999px;
+}
+
+/* WA IR */
+.ir_wa {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+}
+
+/* Screen out */
+.ir_so {
+    overflow: hidden;
+    position: absolute;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    text-indent: -9999px;
+}
+</code></pre>
+            </div>
+
+            <hr>
+
+            <h3 class="t_tit2">백그라운드 표현</h3>
+            <p class="t_desc2">
+                이미지를 표현하는 방법<br>
+                1. HTML에서 &lt;img src="..." alt="..."&gt;로 경로를 연결해서 사용하는 방법<br>
+                2. CSS에서 background-image{ url(...)}로 경로 연결해서 불러오는 방법
+            </p>
+            <h3 class="t_tit3">HTML 태그 / &lt;img&gt; 사용하는 경우</h3>
+            <p class="t_box">
+                1. 프린트가 필요한 경우<br>
+                2. 이미지에 문구가 사용되어 <i>의미를 가지는 경우</i><br>
+                3. 이미지가 콘텐츠의 중심으로 가장 중요한 경우
+            </p>
+
+            <h3 class="t_tit3">CSS 속성 / 백그라운드 이미지 사용하는 경우</h3>
+            <p class="t_box">
+                1. 일정부분만 선택해 보여줄 경우 (ex 호버 버튼)<br>
+                2. 이미지 위에 텍스트가 들어가는 경우<br>
+                3. <i>순순히 디자인을 위해서만</i> 사용되어져 왔을 경우<br>
+                4. CSS sprites를 사용해 이미지 속도를 향상시킬 경우
+            </p>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="/javascript/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>

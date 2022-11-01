@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS : SCSS 알아보기</title>
+    <link rel="stylesheet" href="/javascript/assets/css/style.css">
+    <link rel="stylesheet" href="/javascript/assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">SCSS(SASS)</h2>
+            <p class="t_desc2">
+                CSS는 HTML 태그를 꾸미거나 효과를 넣어 주는 등 디자인 요소를 추가할 때 사용하는 전처리 과정입니다. 프로젝트 규모가 커지면 CSS는 불가피하게 가독성이 떨어지는 등 유지보수의
+                어려움을 주는 요소가 됩니다. 코드의 재활용성을 올리고, 가독성을 올리는 등 CSS에서 보이던 단점을 보완하고, 개발의 효율을 올리기 위해 등장한 개념이 SASS/SCSS라고 합니다.
+            </p>
+            <div class="t_box">
+                SCSS는 중첩, 변수 선언, 연산자 등 많은 장점을 가지고 있습니다. 대표적인 장점이라고 볼 수 있는 셀렉터 중첩기능에 대해서 알아보겠습니다.
+            </div>
+            <div class="t_code">
+                <pre><code class="language-css">// 일반적인 CSS 코드입니다
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav li {
+    display: inline-block;
+
+}
+nav a {
+    display: block;
+    padding: 6px 12px;
+    text-decoration: none;
+}
+</code></pre>
+            </div>
+            <div class="t_code">
+                <pre><code class="language-css">// 깉은 코드를 SASS로 구현한 모습입니다.
+
+nav{
+    ul {
+    margin: 0
+    padding: 0
+    list-style: none
+    }
+
+    li {
+    display: inline-block
+    }
+
+    a {
+    display: block
+    padding: 6px 12px
+    text-decoration: none
+    }
+}
+</code></pre>
+                <div class="t_code">
+                    <pre><code class="language-css">// 같은 코드를 SCSS로 구현한 모습입니다.
+
+nav {
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    li { display: inline-block; }
+
+    a {
+        display: block;
+        padding: 6px 12px;
+        text-decoration: none;
+    }
+}
+</code></pre>
+                </div>
+                <p class="t_desc">위에서 명확히 구분이 되듯, 셀렉터 안에 셀렉터를 넣어 중첩을 시켜 가독성이 좋아졌습니다. 이게 20라인도 안 되는 부분에서 보이는 장점인데,
+                    1000라인이 넘어가는 코드에서는 명확하게 보이는 장점이겠죠. HTML처럼 계층적인 구조를 SCSS로 구현하여 HTML 보듯 자연스럽게 볼 수 있습니다.</p>
+
+                <h3 class="t_tit2">변수 (Variables)</h3>
+                <p class="t_box">CSS에서도 컬러코드등을 변수로 설정할 수 있습니다만, SCSS는 좀 더 간편한 방법으로 변수 선언 및 사용이 가능합니다.</p>
+                <div class="t_code">
+                    <pre><code class="language-css">$color: #ed5b46;
+$borderRadius: 5px;
+
+div {
+    background-color: $color;
+    border-radius: $borderRadius;
+}
+</code></pre>
+                </div>
+                <p class="t_desc">
+                    변수를 지정해 놓고 바로 사용이 가능하고, 이렇게 지정해 해두면 프로젝트 내에 정해놓은 컬러를 사용함에 있어 오차를 줄여주고, 사용하는 개발자 입장에서도 효율적으로 개발이
+                    가능합니다.<br>
+                    또한 디자인 컨셉 변경 등 컬러코드 속성을 대대적으로 변경할 때에도, 변수 선언 부만 수정하면 되니 유지보수성도 뛰어납니다.
+                </p>
+
+                <h3 class="t_tit2">중첩 (Nesting)</h3>
+                <p class="t_box">셀렉터를 중첩시킨다던지, 속성을 중첩시키거나 상위 요소를 참조하는 것이 가능합니다.</p>
+                <div class="t_code">
+                    <pre><code class="language-css">// 일반 CSS 코드
+label {
+    padding: 3% 0px;
+    width: 100%;
+    cursor: pointer;
+    color: $colorPoint;
+}
+
+label:hover {
+    color: white;
+    background-color: $color8;
+} 
+
+    // 같은 작업 SCSS 코드
+label {
+    padding: 3% 0px;
+    width: 100%;
+    cursor: pointer;
+    color: $colorPoint;
+
+    &:hover {
+    color: white;
+    background-color: $color;
+}
+</code></pre>
+                </div>
+                <p class="t_desc">
+                    중첩기능의 장점이라고 생각되는 부분중 하나는, 복잡한 구조의 HTML에서는 각각 요소들에 맞는 디자인을 추가하기 위해 id , class , className 등 태그마다 선언을
+                    해줘야 하는 번거로움이 있으나, 셀렉터 중복 기능의 특성인 하위 항목에 적용되는 부분을 잘 이해하면 HTML 태그 자체에서 속성 값을 줄일 수 있으므로, HTML 코드의 가독성
+                    또한 상승합니다.
+                </p>
+            </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="/javascript/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+    <script>
+        let sum = 0;
+        for(i=1; i<=100; i++)
+    </script>
+</body>
+
+</html>

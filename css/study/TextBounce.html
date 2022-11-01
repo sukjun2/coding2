@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS : TextBounce 애니메이션</title>
+    <link rel="stylesheet" href="/javascript/assets/css/style.css">
+    <link rel="stylesheet" href="/javascript/assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+    </header>
+    <!-- //header -->
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">TextBounce 애니메이션</h2>
+            <p class="t_desc2">
+                Codepen을 사용하여 텍스트가 통통튀는 애니메이션을 만들었습니다. 디테일하게 그림자도 만들었으니 잘 보세요!
+            </p>
+
+            <hr>
+
+            <div class="t_iframe" style="min-height: 600px; padding-top: 0;">
+                <iframe height="300" style="width: 100%;" scrolling="no" title="animation????"
+                    src="https://codepen.io/sukjun2/embed/abGweWz?default-tab=result" frameborder="no" loading="lazy"
+                    allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href="https://codepen.io/sukjun2/pen/abGweWz">
+                        animation????</a> by sukjun2 (<a href="https://codepen.io/sukjun2">@sukjun2</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                </iframe>
+            </div>
+
+            <h3 class="t_tit2">HTML</h3>
+            <p class="t_box">
+                별거없죠?
+            </p>
+            <div class="t_code">
+                <pre><code class="language-html">&lt;h1&gt;
+    &lt;span&gt;코&lt;/span&gt;
+    &lt;span&gt;터&lt;/span&gt;
+    &lt;span&gt;틀&lt;/span&gt;
+&lt;/h1&gt;
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">CSS</h3>
+            <p class="t_box">
+                -webkit-font-smoothing 이 속성을 적용하면 브라우저에 표현되는 텍스트가 렌더링될 때 부드럽게 표현되는 장점이 있습니다.<br>
+                텍스트의 스타일을 설정하고, 그림자를 만들어줍니다. 그리고 바운스 애니메이션을 설정해주면 끝납니다.<br>
+                참 쉽죠?
+            </p>
+            <div class="t_code">
+                <pre><code class="language-css">@import url('https://webfontworld.github.io/utoNewyorkers/UtoNewYorKers.css');
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+
+    background: #606c88;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #3f4c6b, #606c88);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #3f4c6b, #606c88);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    height: 100px;
+}
+
+h1 span {
+    font-family: 'UtoNewYorKers';
+    font-size: 80px;
+    color: #fff;
+    position: relative;
+    top: 20px;
+    display: inline-block;
+    -webkit-font-smoothing: antialiased;
+    text-shadow:
+        0 1px 0 #ccc,
+        0 2px 0 #ccc,
+        0 3px 0 #ccc,
+        0 4px 0 #ccc,
+        0 5px 0 #ccc,
+        0 6px 0 transparent,
+        0 7px 0 transparent,
+        0 8px 0 transparent,
+        0 9px 0 transparent,
+        0 10px 10px rgba(0, 0, 0, 0.4);
+    animation: bounce 0.3s ease infinite alternate;
+}
+
+@keyframes bounce {
+    100% {
+        top: -20px;
+        text-shadow:
+            0 1px 0 #ccc,
+            0 2px 0 #ccc,
+            0 3px 0 #ccc,
+            0 4px 0 #ccc,
+            0 5px 0 #ccc,
+            0 6px 0 transparent,
+            0 7px 0 transparent,
+            0 8px 0 transparent,
+            0 9px 0 transparent,
+            0 50px 15px rgba(0, 0, 0, 0.4);
+        animation: bounce 0.3s ease infinite alternate;
+    }
+}
+
+h1 span:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+h1 span:nth-child(3) {
+    animation-delay: 0.2s;
+}
+</code></pre>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="/javascript/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>

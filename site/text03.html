@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>텍스트 유형 03</title>
+    <link rel="stylesheet" href="/javascript/assets/css/style.css">
+    <link rel="stylesheet" href="/javascript/assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">사이트 만들기 : 텍스트 유형3</h2>
+            <p class="t_desc2">
+                텍스트 유형3 입니다. 카드 유형3과 비슷한 유형으로 따라 만들어 보세요!
+            </p>
+            <div class="t_iframe">
+                <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450"
+                    src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Ft8ZQorO0K3bCMVcc91XcF9%2F%25EC%2582%25AC%25EC%259D%25B4%25ED%258A%25B8-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0%3Fnode-id%3D378%253A1590"
+                    allowfullscreen></iframe>
+            </div>
+
+            <h3 class="t_tit2">HTML</h3>
+            <p class="t_box">
+                text 내부에 text__info 클래스를 가진 div를 생성하여 정보란을 생성하였습니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-html">&lt;section id="textType03" class="text__wrap nexon section"&gt;
+    &lt;h2&gt;웹 디자인 기능사 필기 후기&lt;/h2&gt;
+    &lt;p&gt;웹 디자인 기능사 필기시험을 보고왔어요 혹시 했는데 역시나 어렵네요 &lt;/p&gt;
+    &lt;div class="container text__inner"&gt;
+        &lt;article class="text"&gt;
+            &lt;p&gt;웹 디자인 기능사 필기시험을 보고왔어요 혹시 했는데 역시나 어렵네요. 숙제도 해야하고 시험공부도 해야하고 정말 바쁜 일정이였어요. 조금 더 속도를 내서 숙제를 하고싶은데 제 손가락이
+                따라주질 않네요. 모두 합격하셨기를 바라면서 글을 여기까지 써보겠습니다...&lt;/p&gt;
+            &lt;div class="text__info"&gt;
+                &lt;img src="img/Group 1.svg" alt="icon"&gt;
+                &lt;h2&gt;코터틀&lt;/h2&gt;
+                &lt;span&gt;웹스 29기&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;img src="img/Group 4.svg" alt="stars"&gt;
+            &lt;a href="#"&gt;자세히 보기&lt;/a&gt;
+        &lt;/article&gt;
+        &lt;article class="text"&gt;
+            &lt;p&gt;웹 디자인 기능사 필기시험을 보고왔어요 혹시 했는데 역시나 어렵네요. 숙제도 해야하고 시험공부도 해야하고 정말 바쁜 일정이였어요. 조금 더 속도를 내서 숙제를 하고싶은데 제 손가락이
+                따라주질 않네요. 모두 합격하셨기를 바라면서 글을 여기까지 써보겠습니다...&lt;/p&gt;
+            &lt;div class="text__info"&gt;
+                &lt;img src="img/Group 2.svg" alt="icon"&gt;
+                &lt;h2&gt;콧털틀&lt;/h2&gt;
+                &lt;span&gt;웹스 29기&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;img src="img/Group 4.svg" alt="stars"&gt;
+            &lt;a href="#"&gt;자세히 보기&lt;/a&gt;
+        &lt;/article&gt;
+        &lt;article class="text"&gt;
+            &lt;p&gt;웹 디자인 기능사 필기시험을 보고왔어요 혹시 했는데 역시나 어렵네요. 숙제도 해야하고 시험공부도 해야하고 정말 바쁜 일정이였어요. 조금 더 속도를 내서 숙제를 하고싶은데 제 손가락이
+                따라주질 않네요. 모두 합격하셨기를 바라면서 글을 여기까지 써보겠습니다...&lt;/p&gt;
+            &lt;div class="text__info"&gt;
+                &lt;img src="img/Group 3.svg" alt="icon"&gt;
+                &lt;h2&gt;콧털들&lt;/h2&gt;
+                &lt;span&gt;웹스 29기&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;img src="img/Group 4.svg" alt="stars"&gt;
+            &lt;a href="#"&gt;자세히 보기&lt;/a&gt;
+        &lt;/article&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">CSS</h3>
+            <p class="t_box">
+                초기화, 공통부분 css를 제외한 코드입니다.<br>
+                내부에 컨텐츠들을 정렬하기가 어려웠습니다.. 별점은 포지션을 사용하여 위치를 맞춰주었습니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-css">/* textType */
+.text__inner {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.text {
+    background-color: #fff;
+    width: 32%;
+    padding: 30px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.text p {
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #ccc;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #666;
+}
+
+.text .text__info {
+    display: flex;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 15px;
+}
+
+.text__info img {
+    width: 60px;
+    height: 60px;
+}
+
+.text__info h2 {
+    font-size: 26px;
+    margin-left: 8px;
+    padding-top: 3px;
+}
+
+.text__info span {
+    padding-top: 13px;
+    font-size: 16px;
+    margin-left: 10px;
+    color: #666;
+}
+
+.text >img {
+    position: absolute;
+    width: 100px;
+    left: 97px;
+    bottom: 105px;
+}
+
+.text a {
+    width: 110px;
+    height: 30px;
+    background: rgba(123, 149, 250, 0.7);
+    border-radius: 15px;
+    color: #fff;
+    font-size: 16px;
+    display: block;
+    text-align: center;
+    line-height: 30px;
+    margin: 0 auto;
+}
+</code></pre>
+            </div>
+            <div class="t_iframe" style="min-height: 950px; padding-top: 0;">
+                <iframe src="https://sukjun2.github.io/coding2/site/textType/textType03.html" frameborder="0"></iframe>
+            </div>
+            <div class="t_link" style="display: flex;">
+                <a href="https://github.com/sukjun2/coding2/blob/main/site/textType/textType03.html">원본 소스 보기</a>
+                <a href="https://sukjun2.github.io/coding2/site/textType/textType03.html">원본 사이트 보기</a>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="/javascript/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>

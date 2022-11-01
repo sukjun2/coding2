@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS : Bounce 애니메이션</title>
+    <link rel="stylesheet" href="/javascript/assets/css/style.css">
+    <link rel="stylesheet" href="/javascript/assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+    </header>
+    <!-- //header -->
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">Bounce 애니메이션</h2>
+            <p class="t_desc2">
+                Code pen을 사용하여 통통 튀는 원형 애니메이션을 만들었습니다.<br>
+                늘 사용하던 애니메이션 CSS코드를 사용하였으니, 함께 만들어보세요!<br>
+                오늘의 선생님 고생하셨슴다..
+            </p>
+
+            <hr>
+
+            <div class="t_iframe" style="min-height: 600px; padding-top: 0;">
+                <iframe height="300" style="width: 100%;" scrolling="no" title="Untitled"
+                    src="https://codepen.io/sukjun2/embed/LYmYNoV?default-tab=result" frameborder="no" loading="lazy"
+                    allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href="https://codepen.io/sukjun2/pen/LYmYNoV">
+                        Untitled</a> by sukjun2 (<a href="https://codepen.io/sukjun2">@sukjun2</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                </iframe>
+            </div>
+
+            <h3 class="t_tit2">HTML</h3>
+            <p class="t_box">
+                1개의 공, 4개의 잔상 표현을 위해 총 5개의 wrapper클래스 영역을 생성합니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-html">&lt;div class="wrapper"&gt;
+    &lt;div&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="wrapper"&gt;
+    &lt;div&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="wrapper"&gt;
+    &lt;div&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="wrapper"&gt;
+    &lt;div&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="wrapper"&gt;
+    &lt;div&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">CSS</h3>
+            <p class="t_box">
+                전체 영역을 box-sizing으로 설정해주고, 그라데이션 배경을 설정합니다.<br>
+                시작 위치를 position으로 설정하여줍니다. 설정한 위치에 도형을 생성하여주고, transform / translate를 사용하여 움직임을 설정합니다.<br>
+                animation-delay, opacity를 사용하여 마치 공의 잔상이 남은 것 같은 효과를 유도합니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-css">* {
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    position: absolute;
+    animation: x 1s ease-in-out alternate infinite 0s both;
+}
+
+.wrapper:nth-of-type(2) {
+    animation-delay: 0.1s;
+}
+
+.wrapper:nth-of-type(3) {
+    animation-delay: 0.2s;
+}
+
+.wrapper:nth-of-type(4) {
+    animation-delay: 0.3s;
+}
+
+.wrapper:nth-of-type(5) {
+    animation-delay: 0.4s;
+}
+
+.wrapper>div {
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    border-radius: 100%;
+    margin: 40px;
+    animation: y 1s linear infinite 0s both;
+}
+
+.wrapper:nth-of-type(2)>div {
+    animation-delay: 0.1s;
+    height: 40px;
+    width: 40px;
+    opacity: 0.8;
+}
+
+.wrapper:nth-of-type(3)>div {
+    animation-delay: 0.2s;
+    height: 30px;
+    width: 30px;
+    opacity: 0.6;
+}
+
+.wrapper:nth-of-type(4)>div {
+    animation-delay: 0.3s;
+    height: 20px;
+    width: 20px;
+    opacity: 0.4;
+}
+
+.wrapper:nth-of-type(5)>div {
+    animation-delay: 0.4s;
+    height: 10px;
+    width: 10px;
+    opacity: 0.2;
+}
+
+@keyframes x {
+    0% {
+        transform: translatex(-100px)
+    }
+
+    100% {
+        transform: translatex(100px);
+    }
+}
+
+@keyframes y {
+    25% {
+        transform: translatey(-50px);
+    }
+
+    0%,
+    50%,
+    100% {
+        transform: translatey(0);
+    }
+
+    75% {
+        transform: translatey(50px);
+    }
+}
+</code></pre>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="/javascript/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>

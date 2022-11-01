@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카드 유형 02</title>
+    <link rel="stylesheet" href="/javascript/assets/css/style.css">
+    <link rel="stylesheet" href="/javascript/assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">사이트 만들기 : 카드 유형2</h2>
+            <p class="t_desc2">
+                사이트 만들기 카드 유형의 2번째 입니다.<br>
+                Figma를 사용했으며, 공간을 설정하는 방법은 카드 유형 1번과 동일합니다.
+            </p>
+            <div class="t_iframe">
+                <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450"
+                    src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FY2rB05xrfVwLZZ8GBZU6w9%2F%25EC%2582%25AC%25EC%259D%25B4%25ED%258A%25B8-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0%3Fnode-id%3D54%253A2"
+                    allowfullscreen></iframe>
+            </div>
+
+            <h3 class="t_tit2">HTML</h3>
+            <p class="t_box">
+                8개의 카드 영역으로 나누어져 있으며, container를 사용하여 일괄적으로 전체 영역을 잡아주었습니다.<br>
+            </p>
+            <div class="t_code">
+                <pre><code class="language-html">&lt;section id="cardType02" class="card__wrap gmark section"&gt;
+    &lt;h2&gt;여름 제철 과일&lt;/h2&gt;
+    &lt;p&gt;
+        더운 여름에는 시원한 과일이 생각납니다,&lt;br&gt;
+        여름에 더욱 맛있어지는 제철 과일에 대하여 알아보겠습니다!🍉
+    &lt;/p&gt;
+    &lt;div class="card__inner container"&gt;
+        &lt;article class="card"&gt;
+            &lt;img src="img/card_bg02_01.jpg" alt="fruit"&gt;
+            &lt;h3 class="tit"&gt;여름 제철 과일&lt;/h3&gt;
+            &lt;p class="desc"&gt;무더운 여름철 제철 과일은 더위를 피하게 해주며, 수분을 공급해주고 달콤한 맛으로 기분도 좋게 해주는 일석이조&lt;/p&gt;
+            &lt;a href="#" class="more"&gt;&lt;span class="ir"&gt;더보기&lt;/span&gt;&lt;/a&gt;
+        &lt;/article&gt;
+        &lt;article class="card"&gt;
+            &lt;img src="img/card_bg02_02.jpg" alt="fruit"&gt;
+            &lt;h3 class="tit"&gt;여름 제철 과일&lt;/h3&gt;
+            &lt;p class="desc"&gt;무더운 여름철 제철 과일은 더위를 피하게 해주며, 수분을 공급해주고 달콤한 맛으로 기분도 좋게 해주는 일석이조&lt;/p&gt;
+            &lt;a href="#" class="more"&gt;&lt;span class="ir"&gt;더보기&lt;/span&gt;&lt;/a&gt;
+        &lt;/article&gt;
+        &lt;article class="card"&gt;
+            &lt;img src="img/card_bg02_03.jpg" alt="fruit"&gt;
+            &lt;h3 class="tit"&gt;여름 제철 과일&lt;/h3&gt;
+            &lt;p class="desc"&gt;무더운 여름철 제철 과일은 더위를 피하게 해주며, 수분을 공급해주고 달콤한 맛으로 기분도 좋게 해주는 일석이조&lt;/p&gt;
+            &lt;a href="#" class="more"&gt;&lt;span class="ir"&gt;더보기&lt;/span&gt;&lt;/a&gt;
+        &lt;/article&gt;
+        &lt;article class="card"&gt;
+            &lt;img src="img/card_bg02_04.jpg" alt="fruit"&gt;
+            &lt;h3 class="tit"&gt;여름 제철 과일&lt;/h3&gt;
+            &lt;p class="desc"&gt;무더운 여름철 제철 과일은 더위를 피하게 해주며, 수분을 공급해주고 달콤한 맛으로 기분도 좋게 해주는 일석이조&lt;/p&gt;
+            &lt;a href="#" class="more"&gt;&lt;span class="ir"&gt;더보기&lt;/span&gt;&lt;/a&gt;
+        &lt;/article&gt;
+        &lt;article class="card"&gt;
+            &lt;img src="img/card_bg02_05.jpg" alt="fruit"&gt;
+            &lt;h3 class="tit"&gt;여름 제철 과일&lt;/h3&gt;
+            &lt;p class="desc"&gt;무더운 여름철 제철 과일은 더위를 피하게 해주며, 수분을 공급해주고 달콤한 맛으로 기분도 좋게 해주는 일석이조&lt;/p&gt;
+            &lt;a href="#" class="more"&gt;&lt;span class="ir"&gt;더보기&lt;/span&gt;&lt;/a&gt;
+        &lt;/article&gt;
+        &lt;article class="card"&gt;
+            &lt;img src="img/card_bg02_06.jpg" alt="fruit"&gt;
+            &lt;h3 class="tit"&gt;여름 제철 과일&lt;/h3&gt;
+            &lt;p class="desc"&gt;무더운 여름철 제철 과일은 더위를 피하게 해주며, 수분을 공급해주고 달콤한 맛으로 기분도 좋게 해주는 일석이조&lt;/p&gt;
+            &lt;a href="#" class="more"&gt;&lt;span class="ir"&gt;더보기&lt;/span&gt;&lt;/a&gt;
+        &lt;/article&gt;
+        &lt;article class="card"&gt;
+            &lt;img src="img/card_bg02_07.jpg" alt="fruit"&gt;
+            &lt;h3 class="tit"&gt;여름 제철 과일&lt;/h3&gt;
+            &lt;p class="desc"&gt;무더운 여름철 제철 과일은 더위를 피하게 해주며, 수분을 공급해주고 달콤한 맛으로 기분도 좋게 해주는 일석이조&lt;/p&gt;
+            &lt;a href="#" class="more"&gt;&lt;span class="ir"&gt;더보기&lt;/span&gt;&lt;/a&gt;
+        &lt;/article&gt;
+        &lt;article class="card"&gt;
+            &lt;img src="img/card_bg02_08.jpg" alt="fruit"&gt;
+            &lt;h3 class="tit"&gt;여름 제철 과일&lt;/h3&gt;
+            &lt;p class="desc"&gt;무더운 여름철 제철 과일은 더위를 피하게 해주며, 수분을 공급해주고 달콤한 맛으로 기분도 좋게 해주는 일석이조&lt;/p&gt;
+            &lt;a href="#" class="more"&gt;&lt;span class="ir"&gt;더보기&lt;/span&gt;&lt;/a&gt;
+        &lt;/article&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">CSS</h3>
+            <p class="t_box">
+                더보기란에 ir효과(alt와 같은 효과)를 주어 웹 표준성에 맞게 하였으며<br>
+                제목과 내용이 설정한 줄수를 넘을 경우 ...으로 표기하여줍니다.<br>
+                더보기(화살표) 삽입시 svg확장자 프로그램 사용으로 확대시에도 이미지 깨짐현상이 없도록 하였습니다.
+            </p>
+            <h3 class="t_tit2">IR 기법</h3>
+            <p class="t_desc2">IR (Image Replacement) 기법은 이미지를 볼 수 없는 사용자에게 적절한 대체 텍스트를 제공하는 것을 말합니다.<br>
+                .ir {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;display: block;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;overflow: hidden; // 영역을 숨깁니다.<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;font-size: 0; // 글자 크기를 0으로 변경합니다.<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;line-height: 0; // 글자 줄 높이를 0으로 변경합니다.<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;text-indent: -9999px; // 들여쓰기를 변경합니다.<br>
+                }<br>
+                위의 설정으로 '인물 정보'라는 글자를 사용자에게 숨기면서 또 다른 사용자에게는 대체 텍스트를 제공합니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-css">/* fonts */
+@import url('https://webfontworld.github.io/gmarket/GmarketSans.css');
+
+.gmark {
+    font-family: 'GmarketSans';
+    font-weight: 500;
+}
+
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+img {
+    width: 100%;
+}
+
+/* common */
+.container {
+    width: 1160px;
+    padding: 0 20px;
+    margin: 0 auto;
+    min-width: 1160px;
+}
+
+.section {
+    background-color: #fff;
+    padding: 120px 0;
+}
+
+.section>h2 {
+    font-size: 50px;
+    line-height: 1;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.section>p {
+    font-size: 22px;
+    font-weight: 300;
+    color: #666;
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+/* ir 효과(이미지 대체 효과 == alt) */
+.ir {
+    display: block;
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -9999px;
+}
+
+/* cardType02 */
+.card__inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.card__inner .card {
+    width: 24%;
+    position: relative;
+}
+
+.card__inner .card:first-child {
+    margin-bottom: 50px;
+}
+
+.card__inner .card img {
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.card__inner .card .tit {
+    font-size: 28px;
+    margin-bottom: 10px;
+    /* 한줄 효과 */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding-right: 20px;
+}
+
+.card__inner .card .desc {
+    font-size: 18px;
+    font-weight: 300;
+    color: #666;
+    line-height: 1.4;
+    /* 3줄 이상 ...처리 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.card__inner .card .more {
+    width: 24px;
+    height: 24px;
+    background-image: url(img/Arrow.svg);
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 230px;
+    border-radius: 5px;
+}
+</code></pre>
+            </div>
+            <div class="t_iframe" style="min-height: 950px; padding-top: 0;">
+                <iframe src="https://sukjun2.github.io/coding2/site/cardType/cardType02.html" frameborder="0"></iframe>
+            </div>
+            <div class="t_link" style="display: flex;">
+                <a href="https://github.com/sukjun2/coding2/blob/main/site/cardType/cardType02.html">원본 소스 보기</a>
+                <a href="https://sukjun2.github.io/coding2/site/cardType/cardType02.html">원본 사이트 보기</a>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="/javascript/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>

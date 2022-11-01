@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>자바스크립트 : 패럴랙스 이펙트05</title>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/dracula.css" />
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">parallaxEffect05</h2>
+            <p class="t_desc2">
+                패럴랙스 이펙트05 - 이질감 효과입니다. 본문의 글과 이미지가 스크롤에 따라 움직여 이질감이 들도록 만들었습니다.<br>
+                HTML과 CSS는 크게 변경이 없으므로, 깃헙을 참고해주세요!
+            </p>
+
+            <hr />
+
+            <div class="t_iframe" style="min-height: 650px; padding-top: 0">
+                <iframe src="https://sukjun2.github.io/coding2/javascript/effect/parallaxEffect05.html"
+                    frameborder="0"></iframe>
+            </div>
+
+            <div class="t_link" style="display: flex">
+                <a href="https://github.com/sukjun2/coding2/blob/main/javascript/effect/parallaxEffect05.html">원본 소스
+                    보기</a>
+                <a href="https://sukjun2.github.io/coding2/javascript/effect/parallaxEffect05.html">원본 사이트 보기</a>
+            </div>
+
+            <h3 class="t_tit2">JAVASCRIPT</h3>
+            <p class="t_box">
+                스크롤 함수를 실행시키기 위해 현재 스크롤 위치값을 불러오고, 본문의 공통요소인 각 아이템 클래스에 반복문을 사용하여 offset1,2,3 변수를 선언합니다.<br>
+                이때 offset1,2,3 변수는 각 아이템의 이미지, 글, 번호에 스크롤시 애니메이션 속도를 설정해줍니다.<br>
+                스타일.트랜스폼으로 애니메이션 효과를 줄 수 있으나, 좀 더 부드러운 애니메이션 효과를 위해 gsap를 사용하여줍니다.<br>
+                (power4.out, expo.out = ease 애니메이션 효과는 GreenSock 사이트의 Docs 페이지를 참고하여 다양한 효과를 줄 수 있습니다.)
+            </p>
+            <div class="t_code">
+                <pre><code class="language-js">function scroll() {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    document.querySelector("#parallax__info span").innerText = Math.ceil(scrollTop);
+
+    document.querySelectorAll(".content__item").forEach(item => {
+        const target1 = item.querySelector(".content__item__img");
+        const target2 = item.querySelector(".content__item__desc");
+        const target3 = item.querySelector(".content__item__num");
+
+        let offset1 = (scrollTop - item.offsetTop) * 0.1;   // (현재 스크롤 값 - 본문 아이템의 값) * 움직이는 속도
+        let offset2 = (scrollTop - item.offsetTop) * 0.15;
+        let offset3 = (scrollTop - item.offsetTop) * 0.2;
+
+        // target1.style.transform = `translateY(${offset1}px)`;
+        // target2.style.transform = `translateX(${offset2}px)`;
+
+        // 더 부드러운 애니메이션 연출을 위해 gsap 사용
+        gsap.to(target1, { duration: .3, y: offset1, ease: "power4.out" }); // power4.out, expo.out = ease 효과
+        gsap.to(target2, { duration: .3, y: offset2 });
+        gsap.to(target3, { duration: .3, y: offset3, ease: "expo.out" });
+    });
+    requestAnimationFrame(scroll);
+}
+scroll();
+</code></pre>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

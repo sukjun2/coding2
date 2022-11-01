@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>텍스트 유형 02</title>
+    <link rel="stylesheet" href="/javascript/assets/css/style.css">
+    <link rel="stylesheet" href="/javascript/assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">사이트 만들기 : 텍스트 유형2</h2>
+            <p class="t_desc2">
+                텍스트 유형2 입니다.
+            </p>
+            <div class="t_iframe">
+                <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450"
+                    src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Ft8ZQorO0K3bCMVcc91XcF9%2F%25EC%2582%25AC%25EC%259D%25B4%25ED%258A%25B8-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0%3Fnode-id%3D319%253A13522"
+                    allowfullscreen></iframe>
+            </div>
+
+            <h3 class="t_tit2">HTML</h3>
+            <p class="t_box">
+                좌측의 header 영역을 두고 우측에 text 영역이 들어가도록 구분하였습니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-html">&lt;section id="textType02" class="text__wrap gmark section"&gt;
+    &lt;div class="container text__inner"&gt;
+        &lt;article class="text__header"&gt;
+            &lt;div class="box"&gt;Web design&lt;/div&gt;
+            &lt;h2&gt;자습이 왜 필요한지&lt;/h2&gt;
+            &lt;p&gt;웹디자인 기능사 필기에 합격하기 위하여 문제를 풀어보기 위한 시간이 필요하지 않을까요?!&lt;/p&gt;
+        &lt;/article&gt;
+        &lt;div class="text"&gt;
+            &lt;article class="text__desc"&gt;
+                &lt;img src="img/Group 237.svg" alt="icon"&gt;
+                &lt;h2&gt;자습 유형01&lt;/h2&gt;
+                &lt;p&gt;내일은 웹디자인기능사 시험을 보는 날 입니다. 같은 반 학우가 시험에 합격했다고 하니, 우리 모두 합격을 위해 기능사 CBT를&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;article class="text__desc"&gt;
+                &lt;img src="img/Group 238.svg" alt="icon"&gt;
+                &lt;h2&gt;자습 유형02&lt;/h2&gt;
+                &lt;p&gt;내일은 웹디자인기능사 시험을 보는 날 입니다. 같은 반 학우가 시험에 합격했다고 하니, 우리 모두 합격을 위해 기능사 CBT를&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;article class="text__desc"&gt;
+                &lt;img src="img/Group 239.svg" alt="icon"&gt;
+                &lt;h2&gt;자습 유형03&lt;/h2&gt;
+                &lt;p&gt;내일은 웹디자인기능사 시험을 보는 날 입니다. 같은 반 학우가 시험에 합격했다고 하니, 우리 모두 합격을 위해 기능사 CBT를&lt;/p&gt;
+            &lt;/article&gt;
+            &lt;article class="text__desc"&gt;
+                &lt;img src="img/Group 240.svg" alt="icon"&gt;
+                &lt;h2&gt;자습 유형04&lt;/h2&gt;
+                &lt;p&gt;내일은 웹디자인기능사 시험을 보는 날 입니다. 같은 반 학우가 시험에 합격했다고 하니, 우리 모두 합격을 위해 기능사 CBT를&lt;/p&gt;
+            &lt;/article&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">CSS</h3>
+            <p class="t_box">
+                초기화, 공통부분 css를 제외한 코드입니다.<br>
+                잊지말고 line-height를 잘 넣어야합니다..!
+            </p>
+            <div class="t_code">
+<pre><code class="language-css">/* textType */
+.text__inner {
+    display: flex;
+    overflow: hidden;
+    justify-content: space-between;
+}
+
+.text__header {
+    width: 25%;
+    height: 500px;
+    margin-right: 120px;
+}
+
+.text__header .box {
+    width: 150px;
+    height: 25px;
+    background-color: rgba(174, 156, 248, 0.7);
+    border-radius: 15px;
+    text-align: center;
+    line-height: 25px;
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.text__header>h2 {
+    font-size: 50px;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 30px;
+}
+
+.text__header>p {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.text {
+    width: 77%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+
+.text .text__desc {
+    width: 49%;
+    height: 200px;
+}
+
+.text__desc:hover {
+    background: rgba(236, 132, 132, 0.635);
+}
+
+.text__desc img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+.text__desc h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.text__desc p {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.5;
+}
+</code></pre>
+            </div>
+            <div class="t_iframe" style="min-height: 950px; padding-top: 0;">
+                <iframe src="https://sukjun2.github.io/coding2/site/textType/textType02.html" frameborder="0"></iframe>
+            </div>
+            <div class="t_link" style="display: flex;">
+                <a href="https://github.com/sukjun2/coding2/blob/main/site/textType/textType02.html">원본 소스 보기</a>
+                <a href="https://sukjun2.github.io/coding2/site/textType/textType02.html">원본 사이트 보기</a>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="/javascript/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>

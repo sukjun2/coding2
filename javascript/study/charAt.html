@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : charAt()</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">문자열 메서드 : charAt()</h2>
+            <p class="t_desc2">
+                match() 메서드는 문자열에서 특정 인덱스에 위치하는 유니코드 단일문자를 반환합니다.
+            </p>
+            <div class="t_box">
+                "문자열".charAt("위치값");
+            </div>
+            <div class="t_code">
+                <pre><code class="language-js">const str1 = "javascript reference";
+
+const currentStr1 = str1.charAt(); // j
+const currentStr2 = str1.charAt("0"); // j
+const currentStr3 = str1.charAt("1"); // a
+const currentStr4 = str1.charAt("2"); // v
+</code></pre>
+            </div>
+            <h3 class="t_tit2">charAt() 예제</h3>
+            <div class="t_code">
+                <pre><code class="langsearchage-js">var anyString = 'Brave new world';
+console.log("The character at index 0   is '" + anyString.charAt()   + "'");
+// No index was provided, used 0 as default
+
+console.log("The character at index 0   is '" + anyString.charAt(0)   + "'");
+console.log("The character at index 1   is '" + anyString.charAt(1)   + "'");
+console.log("The character at index 2   is '" + anyString.charAt(2)   + "'");
+console.log("The character at index 3   is '" + anyString.charAt(3)   + "'");
+console.log("The character at index 4   is '" + anyString.charAt(4)   + "'");
+console.log("The character at index 999 is '" + anyString.charAt(999) + "'");
+</code></pre>
+            </div>
+            <div class="t_result">
+                <details>
+                    <summary>결과 확인하기</summary>
+                    <div class="result_01">
+                        The character at index 0 is 'B'<br>
+                        The character at index 1 is 'r'<br>
+                        The character at index 2 is 'a'<br>
+                        The character at index 3 is 'v'<br>
+                        The character at index 4 is 'e'<br>
+                        The character at index 999 is ''
+                    </div>
+                </details>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>

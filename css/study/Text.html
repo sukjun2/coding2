@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS : Text 애니메이션</title>
+    <link rel="stylesheet" href="/javascript/assets/css/style.css">
+    <link rel="stylesheet" href="/javascript/assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+    </header>
+    <!-- //header -->
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">Text 애니메이션</h2>
+            <p class="t_desc2">
+                Code pen을 사용하여 텍스트 애니메이션을 만들었습니다. 
+            </p>
+
+            <hr>
+
+            <div class="t_iframe" style="min-height: 600px; padding-top: 0;">
+                <iframe height="300" style="width: 100%;" scrolling="no" title="Text Animation" src="https://codepen.io/sukjun2/embed/OJZymJr?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href="https://codepen.io/sukjun2/pen/OJZymJr">
+                    Text Animation</a> by sukjun2 (<a href="https://codepen.io/sukjun2">@sukjun2</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                  </iframe>
+            </div>
+
+            <h3 class="t_tit2">HTML</h3>
+            <p class="t_box">
+                viewBox는 svg 요소가 그려지는 영역에서, svg 요소의 크기를 확대 또는 축소 그리고 위치를 조정할 수 있는 속성입니다.<br>
+                viewBox 속성의 값은 다음과 같습니다.(viewBox="&lt;min-x&gt; &lt;min-y&gt; &lt;width&gt; &lt;height&gt;")<br>
+                text-anchor는 가운데 정렬 속성 값입니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-html">&lt;svg viewBox="0 0 1320 300"&gt;
+    &lt;text x="50%" y="50%" dy="40px" text-anchor="middle"&gt;coturtle&lt;/text&gt;
+&lt;/svg&gt;
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">CSS</h3>
+            <p class="t_box">
+                stroke-dashoffset 그림이 어떤 지점에서부터 시작할지 정해주는 속성입니다.<br>
+                stroke-dasharray는 선을 dashed 형태로 만들어 주는 속성입니다.<br>
+                애니메이션 효과를 1번 반복하고 텍스트의 외곽선이 5초동안만 나타나도록 설정해줍니다.<br>
+                위의 두 가지 속성을 사용해 글씨체가 서서히 나타나는 애니메이션을 만들 수 있습니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-css">@font-face {
+    font-family: 'OKChan';
+    font-weight: normal;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/ok/OKChan.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/ok/OKChan.eot?#iefix') format('embedded-opentype'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/ok/OKChan.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/ok/OKChan.woff') format('woff'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/ok/OKChan.ttf') format("truetype");
+    font-display: swap;
+}
+
+body {
+    background-color: #e3f2fd;
+}
+
+svg {
+    font-family: 'OKChan';
+    font-size: 140px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-transform: uppercase;
+    animation: stroke 5s 1 alternate;
+    fill: rgba(72, 138, 204, 1);
+}
+
+@keyframes stroke {
+    0% {
+        stroke-dashoffset: 25%;
+        stroke-dasharray: 0 50%;
+        fill: rgba(72, 138, 204, 0);
+        stroke: rgba(54, 95, 160, 1);
+        stroke-width: 2;
+    }
+
+    70% {
+        fill: rgba(72, 138, 204, 0);
+        stroke: rgba(54, 95, 160, 1);
+    }
+
+    80% {
+        fill: rgba(72, 138, 204, 0);
+        stroke: rgba(54, 95, 160, 1);
+    }
+
+    100% {
+        stroke-dashoffset: -25%;
+        stroke-dasharray: 50% 0;
+        fill: rgba(72, 138, 204, 1);
+        stroke: rgba(54, 95, 160, 0);
+        stroke-width: 0;
+    }
+}
+</code></pre>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="/javascript/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>

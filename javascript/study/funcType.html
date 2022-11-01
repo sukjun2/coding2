@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 함수 유형</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">함수 유형</h2>
+            <p class="t_desc2">
+                함수는 JavaScript에서 기본적인 구성 블록 중의 하나입니다. 함수는 작업을 수행하거나 값을 계산하는 문장 집합 같은 자바스크립트 절차입니다. 함수를 사용하려면 함수를 호출하고자
+                하는 범위 내에서 함수를 정의해야만 합니다.
+            </p>
+
+            <hr>
+
+            <h3 class="t_tit2">01. 함수와 매개변수를 이용한 형태</h3>
+            <p class="t_desc">재활용 목적으로 사용되며 함수와 여러개의 매개변수를 이용한 형태입니다.</p>
+            <div class="t_code">
+                <pre><code class="language-js">function func(num, str1, str2) {
+    document.write(num + ". " + str1 + "가 " + str2 + "되었습니다.13");
+}
+func("1", "함수", "실행");
+func("2", "자바스크립트", "실행");
+func("3", "제이쿼리", "실행");
+</code></pre>
+            </div>
+            <div class="t_result">
+                <details>
+                    <summary>결과 확인하기</summary>
+                    <div class="result_01">
+                        1. 함수가 실행되었습니다.13<br>
+                        2. 자바스크립트가 실행되었습니다.13<br>
+                        3. 제이쿼리가 실행되었습니다.13
+                    </div>
+                </details>
+            </div>
+
+            <h3 class="t_tit2">02. 함수와 변수를 이용한 형태</h3>
+            <p class="t_desc">
+                재활용 목적으로 사용되며 함수와 매개변수를 이용한 형태입니다.<br>
+                변수를 선언하고 매개변수에 대입함으로서 사용할 수 있습니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-js">function func(num, str, com) {
+    document.write(num + ". " + str + "가 " + com + "되었습니다.14");
+}
+const youNum1 = 1;
+const youNum2 = 2;
+const youNum3 = 3;
+const youStr1 = "함수";
+const youStr2 = "자바스크립트";
+const youStr3 = "제이쿼리";
+const youCom = "실행";
+
+func(youNum1, youStr1, youCom);
+func(youNum2, youStr2, youCom);
+func(youNum3, youStr3, youCom);
+</code></pre>
+            </div>
+            <div class="t_result">
+                <details>
+                    <summary>결과 확인하기</summary>
+                    <div class="result_02">
+                        1. 함수가 실행되었습니다.14<br>
+                        2. 자바스크립트가 실행되었습니다.14<br>
+                        3. 제이쿼리가 실행되었습니다.14
+                    </div>
+                </details>
+            </div>
+
+            <h3 class="t_tit2">03. 함수와 배열, 객체를 이용한 형태</h3>
+            <div class="t_code">
+                <p class="t_desc">
+                    재활용 목적으로 사용되며 함수와 배열, 객체를 이용한 형태입니다.<br>
+                    객체를 만들어두고 객체안의 값을 매개변수로 사용할 수 있습니다.
+                </p>
+                <pre><code class="language-js">function func(num, str, com) {
+    document.write(num + ". " + str + "가 " + com + "되었습니다.15");
+}
+const info = [
+    {
+        num: "1",
+        name: "함수",
+        com: "실행"
+    },
+    {
+        num: "2",
+        name: "자바스크립트",
+        com: "실행"
+    },
+    {
+        num: "3",
+        name: "제이쿼리",
+        com: "실행"
+    }
+];
+
+func(info[0].num, info[0].name, info[0].com);
+func(info[1].num, info[1].name, info[1].com);
+func(info[2].num, info[2].name, info[2].com);
+</code></pre>
+            </div>
+            <div class="t_result">
+                <details>
+                    <summary>결과 확인하기</summary>
+                    <div class="result_03">
+                        1. 함수가 실행되었습니다.15<br>
+                        2. 자바스크립트가 실행되었습니다.15<br>
+                        3. 제이쿼리가 실행되었습니다.15
+                    </div>
+                </details>
+            </div>
+
+            <h3 class="t_tit2">04. 객체 안에 변수와 함수를 이용한 형태</h3>
+            <p class="t_desc">
+                함수를 통해 처리된 결과를 반환시켜주는 명령어입니다.(재활용이 불가능한 단점이 있습니다.)<br>
+                객체안에 함수를 넣어서 실행할 수 있습니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-js">const info = {
+    num1: 1,
+    name1: "함수",
+    word1: "실행",
+    num2: 2,
+    name2: "자바스크립트",
+    word2: "실행",
+    num3: 3,
+    name3: "제이쿼리",
+    word3: "실행",
+
+    result1: function () {
+        document.write(info.num1 + ". " + info.name1 + "가 " + info.word1 + "되었습니다.16");
+    },
+    result2: function () {
+        document.write(info.num2 + ". " + info.name2 + "가 " + info.word2 + "되었습니다.16");
+    },
+    result3: function () {
+        document.write(info.num3 + ". " + info.name3 + "가 " + info.word3 + "되었습니다.16");
+    }
+}
+info.result1();
+info.result2();
+info.result3();
+</code></pre>
+            </div>
+            <div class="t_result">
+                <details>
+                    <summary>결과 확인하기</summary>
+                    <div class="result_04">
+                        1. 함수가 실행되었습니다.16<br>
+                        2. 자바스크립트가 실행되었습니다.16<br>
+                        3. 제이쿼리가 실행되었습니다.16
+                    </div>
+                </details>
+            </div>
+
+            <h3 class="t_tit2">05. 객체 생성자 함수</h3>
+            <p class="t_desc">재활용 가능하도록 객체와 함수를 합쳤습니다.</p>
+            <div class="t_code">
+                <pre><code class="language-js">function func(num, name, word) {
+    this.num = num;
+    this.name = name;
+    this.word = word
+
+    this.result = function () {
+        document.write(this.num + ". " + this.name + "가 " + this.word + "되었습니다.17");
+    }
+}
+
+//인스턴스 생성
+const info1 = new func("1", "함수", "실행");
+const info2 = new func("2", "자바스크립트", "실행");
+const info3 = new func("3", "제이쿼리", "실행");
+
+//실행
+info1.result();
+info2.result();
+info3.result();
+</code></pre>
+            </div>
+            <div class="t_result">
+                <details>
+                    <summary>결과 확인하기</summary>
+                    <div class="result_05">
+                        1. 함수가 실행되었습니다.17<br>
+                        2. 자바스크립트가 실행되었습니다.17<br>
+                        3. 제이쿼리가 실행되었습니다.17
+                    </div>
+                </details>
+            </div>
+
+            <h3 class="t_tit2">06. 프로토타입 함수</h3>
+            <p class="t_desc">함수를 객체 생성자 함수의 프로토타입에 추가함으로써 함수를 사용할 수 있습니다.(5번 단점 보완)</p>
+            <div class="t_code">
+                <pre><code class="language-js">function func(num, name, word) {
+    this.num = num;
+    this.name = name;
+    this.word = word
+}
+
+func.prototype.result = function () {
+    document.write(this.num + ". " + this.name + "가 " + this.word + "되었습니다.18");
+}
+
+//인스턴스 생성
+const info1 = new func("1", "함수", "실행");
+const info2 = new func("2", "자바스크립트", "실행");
+const info3 = new func("3", "제이쿼리", "실행");
+
+//실행
+info1.result();
+info2.result();
+info3.result();
+</code></pre>
+            </div>
+            <div class="t_result">
+                <details>
+                    <summary>결과 확인하기</summary>
+                    <div class="result_06">
+                        1. 함수가 실행되었습니다.18<br>
+                        2. 자바스크립트가 실행되었습니다.18<br>
+                        3. 제이쿼리가 실행되었습니다.18
+                    </div>
+                </details>
+            </div>
+
+            <h3 class="t_tit2">07. 객체 리터럴 함수</h3>
+            <p class="t_desc">함수가 많아질 경우에 객체로 묶어서 프로토타입에 추가시킬 수 있습니다.(6번 단점 보완)</p>
+            <div class="t_code">
+                <pre><code class="language-js">function func(num, name, word) {
+    this.num = num;
+    this.name = name;
+    this.word = word
+}
+
+func.prototype = {
+    result1: function () {
+        document.write(this.num + ". " + this.name + "가 " + this.word + "되었습니다.19 <br>");
+    },
+    result2: function () {
+        document.write(this.num + ". " + this.name + "가 " + this.word + "되었습니다.19 <br>");
+    },
+    result3: function () {
+        document.write(this.num + ". " + this.name + "가 " + this.word + "되었습니다.19 <br>");
+    }
+}
+
+//인스턴스 생성
+const info1 = new func("1", "함수", "실행");
+const info2 = new func("2", "자바스크립트", "실행");
+const info3 = new func("3", "제이쿼리", "실행");
+
+//실행
+info1.result1();
+info2.result2();
+info3.result3();
+</code></pre>
+            </div>
+            <div class="t_result">
+                <details>
+                    <summary>결과 확인하기</summary>
+                    <div class="result_07">
+                        1. 함수가 실행되었습니다.19<br>
+                        2. 자바스크립트가 실행되었습니다.19<br>
+                        3. 제이쿼리가 실행되었습니다.19
+                    </div>
+                </details>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>

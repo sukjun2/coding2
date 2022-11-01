@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS : Box 애니메이션</title>
+    <link rel="stylesheet" href="/javascript/assets/css/style.css">
+    <link rel="stylesheet" href="/javascript/assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+    </header>
+    <!-- //header -->
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">Box 애니메이션</h2>
+            <p class="t_desc2">
+                Code pen을 사용하여 데굴데굴 굴러가는 박스를 만들어보았습니다. 그림자까지 만드는 디테일도 따라해보세요!
+            </p>
+
+            <hr>
+
+            <div class="t_iframe" style="min-height: 600px; padding-top: 0;">
+                <iframe height="300" style="width: 100%;" scrolling="no" title="Untitled"
+                    src="https://codepen.io/sukjun2/embed/PoRrxev?default-tab=result" frameborder="no" loading="lazy"
+                    allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href="https://codepen.io/sukjun2/pen/PoRrxev">
+                        Untitled</a> by sukjun2 (<a href="https://codepen.io/sukjun2">@sukjun2</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                </iframe>
+            </div>
+
+            <h3 class="t_tit2">HTML</h3>
+            <p class="t_box">
+                설명이 필요없습니다. 하나 만들어주세요.
+            </p>
+            <div class="t_code">
+<pre><code class="language-html">&lt;div class="box"&gt;&lt;/div&gt;
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">CSS</h3>
+            <p class="t_box">
+                body의 높이값을 전체로 설정하여주고 그라데이션 배경색을 입혀줍니다<br>
+                먼저 전체 영역과 박스 그림자의 크기, 위치를 설정하고 그림자(before)의 애니메이션 패턴을 설정하여줍니다.<br>
+                다음으로 박스(after) 가상 요소를 통해 색상과 회전하는 박스의 위치, 크기를 설정하고 애니메이션 패턴을 설정합니다.<br>
+                @keyframes를 통하여 shadow, load 각각 이름의 애니메이션을 설정해주면 끝입니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-css">body {
+height: 100vh;
+background-image: linear-gradient(to top, skyblue, pink);
+}
+
+.box {
+width: 50px;
+height: 50px;
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+margin: auto;
+}
+
+.box:before {
+content: '';
+width: 50px;
+height: 5px;
+background: #000;
+position: absolute;
+top: 58px;
+left: 0;
+border-radius: 50%;
+opacity: 0.2;
+animation: shadow 0.6s linear infinite;
+}
+
+@keyframes shadow {
+0% {transform: scale(1, 1)}
+50% {transform: scale(1.2, 1)}
+100% {transform: scale(1, 1)}
+}
+
+.box:after {
+content: '';
+background: green;
+width: 50px;
+height: 50px;
+position: absolute;
+left: 0;
+top: 0;
+border-radius: 3px;
+animation: load 0.6s linear infinite;
+}
+
+@keyframes load {
+17% {border-bottom-right-radius: 3px;}
+25% {transform: translatey(9px) rotate(22.5deg);}
+50% {transform: translatey(18px) scale(1, 0.9) rotate(45deg);
+        border-bottom-right-radius: 40px;
+}
+75% {transform: translatey(9px) rotate(67.5deg);}
+100% {transform: translatey(0px) rotate(90deg);}
+}
+</code></pre>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="/javascript/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>

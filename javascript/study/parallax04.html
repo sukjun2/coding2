@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>자바스크립트 : 패럴랙스 이펙트04</title>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/dracula.css" />
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">parallaxEffect04</h2>
+            <p class="t_desc2">
+                패럴랙스 이펙트04번 - 본문의 이미지와 글이 스크롤에 따라 나타나는 애니메이션을 만들어봤습니다.
+            </p>
+
+            <hr />
+
+            <div class="t_iframe" style="min-height: 650px; padding-top: 0">
+                <iframe src="https://sukjun2.github.io/coding2/javascript/effect/parallaxEffect04.html"
+                    frameborder="0"></iframe>
+            </div>
+
+            <div class="t_link" style="display: flex">
+                <a href="https://github.com/sukjun2/coding2/blob/main/javascript/effect/parallaxEffect04.html">원본 소스
+                    보기</a>
+                <a href="https://sukjun2.github.io/coding2/javascript/effect/parallaxEffect04.html">원본 사이트 보기</a>
+            </div>
+
+            <h3 class="t_tit2">CSS</h3>
+            <p class="t_box">
+                CSS의 나타나기 애니메이션 부분만 가져왔습니다. 전체 CSS는 깃허브를 확인해주세요.<br>
+                본문의 각 타이틀, 이미지, 명언이 좌/우에서 나타나도록 애니메이션 효과를 주었습니다.<br>
+                애니메이션의 cubic-bezier효과로 점점 빠르게 재생되도록 하였습니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-css">/* 한번에 나타나기 */
+/* #contents>section {
+    opacity: 0;
+    transition: all 1s;
+}
+
+#contents>section.show {
+    opacity: 1;
+} */
+
+/* 개별적으로 나타나기 */
+#contents>section .content__item__num {
+    opacity: 0;
+    transform: translateY(200px);
+    transition: all 1s 0.1s cubic-bezier(0.76, 0.01, 0.49, 1.01);
+}
+
+#contents>section .content__item__title {
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: all 1s 0.3s cubic-bezier(0.76, 0.01, 0.49, 1.01);
+}
+
+#contents>section .content__item__imgWrap {
+    opacity: 0;
+    transform: translateY(200px) rotate(30deg) skew(20deg);
+    transition: all 1s 0.6s cubic-bezier(0.76, 0.01, 0.49, 1.01);
+}
+
+#contents>section .content__item__desc {
+    opacity: 0;
+    transform: translateX(-200px);
+    transition: all 1s 0.9s cubic-bezier(0.76, 0.01, 0.49, 1.01);
+}
+
+#contents>section.show .content__item__num {
+    opacity: 0.07;
+    transform: translateY(0);
+}
+
+#contents>section.show .content__item__title {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+#contents>section.show .content__item__imgWrap {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#contents>section.show .content__item__desc {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+#contents>section:nth-child(even) .content__item__title {
+    transform: translateX(100px);
+}
+
+#contents>section:nth-child(even).show .content__item__title {
+    transform: translateX(0);
+}
+
+#contents>section:nth-child(even) .content__item__desc {
+    transform: translateX(200px);
+}
+
+#contents>section:nth-child(even).show .content__item__desc {
+    transform: translateX(0);
+}
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">JAVASCRIPT</h3>
+            <p class="t_box">
+                재귀함수란? 함수가 직접 또는 간접적으로 자신을 호출하는 프로세스를 재귀함수라고 합니다.<br>
+                재귀함수를 사용하였으며, 스크롤 위치값을 찾도록 변수를 선언합니다.(브라우저 호환성 고려)<br>
+                9개의 본문에 forEach문을 사용하여 현재 스크롤 위치 > 상단으로부터 각 본문의 거리 - 브라우저 내부의 크기 / 2 식이 성립할 때 content__item에 show 클래스가
+                추가되도록 합니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-js">// window.addEventListener("scroll", scrollProgress);
+
+//재귀함수
+function scroll() {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop || window.screenY;
+
+    document.querySelectorAll(".content__item").forEach(item => {
+        if (scrollTop > item.offsetTop - window.innerHeight / 2) {
+            item.classList.add("show");
+        }
+    });
+
+    requestAnimationFrame(scroll);  // 메모리를 더 적게 차지하는 방법
+}
+scroll();
+</code></pre>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

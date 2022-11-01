@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 퀴즈 이펙트03</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+    </header>
+    <!-- //header -->
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">quizEffect03</h2>
+            <p class="t_desc2">
+                js를 이용한 기출문제입니다.<br>
+                참고하여 웹디자인기능사 시험을 준비합니다.
+            </p>
+
+            <hr>
+
+            <div class="t_iframe" style="min-height: 950px; padding-top: 0;">
+                <iframe src="https://sukjun2.github.io/coding2/javascript/effect/quizEffect03.html"
+                    frameborder="0"></iframe>
+            </div>
+
+            <div class="t_link">
+                <a href="https://github.com/sukjun2/coding2/blob/main/javascript/effect/quizEffect03.html">원본 소스 보기</a>
+            </div>
+
+            <h3 class="t_tit2">자바스크립트</h3>
+            <p class="t_box">
+                이벤트 메서드, for문, forEach문, if else문을 사용하여 문제 출력, 정답 숨기기, 정답 확인을 출력합니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-js">//선택자
+const quizType = document.querySelectorAll(".quiz__type");                     //퀴즈 종류
+const quizNumber = document.querySelectorAll(".quiz__question .number");       //퀴즈 번호
+const quizAsk = document.querySelectorAll(".quiz__question .ask");             //퀴즈 질문
+const quizConfirm = document.querySelectorAll(".quiz__answer .confirm");       //정답 확인 버튼
+const quizResult = document.querySelectorAll(".quiz__answer .result");         //정답 결과
+const quizInput = document.querySelectorAll(".quiz__answer .input");           //사용자 정답
+const quizView = document.querySelectorAll(".quiz__view");                     //강아지
+
+//문제정보
+const quizInfo = [
+    {
+        answerType: "웹디자인 기능사 2015년 5회",
+        answerNumber: "1",
+        answerAsk: "오려낸 그림을 2차원 평면상에서 한 프레임씩 움직이면서 촬영하는 스톱 애니메이션을 말한다. 클레이 애니메이션이나 인형 애니메이션과 비슷하지만 3차원이 아닌 2차원이라는 점에서 구분되는 애니메이션은?",
+        answerResult: "컷 아웃 애니메이션"
+    },
+    {
+        answerType: "웹디자인 기능사 2015년 5회",
+        answerNumber: "2",
+        answerAsk: "최상위 도메인 edu와 동일한 성격을 갖는 서브 도메인의 이름은?",
+        answerResult: "ac"
+    },
+    {
+        answerType: "웹디자인 기능사 2015년 5회",
+        answerNumber: "3",
+        answerAsk: "전자우편(e-mail)을 전송할 때 사용되는 프로토콜은?",
+        answerResult: "SMTP"
+    },
+    {
+        answerType: "웹디자인 기능사 2015년 5회",
+        answerNumber: "4",
+        answerAsk: "3차원 캐릭터에서의 자연스러운 동작을 구현하는 애니메이션 기법으로 실제 생명체의 움직임을 추적하여 얻은 데이터를 모델링된 캐릭터에 적용하는 것은?",
+        answerResult: "Motion Capture"
+    }
+]
+
+//문제 출력
+// for (i = 0; i &lt; 4; i++) {
+//     quizType[i].textContent = quizInfo[i].answerType;
+//     quizNumber[i].textContent = quizInfo[i].answerNumber + ". ";
+//     quizAsk[i].textContent = quizInfo[i].answerAsk;
+//     quizResult[i].textContent = quizInfo[i].answerResult;
+// }
+
+quizInfo.forEach(function (el, inx) {
+    quizType[inx].textContent = quizInfo[inx].answerType;
+    quizNumber[inx].textContent = quizInfo[inx].answerNumber + ". ";
+    quizAsk[inx].textContent = quizInfo[inx].answerAsk;
+    quizResult[inx].textContent = quizInfo[inx].answerResult;
+});
+
+// quizType[0].textContent = quizInfo[0].answerType;
+// quizType[1].textContent = quizInfo[1].answerType;
+// quizType[2].textContent = quizInfo[2].answerType;
+// quizType[3].textContent = quizInfo[3].answerType;
+
+// quizNumber[0].textContent = quizInfo[0].answerNumber + ". ";
+// quizNumber[1].textContent = quizInfo[1].answerNumber + ". ";
+// quizNumber[2].textContent = quizInfo[2].answerNumber + ". ";
+// quizNumber[3].textContent = quizInfo[3].answerNumber + ". ";
+
+// quizAsk[0].textContent = quizInfo[0].answerAsk;
+// quizAsk[1].textContent = quizInfo[1].answerAsk;
+// quizAsk[2].textContent = quizInfo[2].answerAsk;
+// quizAsk[3].textContent = quizInfo[3].answerAsk;
+
+// quizResult[0].textContent = quizInfo[0].answerResult;
+// quizResult[1].textContent = quizInfo[1].answerResult;
+// quizResult[2].textContent = quizInfo[2].answerResult;
+// quizResult[3].textContent = quizInfo[3].answerResult;
+
+//정담 숨기기(4개)
+// quizResult[0].style.display = "none";
+// quizResult[1].style.display = "none";
+// quizResult[2].style.display = "none";
+// quizResult[3].style.display = "none";
+
+// for (i = 0; i &lt; quizInfo.length; i++) {
+//     quizResult[i].style.display = "none";
+// }
+
+quizInfo.forEach((el, i) => {
+    quizResult[i].style.display = "none"
+});
+
+//정답 확인
+quizConfirm.forEach((btn, num) => {
+    btn.addEventListener("click", () => {
+
+        //사용자 정답
+        const userWord = quizInput[num].value.toLowerCase().trim();
+
+        //사용자 정답 == 문제 정답
+        if (userWord == quizInfo[num].answerResult.toLowerCase().trim()) {
+            //정답
+            // alert("정답");
+            quizView[num].classList.add("like");
+            quizConfirm[num].style.display = "none";
+        } else {
+            //오답
+            // alert("오답");
+            quizView[num].classList.add("dislike");
+            quizConfirm[num].style.display = "none";
+            quizResult[num].style.display = "block";
+            quizInput[num].style.display = "none";
+        }
+    });
+});
+</code></pre>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>

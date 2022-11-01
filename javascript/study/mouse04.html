@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 마우스 이펙트04</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">mouseEffect04</h2>
+            <p class="t_desc2">
+                마우스 이펙트04번 - 이미지 효과 입니다. 이전에 포스팅한 패럴랙스 효과 5번과 유사하게 이질감을 느낄 수 있습니다.
+            </p>
+
+            <hr>
+
+            <div class="t_iframe" style="min-height: 650px; padding-top: 0;">
+                <iframe src="https://sukjun2.github.io/coding2/javascript/effect/mouseEffect04.html"
+                    frameborder="0"></iframe>
+            </div>
+
+            <div class="t_link" style="display: flex;">
+                <a href="https://github.com/sukjun2/coding2/blob/main/javascript/effect/mouseEffect04.html">원본 소스
+                    보기</a>
+                <a href="https://sukjun2.github.io/coding2/javascript/effect/mouseEffect04.html">원본 사이트 보기</a>
+            </div>
+
+            <h3 class="t_tit2">HTML</h3>
+            <p class="t_box">
+                HTML코드는 배경이미지 위에 이벤트 효과를 줄 이미지 영역을 추가해주고, 위에 텍스트를 추가해줍니다.<br>
+                이벤트 영역내에서 마우스의 위치값을 확인하기 위한 영역도 추가하였습니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-html">&lt;main id="main"&gt;
+    &lt;section id="mouseType"&gt;
+        &lt;div class="mouse__cursor"&gt;&lt;/div&gt;
+        &lt;div class="mouse__wrap"&gt;
+            &lt;figure&gt;
+                &lt;img src="../assets//img/effect_bg16-min.jpg" alt="이미지"&gt;
+
+                &lt;figcaption&gt;
+                    &lt;p&gt;Luck comes from planning.&lt;/p&gt;
+                    &lt;p&gt;운은 계획에서 비롯된다.&lt;/p&gt;
+                &lt;/figcaption&gt;
+            &lt;/figure&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;div class="mouse__info"&gt;
+        &lt;ul&gt;
+            &lt;li&gt;mousePageX : &lt;span class="mousePageX"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;mousePageY : &lt;span class="mousePageY"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;centerPageX : &lt;span class="centerPageX"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;centerPageY : &lt;span class="centerPageY"&gt;0&lt;/span&gt;px&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/main&gt;
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">CSS</h3>
+            <p class="t_box">
+                추가한 html 영역의 css입니다. 마우스 오버시 이미지와 텍스트가 확대되는 효과와, 이미지 내에서의 마우스 포인터를 새로 설정하였습니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-css">/* mouseType */
+.mouse__wrap {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #fff;
+    overflow: hidden;
+}
+
+.mouse__wrap figure {
+    width: 50vw;
+    height: 50vh;
+    position: relative;
+    overflow: hidden;
+    transition: transform 500ms ease;
+    cursor: none;
+}
+
+.mouse__wrap figure:hover {
+    transform: scale(1.025);
+}
+
+.mouse__wrap figure img {
+    position: absolute;
+    left: -5%;
+    top: -5%;
+    width: 110%;
+    height: 110%;
+    object-fit: cover;  // 대체 요소(replaced element)의 컨텐츠를 컨테이너 크기에 맞게 설정
+}
+
+.mouse__wrap figure figcaption {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 16px;
+    white-space: nowrap;
+    line-height: 1.4;
+    font-weight: 300;
+}
+
+.mouse__cursor {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 50%;
+    z-index: 1000;
+    user-select: none;
+    pointer-events: none;
+}
+
+.mouse__info {
+    position: absolute;
+    left: 20px;
+    bottom: 10px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #fff;
+}
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">JAVASCRIPT</h3>
+            <p class="t_box">
+                사용할 변수를 선언하고, 마우스 이펙트 3번과 동일하게 포인터의 크기를 확인하는 함수를 사용해줍니다.<br>
+                이미지 위에서 마우스가 움직일 때 이벤트를 부여하는데 0.2초의 지연율과 커서의 중앙부를 기존 커서와 일치시킵니다.(위치정렬)<br>
+                이벤트 영역안에서 마우스의 좌표 값을 확인하고, 영역의 중앙부가 좌표값이 0이 되도록 설정합니다.<br>
+                마우스 움직임에 따라 이미지도 움직이도록 imgMove 변수를 선언하고, gsap를 사용하여 마우스의 움직임에 따라 x/y축으로 이미지가 움직이도록 설정합니다.<br>
+                좌측 하단부에 좌표값을 확인할 수 있도록 설정해주면 끝입니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-js">const cursor = document.querySelector(".mouse__cursor");
+const cursorRect = cursor.getBoundingClientRect();
+
+document.querySelector(".mouse__wrap figure").addEventListener("mousemove", (e) => {
+    // 커서
+    gsap.to(cursor, {
+        duration: .2,
+        left: e.pageX - cursorRect.width / 2,
+        top: e.pageY - cursorRect.height / 2
+    });
+
+    // 마우스 좌표 값
+    let mousePageX = e.pageX;
+    let mousePageY = e.pageY;
+
+    // 전체 가로 값
+    // window.innerWidth   // 1920 : 브라우저 크기
+    // window.outerWidth   // 1920 : 브라우저 크기(스크롤바 포함)
+    // window.screen.width // 1920 : 화면 크기
+
+    // console.log(window.innerWidth)
+    // console.log(window.outerWidth)
+    // console.log(window.screen.width)
+
+    // 마우스 좌표 값 가운데로 초기화
+    // 전체 길이/2 - 마우스 좌표값 == 0
+    let centerPageX = window.innerWidth / 2 - mousePageX;
+    let centerPageY = window.innerHeight / 2 - mousePageY;
+
+    // 이미지 움직이기
+    const imgMove = document.querySelector(".mouse__wrap figure img");
+    // imgMove.style.transform = "translate(" + centerPageX + "px, " + centerPageY + "px)";
+
+    gsap.to(imgMove, {
+        duration: 0.3,
+        x: centerPageX / 20,
+        y: centerPageY / 20
+    });
+
+    // 출력
+    document.querySelector(".mousePageX").textContent = mousePageX;
+    document.querySelector(".mousePageY").textContent = mousePageY;
+    document.querySelector(".centerPageX").textContent = centerPageX;
+    document.querySelector(".centerPageY").textContent = centerPageY;
+});
+</code></pre>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>

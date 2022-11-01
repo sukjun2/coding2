@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>구조 요소</title>
+
+    <style>
+        /* fonts */
+        @import url('https://webfontworld.github.io/gmarket/GmarketSans.css');
+
+        .gmark {
+            font-family: 'GmarketSans';
+            font-weight: 500;
+            font-size: 30px;
+        }
+
+        /* reset */
+        * {
+            margin: 0;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: normal;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        h2 {
+            font-size: 30px;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        /* common */
+        .layout {
+            width: 1880px;
+            margin: 0 auto;
+            padding: 20px;
+            min-width: 1920px;
+            background-color: #ffe0b2;
+        }
+
+        /* header logo */
+        header {
+            width: 1880px;
+            height: 240px;
+            background-color: #ffb74d;
+            display: flex;
+            position: relative;
+        }
+
+        header .logo {
+            width: 200px;
+            height: 200px;
+            background-color: #fff3e0;
+            margin: 20px 110px 20px 30px;
+        }
+
+        header .logo .tag_h1 {
+            width: 150px;
+            height: 50px;
+            font-size: 30px;
+            text-align: center;
+            background-color: #fff500;
+            line-height: 50px;
+            font-weight: 600;
+        }
+
+        header .logo>h1 {
+            font-size: 40px;
+            line-height: 150px;
+            text-align: center;
+        }
+
+        header .tag_header {
+            width: 150px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            background-color: #ff4d00;
+            position: absolute;
+            right: 800px;
+            top: 40px;
+            font-weight: 600;
+        }
+
+        /* header nav */
+
+        header nav {
+            width: 1370px;
+            height: 100px;
+            background-color: #fff3e0;
+            margin-top: 120px;
+        }
+
+        header nav .tag_nav {
+            width: 150px;
+            height: 50px;
+            line-height: 50px;
+            background-color: #fff500;
+            text-align: center;
+            font-weight: 600;
+        }
+
+
+        header nav ul {
+            justify-content: center;
+            display: flex;
+        }
+
+        header nav ul li {
+            margin-left: 64px;
+        }
+
+        /* container */
+        .container {
+            width: 1880px;
+            height: 660px;
+            background-color: #ffb74d;
+            margin-top: 20px;
+            display: flex;
+        }
+
+        .container .tag_div {
+            position: absolute;
+            width: 150px;
+            height: 50px;
+            line-height: 50px;
+            background-color: #ff4d00;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .container .cont1 {
+            width: 690px;
+            height: 620px;
+            background-color: #fff3e0;
+            margin: 20px 30px 20px 20px;
+            text-align: center;
+        }
+
+        .container .cont1 .tag_section1 {
+            width: 150px;
+            height: 50px;
+            line-height: 50px;
+            background-color: #fff500;
+            font-weight: 600;
+            margin-left: 270px;
+        }
+
+        .container .cont1>h2 {
+            line-height: 580px;
+        }
+
+
+        .container .cont2 {
+            width: 690px;
+            height: 620px;
+            background-color: #fff3e0;
+            margin: 20px 30px 20px 0;
+            text-align: center;
+        }
+
+        .container .cont2 .tag_section2 {
+            width: 150px;
+            height: 50px;
+            line-height: 50px;
+            background-color: #fff500;
+            font-weight: 600;
+            margin-left: 270px;
+        }
+
+        .container .cont2>h2 {
+            line-height: 580px;
+        }
+
+        .container .cont3 {
+            margin: 20px 20px 20px 0;
+            text-align: center;
+        }
+
+        .container article {
+            width: 400px;
+            height: 300px;
+            background-color: #fff3e0;
+        }
+
+        .container article .tag_article {
+            width: 150px;
+            height: 50px;
+            line-height: 50px;
+            background-color: #fff500;
+            font-weight: 600;
+            margin-left: 125px;
+        }
+
+        .container article>h2 {
+            line-height: 240px;
+        }
+
+        .container aside {
+            width: 400px;
+            height: 300px;
+            background-color: #fff3e0;
+            margin-top: 20px;
+        }
+
+        .container aside .tag_aside {
+            width: 150px;
+            height: 50px;
+            line-height: 50px;
+            background-color: #fff500;
+            font-weight: 600;
+            margin-left: 125px;
+        }
+
+        .container aside>h2 {
+            line-height: 240px;
+        }
+
+
+        /* footer */
+        footer {
+            width: 1880px;
+            height: 100px;
+            background-color: #ffb74d;
+            margin-top: 20px;
+            display: flex;
+        }
+
+        footer .tag_footer {
+            width: 150px;
+            height: 50px;
+            line-height: 50px;
+            background-color: #ff4d00;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        footer .footer {
+            margin-left: 340px;
+            margin-top: 10px;
+        }
+
+        footer .footer_top {
+            width: 1000px;
+            height: 35px;
+            line-height: 35px;
+            background-color: #fff3e0;
+            display: flex;
+            font-size: 20px;
+        }
+
+        footer .footer_top .tag_address {
+            width: 100px;
+            height: 35px;
+            line-height: 35px;
+            text-align: center;
+            background-color: #fff500;
+            font-weight: 600;
+            margin-right: 60px;
+        }
+
+        footer .footer_bom {
+            width: 1000px;
+            height: 35px;
+            line-height: 35px;
+            background-color: #fff3e0;
+            display: flex;
+            margin-top: 10px;
+            font-size: 20px;
+        }
+
+        footer .footer_bom .tag_p {
+            width: 100px;
+            height: 35px;
+            line-height: 35px;
+            text-align: center;
+            background-color: #fff500;
+            font-weight: 600;
+            margin-right: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="layout gmark">
+        <header>
+            <div class="logo">
+                <p class="tag_h1">h1</p>
+                <h1><a href="#">반응형웹</a></h1>
+            </div>
+            <p class="tag_header">header</p>
+            <nav>
+                <p class="tag_nav">nav</p>
+                <ul>
+                    <li><a href="#">MENU01</a></li>
+                    <li><a href="#">MENU02</a></li>
+                    <li><a href="#">MENU03</a></li>
+                    <li><a href="#">MENU04</a></li>
+                    <li><a href="#">MENU05</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="container">
+            <p class="tag_div">div</p>
+            <section class="cont1">
+                <p class="tag_section1">section</p>
+                <h2>콘텐츠 그룹01</h2>
+            </section>
+            <section class="cont2">
+                <p class="tag_section2">section</p>
+                <h2>콘텐츠 그룹02</h2>
+            </section>
+            <div class="cont3">
+                <article>
+                    <p class="tag_article">article</p>
+                    <h2>주요기사</h2>
+                </article>
+                <aside>
+                    <p class="tag_aside">aside</p>
+                    <h2>광고</h2>
+                </aside>
+            </div>
+        </div>
+        <footer>
+            <p class="tag_footer">footer</p>
+            <div class="footer">
+                <div class="footer_top">
+                    <p class="tag_address">address</p>
+                    <address style="font-style: normal;">경기도 부천시 오정구 삼정동 032)674-5685 icoxpub@naver.com</address>
+                </div>
+                <div class="footer_bom">
+                    <p class="tag_p">p</p>
+                    <p>COPYRIGHT © All rights reserved</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

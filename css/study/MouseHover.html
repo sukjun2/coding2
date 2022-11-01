@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS : 마우스 오버 애니메이션</title>
+    <link rel="stylesheet" href="/javascript/assets/css/style.css">
+    <link rel="stylesheet" href="/javascript/assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">마우스 오버 애니메이션</h2>
+            <p class="t_desc2">
+                Code pen을 사용하여 마우스 오버시 x/y축으로 회전하여 다른 이미지를 보여주는 애니메이션을 만들었습니다.<br>
+                재방문하신 선생님도 고생하셨습니다.
+            </p>
+
+            <hr>
+
+            <div class="t_iframe" style="min-height: 600px; padding-top: 0;">
+                <iframe height="300" style="width: 100%;" scrolling="no" title="MouseHoverEffect"
+                    src="https://codepen.io/sukjun2/embed/YzLQGQQ?default-tab=result" frameborder="no" loading="lazy"
+                    allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href="https://codepen.io/sukjun2/pen/YzLQGQQ">
+                        MouseHoverEffect</a> by sukjun2 (<a href="https://codepen.io/sukjun2">@sukjun2</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                </iframe>
+            </div>
+
+            <h3 class="t_tit2">HTML</h3>
+            <p class="t_box">
+                전체를 감싸는 hover__wrap내부에 x축을 기준으로 회전할 hover__updown 영역의 전, 후와 y축을 기준으로 회전할 hover__leftright 영역의 전, 후로 총
+                4개의 이미지가 들어가도록 영역을 설정합니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-html">&lt;div class="hover__wrap"&gt;
+    &lt;div class="hover__updown"&gt;
+        &lt;figure class="front"&gt;
+            &lt;img src="https://raw.githubusercontent.com/sukjun2/coding2/main/animation/img/codepen_bg01.jpg" alt="Up"&gt;
+            &lt;figcaption&gt;
+                &lt;h3&gt;Mouse Hover Effect&lt;/h3&gt;
+                &lt;p&gt;마우스 올리면 Up&lt;/p&gt;
+            &lt;/figcaption&gt;
+            &lt;!-- figure의 설명을 나타내는 태그 --&gt;
+        &lt;/figure&gt;
+        &lt;figure class="back"&gt;
+            &lt;img src="https://raw.githubusercontent.com/sukjun2/coding2/main/animation/img/codepen_bg02.jpg" alt="Down"&gt;
+            &lt;figcaption&gt;
+                &lt;h3&gt;Mouse Hover Effect&lt;/h3&gt;
+                &lt;p&gt;마우스 내리면 Down&lt;/p&gt;
+            &lt;/figcaption&gt;
+            &lt;!-- figure의 설명을 나타내는 태그 --&gt;
+        &lt;/figure&gt;
+    &lt;/div&gt;
+    &lt;div class="hover__leftright"&gt;
+        &lt;figure class="front"&gt;
+            &lt;img src="https://raw.githubusercontent.com/sukjun2/coding2/main/animation/img/codepen_bg03.jpg" alt="Right"&gt;
+            &lt;figcaption&gt;
+                &lt;h3&gt;Mouse Hover Effect&lt;/h3&gt;
+                &lt;p&gt;마우스 올리면 to Right&lt;/p&gt;
+            &lt;/figcaption&gt;
+            &lt;!-- figure의 설명을 나타내는 태그 --&gt;
+        &lt;/figure&gt;
+        &lt;figure class="back"&gt;
+            &lt;img src="https://raw.githubusercontent.com/sukjun2/coding2/main/animation/img/codepen_bg04.jpg" alt="Left"&gt;
+            &lt;figcaption&gt;
+                &lt;h3&gt;Mouse Hover Effect&lt;/h3&gt;
+                &lt;p&gt;마우스 내리면 to Left&lt;/p&gt;
+            &lt;/figcaption&gt;
+            &lt;!-- figure의 설명을 나타내는 태그 --&gt;
+        &lt;/figure&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">CSS</h3>
+            <p class="t_box">
+                원하는 폰트를 설정하고, 그라데이션 배경색을 지정합니다. 이 때 화면이 2개로 나누어진다면 높이값을 설정해줍니다.<br>
+                x축 기준, y축 기준의 두개의 영역을 나란히 놓기위해 wrap영역에 display : flex를 설정하고 화면의 중앙에 위치하도록 설정합니다.<br>
+                각 영역의 배경효과를 설정하고 전, 후 영역에 마우스 오버시 X, Y축 회전 애니메이션을 설정해줍니다.<br>
+                (backface-visibility: hidden => css 설정은 후면에 위치한 이미지를 숨김처리합니다.)<br>
+                (transform-style: preserve-3d / perspective: 300px => 애니메이션에 3d효과를 주어 px값에 따라 원근감을 표현해줍니다.)
+            </p>
+            <div class="t_code">
+                <pre><code class="language-css">@font-face {
+    font-family: 'LocusSangsang';
+    font-weight: normal;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/locus/LocusSangsang.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/locus/LocusSangsang.eot?#iefix') format('embedded-opentype'),
+            url('https://cdn.jsdelivr.net/gh/webfontworld/locus/LocusSangsang.woff2') format('woff2'),
+            url('https://cdn.jsdelivr.net/gh/webfontworld/locus/LocusSangsang.woff') format('woff'),
+            url('https://cdn.jsdelivr.net/gh/webfontworld/locus/LocusSangsang.ttf') format("truetype");
+    font-display: swap;
+}
+
+body {
+    font-family: 'LocusSangsang';
+    background-image: linear-gradient(
+        135deg,
+        #191970 0%,
+        #483D8B 40%,
+        #9370DB 100%
+    );
+    height: 100vh;
+}
+
+.hover__wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.hover__wrap > div {
+    max-width: 400px;
+    margin: 3%;
+    position: relative;
+    perspective: 300px
+    /* perspective = 원근감 표현 */
+}
+
+.hover__wrap > div img {
+    width: 100%;
+    border: 10px solid #F0F8FF;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    vertical-align: top;
+}
+
+.hover__wrap > div .front {
+    transition: transform 1s;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+}
+
+.hover__wrap > div .back {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+}
+
+.hover__wrap > div figcaption {
+    background: rgba(0, 0, 0, 0.4);
+    color: #F8F8FF;
+    padding: 10px;
+    text-align: center;
+    line-height: 1.5;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) translatez(100px);
+    width: 60%;
+    backface-visibility: hidden;
+}
+
+/* mouse hover effect */
+.hover__updown .front {
+    transform: rotateX(0deg);
+}
+
+.hover__updown:hover .front {
+    transform: rotateX(180deg);
+}
+
+.hover__updown .back {
+    transform: rotateX(-180deg);
+}
+
+.hover__updown:hover .back {
+    transform: rotateX(0deg);
+}
+
+.hover__leftright .front {
+    transform: rotateY(0deg);
+}
+
+.hover__leftright:hover .front {
+    transform: rotateY(180deg);
+}
+
+.hover__leftright .back {
+    transform: rotateY(-180deg);
+}
+
+.hover__leftright:hover .back {
+    transform: rotateY(0deg);
+}
+</code></pre>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="/javascript/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>

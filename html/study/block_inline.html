@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML : 블록 구조 / 인라인 구조</title>
+    <link rel="stylesheet" href="/javascript/assets/css/style.css">
+    <link rel="stylesheet" href="/javascript/assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">블록 구조 / 인라인 구조</h2>
+
+            <hr>
+
+            <h3 class="t_tit2">1. 블록 구조</h3>
+            <p class="t_desc2">블록 구조는 마크업을 할 때 <i>줄이 바뀌는 특성</i>을 가지고 있습니다.</p>
+            <div class="t_code">
+                <pre><code class="language-html">&lt;body&gt;
+    &lt;h1&gt;블록 구조&lt;/h1&gt;
+    &lt;h2&gt;블록 구조 성질&lt;/h2&gt;
+    &lt;p&gt;줄 바꿈이 생깁니다.&lt;/p&gt;
+&lt;/body&gt;
+</p></pre>
+            </div>
+            <div class="t_result">
+                <details>
+                    <summary>결과 확인하기</summary>
+                    <div class="result_01">
+                    </div>
+                </details>
+            </div>
+
+            <h3 class="t_tit2">2. 인라인 구조</h3>
+            <p class="t_desc2">인라인 구조는 줄 바꿈 특성이 없습니다.</p>
+            <div class="t_code">
+                <pre><code class="language-html">&lt;body&gt;
+    &lt;strong&gt;인라인 구조&lt;/strong&gt;
+    &lt;span&gt;인라인 구조는 한 줄로 출력됩니다.&lt;/span&gt;
+&lt;/body&gt;
+</p></pre>
+            </div>
+            <div class="t_result">
+                <details>
+                    <summary>결과 확인하기</summary>
+                    <div class="result_02">
+                        <strong>인라인 요소</strong> 인라인 요소는 한 줄로 출력됩니다.
+                    </div>
+                </details>
+            </div>
+
+            <h3 class="t_tit2">블록 구조와 인라인 구조의 특성</h3>
+            <p class="t_desc2">마크업을 할 때 문법적 오류를 방지하기 위해 구조의 특성에 대한 이해가 필요합니다.</p>
+            <table class="t_table">
+                <thead>
+                    <tr>
+                        <th>구조 유형</th>
+                        <th>특징</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="ce">블록 구조</td>
+                        <td>
+                            1. 줄 바꿈이 일어납니다.<br>
+                            2. 텍스트(문자)와 인라인 요소를 자식 요소로 포함할 수 있습니다.<br>
+                            3. 블록 요소를 자식 요소로 포함 할 수 있는 요소와 없는 요소가 있습니다.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="ce">인라인 구조</td>
+                        <td>
+                            1. 줄 바꿈이 일어나지 않습니다.<br>
+                            2. 텍스트(문자)와 인라인 요소를 자식 요소로 포함할 수 있습니다.<br>
+                            3. 블록 요소를 자식 요소로 포함할 수 없습니다.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="t_table">
+                <thead>
+                    <tr>
+                        <th>구조 유형</th>
+                        <th>태그</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="ce">블록 구조</td>
+                        <td>
+                            div, p, h1~h6, ul, li, ol, table, form, section, footer...
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="ce">인라인 구조</td>
+                        <td>
+                            span, a, em, i, strong, b, del, ins, sub, sup, textarea...
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="iframe">
+                <iframe height="500" style="width: 100%;" scrolling="no" title="Untitled"
+                    src="https://codepen.io/sukjun2/embed/vYRbjrd?default-tab=html%2Cresult" frameborder="no"
+                    loading="lazy" allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href="https://codepen.io/sukjun2/pen/vYRbjrd">
+                        Untitled</a> by sukjun2 (<a href="https://codepen.io/sukjun2">@sukjun2</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                </iframe>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="/javascript/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 유형 02</title>
+    <link rel="stylesheet" href="/javascript/assets/css/style.css">
+    <link rel="stylesheet" href="/javascript/assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">사이트 만들기 : 이미지 유형2</h2>
+            <p class="t_desc2">
+                3개의 마우스오버 설정이 적용된 이미지 유형입니다.
+            </p>
+            <div class="t_iframe">
+                <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450"
+                    src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FY2rB05xrfVwLZZ8GBZU6w9%2F%25EC%2582%25AC%25EC%259D%25B4%25ED%258A%25B8-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0%3Fnode-id%3D1026%253A63"
+                    allowfullscreen></iframe>
+            </div>
+
+            <h3 class="t_tit2">HTML</h3>
+            <p class="t_box">
+                3개의 article 영역과, 이미지 유형 1번과 다르게 html에 직접적으로 img태그를 넣어 이미지를 삽입하였습니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-html">&lt;section id="imageType02" class="image__wrap gmark section"&gt;
+    &lt;h2&gt;고슴도치&lt;/h2&gt;
+    &lt;p&gt;고슴도치의 가시는 주인도 찌를 수 있으니 항상 조심해야해요!&lt;/p&gt;
+    &lt;div class="image__inner container"&gt;
+        &lt;article class="image img1"&gt;
+            &lt;figure class="image__box"&gt;
+                &lt;img src="img/img_bg02_01.jpg" alt="Hedge"&gt;
+            &lt;/figure&gt;
+            &lt;div class="image__desc"&gt;
+                &lt;h3 class="image__tit"&gt;고슴도치 1기 동동일&lt;/h3&gt;
+                &lt;a href="/" class="more" title="자세히 보기"&gt;자세히 보기&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/article&gt;
+
+        &lt;article class="image img2"&gt;
+            &lt;figure class="image__box"&gt;
+                &lt;img src="img/img_bg02_02.jpg" alt="Hedge"&gt;
+            &lt;/figure&gt;
+            &lt;div class="image__desc"&gt;
+                &lt;h3 class="image__tit"&gt;고슴도치 2기 동동이&lt;/h3&gt;
+                &lt;a href="/" class="more" title="자세히 보기"&gt;자세히 보기&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/article&gt;
+        &lt;article class="image img3"&gt;
+            &lt;figure class="image__box"&gt;
+                &lt;img src="img/img_bg02_03.jpg" alt="Hedge"&gt;
+            &lt;/figure&gt;
+            &lt;div class="image__desc"&gt;
+                &lt;h3 class="image__tit"&gt;고슴도치 3기 동동삼&lt;/h3&gt;
+                &lt;a href="/" class="more" title="자세히 보기"&gt;자세히 보기&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/article&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">CSS</h3>
+            <p class="t_box">
+                이번 이미지 유형은 마우스 오버 효과를 넣어 이미지 위에 마우스를 올려놓으면, 이미지 설명과 자세히 보기 텍스트가 안으로 천천히 나타나도록 설정하였습니다.<br>
+                이미지 또한, 마우스 오버시 천천히 확대되도록 transform, transition 속성을 사용하여 설정하였습니다.<br>
+                텍스트 박스에 blur 효과를 주어 좀 더 감각적인 디자인이 되도록 하였습니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-css">/* imageType */
+.image__inner {
+    display: flex;
+    justify-content: space-between;
+}
+
+.image {
+    width: 32%;
+    position: relative;
+    overflow: hidden;   // 이미지 밖의 컨텐츠들이 보이지 않도록 설정
+}
+
+.image__box {}
+
+.image__box img {
+    vertical-align: top;
+}
+
+.img1 .image__desc {
+    background: rgba(136, 200, 104, 0.1);
+    color: rgba(33, 111, 0, 1);
+}
+
+.img2 .image__desc {
+    background: rgba(17, 15, 7, 0.1);
+    color: rgba(88, 61, 0, 1);
+}
+
+.img3 .image__desc {
+    background: rgba(38, 42, 45, 0.1);
+    color: rgba(0, 84, 147, 1)
+}
+
+.img1 .image__desc .more {
+    color: rgba(33, 111, 0, 1);
+}
+
+.img2 .image__desc .more {
+    color: rgba(88, 61, 0, 1);
+}
+
+.img3 .image__desc .more {
+    color: rgba(0, 84, 147, 1)
+}
+
+.image__desc {
+    position: absolute;
+    left: 0;
+    bottom: -100px;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    backdrop-filter: blur(10px);    //텍스트영역 투명화 처리
+    padding: 23px 20px;
+    box-sizing: border-box;
+    transition: all 0.3s ease-in;   //텍스트 영역 등장 속도
+}
+
+.image:hover .image__desc {
+    bottom: 0;
+}
+
+.image:hover .image__box img{
+    transform: scale(1.03);     //이미지 확대 크기
+    transition: all 0.6s ease-in;   //확대 속도
+}
+
+.image__desc h3 {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.image__desc .more {
+    font-size: 16px;
+}
+
+.image__desc .more:hover {
+    text-decoration: underline;
+}
+</code></pre>
+            </div>
+            <div class="t_iframe" style="min-height: 950px; padding-top: 0;">
+                <iframe src="https://sukjun2.github.io/coding2/site/imageType/imageType02.html"
+                    frameborder="0"></iframe>
+            </div>
+            <div class="t_link" style="display: flex;">
+                <a href="https://github.com/sukjun2/coding2/blob/main/site/imageType/imageType02.html">원본 소스 보기</a>
+                <a href="https://sukjun2.github.io/coding2/site/imageType/imageType02.html">원본 사이트 보기</a>
+            </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="/javascript/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>

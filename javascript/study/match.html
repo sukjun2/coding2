@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : match()</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">문자열 메서드 : match()</h2>
+            <p class="t_desc2">
+                match() 메서드는 문자열(정규식)을 검색하고 배열로 반환합니다.
+            </p>
+            <div class="t_box">
+                "문자열".match("검색값");
+                "문자열".match(정규식 표현)
+            </div>
+            <div class="t_code">
+                <pre><code class="language-js">const str1 = "javascript reference";
+
+const currentStr1 = str1.match("javascript");     //javascript
+const currentStr2 = str1.match("reference");      //reference
+const currentStr3 = str1.match("r");      //r
+const currentStr4 = str1.match(/reference/);      //reference
+const currentStr5 = str1.match(/Reference/);      //null
+const currentStr6 = str1.match(/Reference/i);      //reference
+const currentStr7 = str1.match(/r/g);      //['r', 'r', 'r']
+const currentStr8 = str1.match(/e/g);      //['e', 'e', 'e', 'e']
+</code></pre>
+            </div>
+            <h3 class="t_tit2">match() 예제</h3>
+            <div class="t_code">
+<pre><code class="langsearchage-js">var test  = 'love you. love me. love everything!'
+var regExp = /love/gi;
+
+test2 = test.match(regExp);     //['love', 'love', 'love']
+</code></pre>
+            </div>
+            <p class="t_desc">
+                정규 표현식을 사용하여 텍스트에 Love가 있는지 확인합니다.<br>
+                정규표현식 코드는 따로 regExp 변수에 저장하였으며, 표현식 뒤에 gi는 대소문자 구분을 허용하지 않고 모든 패턴을 검색하기 위함입니다.
+            </p>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>

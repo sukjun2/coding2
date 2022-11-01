@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제이쿼리 : 속성 선택자</title>
+    <link rel="stylesheet" href="/javascript/assets/css/style.css">
+    <link rel="stylesheet" href="/javascript/assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">jQuery 선택자2</h2>
+            <p class="t_desc2">jQuery는 html 요소와 관련된 기능구현이 많아 그만큼 CSS와 매우 밀접한 관계가 있습니다.</p>
+
+            <hr>
+
+            <h3 class="t_tit2">속성 선택자</h3>
+            <table class="t_table">
+                <thead>
+                    <tr>
+                        <th>선택자 종류</th>
+                        <th colspan="2">설명</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="ce">요소[속성]</td>
+                        <td class="ce">$("span[class")</td>
+                        <td>span 요소 중 class 속성을 가지고 있는 요소를 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">요소[속성='값']</td>
+                        <td class="ce">$("span[class='abc']")</td>
+                        <td>span 요소 중 class가 'abc'인 요소를 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">요소[속성!='값']</td>
+                        <td class="ce">$("span[class!='abc']")</td>
+                        <td>span 요소 중 class가 'abc'인 아닌 요소를 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">요소[속성~='값']</td>
+                        <td class="ce">$("span[class~='abc']")</td>
+                        <td>span 요소 중 class가 'abc'를 포함하는 요소를 선택합니다. 'abc'앞뒤로 연결된 문자가 없어야 합니다. 'bg abc'는 선택되나 'bg_abc'는 선택되지 않습니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">요소[속성*='값']</td>
+                        <td class="ce">$("span[class*='abc']")</td>
+                        <td>span 요소 중 class가 'abc'를 포함하는 요소를 모두 선택합니다. 'bg abc', 'bg_abc'모두 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">요소[속성|='값']</td>
+                        <td class="ce">$("span[class|='abc']")</td>
+                        <td>span 요소 중 class가 'abc'나 'abc-'로 시작하는 요소를 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">요소[속성^='값']</td>
+                        <td class="ce">$("span[class^='abc']")</td>
+                        <td>span 요소 중 class가 'abc'로 시작하는 요소를 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">요소[속성$='값']</td>
+                        <td class="ce">$("span[class$='abc']")</td>
+                        <td>span 요소 중 class가 'abc'로 끝나는 요소를 선택합니다.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 class="t_tit3">예제</h3>
+            <p class="t_desc">상세한 코드는 아래 코드펜을 확인해주세요.</p>
+            <div class="t_frame">
+                <iframe height="500" style="width: 100%;" scrolling="no" title="selects ex2" src="https://codepen.io/sukjun2/embed/mdxNMbg?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href="https://codepen.io/sukjun2/pen/mdxNMbg">
+                    selects ex2</a> by sukjun2 (<a href="https://codepen.io/sukjun2">@sukjun2</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                  </iframe>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="/javascript/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>

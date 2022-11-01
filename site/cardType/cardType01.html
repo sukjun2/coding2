@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카드 유형 01</title>
+    <style>
+        /* fonts */
+        @import url('https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css');
+
+        .nexon {
+            font-family: 'NexonLv1Gothic';
+            font-weight: 400;
+        }
+
+        /* reset */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: normal;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        /* common */
+        .container {
+            width: 1160px;
+            padding: 0 20px;
+            margin: 0 auto;
+            min-width: 1160px;
+        }
+
+        .section {
+            background-color: #fff;
+            padding: 120px 0;
+        }
+
+        .section>h2 {
+            font-size: 50px;
+            line-height: 1;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .section>p {
+            font-size: 22px;
+            font-weight: 300;
+            color: #666;
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        /* cardType */
+        .card__inner {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .card {
+            width: 32%;
+            background: #f5f5f5;
+        }
+
+        .card__body {
+            padding: 24px;
+        }
+
+        .card__body .tit {
+            font-size: 24px;
+            margin-bottom: 10px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            padding-right: 20px;
+        }
+
+        .card__body .desc {
+            font-size: 18px;
+            line-height: 1.4;
+            color: #666;
+            margin-bottom: 20px;
+            font-weight: 300;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="cardType01" class="card__wrap nexon section">
+        <h2>커피☕</h2>
+        <p>커피 원두 보관/로스팅 방법, 바리스타, 커피 종류</p>
+        <div class="card__inner container">
+            <article class="card">
+                <figure class="card__header">
+                    <img src="img/card_bg01_01.jpg" alt="커피 원두 보관/로스팅 방법">
+                </figure>
+                <div class="card__body">
+                    <h3 class="tit">커피 원두 보관/로스팅 방법</h3>
+                    <p class="desc">커피를 만드는데 가장 중요한 재료입니다. 원두에 대한 지식과 맛을 알고, 기본적인 원두 보관방법, 로스팅 방법을 익힙니다. 다양한 자료를 통해 커피를
+                        알아봅니다. 추가적으로 필요한 자료는 더 자세히 보기를 눌러주세요</p>
+                    <a class="btn" href="/">
+                        더 자세히 보기
+                        <span aria-hidden="true">
+                            <svg width="65" height="8" viewBox="0 0 65 8" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M64.3536 4.35355C64.5488 4.15829 64.5488 3.84171 64.3536 3.64645L61.1716 0.464466C60.9763 0.269204 60.6597 0.269204 60.4645 0.464466C60.2692 0.659728 60.2692 0.976311 60.4645 1.17157L63.2929 4L60.4645 6.82843C60.2692 7.02369 60.2692 7.34027 60.4645 7.53553C60.6597 7.7308 60.9763 7.7308 61.1716 7.53553L64.3536 4.35355ZM0 4.5H64V3.5H0V4.5Z"
+                                    fill="black" />
+                            </svg>
+                        </span>
+                    </a>
+                </div>
+            </article>
+            <article class="card">
+                <figure>
+                    <img src="img/card_bg01_02.jpg" alt="바리스타">
+                </figure>
+                <div class="card__body">
+                    <h3 class="tit">바리스타</h3>
+                    <p class="desc">커피를 만드는 전문가입니다. 누구나 한번쯤 갖고 싶었던 자격증이고, 직업입니다. 기술과 지식에 따라 여러가지의 커피를 제조할 수 있습니다. 추가적으로 필요한 자료는 더 자세히 보기를 눌러주세요</p>
+                    <a class="btn" href="/">
+                        더 자세히 보기
+                        <span aria-hidden="true">
+                            <svg width="65" height="8" viewBox="0 0 65 8" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M64.3536 4.35355C64.5488 4.15829 64.5488 3.84171 64.3536 3.64645L61.1716 0.464466C60.9763 0.269204 60.6597 0.269204 60.4645 0.464466C60.2692 0.659728 60.2692 0.976311 60.4645 1.17157L63.2929 4L60.4645 6.82843C60.2692 7.02369 60.2692 7.34027 60.4645 7.53553C60.6597 7.7308 60.9763 7.7308 61.1716 7.53553L64.3536 4.35355ZM0 4.5H64V3.5H0V4.5Z"
+                                    fill="black" />
+                            </svg>
+                        </span>
+                    </a>
+                </div>
+            </article>
+            <article class="card">
+                <figure>
+                    <img src="img/card_bg01_03.jpg" alt="커피 종류">
+                </figure>
+                <div class="card__body">
+                    <h3 class="tit">커피 종류</h3>
+                    <p class="desc">커피는 다양한 종류가 존재하지만, 하지만 왜 한국인은 쓰디쓴 아메리카노를 선호하고 ‘아이스’ 아메리카노를 창조하여 마시는건지 대략적으로
+                        알아보려고합니다. 추가적으로 필요한 자료는 더 자세히 보기를 눌러주세요</p>
+                    <a class="btn" href="/">
+                        더 자세히 보기
+                        <span aria-hidden="true">
+                            <svg width="65" height="8" viewBox="0 0 65 8" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M64.3536 4.35355C64.5488 4.15829 64.5488 3.84171 64.3536 3.64645L61.1716 0.464466C60.9763 0.269204 60.6597 0.269204 60.4645 0.464466C60.2692 0.659728 60.2692 0.976311 60.4645 1.17157L63.2929 4L60.4645 6.82843C60.2692 7.02369 60.2692 7.34027 60.4645 7.53553C60.6597 7.7308 60.9763 7.7308 61.1716 7.53553L64.3536 4.35355ZM0 4.5H64V3.5H0V4.5Z"
+                                    fill="black" />
+                            </svg>
+                        </span>
+                    </a>
+                </div>
+            </article>
+        </div>
+    </section>
+</body>
+
+</html>

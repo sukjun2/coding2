@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>헤더 유형01</title>
+    <link rel="stylesheet" href="/javascript/assets/css/style.css">
+    <link rel="stylesheet" href="/javascript/assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">사이트 만들기 : 헤더 유형01</h2>
+            <p class="t_desc2">
+                사이트 만들기 - 헤더 유형입니다. 다른 유형보다 훨씬 간단하니 만들어보세요!
+            </p>
+            <div class="t_iframe">
+                <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450"
+                    src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Ft8ZQorO0K3bCMVcc91XcF9%2F%25EC%2582%25AC%25EC%259D%25B4%25ED%258A%25B8-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0%3Fnode-id%3D506%253A1661"
+                    allowfullscreen></iframe>
+            </div>
+
+            <h3 class="t_tit2">HTML</h3>
+            <p class="t_box">
+                HTML 영역입니다. 굉장히 간단하죠?
+            </p>
+            <div class="t_code">
+                <pre><code class="language-html">&lt;section id="headerType" class="header__wrap nexon"&gt;
+    &lt;div class="header__inner"&gt;
+        &lt;div class="header__logo"&gt;
+            &lt;a href="#"&gt;web &lt;em&gt;site&lt;/em&gt;&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;nav class="header__menu"&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href="#"&gt;헤더 영역&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;슬라이드 영역&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;배너 영역&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;컨텐츠 영역&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;푸터 영역&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/nav&gt;
+        &lt;div class="header__member"&gt;
+            &lt;a href="#"&gt;로그인&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">CSS</h3>
+            <p class="t_box">
+                web site 단어에 각각 다른 글자 속성을 지정하기 위해 site에 em태그를 사용하여 감싸주었습니다.<br>
+                각 영역으로 연결시켜주기 위해 a태그를 사용하였고, 로그인 버튼도 만들었습니다.(아직 기능은 없어요!)
+            </p>
+            <div class="t_code">
+                <pre><code class="language-css">/* headerType */
+.header__inner {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #ccc;
+}
+
+.header__logo {
+    width: 20%;
+    font-size: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.header__logo em {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.header__menu {
+    width: 60%;
+    text-align: center;
+}
+
+.header__menu li {
+    display: inline;
+}
+
+.header__menu li a {
+    padding: 13px 30px;
+    margin: 0 5px;
+    transition: background-color 0.3s;
+}
+
+.header__menu li a:hover {
+    background-color: #f1f1f1;
+    border-radius: 5px;
+}
+
+.header__member {
+    width: 20%;
+    text-align: right;
+}
+
+.header__member a {
+    font-size: 16px;
+    border: 1px solid #000;
+    padding: 10px 30px;
+    border-radius: 50px;
+    transition: all 0.3s;
+}
+
+.header__member a:hover {
+    background-color: #000;
+    color: #fff;
+}
+</code></pre>
+            </div>
+            <div class="t_iframe" style="min-height: 950px; padding-top: 0;">
+                <iframe src="https://sukjun2.github.io/coding2/site/headerType/headerType01.html"
+                    frameborder="0">headerType01</iframe>
+            </div>
+            <div class="t_link" style="display: flex;">
+                <a href="https://github.com/sukjun2/coding2/blob/main/site/headerType/headerType01.html">원본 소스 보기</a>
+                <a href="https://sukjun2.github.io/coding2/site/headerType/headerType01.html">원본 사이트 보기</a>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="/javascript/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>

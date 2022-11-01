@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript Test05</title>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/dracula.css" />
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">Javascript Test</h2>
+            <p class="t_desc2">오답노트02</p>
+
+            <hr />
+
+            <!-- quiz start -->
+
+            <h3 class="t_tit2">01. 다음의 결괏값을 작성하시오</h3>
+            <p class="t_box">
+                오늘 저녁은 소세지, 삼겹살, 계란후라이 같지만 굶어야합니다.<br />
+                함수 실행문이 없거든요.... ㅡ ㅡ....
+            </p>
+            <div class="t_code">
+                <pre><code class="language-js">function cookingMama() {
+    let cook = ['당근', '소세지', '삼겹살', '계란후라이']
+    for (sel = 0; sel &lt; cook.length; sel++) {
+        if (cook[sel] !== '당근') {
+            let i = '오늘 저녁은' + cook[sel];
+            console.log(i);
+        }
+    }
+}
+</code></pre>
+            </div>
+            <div class="t_result">
+                <details>
+                    <summary>결과 확인하기</summary>
+                    <div class="result_01">undefiend</div>
+                </details>
+            </div>
+            <!-- 01 -->
+
+            <h3 class="t_tit2">04. 다음의 결괏값을 작성하시오</h3>
+            <p class="t_box">
+                for문의 sel값이 4까지 반복 후 break 됩니다. 그렇다면 if문의 (sel
+                <= 4) 조건이 만족되므로, 0 ~ 5 까지의 i값에 1을 더한수를 모두 합하면 sum값이 됩니다.<br />
+                1, 2, 3, 4, 5, 6을 모두 더한 21이 정답이 됩니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-js">function func() {
+    let i = 0, sum = 0, sel = 0;
+
+    for (let sel = 1; sel &lt;= 8; sel++) {
+        if (sel &lt; 4) break;
+    }
+    if (sel &lt;= 4) {
+        while (i &lt;= 5) {
+            i++;
+            sum += i;
+        }
+    } else {
+        while (i &lt;= 3) {
+            i++;
+            sum += i;
+        }
+    }
+    console.log(sum);
+}
+func()
+</code></pre>
+            </div>
+            <div class="t_result">
+                <details>
+                    <summary>결과 확인하기</summary>
+                    <div class="result_04">21</div>
+                </details>
+            </div>
+            <!-- 04 -->
+
+            <h3 class="t_tit2">05. 다음의 결괏값을 작성하시오</h3>
+            <p class="t_box">
+                5번은 for을 통해 구구단을 하는 문제같지만 최종값만 뽑아내기위한 것이기 때문에 "+="를 사용한것이 아닌 "="를 사용했기에 최종적으로 1*10의 값인 10이 o에
+                대입되어지고,<br>
+                이는 if조건이 false로 되어있기 때문에 조건에 부합하지 못해 O에다가 10을 더해주지 못합니다. 그래서 답은 10!(이라고 C0Di님 께서... 댓글을 남겨주셨습니다.)
+            </p>
+            <div class="t_code">
+                <pre><code class="language-js">{
+    let o = 0;
+    let q = 1;
+    let c = 0;
+
+    for (let a = 0; a &lt;= 1; a++) {
+        for (let x = 0; x &lt;= 10; x++) {
+            o = a * x;
+            if (0) {
+                o += 10;
+            }
+        }
+    }
+    console.log(o);
+}
+</code></pre>
+            </div>
+            <div class="t_result">
+                <details>
+                    <summary>결과 확인하기</summary>
+                    <div class="result_05">10</div>
+                </details>
+            </div>
+            <!-- 03 -->
+
+            <h3 class="t_tit2">07. 다음의 결괏값을 작성하시오</h3>
+            <p class="t_box">
+                for(q는 0부터 23까지) -> if(q % 2 == 0) else문을 만족하는 q값은 많지만, 아래의 if(q == 2) break문이 있어 2에서 for문이 종료됩니다.<br />
+                0은 if문에 성립하여서 i = 1이되고, 1은 else이므로 i = 0이 됩니다. 마지막 2는 조건에 성립하여 i = 1이 되어 list배열의 index 1 값은 2가 됩니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-js">{
+    function good() {
+        let list = [1, 2, 3, 4, 5, 6];
+        let i = 0;
+
+        for (let q = 0; q &lt;= 23; q++) {
+            if (q % 2 == 0) {
+                i++;
+            } else {
+                i--;
+            }
+            if (q == 2) break;
+            console.log(list[i]);
+        }
+    }
+    good();
+}
+</code></pre>
+            </div>
+            <div class="t_result">
+                <details>
+                    <summary>결과 확인하기</summary>
+                    <div class="result_07">2</div>
+                </details>
+            </div>
+            <!-- 04 -->
+
+            <h3 class="t_tit2">08. 다음의 결괏값을 작성하시오</h3>
+            <p class="t_box">
+                for(i는 0부터 10까지) if(매개변수로 넘겨받은 numbers의 배열에서 includes(i)를 포함하지 않는 숫자) 조건을 만족하면 모두 합하여 answer 변수에
+                저장합니다.<br />
+                9와 10 2개가 조건에 성립하여 합한 19가 answer 변수에 저장됩니다. 다시 if else문에 조건을 확인하면 19는 10보다 크기 때문에 else문을 따라 answer = 1이
+                됩니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-js">{
+    function solution(numbers) {
+        let answer = 0;
+        for (let i = 0; i &lt;= 10; i++) {
+            if (!numbers.includes(i)) {
+                answer += i;
+            }
+        }
+        if (answer &lt;= 10) {
+            answer = 0;
+        } else {
+            answer = 1;
+        }
+        return answer;
+    }
+    console.log(solution([1, 2, 3, 4, 5, 6, 7, 8, 0]));
+}
+</code></pre>
+            </div>
+            <div class="t_result">
+                <details>
+                    <summary>결과 확인하기</summary>
+                    <div class="result_08">1</div>
+                </details>
+            </div>
+            <!-- 05 -->
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+    <script>
+        // document.write("****** 정답 ******<br><br>");
+        //sample1
+        //01
+        {
+            function cookingMama() {
+                let cook = ["당근", "소세지", "삼겹살", "계란후라이"];
+                for (sel = 0; sel < cook.length; sel++) {
+                    if (cook[sel] !== "당근") {
+                        let i = "오늘 저녁은" + cook[sel];
+                        console.log(i);
+                    }
+                }
+            }
+        }
+
+        //04
+        {
+            function func() {
+                let i = 0,
+                    sum = 0,
+                    sel = 0;
+
+                for (let sel = 1; sel <= 8; sel++) {
+                    if (sel < 4) break;
+                }
+                if (sel <= 4) {
+                    while (i <= 5) {
+                        i++;
+                        sum += i;
+                    }
+                } else {
+                    while (i <= 3) {
+                        i++;
+                        sum += i;
+                    }
+                }
+                console.log(sum);
+            }
+            func();
+        }
+
+        //05
+        {
+            {
+                let o = 0;
+                let q = 1;
+                let c = 0;
+
+                for (let a = 0; a <= 1; a++) {
+                    for (let x = 0; x <= 10; x++) {
+                        o = a * x;
+                        if (0) {
+                            o += 10;
+                        }
+                    }
+                }
+                console.log(o);
+            }
+        }
+
+        //07
+        {
+            {
+                function good() {
+                    let list = [1, 2, 3, 4, 5, 6];
+                    let i = 0;
+
+                    for (let q = 0; q <= 23; q++) {
+                        if (q % 2 == 0) {
+                            i++;
+                        } else {
+                            i--;
+                        }
+                        if (q == 2) break;
+                        console.log(list[i]);
+                    }
+                }
+                good();
+            }
+        }
+
+        //08
+        {
+            {
+                function solution(numbers) {
+                    let answer = 0;
+                    for (let i = 0; i <= 10; i++) {
+                        if (!numbers.includes(i)) {
+                            answer += i;
+                        }
+                    }
+                    if (answer <= 10) {
+                        answer = 0;
+                    } else {
+                        answer = 1;
+                    }
+                    return answer;
+                }
+                console.log(solution([1, 2, 3, 4, 5, 6, 7, 8, 0]));
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS : GSAP</title>
+    <link rel="stylesheet" href="/javascript/assets/css/style.css">
+    <link rel="stylesheet" href="/javascript/assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">GSAP 개념</h2>
+            <p class="t_desc2">
+                The GreenSock Animation Platform (줄여서 GSAP)는 프론트엔드 개발자와 디자이너들이 쉽게 사용할 수 있는 아주 강력한 타임라인기반의 애니메이션 자바스크립트
+                라이브러리 입니다.<br>
+                CSS와 바닐라 자바스크립트만으로도 동적인 화면을 만들 수 있지만 GSAP은 세밀한 움직임과 동작의 연속성을 훨씬 간편하게 설정할 수 있습니다.
+            </p>
+
+            <hr>
+
+            <h3 class="t_tit2">GSAP 사용방법</h3>
+            <p class="t_box">
+                코드를 작성하기전에, 먼저 HTML파일에 GSAP 라이브러리를 추가해야합니다. CDN을 이용하여 추가해도되고 직접 파일을 다운받아 추가해도 됩니다.
+            </p>
+
+            <h3 class="t_tit2">GSAP의 Tween 객체를 만드는 기본 메소드</h3>
+            <p class="t_box">
+                gsap.to()<br>
+                gsap.from()<br>
+                gsap.fromTo()
+            </p>
+
+            <div class="t_iframe" style="min-height: 600px; padding-top: 0;">
+                <iframe height="300" style="width: 100%;" scrolling="no" title="GSAP ex"
+                    src="https://codepen.io/sukjun2/embed/gOeNymp?default-tab=result" frameborder="no" loading="lazy"
+                    allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href="https://codepen.io/sukjun2/pen/gOeNymp">
+                        GSAP ex</a> by sukjun2 (<a href="https://codepen.io/sukjun2">@sukjun2</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                </iframe>
+            </div>
+
+            <p class="t_box">
+                gsap의 메소드 to는 첫번째 인자로 DOM 요소를 받는데, 마치 querySelector와 같이 클래스를 표기합니다.<br>
+                결국 to 메소드는 타겟을 어디론가 보낸다는 것, from은 어디서부터, fromTo는 어디서부터 어디로 어떻게 애니메이션을 만들지 결정하기 위한 메소드임을 짐작할 수 있습니다.
+            </p>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="/javascript/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>

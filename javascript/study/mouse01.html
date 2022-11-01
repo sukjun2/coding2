@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 마우스 이펙트01</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">mouseEffect01</h2>
+            <p class="t_desc2">
+                마우스 이펙트01번 입니다. 동그라미를 마우스 포인터로 바꾸어 색이 입혀진 단어에 따라서 모양이 바뀌는 마우스 이벤트를 확인해보세요.<br>
+                마우스를 움직일때마다 바뀌는 위치값 js도 보실래요..?
+            </p>
+
+            <hr>
+
+            <div class="t_iframe" style="min-height: 650px; padding-top: 0;">
+                <iframe src="https://sukjun2.github.io/coding2/javascript/effect/mouseEffect01.html"
+                    frameborder="0"></iframe>
+            </div>
+
+            <div class="t_link" style="display: flex;">
+                <a href="https://github.com/sukjun2/coding2/blob/main/javascript/effect/mouseEffect01.html">원본 소스
+                    보기</a>
+                <a href="https://sukjun2.github.io/coding2/javascript/effect/mouseEffect01.html">원본 사이트 보기</a>
+            </div>
+
+            <h3 class="t_tit2">HTML</h3>
+            <p class="t_box">
+                마우스의 위치값을 표현할 마우스 이벤트 속성들의 정보와, 명언을 한글/영어 버전으로 준비했습니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-html">&lt;section id="mouseType"&gt;
+    &lt;div class="mouse__cursor"&gt;&lt;/div&gt;
+    &lt;div class="mouse__wrap"&gt;
+        &lt;p&gt;He that can have &lt;span class="style1"&gt;patience&lt;/span&gt; can &lt;span class="style2"&gt;have what&lt;/span&gt; he
+            &lt;span class="style3"&gt;will&lt;/span&gt;
+        &lt;/p&gt;
+        &lt;p&gt;&lt;span class="style4"&gt;인내를&lt;/span&gt; 가질 수 있다면 하려는 &lt;span class="style5"&gt;모든 일&lt;/span&gt;을 &lt;span
+                class="style6"&gt;해낼 수 있을 것이다.&lt;/span&gt;&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;div class="mouse__info"&gt;
+    &lt;ul&gt;
+        &lt;li&gt;clientX : &lt;span class="clientX"&gt;0&lt;/span&gt;px&lt;/li&gt;
+        &lt;li&gt;clientY : &lt;span class="clientY"&gt;0&lt;/span&gt;px&lt;/li&gt;
+        &lt;li&gt;offsetX : &lt;span class="offsetX"&gt;0&lt;/span&gt;px&lt;/li&gt;
+        &lt;li&gt;offsetY : &lt;span class="offsetY"&gt;0&lt;/span&gt;px&lt;/li&gt;
+        &lt;li&gt;pageX : &lt;span class="pageX"&gt;0&lt;/span&gt;px&lt;/li&gt;
+        &lt;li&gt;pageY : &lt;span class="pageY"&gt;0&lt;/span&gt;px&lt;/li&gt;
+        &lt;li&gt;screenX : &lt;span class="screenX"&gt;0&lt;/span&gt;px&lt;/li&gt;
+        &lt;li&gt;screenY : &lt;span class="screenY"&gt;0&lt;/span&gt;px&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+&lt;/main&gt;
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">JAVASCRIPT</h3>
+            <p class="t_box">
+                마우스 이벤트 속성을 각 클래스명에 innerHTML해주어 이벤트를 실행시킵니다.<br>
+                커서 모양(원형)의 중앙이 커서 끝과 일치하도록 해줍니다.<br>
+                forEach문을 사용하여 명언의 span 태그에 클래스 mouseover, mouseout 이벤트 속성을 추가/삭제해줍니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-js">window.addEventListener("mousemove", (event) => {
+    document.querySelector(".clientX").innerHTML = event.clientX
+    document.querySelector(".clientY").innerHTML = event.clientY
+    document.querySelector(".offsetX").innerHTML = event.offsetX
+    document.querySelector(".offsetY").innerHTML = event.offsetY
+    document.querySelector(".pageX").innerHTML = event.pageX
+    document.querySelector(".pageY").innerHTML = event.pageY
+    document.querySelector(".screenX").innerHTML = event.screenX
+    document.querySelector(".screenY").innerHTML = event.screenY
+});
+
+const cursor = document.querySelector(".mouse__cursor");
+
+window.addEventListener("mousemove", (e) => {
+
+    cursor.style.left = e.clientX - 25 + "px";
+    cursor.style.top = e.clientY - 25 + "px";
+});
+
+document.querySelectorAll(".mouse__wrap span").forEach(span => {
+    let attr = span.getAttribute("class");
+
+    span.addEventListener("mouseover", () => {
+        cursor.classList.add(attr);
+    });
+    span.addEventListener("mouseout", () => {
+        cursor.classList.remove(attr);
+    });
+});
+</code></pre>
+            </div>
+
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>

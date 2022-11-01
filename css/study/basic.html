@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS : 기본 문법</title>
+    <link rel="stylesheet" href="/javascript/assets/css/style.css">
+    <link rel="stylesheet" href="/javascript/assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">CSS 기본 문법</h2>
+            <p class="t_desc2">
+                CSS를 정의하는 방법으로는 <i>내부 스타일시트, 외부 스타일시트, 인라인 스타일시트</i> 등이 있습니다. 실제로는 외부 스타일시트를 많이 사용하는 편이지만, 간단한 스타일은 내부
+                스타일시트 만으로
+                사용할 수도 있습니다. 또한 인라인 스타일시트는 대체로 거의 사용하지 않지만, 가장 우선순위가 높아서 꼭 필요한경우 편리하게 사용할 수 있습니다. CSS에서 <i>주석은 /*
+                    */</i>로
+                표현합니다.
+            </p>
+
+            <hr>
+
+            <h3 class="t_tit2">01. 내부 스타일시트</h3>
+            <p class="t_box">
+                CSS를 HTML 문서 안에 &lt;style&gt; 태그로 기재하여 HTML 문서 안에 CSS가 함께 저장되도록 하는 형태입니다.
+            </p>
+
+            <h3 class="t_tit3">예제</h3>
+            <div class="t_code">
+                <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;내부 스타일시트&lt;/title&gt;
+    &lt;style type = "text/css"&gt;
+        p { color : red ; }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;p&gt;우리를 기쁘게 하는 것들.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+            </div>
+            <div class="t_result">
+                <details>
+                    <summary>결과 확인하기</summary>
+                    <div class="result_01">
+                        <span style="color: red;">우리를 기쁘게 하는 것들.</span>
+                    </div>
+                </details>
+            </div>
+
+            <h3 class="t_tit2">02. 외부 스타일시트</h3>
+            <p class="t_box">
+                스타일 속성들을 따로 저장하여 HTML 문서에 파일명으로 연결할 수 있습니다. 이때 스타일은 <i>*.css 확장자</i>를 가진 별도의 파일로 저장하고, HTML에서는
+                <i>&lt;link&gt; 태그</i>를 이용하여 선언합니다.
+            </p>
+
+            <h3 class="t_tit3">예제</h3>
+            <div class="t_code">
+                <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;외부 스타일시트&lt;/title&gt;
+    &lt;link rel="stylesheet" type="text/css" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;p&gt;우리를 기쁘게 하는 것들.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;    
+</code></pre>
+            </div>
+            <h3 class="t_tit3">예제 - style.css</h3>
+            <div class="t_code">
+                <pre><code class="language-css">@charset "utf-8";
+p { color : red; }
+</code></pre>
+            </div>
+            <div class="t_result">
+                <details>
+                    <summary>결과 확인하기</summary>
+                    <div class="result_01">
+                        <span style="color: red;">우리를 기쁘게 하는 것들.</span>
+                    </div>
+                </details>
+            </div>
+
+            <h3 class="t_tit2">03. @import</h3>
+            <p class="t_box">
+                @import는 CSS안으로 <i>다른 CSS 파일을 불러들일 경우 사용합니다.</i> CSS의 맨 윗줄에 기술합니다.
+            </p>
+            <h3 class="t_tit3">예제</h3>
+            <div class="t_code">
+                <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;스타일시트 포함&lt;/title&gt;
+    &lt;style type = "text/css"&gt;
+        @import url("style.css");
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;p&gt;우리를 기쁘게 하는 것들.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;  
+</code></pre>
+            </div>
+            <div class="t_result">
+                <details>
+                    <summary>결과 확인하기</summary>
+                    <div class="result_01">
+                        <span style="color: red;">우리를 기쁘게 하는 것들.</span>
+                    </div>
+                </details>
+            </div>
+
+            <h3 class="t_tit3">예제 - style.css</h3>
+            <div class="t_code">
+                <pre><code class="language-css">@charset "utf-8";
+@import url("common.css");
+</code></pre>
+            </div>
+            <p class="t_desc">
+                @import는 어떤 CSS 파일 안에 공통 CSS를 불러들일 경우에도 사용할 수 있습니다.<br>
+                그러나, CSS파일을 <i>너무 여러 개로 분리</i>하면 오히려 복잡해져서 <i>유지보수하기 힘든 부분</i>도 있으니, 용량이 적다면 하나의 파일로 저장하는 것이 좋습니다.
+            </p>
+
+            <h3 class="t_tit2">04. 인라인 스타일(inline style)</h3>
+            <p class="t_box">
+                인라인 스타일은 태그에 <i>직접</i> CSS를 정의해주는 기법으로, 해당 요소에 <i>style = " "형식으로 기술</i>합니다.<br>
+                인라인 스타일은 내부스타일이나 외부스타일에서 기술된 속성보다 <i>우선으로 적용되므로 우선순위가 절대적으로 높아야 할 경우</i>에 사용할 수 있으나, 스타일을 공통 CSS로 수정할 수
+                없고 일일이 html을 열어서 편집해야 하므로 일반적으로 많이 사용하지는 않습니다.
+            </p>
+            <h3 class="t_tit3">예제</h3>
+            <div class="t_code">
+                <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;인라인 스타일&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;p style="color: red;"&gt;우리를 기쁘게 하는 것들.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;  
+</code></pre>
+            </div>
+            <div class="t_result">
+                <details>
+                    <summary>결과 확인하기</summary>
+                    <div class="result_01">
+                        <span style="color: red;">우리를 기쁘게 하는 것들.</span>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="/javascript/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>

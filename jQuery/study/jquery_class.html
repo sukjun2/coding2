@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제이쿼리 : 클래스 관련 메서드</title>
+    <link rel="stylesheet" href="/javascript/assets/css/style.css">
+    <link rel="stylesheet" href="/javascript/assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">jQuery 클래스 관련 메서드</h2>
+
+            <hr>
+
+            <h3 class="t_tit2">addClass() 메서드</h3>
+            <p class="t_box">요소에 class 속성을 추가합니다.</p>
+            <table class="t_table">
+                <thead>
+                    <tr>
+                        <th>실행 분류</th>
+                        <th>형식</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="ce">추가</td>
+                        <td>$("div").addClass("클래스명");</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">콜백 함수</td>
+                        <td>
+                            $("div").addClass(function(<i>index,className</i>) {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;// <i>index</i>는 각 div 요소의 index 0, 1, 2<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;// <i>className</i>은 각 div의 class 속성<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<i>return</i> class 속성 // 각 div에 class 속성을 추가합니다.<br>
+                            });<br>
+                            ....<br>
+                            &lt;div&gt;내용1&lt;/div&gt;<br>
+                            &lt;div&gt;내용2&lt;/div&gt;<br>
+                            &lt;div&gt;내용3&lt;/div&gt;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3 class="t_tit3">예제</h3>
+            <p class="t_desc">상세한 코드는 아래 코드펜을 확인해주세요.</p>
+            <div class="t_iframe" style="min-height: 400px; padding-top: 0;">
+                <iframe height="300" style="width: 100%;" scrolling="no" title="ex4-17"
+                    src="https://codepen.io/sukjun2/embed/yLjyyrg?default-tab=result" frameborder="no" loading="lazy"
+                    allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href="https://codepen.io/sukjun2/pen/yLjyyrg">
+                        ex4-17</a> by sukjun2 (<a href="https://codepen.io/sukjun2">@sukjun2</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                </iframe>
+            </div>
+
+            <h3 class="t_tit2">removeClass() 메서드</h3>
+            <p class="t_box">요소에 class 속성을 제거합니다.</p>
+            <table class="t_table">
+                <thead>
+                    <tr>
+                        <th>실행 분류</th>
+                        <th>형식</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="ce">제거</td>
+                        <td>$("div").removeClass("클래스명");</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">콜백 함수</td>
+                        <td>
+                            $("div").removeClass(function(<i>index,className</i>) {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;// <i>index</i>는 각 div 요소의 index 0, 1, 2<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;// <i>className</i>은 각 div의 class 속성 m1, m2, m3<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<i>return</i> class 속성 // 각 div에 class 속성을 제거합니다.<br>
+                            });<br>
+                            ....<br>
+                            &lt;div class="m1"&gt;내용1&lt;/div&gt;<br>
+                            &lt;div class="m2"&gt;내용2&lt;/div&gt;<br>
+                            &lt;div class="m3"&gt;내용3&lt;/div&gt;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3 class="t_tit3">예제</h3>
+            <p class="t_desc">상세한 코드는 아래 코드펜을 확인해주세요.</p>
+            <div class="t_iframe" style="min-height: 400px; padding-top: 0;">
+                <iframe height="300" style="width: 100%;" scrolling="no" title="ex 4-18"
+                    src="https://codepen.io/sukjun2/embed/VwxYYNV?default-tab=result" frameborder="no" loading="lazy"
+                    allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href="https://codepen.io/sukjun2/pen/VwxYYNV">
+                        ex 4-18</a> by sukjun2 (<a href="https://codepen.io/sukjun2">@sukjun2</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                </iframe>
+            </div>
+
+            <h3 class="t_tit2">toggleClass() 메서드</h3>
+            <p class="t_box">요소에 class 속성을 없으면 addClass () 가 적용되고 class 속성이 있으면 removeClass () 가 적용됩니다.</p>
+            <table class="t_table">
+                <thead>
+                    <tr>
+                        <th>실행 분류</th>
+                        <th>형식</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="ce">추가, 제거</td>
+                        <td>$("div").toggleClass("클래스명");</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="t_box">
+                서브 메뉴(ul 요소)가 존재하는 a 요소(.m)를 click하면,<br>
+                $(this).toggleClass("on") // 자신 요소(.m)의 폰트 컬러를 주황색, 회색으로 toggle 시킵니다.<br>
+                $(this).next().toggleClass("on") // 자신의 서브 메뉴를 show, hide로 toggle 시킵니다.<br>
+                $(this).next().find(".m .ul").removeClass("on") // 자신의 하위 메뉴들과 하위 서브 메뉴들을 초기화 시킵니다.<br>
+                $(this).next().parent().siblings().find(".m, ul").removeClass("on") // 다른 메뉴들을 초기화 시킵니다.
+            </p>
+            <h3 class="t_tit3">예제</h3>
+            <p class="t_desc">상세한 코드는 아래 코드펜을 확인해주세요.</p>
+            <div class="t_iframe" style="min-height: 400px; padding-top: 0;">
+                <iframe height="300" style="width: 100%;" scrolling="no" title="Untitled"
+                    src="https://codepen.io/sukjun2/embed/abGzzrq?default-tab=js%2Cresult" frameborder="no"
+                    loading="lazy" allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href="https://codepen.io/sukjun2/pen/abGzzrq">
+                        Untitled</a> by sukjun2 (<a href="https://codepen.io/sukjun2">@sukjun2</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                </iframe>
+            </div>
+
+            <h3 class="t_tit2">hasClass() 메서드</h3>
+            <p class="t_desc">if문의 조건식으로 사용됩니다. 선택한 요소 클래스가 있으면 true, 없으면 false를 반환합니다.</p>
+            <p class="t_box">
+                if($("#box").<i>hasClass("m")</i>){<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;console.log("클래스 있음"); // 클래스 있음(true)<br>
+                } else {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;console.log("클래스 없음");<br>
+                }<br>
+                ...<br>
+                &lt;div id="#box" class="m"&gt;내용&lt;/div&gt;
+            </p>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="/javascript/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>

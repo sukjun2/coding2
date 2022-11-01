@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS : 요소 숨기기</title>
+    <link rel="stylesheet" href="/javascript/assets/css/style.css">
+    <link rel="stylesheet" href="/javascript/assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">CSS 요소 숨기기</h2>
+            <p class="t_desc2">
+                CSS에서 요소를 숨기는 5가지 방법에 대해 알아보겠습니다.
+            </p>
+
+            <hr>
+
+            <h3 class="t_tit2">1. display : none;(애니메이션X, 영억X)</h3>
+            <p class="t_box">
+                가장 많이 사용되는 요소 숨김 방법입니다.<br>
+                화면 상 어떤 영역을 차지하지 않고 완전히 삭제된 것처럼 보이게 합니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-js">/*
+&lt;div&gt;
+	완전히 삭제
+&lt;/div&gt;
+&lt;p&gt;
+	완전히 삭제
+&lt;/p&gt;
+*/
+div {
+	display: none;
+}
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">2. opacity: 0; (애니메이션O, 영역O)</h3>
+            <p class="t_box">
+                요소의 불투명도를 설정합니다. 불투명도는 요소 뒤쪽 콘텐츠가 숨겨지는 정도로, 투명도의 반대입니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-css">/*
+&lt;div&gt;
+	완전히 삭제
+&lt;/div&gt;
+&lt;p&gt;
+	완전히 삭제
+&lt;/p&gt;
+*/
+div {
+	opacity: 0;
+}
+</code></pre>
+            </div>
+
+
+            <h3 class="t_tit2">3. visibility: hidden; (애니메이션X, 영억X)</h3>
+            <p class="t_box">
+                해당 요소가 보이지 않을 뿐 요소가 존재하는 영역은 확실히 보이게 됩니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-css">/*
+&lt;div&gt;
+    완전히 삭제
+&lt;/div&gt;
+&lt;p&gt;
+    완전히 삭제
+&lt;/p&gt;
+*/
+div {
+    visibility : hidden;
+}
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">4. transform: scale(0); (애니메이션O, 영역X)</h3>
+            <p class="t_box">
+                transform의 scale로 요소를 확대 또는 축소할 수 있습니다.<br>
+                scale을 0배율 으로 할 경우 요소의 크기가 0이되어 숨김 처리와 같은 기능을 합니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-css">/*
+&lt;div&gt;
+    완전히 삭제
+&lt;/div&gt;
+&lt;p&gt;
+    완전히 삭제
+&lt;/p&gt;
+*/
+div {
+    transform: scale(0);
+}
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">5. width: 0; height: 0; (애니메이션X, 영역X) : blind</h3>
+            <p class="t_box">
+                기본적으로 영역의 너비와 높이를 지정하는 속성으로, 0을 주게 되면 요소가 숨겨집니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-css">/*
+&lt;div&gt;
+    완전히 삭제
+&lt;/div&gt;
+&lt;p&gt;
+    완전히 삭제
+&lt;/p&gt;
+*/
+div {
+    width: 0;
+    height: 0;
+}
+</code></pre>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="/javascript/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,2101 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>게임 이펙트01</title>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="../assets/css/bg.css" />
+        <link rel="stylesheet" href="../assets/css/game.css" />
+        <link rel="stylesheet" href="../assets/css/music.css" />
+        <link rel="stylesheet" href="../assets/css/memory.css" />
+        <link rel="stylesheet" href="../assets/css/searchGame.css" />
+        <link rel="stylesheet" href="../assets/css/dracula.css" />
+    </head>
+    <body>
+        <header id="header">
+            <h1>Corturtle Game World</h1>
+            <div class="time"></div>
+        </header>
+        <!-- //header -->
+
+        <div class="cursor">
+            <img src="../assets/img/cursor1.png" alt="" />
+        </div>
+
+        <main id="main">
+            <div class="icon">
+                <div class="icon1">
+                    <img src="../assets/img/icon1.png" alt="뮤직" />
+                    <span>뮤직 듣기</span>
+                </div>
+                <div class="icon2">
+                    <img src="../assets/img/icon2.png" alt="영화" />
+                    <span>카드 게임</span>
+                </div>
+                <div class="icon3">
+                    <img src="../assets/img/icon3.png" alt="게임" />
+                    <span>서치 게임</span>
+                </div>
+                <div class="icon4">
+                    <img src="../assets/img/icon4.png" alt="내 폴더" />
+                    <span>내 폴더</span>
+                </div>
+                <div class="icon5">
+                    <img src="../assets/img/icon5.png" alt="피그마" />
+                    <span>피그마</span>
+                </div>
+                <div class="icon6">
+                    <img src="../assets/img/icon6.png" alt="소스 보기" />
+                    <span>소스 보기</span>
+                </div>
+            </div>
+        </main>
+        <!-- //main -->
+
+        <div class="game_box">
+            <div class="music__wrap show">
+                <div class="music__inner">
+                    <div class="music__header">
+                        <div>***</div>
+                        <h2>Music Player</h2>
+                        <div>***</div>
+                    </div>
+                    <div class="music__contents">
+                        <img class="volume_icon" src="../assets/img/volume.svg" alt="볼륨" />
+                        <img class="volumeOff_icon" src="../assets/img/volume_off.svg" alt="볼륨" />
+                        <div class="volume_bar">
+                            <input type="range" id="volume-control" min="0" max="10" />
+                        </div>
+                        <div class="music__view">
+                            <div class="img">
+                                <img src="../assets/img/music_view01.png" alt="" />
+                            </div>
+                            <div class="title">
+                                <h3>1. Cattle</h3>
+                                <p>Telecasted</p>
+                            </div>
+                        </div>
+                        <div class="music__control">
+                            <div class="progress">
+                                <div class="bar">
+                                    <audio id="main-audio" src="../assets/music/Cattle - Telecasted.mp3"></audio>
+                                </div>
+                                <div class="timer">
+                                    <span class="current">0:00</span>
+                                    <span class="duration">4:00</span>
+                                </div>
+                            </div>
+                            <div class="control">
+                                <i title="전체 반복" id="control-repeat" class="repeat"></i>
+                                <i title="이전곡 재생" id="control-prev" class="prev"></i>
+                                <i title="재생" id="control-play" class="play"></i>
+                                <i title="다음곡 재생" id="control-next" class="next"></i>
+                                <i title="재생 목록" id="control-list" class="list"></i>
+                                <!-- <i title="한곡 반복" class="repeat_one"></i> -->
+                                <!-- <i title="랜덤 반복" class="shuffle"></i> -->
+                                <!-- <i title="정지" id="control-stop" class="stop"></i> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="music__footer hide">
+                        <div class="music__list">
+                            <h3><span class="list"></span>뮤직 리스트<a href="#" class="close"></a></h3>
+                            <ul>
+                                <!-- <li>
+                                    <strong>제목</strong>
+                                    <em>아티스트</em>
+                                    <span>재생시간</span>
+                                </li> -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- //뮤직 플레이어 -->
+
+            <div class="memory__wrap">
+                <div class="memory__inner">
+                    <div class="memory__start">
+                        <p class="memory_button">시작하기</p>
+                    </div>
+                    <div class="memory__card">
+                        <ul class="cards">
+                            <li>
+                                <div class="view front">
+                                    <img src="../assets/img/Front.png" alt="img-1" />
+                                </div>
+                                <div class="view back">
+                                    <img src="../assets/img/card01.png" alt="img-1" />
+                                </div>
+                            </li>
+                            <li>
+                                <div class="view front">
+                                    <img src="../assets/img/Front.png" alt="img-1" />
+                                </div>
+                                <div class="view back">
+                                    <img src="../assets/img/card02.png" alt="img-1" />
+                                </div>
+                            </li>
+                            <li>
+                                <div class="view front">
+                                    <img src="../assets/img/Front.png" alt="img-1" />
+                                </div>
+                                <div class="view back">
+                                    <img src="../assets/img/card03.png" alt="img-1" />
+                                </div>
+                            </li>
+                            <li>
+                                <div class="view front">
+                                    <img src="../assets/img/Front.png" alt="img-1" />
+                                </div>
+                                <div class="view back">
+                                    <img src="../assets/img/card04.png" alt="img-1" />
+                                </div>
+                            </li>
+                            <li>
+                                <div class="view front">
+                                    <img src="../assets/img/Front.png" alt="img-1" />
+                                </div>
+                                <div class="view back">
+                                    <img src="../assets/img/card05.png" alt="img-1" />
+                                </div>
+                            </li>
+                            <li>
+                                <div class="view front">
+                                    <img src="../assets/img/Front.png" alt="img-1" />
+                                </div>
+                                <div class="view back">
+                                    <img src="../assets/img/card06.png" alt="img-1" />
+                                </div>
+                            </li>
+                            <li>
+                                <div class="view front">
+                                    <img src="../assets/img/Front.png" alt="img-1" />
+                                </div>
+                                <div class="view back">
+                                    <img src="../assets/img/card07.png" alt="img-1" />
+                                </div>
+                            </li>
+                            <li>
+                                <div class="view front">
+                                    <img src="../assets/img/Front.png" alt="img-1" />
+                                </div>
+                                <div class="view back">
+                                    <img src="../assets/img/card08.png" alt="img-1" />
+                                </div>
+                            </li>
+                            <li>
+                                <div class="view front">
+                                    <img src="../assets/img/Front.png" alt="img-1" />
+                                </div>
+                                <div class="view back">
+                                    <img src="../assets/img/card01.png" alt="img-1" />
+                                </div>
+                            </li>
+                            <li>
+                                <div class="view front">
+                                    <img src="../assets/img/Front.png" alt="img-1" />
+                                </div>
+                                <div class="view back">
+                                    <img src="../assets/img/card02.png" alt="img-1" />
+                                </div>
+                            </li>
+                            <li>
+                                <div class="view front">
+                                    <img src="../assets/img/Front.png" alt="img-1" />
+                                </div>
+                                <div class="view back">
+                                    <img src="../assets/img/card03.png" alt="img-1" />
+                                </div>
+                            </li>
+                            <li>
+                                <div class="view front">
+                                    <img src="../assets/img/Front.png" alt="img-1" />
+                                </div>
+                                <div class="view back">
+                                    <img src="../assets/img/card04.png" alt="img-1" />
+                                </div>
+                            </li>
+                            <li>
+                                <div class="view front">
+                                    <img src="../assets/img/Front.png" alt="img-1" />
+                                </div>
+                                <div class="view back">
+                                    <img src="../assets/img/card05.png" alt="img-1" />
+                                </div>
+                            </li>
+                            <li>
+                                <div class="view front">
+                                    <img src="../assets/img/Front.png" alt="img-1" />
+                                </div>
+                                <div class="view back">
+                                    <img src="../assets/img/card06.png" alt="img-1" />
+                                </div>
+                            </li>
+                            <li>
+                                <div class="view front">
+                                    <img src="../assets/img/Front.png" alt="img-1" />
+                                </div>
+                                <div class="view back">
+                                    <img src="../assets/img/card07.png" alt="img-1" />
+                                </div>
+                            </li>
+                            <li>
+                                <div class="view front">
+                                    <img src="../assets/img/Front.png" alt="img-1" />
+                                </div>
+                                <div class="view back">
+                                    <img src="../assets/img/card08.png" alt="img-1" />
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="memory__time">
+                        <span>0:40</span>
+                    </div>
+                    <div class="memory__info center">
+                        <div>맞춘 갯수 : <span class="memory_point">0</span></div>
+                    </div>
+                    <div class="memory__result">
+                        <div class="memory__svg__wrap">
+                            <div class="memory_result"></div>
+                            <button class="memory_restart">다시하기</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- //카드 게임 -->
+
+            <div class="search__wrap">
+                <div class="search__audio">
+                    <span class="play_search">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M15 6.3706C15 4.65827 12.9884 3.73774 11.6926 4.85712L8.36317 7.73321C7.99989 8.04704 7.53583 8.21972 7.05576 8.21973L5.49998 8.21974C4.11928 8.21975 3 9.33903 3 10.7197V14.0127C3 15.3934 4.11929 16.5127 5.5 16.5127H7.0558C7.53587 16.5127 7.99993 16.6854 8.36322 16.9992L11.6926 19.8753C12.9884 20.9947 15 20.0741 15 18.3618V12.3662V6.3706Z"
+                                fill="#223547"
+                                stroke="#223547"
+                                stroke-width="1.5"
+                            />
+                            <path d="M18 15.3667C18.6279 14.531 19 13.4923 19 12.3667C19 11.2411 18.6279 10.2024 18 9.3667" stroke="#223547" stroke-width="1.5" stroke-linecap="round" />
+                            <path d="M20 18.3667C21.2558 16.6954 22 14.6179 22 12.3667C22 10.1155 21.2558 8.03802 20 6.3667" stroke="#223547" stroke-width="1.5" stroke-linecap="round" />
+                        </svg>
+                    </span>
+                    <span class="stop_search">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M14 6.3706C14 4.65827 11.9884 3.73774 10.6926 4.85712L7.36317 7.73321C6.99989 8.04704 6.53583 8.21972 6.05576 8.21973L4.49998 8.21974C3.11928 8.21975 2 9.33903 2 10.7197V14.0127C2 15.3934 3.11929 16.5127 4.5 16.5127H6.0558C6.53587 16.5127 6.99993 16.6854 7.36322 16.9992L10.6926 19.8753C11.9884 20.9947 14 20.0741 14 18.3618V12.3662V6.3706Z"
+                                fill="#223547"
+                                stroke="#223547"
+                                stroke-width="1.5"
+                            />
+                            <path d="M18 14.1215L22.2427 9.87891" stroke="#223547" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M18 9.87894L22.2427 14.1216" stroke="#223547" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </span>
+                    <audio id="audio" src="../assets/music/music_audio07.mp3" loop="loop"></audio>
+                    <audio id="audio_complete" src="../assets/music/Success 2.mp3"></audio>
+                    <audio id="audio_fail" src="../assets/music/fail.mp3"></audio>
+                </div>
+
+                <span>CSS 속성 검색 이벤트</span>
+                <h1>2분 동안 CSS 속성 검색하기</h1>
+                <p class="desc">
+                    2분 동안 CSS 속성을 많이 검색하면 점수가 올라갑니다.<br />
+                    힌트보기는 한번 이용할 수 있습니다.
+                </p>
+
+                <div class="time">
+                    <span>2:00</span>
+                </div>
+
+                <div class="search__box">
+                    <label for="search">검색하기</label>
+                    <input type="text" id="search" placeholder="CSS 속성을 입력해주세요!" />
+                    <div class="start">게임 시작</div>
+                </div>
+
+                <div class="search__info center">
+                    <div>전체 속성 갯수 : <span class="num">0</span></div>
+                    <div>현재 정답 갯수 : <span class="count">0</span></div>
+                </div>
+
+                <div class="search__answers scroll"></div>
+
+                <div class="search__missAnswers scroll"></div>
+
+                <div class="search__list"></div>
+
+                <div class="search__result">
+                    <div class="svg__wrap">
+                        <svg
+                            id="robot"
+                            version="1.1"
+                            xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                            x="0"
+                            y="0"
+                            width="320px"
+                            height="300px"
+                            viewBox="0 0 160 300"
+                            enable-background="new 0 0 320 300"
+                            xml:space="preserve"
+                        >
+                            <rect x="59.722" y="72.779" fill="#333" width="40.557" height="27.564" />
+                            <g id="head" class="up">
+                                <g id="leftAntenna">
+                                    <path
+                                        fill="none"
+                                        stroke="#ccc"
+                                        stroke-width="1.5"
+                                        stroke-miterlimit="10"
+                                        d="M77.519,25.869
+                                C75.85,13.604,65.745,3.39,53.972,3.39"
+                                    >
+                                        <animate
+                                            attributeName="d"
+                                            calcMode="spline"
+                                            keySplines="0.42 0 0.58 1; 0.42 0 0.58 1; 0.42 0 0.58 1"
+                                            begin="0s"
+                                            dur="0.75s"
+                                            repeatCount="indefinite"
+                                            values="
+                                                  M77.519,25.869C75.85,13.604,65.745,3.39,53.972,3.39
+                                                  ;
+                                                  M77.519,25.869C75.85,13.604,65.745,3.39,53.972,12
+                                                  ;
+                                                  M77.519,25.869C75.85,13.604,65.745,3.39,53.972,0
+                                                  ;
+                                                  M77.519,25.869C75.85,13.604,65.745,3.39,53.972,3.39
+                                                  "
+                                        />
+                                    </path>
+                                    <ellipse fill="#ccc" cx="55.021" cy="3.39" rx="3.344" ry="3.391">
+                                        <animate
+                                            dur="0.75s"
+                                            attributeName="cy"
+                                            calcMode="spline"
+                                            keySplines="0.42 0 0.58 1; 0.42 0 0.58 1; 0.42 0 0.58 1"
+                                            begin="0s"
+                                            values="
+                                                   3.39;
+                                                   12;
+                                                   0;
+                                                   3.39
+                                                   "
+                                            repeatCount="indefinite"
+                                        />
+                                    </ellipse>
+                                </g>
+                                <g id="rightAntenna">
+                                    <path
+                                        fill="none"
+                                        stroke="#ccc"
+                                        stroke-width="1.5"
+                                        stroke-miterlimit="10"
+                                        d="M82.48,25.869
+                                C84.15,13.604,94.255,3.39,106.028,3.39"
+                                    >
+                                        <animate
+                                            attributeName="d"
+                                            calcMode="spline"
+                                            keySplines="0.42 0 0.58 1; 0.42 0 0.58 1; 0.42 0 0.58 1"
+                                            begin="0s"
+                                            dur="0.6s"
+                                            repeatCount="indefinite"
+                                            values="
+                                                  M82.48,25.869C84.15,13.604,94.255,3.39,106.028,3.39
+                                                  ;
+                                                  M82.48,25.869C84.15,13.604,94.255,3.39,106.028,10.39
+                                                  ;
+                                                  M82.48,25.869C84.15,13.604,94.255,3.39,106.028,-5.39
+                                                  ;
+                                                  M82.48,25.869C84.15,13.604,94.255,3.39,106.028,3.39
+                                                  "
+                                        />
+                                    </path>
+                                    <ellipse fill="#ccc" cx="104.979" cy="3.39" rx="3.344" ry="3.391">
+                                        <animate
+                                            dur="0.6s"
+                                            attributeName="cy"
+                                            calcMode="spline"
+                                            keySplines="0.42 0 0.58 1; 0.42 0 0.58 1; 0.42 0 0.58 1"
+                                            begin="0s"
+                                            values="
+                                                   3.39;
+                                                   10.39;
+                                                   -5.39;
+                                                   3.39
+                                                   "
+                                            repeatCount="indefinite"
+                                        />
+                                    </ellipse>
+                                </g>
+                                <path fill="#333" d="M96.079,32.57v-8.546c-10.72-3.765-21.437-3.98-32.156,0v8.546H96.079z" />
+                                <path
+                                    fill="#f54f59"
+                                    d="M112.809,28.372H80H47.19c-5.814,18.663-5.499,37.322,0,55.983H80h32.811
+                                C118.309,65.694,118.625,47.035,112.809,28.372z"
+                                />
+                                <g>
+                                    <g id="eyeLeft">
+                                        <path
+                                            fill="#FFFFFF"
+                                            d="M72.116,47.955c0,5.443-4.045,9.853-9.033,9.853h-1.971c-4.988,0-9.032-4.41-9.032-9.853
+                                        s4.044-9.856,9.032-9.856h1.971C68.071,38.099,72.116,42.512,72.116,47.955z"
+                                        >
+                                            <animate
+                                                attributeName="d"
+                                                calcMode="spline"
+                                                keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"
+                                                begin="5s"
+                                                dur="0.8s"
+                                                repeatCount="indefinite"
+                                                values="
+                                                  M72.116,47.955c0,5.443-4.045,9.853-9.033,9.853h-1.971c-4.988,0-9.032-4.41-9.032-9.853s4.044-9.856,9.032-9.856h1.971C68.071,38.099,72.116,42.512,72.116,47.955z
+                                                  ;
+                                                  M72.116,47.955c0,5.443-0.045,9.853-9.033,9.853h-1.971c-4.988,0-9.032-4.41-9.032-9.853s4.044-4.856,9.032-4.856h1.971C68.071,45.099,72.116,42.512,72.116,47.955z
+                                                  ;
+                                                  M72.116,47.955c0,5.443-4.045,9.853-9.033,9.853h-1.971c-4.988,0-9.032-4.41-9.032-9.853s4.044-9.856,9.032-9.856h1.971C68.071,38.099,72.116,42.512,72.116,47.955z
+                                                  "
+                                            />
+                                        </path>
+                                        <path
+                                            d="M66.614,47.955c0,2.176-1.618,3.942-3.613,3.942h-1.807c-1.994,0-3.612-1.766-3.612-3.942
+                                        c0-2.178,1.618-3.943,3.612-3.943H63C64.996,44.012,66.614,45.777,66.614,47.955z"
+                                        />
+                                    </g>
+                                    <g>
+                                        <path
+                                            fill="#FFFFFF"
+                                            d="M107.92,47.955c0,5.443-4.045,9.853-9.031,9.853h-1.973c-4.986,0-9.031-4.41-9.031-9.853
+                                        s4.045-9.856,9.031-9.856h1.973C103.875,38.099,107.92,42.512,107.92,47.955z"
+                                        >
+                                            <animate
+                                                attributeName="d"
+                                                calcMode="spline"
+                                                keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"
+                                                begin="5s"
+                                                dur="0.8s"
+                                                repeatCount="indefinite"
+                                                values="
+                                                  M107.92,47.955c0,5.443-4.045,9.853-9.031,9.853h-1.973c-4.986,0-9.031-4.41-9.031-9.853s4.045-9.856,9.031-9.856h1.973C103.875,38.099,107.92,42.512,107.92,47.955z
+                                                  ;
+                                                  M107.92,47.955c0,5.443-4.045,9.853-9.031,9.853h-1.973c-4.986,0-9.031-4.41-9.031-9.853s4.045-4.856,9.031-4.856h1.973C103.875,45.099,107.92,42.512,107.92,47.955z
+                                                  ;
+                                                  M107.92,47.955c0,5.443-4.045,9.853-9.031,9.853h-1.973c-4.986,0-9.031-4.41-9.031-9.853s4.045-9.856,9.031-9.856h1.973C103.875,38.099,107.92,42.512,107.92,47.955z
+                                                  "
+                                            />
+                                        </path>
+                                        <path
+                                            d="M102.417,47.955c0,2.176-1.616,3.942-3.612,3.942h-1.807c-1.994,0-3.611-1.766-3.611-3.942
+                                        c0-2.178,1.617-3.943,3.611-3.943h1.807C100.801,44.012,102.417,45.777,102.417,47.955z"
+                                        />
+                                    </g>
+                                </g>
+                                <path
+                                    fill="#FFFFFF"
+                                    d="M103.383,69.778c0,1.381-0.836,2.499-1.871,2.499c-10.756,0-32.269,0-43.025,0
+                                c-1.033,0-1.871-1.118-1.871-2.499c0-1.378,0.838-2.496,1.871-2.496c10.756,0,32.269,0,43.025,0
+                                C102.547,67.282,103.383,68.4,103.383,69.778z"
+                                >
+                                    <animate
+                                        attributeName="d"
+                                        calcMode="spline"
+                                        keySplines="0.42 0 0.58 1; 0.42 0 0.58 1; 0.42 0 0.58 1"
+                                        begin="0s"
+                                        dur="1s"
+                                        repeatCount="indefinite"
+                                        values="
+                                                  M103.383,69.778c0,1.381-0.836,2.499-1.871,2.499c-10.756,0-32.269,0-43.025,0
+                                c-1.033,0-1.871-1.118-1.871-2.499c0-1.378,0.838-2.496,1.871-2.496c10.756,0,32.269,0,43.025,0
+                                C102.547,67.282,103.383,68.4,103.383,69.778z
+                                                  ;
+                                                  M103.383,69.778c0,1.381-0.862,2.268-1.871,2.499c-11.669,2.677-29.396,3.207-43.025,0
+                                c-1.005-0.236-1.871-1.118-1.871-2.499c0-1.378,0.868-2.249,1.871-2.496c11.349-2.795,31.753-2.53,43.025,0
+                                C102.521,67.508,103.383,68.4,103.383,69.778z
+                                                  ;
+                                                  M103.383,69.778c0,1.381-0.86,2.724-1.871,2.499c-11.271-2.506-29.956-2.201-43.025,0
+                                c-1.019,0.171-1.871-1.118-1.871-2.499c0-1.378,0.89-2.819,1.871-2.496c15.191,4.995,30.429,3.433,43.025,0
+                                C102.511,67.01,103.383,68.4,103.383,69.778z
+                                                  ;
+                                                  M103.383,69.778c0,1.381-0.836,2.499-1.871,2.499c-10.756,0-32.269,0-43.025,0
+                                c-1.033,0-1.871-1.118-1.871-2.499c0-1.378,0.838-2.496,1.871-2.496c10.756,0,32.269,0,43.025,0
+                                C102.547,67.282,103.383,68.4,103.383,69.778z
+                                                  "
+                                    />
+                                </path>
+                            </g>
+                            <g id="upperTorso">
+                                <g id="leftArm">
+                                    <g class="forearm">
+                                        <path
+                                            fill="#333"
+                                            d="M9.068,131.177c-4.78,12.558-5.183,25.372-2.497,40.71c0,0,0.68,4.312,6.107,3.39
+                                c4.571-0.776,4.348-5.001,4.348-5.001c-2.351-13.388-2.234-24.244,1.89-35.134c0,0,1.75-4.725-2.833-6.6
+                                C11.02,126.471,9.068,131.177,9.068,131.177z"
+                                        />
+                                        <path
+                                            fill="#f54f59"
+                                            d="M9.604,166.5c-6.984,1.975-11.067,9.316-9.117,16.398c1.008,3.662,3.439,6.522,6.51,8.172
+                                c-0.167-0.363-0.315-0.742-0.426-1.141c-1.235-4.484,1.703-9.234,6.562-10.609c4.861-1.377,9.804,1.145,11.037,5.631
+                                c0.111,0.396,0.18,0.798,0.221,1.197c1.785-3.021,2.399-6.748,1.393-10.407C23.833,168.661,16.589,164.523,9.604,166.5z"
+                                        />
+                                    </g>
+                                    <path
+                                        fill="#333"
+                                        d="M18.917,135.142c1.731-4.573,4.169-9.151,7.428-13.925c4.23-6.199,7.573-9.281,13.553-13.761
+                                c0,0,3.335-2.905,0.961-6.63c-2.797-4.389-7.415-1.908-7.415-1.908c-4.981,3.145-10.421,8.413-15.576,15.872
+                                c-3.827,5.537-6.726,10.938-8.8,16.387c0,0-1.877,4.187,2.599,6.24C16.75,139.75,18.917,135.142,18.917,135.142z"
+                                    />
+                                    <g>
+                                        <ellipse stroke="#f54f59" cx="13.581" cy="132.93" rx="8.505" ry="8.623" />
+                                        <g>
+                                            <path
+                                                fill="#f54f59"
+                                                d="M9.299,135.199c1.237,2.396,4.154,3.322,6.52,2.07c2.364-1.252,3.278-4.211,2.042-6.605
+                                        c-1.236-2.398-4.152-3.324-6.52-2.072C8.978,129.844,8.065,132.803,9.299,135.199z"
+                                            />
+                                        </g>
+                                    </g>
+                                </g>
+                                <g id="rightArm">
+                                    <g class="forearm">
+                                        <path
+                                            fill="#333"
+                                            d="M143.916,128.542c-4.583,1.875-2.833,6.6-2.833,6.6c4.124,10.89,4.241,21.746,1.89,35.134
+                                c0,0-0.223,4.225,4.348,5.001c5.428,0.922,6.107-3.39,6.107-3.39c2.688-15.338,2.283-28.152-2.496-40.71
+                                C150.932,131.177,148.98,126.471,143.916,128.542z"
+                                        />
+                                        <path
+                                            fill="#f54f59"
+                                            d="M134.216,175.741c-1.006,3.659-0.392,7.386,1.394,10.407c0.041-0.399,0.109-0.801,0.221-1.197
+                                c1.232-4.486,6.176-7.008,11.037-5.631c4.859,1.375,7.797,6.125,6.562,10.609c-0.111,0.398-0.26,0.777-0.427,1.141
+                                c3.071-1.649,5.502-4.51,6.511-8.172c1.949-7.082-2.134-14.424-9.117-16.398C143.411,164.523,136.167,168.661,134.216,175.741z"
+                                        />
+                                    </g>
+                                    <path
+                                        fill="#333"
+                                        d="M148.333,137.417c4.476-2.054,2.599-6.24,2.599-6.24c-2.074-5.449-4.973-10.85-8.8-16.387
+                                c-5.155-7.459-10.595-12.727-15.576-15.872c0,0-4.618-2.48-7.415,1.908c-2.374,3.725,0.961,6.63,0.961,6.63
+                                c5.98,4.479,9.323,7.562,13.553,13.761c3.26,4.773,5.697,9.352,7.429,13.925C141.083,135.142,143.25,139.75,148.333,137.417z"
+                                    />
+                                    <g>
+                                        <ellipse stroke="#f54f59" cx="146.419" cy="132.93" rx="8.505" ry="8.623" />
+                                        <g>
+                                            <path
+                                                fill="#f54f59"
+                                                d="M148.659,128.592c-2.368-1.252-5.284-0.326-6.521,2.072c-1.236,2.395-0.322,5.354,2.043,6.605
+                                        s5.282,0.326,6.52-2.07C151.936,132.803,151.021,129.844,148.659,128.592z"
+                                            />
+                                        </g>
+                                    </g>
+                                </g>
+                                <path d="M42.356,94.049l-8.341-1.248c-5.238,10.201-7.014,20.918-4.697,32.248l8.34,1.248L42.356,94.049z" />
+                                <path d="M122.342,126.297l8.34-1.248c2.317-11.33,0.541-22.047-4.697-32.248l-8.34,1.248L122.342,126.297z" />
+                                <path
+                                    fill="#f54f59"
+                                    d="M125.283,131.334c0.048-13.081-1.633-26.163-5.186-39.244H80H39.903
+                                c-3.552,13.081-5.232,26.162-5.184,39.242L125.283,131.334z"
+                                />
+                            </g>
+                            <g id="lowerTrunk">
+                                <g id="leftFoot">
+                                    <path
+                                        fill="#333"
+                                        d="M61.27,164.817c0-3.526-2.858-6.386-6.385-6.386c-3.527,0-6.386,2.859-6.386,6.386v0.001l0,0l0,36.132
+                                    c0,3.526,2.859,6.386,6.386,6.386c3.526,0,6.385-2.859,6.385-6.386L61.27,164.817L61.27,164.817L61.27,164.817z"
+                                    />
+                                    <g class="lowerLeg">
+                                        <path
+                                            fill="#333"
+                                            d="M61.27,200.63c0-3.526-2.858-6.386-6.385-6.386c-3.527,0-6.386,2.859-6.386,6.386v0.001l0,0l0,36.132
+                                    c0,3.526,2.859,6.386,6.386,6.386c3.526,0,6.385-2.859,6.385-6.386L61.27,200.63L61.27,200.63L61.27,200.63z"
+                                        />
+                                        <path fill="#f54f59" d="M54.885,234.096c-9.526,0-17.244,7.119-17.244,15.903H72.13C72.13,241.215,64.41,234.096,54.885,234.096z" />
+                                    </g>
+                                    <g>
+                                        <ellipse stroke="#f54f59" cx="54.885" cy="200.79" rx="9.294" ry="9.423" />
+                                        <g>
+                                            <path
+                                                fill="#f54f59"
+                                                d="M60.607,203.823c-1.653,3.202-5.553,4.44-8.715,2.768c-3.163-1.677-4.383-5.628-2.73-8.832
+                                            c1.651-3.204,5.556-4.442,8.715-2.771C61.036,196.664,62.258,200.62,60.607,203.823z"
+                                            />
+                                        </g>
+                                    </g>
+                                </g>
+                                <g id="rightFoot">
+                                    <path
+                                        fill="#333"
+                                        d="M98.73,164.817c0-3.526,2.858-6.386,6.385-6.386c3.527,0,6.386,2.859,6.386,6.386v0.001l0,0l0.001,36.132
+                                    c0,3.526-2.859,6.386-6.387,6.386c-3.525,0-6.385-2.859-6.385-6.386V164.817L98.73,164.817L98.73,164.817z"
+                                    />
+                                    <g class="lowerLeg">
+                                        <path
+                                            fill="#333"
+                                            d="M98.73,200.63c0-3.526,2.858-6.386,6.385-6.386c3.527,0,6.386,2.859,6.386,6.386v0.001l0,0l0.001,36.132
+                                    c0,3.526-2.859,6.386-6.387,6.386c-3.525,0-6.385-2.859-6.385-6.386V200.63L98.73,200.63L98.73,200.63z"
+                                        />
+                                        <path fill="#f54f59" d="M87.87,249.999h34.489c0-8.784-7.719-15.903-17.244-15.903S87.87,241.215,87.87,249.999z" />
+                                    </g>
+                                    <g>
+                                        <ellipse stroke="#f54f59" cx="105.115" cy="200.79" rx="9.294" ry="9.423" />
+                                        <g>
+                                            <path
+                                                fill="#f54f59"
+                                                d="M102.123,194.988c3.159-1.672,7.064-0.434,8.715,2.771c1.653,3.204,0.434,7.155-2.73,8.832
+                                            c-3.162,1.673-7.062,0.435-8.715-2.768C97.742,200.62,98.964,196.664,102.123,194.988z"
+                                            />
+                                        </g>
+                                    </g>
+                                </g>
+                                <path fill="#f7727a" d="M34.719,131.334c0.048,13.082,1.824,26.164,5.184,39.246H80h40.098c3.361-13.08,5.138-26.162,5.186-39.244L34.719,131.334z" />
+                            </g>
+                        </svg>
+                        <div class="result"></div>
+                        <button class="restart">다시하기</button>
+                    </div>
+                </div>
+            </div>
+            <!-- //서치 게임 -->
+        </div>
+
+        <footer id="footer">
+            <div class="agent"></div>
+            <div class="modal__wrap">
+                <div class="modal__cont">
+                    <div class="modal__box">
+                        <div class="title">
+                            <span class="dot" aria-label="true"></span>
+                            <div class="tabs">
+                                <div class="active">
+                                    <span class="favicon" aria-label="true">
+                                        <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true" focusable="false">
+                                            <circle cx="9" cy="9" r="9" fill="#fff"></circle>
+                                            <path d="M18 9C18 13.9706 15.4688 3.09375 9 10.125C2.53125 17.1562 0 13.9706 0 9C0 4.02944 4.02944 0 9 0C13.9706 0 18 4.02944 18 9Z" fill="orange"></path>
+                                            <path
+                                                d="M18 9C18 13.9706 14.9062 0.84375 8.29688 6.1875C1.6875 11.5312 0 13.9706 0 9C0 4.02944 4.02944 0 9 0C13.9706 0 18 4.02944 18 9Z"
+                                                fill="yellow"
+                                            ></path>
+                                        </svg>
+                                    </span>
+                                    <em>Javascript</em>
+                                    <span class="close">
+                                        <svg width="18" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+                                            <path d="M12.5 3.5L3.5 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                            <path d="M12.5 12.5L3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div>
+                                    <span class="favicon" aria-label="true">
+                                        <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true" focusable="false">
+                                            <circle cx="9" cy="9" r="9" fill="#fff"></circle>
+                                            <path d="M18 9C18 13.9706 15.4688 3.09375 9 10.125C2.53125 17.1562 0 13.9706 0 9C0 4.02944 4.02944 0 9 0C13.9706 0 18 4.02944 18 9Z" fill="orange"></path>
+                                            <path
+                                                d="M18 9C18 13.9706 14.9062 0.84375 8.29688 6.1875C1.6875 11.5312 0 13.9706 0 9C0 4.02944 4.02944 0 9 0C13.9706 0 18 4.02944 18 9Z"
+                                                fill="yellow"
+                                            ></path>
+                                        </svg>
+                                    </span>
+                                    <em>HTML</em>
+                                    <span class="close">
+                                        <svg width="18" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+                                            <path d="M12.5 3.5L3.5 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                            <path d="M12.5 12.5L3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div>
+                                    <span class="favicon" aria-label="true">
+                                        <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true" focusable="false">
+                                            <circle cx="9" cy="9" r="9" fill="#fff"></circle>
+                                            <path d="M18 9C18 13.9706 15.4688 3.09375 9 10.125C2.53125 17.1562 0 13.9706 0 9C0 4.02944 4.02944 0 9 0C13.9706 0 18 4.02944 18 9Z" fill="orange"></path>
+                                            <path
+                                                d="M18 9C18 13.9706 14.9062 0.84375 8.29688 6.1875C1.6875 11.5312 0 13.9706 0 9C0 4.02944 4.02944 0 9 0C13.9706 0 18 4.02944 18 9Z"
+                                                fill="yellow"
+                                            ></path>
+                                        </svg>
+                                    </span>
+                                    <em>CSS</em>
+                                    <span class="close">
+                                        <svg width="18" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+                                            <path d="M12.5 3.5L3.5 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                            <path d="M12.5 12.5L3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        </svg>
+                                    </span>
+                                </div>
+                            </div>
+                            <span class="plus" aria-label="true">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+                                    <path d="M2.5 8H13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M8 2.5V13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="cont">
+                            <div class="active">
+                                <pre><code class="language-js">$(".icon1, .memory__wrap").draggable({
+    drag: function () {
+        $(".cursor img").attr("src", "../assets/img/cursor1.png");
+    },
+});
+$(".icon2").draggable({
+    drag: function () {
+        $(".cursor img").attr("src", "../assets/img/cursor2.png");
+    },
+});
+$(".icon3").draggable({
+    drag: function () {
+        $(".cursor img").attr("src", "../assets/img/cursor3.png");
+    },
+});
+$(".icon4").draggable({
+    drag: function () {
+        $(".cursor img").attr("src", "../assets/img/cursor4.png");
+    },
+});
+$(".icon5").draggable({
+    drag: function () {
+        $(".cursor img").attr("src", "../assets/img/cursor5.png");
+    },
+});
+$(".icon6").draggable({
+    drag: function () {
+        $(".cursor img").attr("src", "../assets/img/cursor3.png");
+    },
+});
+$(".music__inner").draggable();
+$(".search__wrap").draggable();
+$(".search__result").draggable();
+$(".memory__result").draggable();
+
+function printTime() {
+    const clock = document.querySelector(".time");
+    const now = new Date();
+    let hours = now.getHours();
+    const minutes = now.getMinutes();
+    const seconds = now.getSeconds();
+
+    const ampm = hours >= 12 ? "pm" : "am";
+    hours = hours % 12 || 12;
+
+    // const nowTime = now.getFullYear() + "년 " + (now.getMonth() + 1) + "월 " + now.getDate() + "일 " + now.getHours() + ":" + now.getMinutes() + ()":"now.()getMnow.getS now.()getSeconds();
+    const nowTime = `${now.getFullYear()}년 ${now.getMonth() + 1}월 ${now.getDate()}일 ${hours < 10 ? `0${hours}` : `${hours}`}:${minutes < 10 ? `0${minutes}` : `${minutes}`}:${
+        seconds < 10 ? `0${seconds}` : `${seconds}`
+    } ${ampm}`;
+    clock.innerText = nowTime;
+    setTimeout("printTime()", 1000);
+}
+
+function printAgent() {
+    const agent = document.querySelector(".agent");
+    const os = navigator.userAgent.toLocaleLowerCase();
+
+    agent.innerHTML = os;
+
+    if (os.indexOf("window") >= 0) {
+        agent.innerText = "현재 윈도우를 사용하고 있으며, 화면크기는 " + screen.width + "*" + screen.height + "입니다.";
+        document.querySelector("body").classList.add("window");
+    } else if (os.indexOf("macintosh") >= 0) {
+        agent.innerText = "현재 맥을 사용하고 있으며, 화면크기는 " + screen.width + "*" + screen.height + "입니다.";
+        document.querySelector("body").classList.add("mac");
+    } else if (os.indexOf("iphone") >= 0) {
+        agent.innerText = "현재 아이폰을 사용하고 있으며, 화면크기는 " + screen.width + "*" + screen.height + "입니다.";
+        document.querySelector("body").classList.add("iphone");
+    } else if (os.indexOf("android") >= 0) {
+        agent.innerText = "현재 안드로이드폰을 사용하고 있으며, 화면크기는 " + screen.width + "*" + screen.height + "입니다.";
+        document.querySelector("body").classList.add("android");
+    }
+}
+
+window.onload = function () {
+    printTime();
+    printAgent();
+};
+
+const cursor = document.querySelector(".cursor");
+
+window.addEventListener("mousemove", (e) => {
+    gsap.to(cursor, { duration: 0, left: e.pageX - 3, top: e.pageY - 3 });
+});
+</code></pre>
+                            </div>
+                            <div>
+                                <pre><code class="language-html">&lt;main id="main"&gt;
+    &lt;div class="icon"&gt;
+        &lt;div class="icon1"&gt;
+            &lt;img src="../assets/img/icon1.png" alt="뮤직" /&gt;
+            &lt;span&gt;뮤직 듣기&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class="icon2"&gt;
+            &lt;img src="../assets/img/icon2.png" alt="영화" /&gt;
+            &lt;span&gt;카드 게임&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class="icon3"&gt;
+            &lt;img src="../assets/img/icon3.png" alt="게임" /&gt;
+            &lt;span&gt;서치 게임&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class="icon4"&gt;
+            &lt;img src="../assets/img/icon4.png" alt="내 폴더" /&gt;
+            &lt;span&gt;내 폴더&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class="icon5"&gt;
+            &lt;img src="../assets/img/icon5.png" alt="피그마" /&gt;
+            &lt;span&gt;피그마&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class="icon6"&gt;
+            &lt;img src="../assets/img/icon6.png" alt="소스 보기" /&gt;
+            &lt;span&gt;소스 보기&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/main&gt;
+&lt;!-- //main --&gt;
+
+&lt;div class="game_box"&gt;
+    &lt;div class="music__wrap show"&gt;
+        &lt;div class="music__inner"&gt;
+            &lt;div class="music__header"&gt;
+                &lt;div&gt;***&lt;/div&gt;
+                &lt;h2&gt;Music Player&lt;/h2&gt;
+                &lt;div&gt;***&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="music__contents"&gt;
+                &lt;img class="volume_icon" src="../assets/img/volume.svg" alt="볼륨" /&gt;
+                &lt;img class="volumeOff_icon" src="../assets/img/volume_off.svg" alt="볼륨" /&gt;
+                &lt;div class="volume_bar"&gt;
+                    &lt;input type="range" id="volume-control" min="0" max="10" /&gt;
+                &lt;/div&gt;
+                &lt;div class="music__view"&gt;
+                    &lt;div class="img"&gt;
+                        &lt;img src="../assets/img/music_view01.png" alt="" /&gt;
+                    &lt;/div&gt;
+                    &lt;div class="title"&gt;
+                        &lt;h3&gt;1. Cattle&lt;/h3&gt;
+                        &lt;p&gt;Telecasted&lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="music__control"&gt;
+                    &lt;div class="progress"&gt;
+                        &lt;div class="bar"&gt;
+                            &lt;audio id="main-audio" src="../assets/music/Cattle - Telecasted.mp3"&gt;&lt;/audio&gt;
+                        &lt;/div&gt;
+                        &lt;div class="timer"&gt;
+                            &lt;span class="current"&gt;0:00&lt;/span&gt;
+                            &lt;span class="duration"&gt;4:00&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="control"&gt;
+                        &lt;i title="전체 반복" id="control-repeat" class="repeat"&gt;&lt;/i&gt;
+                        &lt;i title="이전곡 재생" id="control-prev" class="prev"&gt;&lt;/i&gt;
+                        &lt;i title="재생" id="control-play" class="play"&gt;&lt;/i&gt;
+                        &lt;i title="다음곡 재생" id="control-next" class="next"&gt;&lt;/i&gt;
+                        &lt;i title="재생 목록" id="control-list" class="list"&gt;&lt;/i&gt;
+                        &lt;!-- &lt;i title="한곡 반복" class="repeat_one"&gt;&lt;/i&gt; --&gt;
+                        &lt;!-- &lt;i title="랜덤 반복" class="shuffle"&gt;&lt;/i&gt; --&gt;
+                        &lt;!-- &lt;i title="정지" id="control-stop" class="stop"&gt;&lt;/i&gt; --&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="music__footer hide"&gt;
+                &lt;div class="music__list"&gt;
+                    &lt;h3&gt;&lt;span class="list"&gt;&lt;/span&gt;뮤직 리스트&lt;a href="#" class="close"&gt;&lt;/a&gt;&lt;/h3&gt;
+                    &lt;ul&gt;
+                        &lt;!-- &lt;li&gt;
+                            &lt;strong&gt;제목&lt;/strong&gt;
+                            &lt;em&gt;아티스트&lt;/em&gt;
+                            &lt;span&gt;재생시간&lt;/span&gt;
+                        &lt;/li&gt; --&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- //뮤직 플레이어 --&gt;
+
+    &lt;div class="memory__wrap"&gt;
+        &lt;div class="memory__inner"&gt;
+            &lt;div class="memory__start"&gt;
+                &lt;p class="memory_button"&gt;시작하기&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="memory__card"&gt;
+                &lt;ul class="cards"&gt;
+                    &lt;li&gt;
+                        &lt;div class="view front"&gt;
+                            &lt;img src="../assets/img/Front.png" alt="img-1" /&gt;
+                        &lt;/div&gt;
+                        &lt;div class="view back"&gt;
+                            &lt;img src="../assets/img/card01.png" alt="img-1" /&gt;
+                        &lt;/div&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                        &lt;div class="view front"&gt;
+                            &lt;img src="../assets/img/Front.png" alt="img-1" /&gt;
+                        &lt;/div&gt;
+                        &lt;div class="view back"&gt;
+                            &lt;img src="../assets/img/card02.png" alt="img-1" /&gt;
+                        &lt;/div&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                        &lt;div class="view front"&gt;
+                            &lt;img src="../assets/img/Front.png" alt="img-1" /&gt;
+                        &lt;/div&gt;
+                        &lt;div class="view back"&gt;
+                            &lt;img src="../assets/img/card03.png" alt="img-1" /&gt;
+                        &lt;/div&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                        &lt;div class="view front"&gt;
+                            &lt;img src="../assets/img/Front.png" alt="img-1" /&gt;
+                        &lt;/div&gt;
+                        &lt;div class="view back"&gt;
+                            &lt;img src="../assets/img/card04.png" alt="img-1" /&gt;
+                        &lt;/div&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                        &lt;div class="view front"&gt;
+                            &lt;img src="../assets/img/Front.png" alt="img-1" /&gt;
+                        &lt;/div&gt;
+                        &lt;div class="view back"&gt;
+                            &lt;img src="../assets/img/card05.png" alt="img-1" /&gt;
+                        &lt;/div&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                        &lt;div class="view front"&gt;
+                            &lt;img src="../assets/img/Front.png" alt="img-1" /&gt;
+                        &lt;/div&gt;
+                        &lt;div class="view back"&gt;
+                            &lt;img src="../assets/img/card06.png" alt="img-1" /&gt;
+                        &lt;/div&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                        &lt;div class="view front"&gt;
+                            &lt;img src="../assets/img/Front.png" alt="img-1" /&gt;
+                        &lt;/div&gt;
+                        &lt;div class="view back"&gt;
+                            &lt;img src="../assets/img/card07.png" alt="img-1" /&gt;
+                        &lt;/div&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                        &lt;div class="view front"&gt;
+                            &lt;img src="../assets/img/Front.png" alt="img-1" /&gt;
+                        &lt;/div&gt;
+                        &lt;div class="view back"&gt;
+                            &lt;img src="../assets/img/card08.png" alt="img-1" /&gt;
+                        &lt;/div&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                        &lt;div class="view front"&gt;
+                            &lt;img src="../assets/img/Front.png" alt="img-1" /&gt;
+                        &lt;/div&gt;
+                        &lt;div class="view back"&gt;
+                            &lt;img src="../assets/img/card01.png" alt="img-1" /&gt;
+                        &lt;/div&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                        &lt;div class="view front"&gt;
+                            &lt;img src="../assets/img/Front.png" alt="img-1" /&gt;
+                        &lt;/div&gt;
+                        &lt;div class="view back"&gt;
+                            &lt;img src="../assets/img/card02.png" alt="img-1" /&gt;
+                        &lt;/div&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                        &lt;div class="view front"&gt;
+                            &lt;img src="../assets/img/Front.png" alt="img-1" /&gt;
+                        &lt;/div&gt;
+                        &lt;div class="view back"&gt;
+                            &lt;img src="../assets/img/card03.png" alt="img-1" /&gt;
+                        &lt;/div&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                        &lt;div class="view front"&gt;
+                            &lt;img src="../assets/img/Front.png" alt="img-1" /&gt;
+                        &lt;/div&gt;
+                        &lt;div class="view back"&gt;
+                            &lt;img src="../assets/img/card04.png" alt="img-1" /&gt;
+                        &lt;/div&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                        &lt;div class="view front"&gt;
+                            &lt;img src="../assets/img/Front.png" alt="img-1" /&gt;
+                        &lt;/div&gt;
+                        &lt;div class="view back"&gt;
+                            &lt;img src="../assets/img/card05.png" alt="img-1" /&gt;
+                        &lt;/div&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                        &lt;div class="view front"&gt;
+                            &lt;img src="../assets/img/Front.png" alt="img-1" /&gt;
+                        &lt;/div&gt;
+                        &lt;div class="view back"&gt;
+                            &lt;img src="../assets/img/card06.png" alt="img-1" /&gt;
+                        &lt;/div&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                        &lt;div class="view front"&gt;
+                            &lt;img src="../assets/img/Front.png" alt="img-1" /&gt;
+                        &lt;/div&gt;
+                        &lt;div class="view back"&gt;
+                            &lt;img src="../assets/img/card07.png" alt="img-1" /&gt;
+                        &lt;/div&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                        &lt;div class="view front"&gt;
+                            &lt;img src="../assets/img/Front.png" alt="img-1" /&gt;
+                        &lt;/div&gt;
+                        &lt;div class="view back"&gt;
+                            &lt;img src="../assets/img/card08.png" alt="img-1" /&gt;
+                        &lt;/div&gt;
+                    &lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+            &lt;div class="memory__time"&gt;
+                &lt;span&gt;0:30&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div class="memory__info center"&gt;
+                &lt;div&gt;현재 스코어 : &lt;span class="memory_point"&gt;0&lt;/span&gt;&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="memory__result"&gt;
+                &lt;div class="memory__svg__wrap"&gt;
+                    &lt;div class="memory_result"&gt;&lt;/div&gt;
+                    &lt;button class="memory_restart"&gt;다시하기&lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- //카드 게임 --&gt;
+
+    &lt;div class="search__wrap"&gt;
+        &lt;div class="search__audio"&gt;
+            &lt;span class="play_search"&gt;
+                &lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;
+                    &lt;path
+                        d="M15 6.3706C15 4.65827 12.9884 3.73774 11.6926 4.85712L8.36317 7.73321C7.99989 8.04704 7.53583 8.21972 7.05576 8.21973L5.49998 8.21974C4.11928 8.21975 3 9.33903 3 10.7197V14.0127C3 15.3934 4.11929 16.5127 5.5 16.5127H7.0558C7.53587 16.5127 7.99993 16.6854 8.36322 16.9992L11.6926 19.8753C12.9884 20.9947 15 20.0741 15 18.3618V12.3662V6.3706Z"
+                        fill="#223547"
+                        stroke="#223547"
+                        stroke-width="1.5"
+                    /&gt;
+                    &lt;path d="M18 15.3667C18.6279 14.531 19 13.4923 19 12.3667C19 11.2411 18.6279 10.2024 18 9.3667" stroke="#223547" stroke-width="1.5" stroke-linecap="round" /&gt;
+                    &lt;path d="M20 18.3667C21.2558 16.6954 22 14.6179 22 12.3667C22 10.1155 21.2558 8.03802 20 6.3667" stroke="#223547" stroke-width="1.5" stroke-linecap="round" /&gt;
+                &lt;/svg&gt;
+            &lt;/span&gt;
+            &lt;span class="stop_search"&gt;
+                &lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;
+                    &lt;path
+                        d="M14 6.3706C14 4.65827 11.9884 3.73774 10.6926 4.85712L7.36317 7.73321C6.99989 8.04704 6.53583 8.21972 6.05576 8.21973L4.49998 8.21974C3.11928 8.21975 2 9.33903 2 10.7197V14.0127C2 15.3934 3.11929 16.5127 4.5 16.5127H6.0558C6.53587 16.5127 6.99993 16.6854 7.36322 16.9992L10.6926 19.8753C11.9884 20.9947 14 20.0741 14 18.3618V12.3662V6.3706Z"
+                        fill="#223547"
+                        stroke="#223547"
+                        stroke-width="1.5"
+                    /&gt;
+                    &lt;path d="M18 14.1215L22.2427 9.87891" stroke="#223547" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /&gt;
+                    &lt;path d="M18 9.87894L22.2427 14.1216" stroke="#223547" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /&gt;
+                &lt;/svg&gt;
+            &lt;/span&gt;
+            &lt;audio id="audio" src="../assets/music/music_audio07.mp3" loop="loop"&gt;&lt;/audio&gt;
+            &lt;audio id="audio_complete" src="../assets/music/Success 2.mp3"&gt;&lt;/audio&gt;
+            &lt;audio id="audio_fail" src="../assets/music/fail.mp3"&gt;&lt;/audio&gt;
+        &lt;/div&gt;
+
+        &lt;span&gt;CSS 속성 검색 이벤트&lt;/span&gt;
+        &lt;h1&gt;2분 동안 CSS 속성 검색하기&lt;/h1&gt;
+        &lt;p class="desc"&gt;
+            2분 동안 CSS 속성을 많이 검색하면 점수가 올라갑니다.&lt;br /&gt;
+            힌트보기는 한번 이용할 수 있습니다.
+        &lt;/p&gt;
+
+        &lt;div class="time"&gt;
+            &lt;span&gt;2:00&lt;/span&gt;
+        &lt;/div&gt;
+
+        &lt;div class="search__box"&gt;
+            &lt;label for="search"&gt;검색하기&lt;/label&gt;
+            &lt;input type="text" id="search" placeholder="CSS 속성을 입력해주세요!" /&gt;
+            &lt;div class="start"&gt;게임 시작&lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class="search__info center"&gt;
+            &lt;div&gt;전체 속성 갯수 : &lt;span class="num"&gt;0&lt;/span&gt;&lt;/div&gt;
+            &lt;div&gt;현재 정답 갯수 : &lt;span class="count"&gt;0&lt;/span&gt;&lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class="search__answers scroll"&gt;&lt;/div&gt;
+
+        &lt;div class="search__missAnswers scroll"&gt;&lt;/div&gt;
+
+        &lt;div class="search__list"&gt;&lt;/div&gt;
+
+        &lt;div class="search__result"&gt;
+            &lt;div class="svg__wrap"&gt;
+                &lt;svg
+                    id="robot"
+                    version="1.1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    x="0"
+                    y="0"
+                    width="320px"
+                    height="300px"
+                    viewBox="0 0 160 300"
+                    enable-background="new 0 0 320 300"
+                    xml:space="preserve"
+                &gt;
+                    &lt;rect x="59.722" y="72.779" fill="#333" width="40.557" height="27.564" /&gt;
+                    &lt;g id="head" class="up"&gt;
+                        &lt;g id="leftAntenna"&gt;
+                            &lt;path
+                                fill="none"
+                                stroke="#ccc"
+                                stroke-width="1.5"
+                                stroke-miterlimit="10"
+                                d="M77.519,25.869
+                        C75.85,13.604,65.745,3.39,53.972,3.39"
+                            &gt;
+                                &lt;animate
+                                    attributeName="d"
+                                    calcMode="spline"
+                                    keySplines="0.42 0 0.58 1; 0.42 0 0.58 1; 0.42 0 0.58 1"
+                                    begin="0s"
+                                    dur="0.75s"
+                                    repeatCount="indefinite"
+                                    values="
+                                          M77.519,25.869C75.85,13.604,65.745,3.39,53.972,3.39
+                                          ;
+                                          M77.519,25.869C75.85,13.604,65.745,3.39,53.972,12
+                                          ;
+                                          M77.519,25.869C75.85,13.604,65.745,3.39,53.972,0
+                                          ;
+                                          M77.519,25.869C75.85,13.604,65.745,3.39,53.972,3.39
+                                          "
+                                /&gt;
+                            &lt;/path&gt;
+                            &lt;ellipse fill="#ccc" cx="55.021" cy="3.39" rx="3.344" ry="3.391"&gt;
+                                &lt;animate
+                                    dur="0.75s"
+                                    attributeName="cy"
+                                    calcMode="spline"
+                                    keySplines="0.42 0 0.58 1; 0.42 0 0.58 1; 0.42 0 0.58 1"
+                                    begin="0s"
+                                    values="
+                                           3.39;
+                                           12;
+                                           0;
+                                           3.39
+                                           "
+                                    repeatCount="indefinite"
+                                /&gt;
+                            &lt;/ellipse&gt;
+                        &lt;/g&gt;
+                        &lt;g id="rightAntenna"&gt;
+                            &lt;path
+                                fill="none"
+                                stroke="#ccc"
+                                stroke-width="1.5"
+                                stroke-miterlimit="10"
+                                d="M82.48,25.869
+                        C84.15,13.604,94.255,3.39,106.028,3.39"
+                            &gt;
+                                &lt;animate
+                                    attributeName="d"
+                                    calcMode="spline"
+                                    keySplines="0.42 0 0.58 1; 0.42 0 0.58 1; 0.42 0 0.58 1"
+                                    begin="0s"
+                                    dur="0.6s"
+                                    repeatCount="indefinite"
+                                    values="
+                                          M82.48,25.869C84.15,13.604,94.255,3.39,106.028,3.39
+                                          ;
+                                          M82.48,25.869C84.15,13.604,94.255,3.39,106.028,10.39
+                                          ;
+                                          M82.48,25.869C84.15,13.604,94.255,3.39,106.028,-5.39
+                                          ;
+                                          M82.48,25.869C84.15,13.604,94.255,3.39,106.028,3.39
+                                          "
+                                /&gt;
+                            &lt;/path&gt;
+                            &lt;ellipse fill="#ccc" cx="104.979" cy="3.39" rx="3.344" ry="3.391"&gt;
+                                &lt;animate
+                                    dur="0.6s"
+                                    attributeName="cy"
+                                    calcMode="spline"
+                                    keySplines="0.42 0 0.58 1; 0.42 0 0.58 1; 0.42 0 0.58 1"
+                                    begin="0s"
+                                    values="
+                                           3.39;
+                                           10.39;
+                                           -5.39;
+                                           3.39
+                                           "
+                                    repeatCount="indefinite"
+                                /&gt;
+                            &lt;/ellipse&gt;
+                        &lt;/g&gt;
+                        &lt;path fill="#333" d="M96.079,32.57v-8.546c-10.72-3.765-21.437-3.98-32.156,0v8.546H96.079z" /&gt;
+                        &lt;path
+                            fill="#f54f59"
+                            d="M112.809,28.372H80H47.19c-5.814,18.663-5.499,37.322,0,55.983H80h32.811
+                        C118.309,65.694,118.625,47.035,112.809,28.372z"
+                        /&gt;
+                        &lt;g&gt;
+                            &lt;g id="eyeLeft"&gt;
+                                &lt;path
+                                    fill="#FFFFFF"
+                                    d="M72.116,47.955c0,5.443-4.045,9.853-9.033,9.853h-1.971c-4.988,0-9.032-4.41-9.032-9.853
+                                s4.044-9.856,9.032-9.856h1.971C68.071,38.099,72.116,42.512,72.116,47.955z"
+                                &gt;
+                                    &lt;animate
+                                        attributeName="d"
+                                        calcMode="spline"
+                                        keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"
+                                        begin="5s"
+                                        dur="0.8s"
+                                        repeatCount="indefinite"
+                                        values="
+                                          M72.116,47.955c0,5.443-4.045,9.853-9.033,9.853h-1.971c-4.988,0-9.032-4.41-9.032-9.853s4.044-9.856,9.032-9.856h1.971C68.071,38.099,72.116,42.512,72.116,47.955z
+                                          ;
+                                          M72.116,47.955c0,5.443-0.045,9.853-9.033,9.853h-1.971c-4.988,0-9.032-4.41-9.032-9.853s4.044-4.856,9.032-4.856h1.971C68.071,45.099,72.116,42.512,72.116,47.955z
+                                          ;
+                                          M72.116,47.955c0,5.443-4.045,9.853-9.033,9.853h-1.971c-4.988,0-9.032-4.41-9.032-9.853s4.044-9.856,9.032-9.856h1.971C68.071,38.099,72.116,42.512,72.116,47.955z
+                                          "
+                                    /&gt;
+                                &lt;/path&gt;
+                                &lt;path
+                                    d="M66.614,47.955c0,2.176-1.618,3.942-3.613,3.942h-1.807c-1.994,0-3.612-1.766-3.612-3.942
+                                c0-2.178,1.618-3.943,3.612-3.943H63C64.996,44.012,66.614,45.777,66.614,47.955z"
+                                /&gt;
+                            &lt;/g&gt;
+                            &lt;g&gt;
+                                &lt;path
+                                    fill="#FFFFFF"
+                                    d="M107.92,47.955c0,5.443-4.045,9.853-9.031,9.853h-1.973c-4.986,0-9.031-4.41-9.031-9.853
+                                s4.045-9.856,9.031-9.856h1.973C103.875,38.099,107.92,42.512,107.92,47.955z"
+                                &gt;
+                                    &lt;animate
+                                        attributeName="d"
+                                        calcMode="spline"
+                                        keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"
+                                        begin="5s"
+                                        dur="0.8s"
+                                        repeatCount="indefinite"
+                                        values="
+                                          M107.92,47.955c0,5.443-4.045,9.853-9.031,9.853h-1.973c-4.986,0-9.031-4.41-9.031-9.853s4.045-9.856,9.031-9.856h1.973C103.875,38.099,107.92,42.512,107.92,47.955z
+                                          ;
+                                          M107.92,47.955c0,5.443-4.045,9.853-9.031,9.853h-1.973c-4.986,0-9.031-4.41-9.031-9.853s4.045-4.856,9.031-4.856h1.973C103.875,45.099,107.92,42.512,107.92,47.955z
+                                          ;
+                                          M107.92,47.955c0,5.443-4.045,9.853-9.031,9.853h-1.973c-4.986,0-9.031-4.41-9.031-9.853s4.045-9.856,9.031-9.856h1.973C103.875,38.099,107.92,42.512,107.92,47.955z
+                                          "
+                                    /&gt;
+                                &lt;/path&gt;
+                                &lt;path
+                                    d="M102.417,47.955c0,2.176-1.616,3.942-3.612,3.942h-1.807c-1.994,0-3.611-1.766-3.611-3.942
+                                c0-2.178,1.617-3.943,3.611-3.943h1.807C100.801,44.012,102.417,45.777,102.417,47.955z"
+                                /&gt;
+                            &lt;/g&gt;
+                        &lt;/g&gt;
+                        &lt;path
+                            fill="#FFFFFF"
+                            d="M103.383,69.778c0,1.381-0.836,2.499-1.871,2.499c-10.756,0-32.269,0-43.025,0
+                        c-1.033,0-1.871-1.118-1.871-2.499c0-1.378,0.838-2.496,1.871-2.496c10.756,0,32.269,0,43.025,0
+                        C102.547,67.282,103.383,68.4,103.383,69.778z"
+                        &gt;
+                            &lt;animate
+                                attributeName="d"
+                                calcMode="spline"
+                                keySplines="0.42 0 0.58 1; 0.42 0 0.58 1; 0.42 0 0.58 1"
+                                begin="0s"
+                                dur="1s"
+                                repeatCount="indefinite"
+                                values="
+                                          M103.383,69.778c0,1.381-0.836,2.499-1.871,2.499c-10.756,0-32.269,0-43.025,0
+                        c-1.033,0-1.871-1.118-1.871-2.499c0-1.378,0.838-2.496,1.871-2.496c10.756,0,32.269,0,43.025,0
+                        C102.547,67.282,103.383,68.4,103.383,69.778z
+                                          ;
+                                          M103.383,69.778c0,1.381-0.862,2.268-1.871,2.499c-11.669,2.677-29.396,3.207-43.025,0
+                        c-1.005-0.236-1.871-1.118-1.871-2.499c0-1.378,0.868-2.249,1.871-2.496c11.349-2.795,31.753-2.53,43.025,0
+                        C102.521,67.508,103.383,68.4,103.383,69.778z
+                                          ;
+                                          M103.383,69.778c0,1.381-0.86,2.724-1.871,2.499c-11.271-2.506-29.956-2.201-43.025,0
+                        c-1.019,0.171-1.871-1.118-1.871-2.499c0-1.378,0.89-2.819,1.871-2.496c15.191,4.995,30.429,3.433,43.025,0
+                        C102.511,67.01,103.383,68.4,103.383,69.778z
+                                          ;
+                                          M103.383,69.778c0,1.381-0.836,2.499-1.871,2.499c-10.756,0-32.269,0-43.025,0
+                        c-1.033,0-1.871-1.118-1.871-2.499c0-1.378,0.838-2.496,1.871-2.496c10.756,0,32.269,0,43.025,0
+                        C102.547,67.282,103.383,68.4,103.383,69.778z
+                                          "
+                            /&gt;
+                        &lt;/path&gt;
+                    &lt;/g&gt;
+                    &lt;g id="upperTorso"&gt;
+                        &lt;g id="leftArm"&gt;
+                            &lt;g class="forearm"&gt;
+                                &lt;path
+                                    fill="#333"
+                                    d="M9.068,131.177c-4.78,12.558-5.183,25.372-2.497,40.71c0,0,0.68,4.312,6.107,3.39
+                        c4.571-0.776,4.348-5.001,4.348-5.001c-2.351-13.388-2.234-24.244,1.89-35.134c0,0,1.75-4.725-2.833-6.6
+                        C11.02,126.471,9.068,131.177,9.068,131.177z"
+                                /&gt;
+                                &lt;path
+                                    fill="#f54f59"
+                                    d="M9.604,166.5c-6.984,1.975-11.067,9.316-9.117,16.398c1.008,3.662,3.439,6.522,6.51,8.172
+                        c-0.167-0.363-0.315-0.742-0.426-1.141c-1.235-4.484,1.703-9.234,6.562-10.609c4.861-1.377,9.804,1.145,11.037,5.631
+                        c0.111,0.396,0.18,0.798,0.221,1.197c1.785-3.021,2.399-6.748,1.393-10.407C23.833,168.661,16.589,164.523,9.604,166.5z"
+                                /&gt;
+                            &lt;/g&gt;
+                            &lt;path
+                                fill="#333"
+                                d="M18.917,135.142c1.731-4.573,4.169-9.151,7.428-13.925c4.23-6.199,7.573-9.281,13.553-13.761
+                        c0,0,3.335-2.905,0.961-6.63c-2.797-4.389-7.415-1.908-7.415-1.908c-4.981,3.145-10.421,8.413-15.576,15.872
+                        c-3.827,5.537-6.726,10.938-8.8,16.387c0,0-1.877,4.187,2.599,6.24C16.75,139.75,18.917,135.142,18.917,135.142z"
+                            /&gt;
+                            &lt;g&gt;
+                                &lt;ellipse stroke="#f54f59" cx="13.581" cy="132.93" rx="8.505" ry="8.623" /&gt;
+                                &lt;g&gt;
+                                    &lt;path
+                                        fill="#f54f59"
+                                        d="M9.299,135.199c1.237,2.396,4.154,3.322,6.52,2.07c2.364-1.252,3.278-4.211,2.042-6.605
+                                c-1.236-2.398-4.152-3.324-6.52-2.072C8.978,129.844,8.065,132.803,9.299,135.199z"
+                                    /&gt;
+                                &lt;/g&gt;
+                            &lt;/g&gt;
+                        &lt;/g&gt;
+                        &lt;g id="rightArm"&gt;
+                            &lt;g class="forearm"&gt;
+                                &lt;path
+                                    fill="#333"
+                                    d="M143.916,128.542c-4.583,1.875-2.833,6.6-2.833,6.6c4.124,10.89,4.241,21.746,1.89,35.134
+                        c0,0-0.223,4.225,4.348,5.001c5.428,0.922,6.107-3.39,6.107-3.39c2.688-15.338,2.283-28.152-2.496-40.71
+                        C150.932,131.177,148.98,126.471,143.916,128.542z"
+                                /&gt;
+                                &lt;path
+                                    fill="#f54f59"
+                                    d="M134.216,175.741c-1.006,3.659-0.392,7.386,1.394,10.407c0.041-0.399,0.109-0.801,0.221-1.197
+                        c1.232-4.486,6.176-7.008,11.037-5.631c4.859,1.375,7.797,6.125,6.562,10.609c-0.111,0.398-0.26,0.777-0.427,1.141
+                        c3.071-1.649,5.502-4.51,6.511-8.172c1.949-7.082-2.134-14.424-9.117-16.398C143.411,164.523,136.167,168.661,134.216,175.741z"
+                                /&gt;
+                            &lt;/g&gt;
+                            &lt;path
+                                fill="#333"
+                                d="M148.333,137.417c4.476-2.054,2.599-6.24,2.599-6.24c-2.074-5.449-4.973-10.85-8.8-16.387
+                        c-5.155-7.459-10.595-12.727-15.576-15.872c0,0-4.618-2.48-7.415,1.908c-2.374,3.725,0.961,6.63,0.961,6.63
+                        c5.98,4.479,9.323,7.562,13.553,13.761c3.26,4.773,5.697,9.352,7.429,13.925C141.083,135.142,143.25,139.75,148.333,137.417z"
+                            /&gt;
+                            &lt;g&gt;
+                                &lt;ellipse stroke="#f54f59" cx="146.419" cy="132.93" rx="8.505" ry="8.623" /&gt;
+                                &lt;g&gt;
+                                    &lt;path
+                                        fill="#f54f59"
+                                        d="M148.659,128.592c-2.368-1.252-5.284-0.326-6.521,2.072c-1.236,2.395-0.322,5.354,2.043,6.605
+                                s5.282,0.326,6.52-2.07C151.936,132.803,151.021,129.844,148.659,128.592z"
+                                    /&gt;
+                                &lt;/g&gt;
+                            &lt;/g&gt;
+                        &lt;/g&gt;
+                        &lt;path d="M42.356,94.049l-8.341-1.248c-5.238,10.201-7.014,20.918-4.697,32.248l8.34,1.248L42.356,94.049z" /&gt;
+                        &lt;path d="M122.342,126.297l8.34-1.248c2.317-11.33,0.541-22.047-4.697-32.248l-8.34,1.248L122.342,126.297z" /&gt;
+                        &lt;path
+                            fill="#f54f59"
+                            d="M125.283,131.334c0.048-13.081-1.633-26.163-5.186-39.244H80H39.903
+                        c-3.552,13.081-5.232,26.162-5.184,39.242L125.283,131.334z"
+                        /&gt;
+                    &lt;/g&gt;
+                    &lt;g id="lowerTrunk"&gt;
+                        &lt;g id="leftFoot"&gt;
+                            &lt;path
+                                fill="#333"
+                                d="M61.27,164.817c0-3.526-2.858-6.386-6.385-6.386c-3.527,0-6.386,2.859-6.386,6.386v0.001l0,0l0,36.132
+                            c0,3.526,2.859,6.386,6.386,6.386c3.526,0,6.385-2.859,6.385-6.386L61.27,164.817L61.27,164.817L61.27,164.817z"
+                            /&gt;
+                            &lt;g class="lowerLeg"&gt;
+                                &lt;path
+                                    fill="#333"
+                                    d="M61.27,200.63c0-3.526-2.858-6.386-6.385-6.386c-3.527,0-6.386,2.859-6.386,6.386v0.001l0,0l0,36.132
+                            c0,3.526,2.859,6.386,6.386,6.386c3.526,0,6.385-2.859,6.385-6.386L61.27,200.63L61.27,200.63L61.27,200.63z"
+                                /&gt;
+                                &lt;path fill="#f54f59" d="M54.885,234.096c-9.526,0-17.244,7.119-17.244,15.903H72.13C72.13,241.215,64.41,234.096,54.885,234.096z" /&gt;
+                            &lt;/g&gt;
+                            &lt;g&gt;
+                                &lt;ellipse stroke="#f54f59" cx="54.885" cy="200.79" rx="9.294" ry="9.423" /&gt;
+                                &lt;g&gt;
+                                    &lt;path
+                                        fill="#f54f59"
+                                        d="M60.607,203.823c-1.653,3.202-5.553,4.44-8.715,2.768c-3.163-1.677-4.383-5.628-2.73-8.832
+                                    c1.651-3.204,5.556-4.442,8.715-2.771C61.036,196.664,62.258,200.62,60.607,203.823z"
+                                    /&gt;
+                                &lt;/g&gt;
+                            &lt;/g&gt;
+                        &lt;/g&gt;
+                        &lt;g id="rightFoot"&gt;
+                            &lt;path
+                                fill="#333"
+                                d="M98.73,164.817c0-3.526,2.858-6.386,6.385-6.386c3.527,0,6.386,2.859,6.386,6.386v0.001l0,0l0.001,36.132
+                            c0,3.526-2.859,6.386-6.387,6.386c-3.525,0-6.385-2.859-6.385-6.386V164.817L98.73,164.817L98.73,164.817z"
+                            /&gt;
+                            &lt;g class="lowerLeg"&gt;
+                                &lt;path
+                                    fill="#333"
+                                    d="M98.73,200.63c0-3.526,2.858-6.386,6.385-6.386c3.527,0,6.386,2.859,6.386,6.386v0.001l0,0l0.001,36.132
+                            c0,3.526-2.859,6.386-6.387,6.386c-3.525,0-6.385-2.859-6.385-6.386V200.63L98.73,200.63L98.73,200.63z"
+                                /&gt;
+                                &lt;path fill="#f54f59" d="M87.87,249.999h34.489c0-8.784-7.719-15.903-17.244-15.903S87.87,241.215,87.87,249.999z" /&gt;
+                            &lt;/g&gt;
+                            &lt;g&gt;
+                                &lt;ellipse stroke="#f54f59" cx="105.115" cy="200.79" rx="9.294" ry="9.423" /&gt;
+                                &lt;g&gt;
+                                    &lt;path
+                                        fill="#f54f59"
+                                        d="M102.123,194.988c3.159-1.672,7.064-0.434,8.715,2.771c1.653,3.204,0.434,7.155-2.73,8.832
+                                    c-3.162,1.673-7.062,0.435-8.715-2.768C97.742,200.62,98.964,196.664,102.123,194.988z"
+                                    /&gt;
+                                &lt;/g&gt;
+                            &lt;/g&gt;
+                        &lt;/g&gt;
+                        &lt;path fill="#f7727a" d="M34.719,131.334c0.048,13.082,1.824,26.164,5.184,39.246H80h40.098c3.361-13.08,5.138-26.162,5.186-39.244L34.719,131.334z" /&gt;
+                    &lt;/g&gt;
+                &lt;/svg&gt;
+                &lt;div class="result"&gt;&lt;/div&gt;
+                &lt;button class="restart"&gt;다시하기&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- //서치 게임 --&gt;
+&lt;/div&gt;
+</code></pre>
+                            </div>
+                            <div>
+                                <pre><code class="language-css">@font-face {
+    font-family: "LABDigital";
+    font-weight: normal;
+    font-style: normal;
+    src: url("https://cdn.jsdelivr.net/gh/webfontworld/fontlab/LABDigital.eot");
+    src: url("https://cdn.jsdelivr.net/gh/webfontworld/fontlab/LABDigital.eot?#iefix") format("embedded-opentype"),
+        url("https://cdn.jsdelivr.net/gh/webfontworld/fontlab/LABDigital.woff2") format("woff2"), url("https://cdn.jsdelivr.net/gh/webfontworld/fontlab/LABDigital.woff") format("woff"),
+        url("https://cdn.jsdelivr.net/gh/webfontworld/fontlab/LABDigital.ttf") format("truetype");
+    font-display: swap;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "LABDigital";
+    font-weight: 500;
+    cursor: none;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#header {
+    position: fixed;
+    width: 100%;
+    background: #011d3f;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+
+#header h1 {
+    font-size: 20px;
+    color: #fff;
+    padding: 5px 0;
+}
+
+#header .time {
+    color: #fff;
+}
+
+.cursor {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 9999;
+    pointer-events: none;
+    user-select: none;
+}
+
+.cursor img {
+    width: 43px;
+    height: 73px;
+}
+
+#footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: #011d3f;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5 10px;
+    color: #fff;
+    /* text-align: center; */
+    align-items: center;
+    justify-content: center;
+}
+.icon1 {
+    position: absolute;
+    left: 100px;
+    top: 100px;
+    width: 54px;
+}
+
+.icon1 img {
+    width: 54px;
+}
+
+.icon1 span {
+    display: block;
+    background: #000;
+    color: #fff;
+    font-size: 14px;
+    padding: 2px;
+    white-space: nowrap;
+}
+
+.icon2 {
+    position: absolute;
+    left: 100px;
+    top: 200px;
+    width: 54px;
+}
+
+.icon2 img {
+    width: 54px;
+}
+
+.icon2 span {
+    display: block;
+    background: #000;
+    color: #fff;
+    font-size: 14px;
+    padding: 2px;
+    white-space: nowrap;
+}
+
+.icon3 {
+    position: absolute;
+    left: 100px;
+    top: 300px;
+    width: 54px;
+}
+
+.icon3 img {
+    width: 54px;
+}
+
+.icon3 span {
+    display: block;
+    background: #000;
+    color: #fff;
+    font-size: 14px;
+    padding: 2px;
+    white-space: nowrap;
+}
+
+.icon4 {
+    position: absolute;
+    left: 100px;
+    top: 400px;
+    width: 54px;
+}
+
+.icon4 img {
+    width: 54px;
+}
+
+.icon4 span {
+    display: block;
+    background: #000;
+    color: #fff;
+    font-size: 14px;
+    padding: 2px;
+    white-space: nowrap;
+}
+
+.icon5 {
+    position: absolute;
+    left: 100px;
+    top: 500px;
+    width: 54px;
+}
+
+.icon5 img {
+    width: 54px;
+}
+
+.icon5 span {
+    display: block;
+    background: #000;
+    color: #fff;
+    font-size: 14px;
+    padding: 2px;
+    white-space: nowrap;
+}
+
+.icon6 {
+    position: absolute;
+    right: 100px;
+    top: 100px;
+    width: 54px;
+}
+
+.icon6 img {
+    width: 54px;
+}
+
+.icon6 span {
+    display: block;
+    background: #000;
+    color: #fff;
+    font-size: 14px;
+    padding: 2px;
+    white-space: nowrap;
+}
+
+/* modal__wrap */
+.modal__btn {
+    font-family: "KyoboHandwriting2019";
+    font-weight: 600;
+    color: #000;
+    border: 2px solid #000;
+    border-radius: 50px;
+    display: inline-block;
+    padding: 10px 20px 10px 20px;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    position: fixed;
+    background: #fff;
+}
+
+.modal__btn:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.modal__cont {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    left: 0;
+    top: 0;
+    overflow-x: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0);
+}
+
+/*  요소를 안보이게 하는 방법
+        1. display: none;       (애니메이션X, 영역X)
+        2. opacity: 0;          (애니메이션O, 영역O)
+        3. visibility: hidden;  (애니메이션X, 영역X)
+        4. transform: scale(0); (애니메이션O, 영역X)
+        5. width: 0; height: 0; (애니메이션X, 영역X) : blind
+*/
+
+.modal__box {
+    width: 70%;
+    height: 70vh;
+    border-radius: 0.6rem;
+    box-shadow: 0 10px 20px -5px hsl(180deg 2% 10%);
+    transform: scale(0);
+}
+
+.modal__box .title {
+    padding-inline: 1rem;
+    cursor: grab;
+    background-color: #36110e;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    height: 50px;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+}
+
+.modal__box .title .dot {
+    width: 15px;
+    height: 15px;
+    background-color: #f3ec2f;
+    display: inline-block;
+    border-radius: 50%;
+    position: relative;
+    margin-left: 30px;
+}
+
+.modal__box .title .dot::before {
+    content: "";
+    position: absolute;
+    left: 25px;
+    top: 0;
+    width: 15px;
+    height: 15px;
+    background-color: #f32525;
+    border-radius: 50%;
+}
+
+.modal__box .title .dot::after {
+    content: "";
+    position: absolute;
+    right: 25px;
+    top: 0;
+    width: 15px;
+    height: 15px;
+    background-color: #51ec46;
+    border-radius: 50%;
+}
+
+.modal__box .title .plus {
+    background-color: #705a58;
+    padding: 0.5rem 0.5rem 0.25rem 0.5rem;
+    border-radius: 0.5rem;
+}
+
+.modal__box .title .tabs {
+    display: flex;
+    margin-left: 50px;
+}
+
+.modal__box .title .tabs > div {
+    color: hsl(39, 33%, 66%);
+    background-color: hsl(0, 0%, 20%);
+    padding: 0.35rem 0.8rem 0.35rem 0.8rem;
+    margin-right: 0.5rem;
+    display: flex;
+    align-items: center;
+    border-radius: 0.4rem;
+    text-transform: uppercase;
+}
+
+.modal__box .title .tabs > div.active {
+    background-color: #c9685f;
+}
+
+.modal__box .title .tabs > div em {
+    font-style: normal;
+}
+
+.modal__box .title .tabs > div .favicon {
+    margin-right: 0.4rem;
+    margin-top: 0.3rem;
+}
+
+.modal__box .title .tabs > div .close {
+    margin-left: 5rem;
+}
+
+.modal__box .cont {
+    background-color: #282936;
+    height: 100%;
+    overflow-y: auto;
+    box-sizing: border-box;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+}
+
+.modal__box .cont > div {
+    display: none;
+}
+
+.modal__box .cont > div.active {
+    display: block;
+    height: 100%;
+}
+
+.modal__close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    background-color: #f32525;
+    padding: 1rem 1rem 0.6rem 1rem;
+    border-radius: 5px;
+    box-shadow: 0 5px 7px -5px hsl(180deg 2% 10%);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.modal__close:hover {
+    background-color: #c9685f;
+}
+
+.modal__close svg {
+    color: #fff;
+}
+
+/* 모달 애니메이션 */
+.modal__cont.show {
+    /* visibility: visible; */
+    animation: foldOut 0.7s forwards ease;
+}
+
+.modal__cont.show .modal__box {
+    animation: zoomOut 0.4s 0.5s ease forwards;
+}
+
+.modal__cont.show .modal__close {
+    animation: CloseOut 0.3s 1s ease forwards;
+    opacity: 0;
+}
+
+.modal__cont.show.hide {
+    /* visibility: visible; */
+    animation: foldIn 0.3s 0.6s ease backwards;
+}
+
+.modal__cont.show.hide .modal__box {
+    animation: zoomIn 0.3s 0.3s ease backwards;
+}
+
+.modal__cont.show.hide .modal__close {
+    animation: CloseIn 0.3s ease backwards;
+}
+
+@keyframes foldOut {
+    0% {
+        transform: scaleX(0) scaleY(0.001);
+    }
+
+    50% {
+        transform: scaleX(1) scaleY(0.001);
+    }
+
+    100% {
+        transform: scaleX(1) scaleY(1);
+    }
+}
+
+@keyframes foldIn {
+    0% {
+        transform: scaleX(1) scaleY(1);
+    }
+
+    50% {
+        transform: scaleX(1) scaleY(0.001);
+    }
+
+    100% {
+        transform: scaleX(0) scaleY(0.001);
+    }
+}
+
+@keyframes zoomOut {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes zoomIn {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(0);
+        display: none;
+    }
+}
+
+@keyframes CloseOut {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes CloseIn {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* 미디어 쿼리 */
+
+@media (max-width: 1100px) {
+    .modal__box .title {
+        overflow: hidden;
+    }
+
+    .modal__box .title .dot {
+        display: none;
+    }
+
+    .modal__box .title .tabs {
+        margin-left: 0;
+    }
+
+    .modal__box .title .tabs > div .close {
+        display: none;
+    }
+}
+
+@media (max-width: 800px) {
+    #header {
+        width: 100%;
+        text-align: center;
+    }
+
+    #header h1 {
+        line-height: 1.4;
+    }
+
+    .modal__box {
+        width: 96%;
+    }
+}
+
+/* scroll */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(203, 104, 98, 0.1);
+    border-radius: 20px;
+}
+</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal__close">
+                        <svg width="18" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+                            <path d="M12.5 3.5L3.5 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M12.5 12.5L3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- //footer -->
+
+        <script src="../assets/js/gamecommon.js"></script>
+        <script src="../assets/js/gsap.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+        <script src="../assets/js/music.js"></script>
+        <script src="../assets/js/searchGame.js"></script>
+        <script src="../assets/js/memory.js"></script>
+        <script src="../assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+        <script>
+            $(".icon1, .memory__wrap").draggable({
+                drag: function () {
+                    $(".cursor img").attr("src", "../assets/img/cursor1.png");
+                },
+            });
+            $(".icon2").draggable({
+                drag: function () {
+                    $(".cursor img").attr("src", "../assets/img/cursor2.png");
+                },
+            });
+            $(".icon3").draggable({
+                drag: function () {
+                    $(".cursor img").attr("src", "../assets/img/cursor3.png");
+                },
+            });
+            $(".icon4").draggable({
+                drag: function () {
+                    $(".cursor img").attr("src", "../assets/img/cursor4.png");
+                },
+            });
+            $(".icon5").draggable({
+                drag: function () {
+                    $(".cursor img").attr("src", "../assets/img/cursor5.png");
+                },
+            });
+            $(".icon6").draggable({
+                drag: function () {
+                    $(".cursor img").attr("src", "../assets/img/cursor3.png");
+                },
+            });
+            $(".music__inner").draggable();
+            $(".search__wrap").draggable();
+            $(".search__result").draggable();
+            $(".memory__result").draggable();
+
+            function printTime() {
+                const clock = document.querySelector(".time");
+                const now = new Date();
+                let hours = now.getHours();
+                const minutes = now.getMinutes();
+                const seconds = now.getSeconds();
+
+                const ampm = hours >= 12 ? "pm" : "am";
+                hours = hours % 12 || 12;
+
+                // const nowTime = now.getFullYear() + "년 " + (now.getMonth() + 1) + "월 " + now.getDate() + "일 " + now.getHours() + ":" + now.getMinutes() + ()":"now.()getMnow.getS now.()getSeconds();
+                const nowTime = `${now.getFullYear()}년 ${now.getMonth() + 1}월 ${now.getDate()}일 ${hours < 10 ? `0${hours}` : `${hours}`}:${minutes < 10 ? `0${minutes}` : `${minutes}`}:${
+                    seconds < 10 ? `0${seconds}` : `${seconds}`
+                } ${ampm}`;
+                clock.innerText = nowTime;
+                setTimeout("printTime()", 1000);
+            }
+
+            function printAgent() {
+                const agent = document.querySelector(".agent");
+                const os = navigator.userAgent.toLocaleLowerCase();
+
+                agent.innerHTML = os;
+
+                if (os.indexOf("window") >= 0) {
+                    agent.innerText = "현재 윈도우를 사용하고 있으며, 화면크기는 " + screen.width + "*" + screen.height + "입니다.";
+                    document.querySelector("body").classList.add("window");
+                } else if (os.indexOf("macintosh") >= 0) {
+                    agent.innerText = "현재 맥을 사용하고 있으며, 화면크기는 " + screen.width + "*" + screen.height + "입니다.";
+                    document.querySelector("body").classList.add("mac");
+                } else if (os.indexOf("iphone") >= 0) {
+                    agent.innerText = "현재 아이폰을 사용하고 있으며, 화면크기는 " + screen.width + "*" + screen.height + "입니다.";
+                    document.querySelector("body").classList.add("iphone");
+                } else if (os.indexOf("android") >= 0) {
+                    agent.innerText = "현재 안드로이드폰을 사용하고 있으며, 화면크기는 " + screen.width + "*" + screen.height + "입니다.";
+                    document.querySelector("body").classList.add("android");
+                }
+            }
+
+            window.onload = function () {
+                printTime();
+                printAgent();
+            };
+
+            const cursor = document.querySelector(".cursor");
+
+            window.addEventListener("mousemove", (e) => {
+                gsap.to(cursor, { duration: 0, left: e.pageX - 3, top: e.pageY - 3 });
+            });
+
+            // SameSite 쿠키 설정
+            document.cookie = "safeCookie1=foo; SameSite=Lax";
+            document.cookie = "safeCookie2=foo";
+            document.cookie = "crossCookie=bar; SameSite=None; Secure";
+        </script>
+    </body>
+</html>

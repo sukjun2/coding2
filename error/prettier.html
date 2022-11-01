@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>확장프로그램 오류 수정하기</title>
+  <link rel="stylesheet" href="../javascript/assets/css/style.css" />
+</head>
+
+<body>
+  <main id="main">
+    <div class="document">
+      <h2 class="t_tit">확장프로그램 : Prettier 오류 수정하기</h2>
+      <p class="t_desc2">
+        Prettier는 ‘Beautify’ 라는 확장기능과 양대산맥으로 불리는 Formatter
+        기능입니다.<br />
+        Formatter란, 제가 작성한 코드에 대해 설정된 규칙에 의해 정렬을 해주는
+        기능이라고 보시면 됩니다.
+      </p>
+
+      <hr />
+
+      <h3 class="t_tit2">1. Prettier 설치하기</h3>
+      <p class="t_desc">Extensions 에서 Prettier 검색하여 설치합니다.</p>
+
+      <h3 class="t_tit2">2. 설치 확인하기</h3>
+      <p class="t_desc">
+        우측하단에 Prettier가 설치되었는지 확인이 가능합니다.<br />
+        vscode를 재부팅하고 ctrl + s 기능을 통하여 저장과 동시에 자동정렬이
+        되는지 확인합니다.
+      </p>
+
+      <h3 class="t_tit2">3. 오류 해결하기</h3>
+      <p class="t_desc">
+        기능이 작동되지 않는다면 다음의 설정들을 통하여 해결할 수 있습니다.
+      </p>
+
+      <p class="t_desc2">
+        3-1. ctrl + , 를 사용하여 설정에서 'editor format on save'를 검색하고
+        체크박스를 체크해줍니다.
+      </p>
+
+      <p class="t_desc2">
+        3-2. 체크박스 체크시에도 해결되지 않는다면, json을 검색하여 Launch의 Edit in settings.json을 클릭합니다.<br>
+        editor.formatOnSave의 값이 true인지 확인합니다.
+      </p>
+
+      <p class="t_desc2">
+        3-3. 2020년 이후 기능이 작동하지 않는다면 세팅의 Default Formatter를 검색, 이미지의 설정이 null -> Prettier -
+        Codeformatter(esbenp.prettier-vscode)로 변경합니다.
+      </p>
+    </div>
+  </main>
+  <!-- //main -->
+
+  <footer id="footer">
+    <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+  </footer>
+  <!-- //footer -->
+
+  <script src="../assets/js/highlight.min.js"></script>
+  <script>
+    hljs.highlightAll();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS : BoxStretch 애니메이션</title>
+    <link rel="stylesheet" href="/javascript/assets/css/style.css">
+    <link rel="stylesheet" href="/javascript/assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">BoxStretch 애니메이션</h2>
+            <p class="t_desc2">
+                Code pen을 사용하여 BoxStretch(늘어나는 박스) 애니메이션을 만들어보았습니다.
+            </p>
+
+            <hr>
+
+            <div class="t_iframe" style="min-height: 600px; padding-top: 0;">
+                <iframe height="300" style="width: 100%;" scrolling="no" title="Box_stretch" src="https://codepen.io/sukjun2/embed/NWMvzGo?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href="https://codepen.io/sukjun2/pen/NWMvzGo">
+                    Box_stretch</a> by sukjun2 (<a href="https://codepen.io/sukjun2">@sukjun2</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                  </iframe>
+            </div>
+
+            <h3 class="t_tit2">HTML</h3>
+            <p class="t_box">
+                상자를 의미하는 cube 클래스 내부에 각 면이 될 6개의 div태그를 만들어줍니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-html">&lt;div class="cube"&gt;
+    &lt;div&gt;코터틀&lt;/div&gt;
+    &lt;div&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">CSS</h3>
+            <p class="t_box">
+                배경색을 설정하고, 부모인 cube 클래스에 애니메이션 회전 효과와 원근감이 표현되도록 preserve-3d 효과를 줍니다.<br>
+                내부 div태그의 중앙정렬과 위치를 설정하고 nth-child를 통하여 각 면의 색과 회전 각도, 방향, 회전 중심, 애니메이션을 설정해주면 끝입니다...?
+            </p>
+            <div class="t_code">
+<pre><code class="language-css">body {
+    background-color: black;
+    height: 100vh;
+    perspective: 1000px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cube {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    transform-style: preserve-3d;
+    transform:
+        rotateX(-20deg) rotateY(-140deg) translateZ(0);
+    animation: rotate 8000ms linear infinite;
+}
+
+.cube div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    opacity: 0.75;
+    color: #fff;
+}
+
+.cube div:nth-child(1) {
+    background-color: #ffcc80;
+    transform-origin: center top;
+    transform:
+        rotateX(90deg) translateY(-100px);
+    animation: top 4000ms ease-in-out 8000ms infinite;
+}
+
+.cube div:nth-child(2) {
+    background-color: #ffb74d;
+    transform-origin: center bottom;
+    transform:
+        rotateX(-90deg) translateY(100px);
+    animation: bottom 4000ms ease-in-out 8000ms infinite;
+}
+
+.cube div:nth-child(3) {
+    background-color: #ffa726;
+    transform-origin: left center;
+    transform:
+        rotateY(-90deg) translateX(-100px);
+    animation: left 4000ms ease-in-out 8000ms infinite;
+}
+
+.cube div:nth-child(4) {
+    background-color: #ff9800;
+    transform-origin: right center;
+    transform:
+        rotateY(90deg) translateX(100px);
+    animation: right 4000ms ease-in-out 8000ms infinite;
+}
+
+.cube div:nth-child(5) {
+    background-color: #fb8c00;
+    transform-origin: center center;
+    transform: rotateX(0deg);
+    animation: front 4000ms ease-in-out 8000ms infinite;
+}
+
+.cube div:nth-child(6) {
+    background-color: #ffb74d;
+    transform-origin: center center;
+    transform:
+        rotateY(180deg) translateZ(100px);
+    animation: back 4000ms ease-in-out 8000ms infinite;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotateX(0) rotatey(0) rotateZ(0) translateZ(0)
+    }
+
+    100% {
+        transform: rotateX(360deg) rotatey(360deg) rotateZ(360deg) translateZ(0)
+    }
+}
+
+@keyframes top {
+    0% {
+        transform: rotateX(90deg) translateY(-100px) translateZ(0)
+    }
+
+    50% {
+        transform: rotateX(90deg) translateY(-100px) translateZ(100px)
+    }
+
+    100% {
+        transform: rotateX(90deg) translateY(-100px) translateZ(0)
+    }
+}
+
+@keyframes bottom {
+    0% {
+        transform: rotateX(-90deg) translateY(100px) translateZ(0)
+    }
+
+    50% {
+        transform: rotateX(-90deg) translateY(100px) translateZ(100px)
+    }
+
+    100% {
+        transform: rotateX(-90deg) translateY(100px) translateZ(0)
+    }
+}
+
+@keyframes left {
+    0% {
+        transform: rotateY(-90deg) translateX(-100px) scaley(1)
+    }
+
+    50% {
+        transform: rotateY(-90deg) translateX(-100px) scaley(3)
+    }
+
+    100% {
+        transform: rotateY(-90deg) translateX(-100px) scaley(1)
+    }
+}
+
+@keyframes right {
+    0% {
+        transform: rotateY(90deg) translateX(100px) scaley(1)
+    }
+
+    50% {
+        transform: rotateY(90deg) translateX(100px) scaley(3)
+    }
+
+    100% {
+        transform: rotateY(90deg) translateX(100px) scaley(1)
+    }
+}
+
+@keyframes front {
+    0% {
+        transform: rotateX(0deg) scaleY(1)
+    }
+
+    50% {
+        transform: rotateX(0deg) scaleY(3)
+    }
+
+    100% {
+        transform: rotateX(0deg) scaleY(1)
+    }
+}
+
+@keyframes back {
+    0% {
+        transform: rotateY(180deg) translateZ(100px) scaleY(1)
+    }
+
+    50% {
+        transform: rotateY(180deg) translateZ(100px) scaleY(3)
+    }
+
+    100% {
+        transform: rotateY(180deg) translateZ(100px) scaleY(1)
+    }
+}
+</code></pre>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="/javascript/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>

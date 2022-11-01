@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>자바스크립트 : 서치 이펙트05</title>
+        <link rel="stylesheet" href="../assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/dracula.css" />
+    </head>
+
+    <body>
+        <header id="header"></header>
+        <!-- //header -->
+
+        <main id="main">
+            <div class="document">
+                <h2 class="t_tit">searchEffect05</h2>
+                <p class="t_desc2"><i>filter()</i> 메서드를 사용하여 CSS 속성의 중요도가 별점으로 표시 / 분류되도록 만들어봤습니다..</p>
+
+                <hr />
+
+                <div class="t_iframe" style="min-height: 650px; padding-top: 0">
+                    <iframe src="https://sukjun2.github.io/coding2/javascript/effect/searchEffect05.html" frameborder="0"></iframe>
+                </div>
+
+                <div class="t_link" style="display: flex">
+                    <a href="https://github.com/sukjun2/coding2/blob/main/javascript/effect/searchEffect05.html">원본 소스 보기</a>
+                    <a href="https://sukjun2.github.io/coding2/javascript/effect/searchEffect05.html">원본 사이트 보기</a>
+                </div>
+
+                <h3 class="t_tit2">HTML</h3>
+                <p class="t_box">별점으로 속성을 분류할 버튼 영역(click)과 속성 갯수를 표시할(info)영역, 속성 내용이 들어갈(list)영역으로 나누어줍니다.</p>
+                <div class="t_code">
+                    <pre><code class="language-html">&lt;main id="main">
+    &lt;div class="search__wrap">
+        &lt;span>filter()를 이용하여 속성의 중요도 보여주기&lt;/span>
+        &lt;h1>CSS 속성 검색하기&lt;/h1>
+
+        &lt;div class="search__click">
+            &lt;ul>
+                &lt;li data-star="0">&lt;a href="#">☆☆☆☆☆&lt;/a>&lt;/li>
+                &lt;li data-star="1">&lt;a href="#">★☆☆☆☆&lt;/a>&lt;/li>
+                &lt;li data-star="2">&lt;a href="#">★★☆☆☆&lt;/a>&lt;/li>
+                &lt;li data-star="3">&lt;a href="#">★★★☆☆&lt;/a>&lt;/li>
+                &lt;li data-star="4">&lt;a href="#">★★★★☆&lt;/a>&lt;/li>
+                &lt;li data-star="5">&lt;a href="#">★★★★★&lt;/a>&lt;/li>
+            &lt;/ul>
+            &lt;ul>
+                &lt;li data-num="1">&lt;a href="#">1개 이상&lt;/a>&lt;/li>
+                &lt;li data-num="2">&lt;a href="#">2개 이상&lt;/a>&lt;/li>
+                &lt;li data-num="3">&lt;a href="#">3개 이상&lt;/a>&lt;/li>
+                &lt;li data-num="4">&lt;a href="#">4개 이상&lt;/a>&lt;/li>
+            &lt;/ul>
+        &lt;/div>
+
+        &lt;div class="search__info">
+            &lt;div>전체 속성 갯수 : &lt;span class="num">0&lt;/span>&lt;/div>
+        &lt;/div>
+
+        &lt;div class="search__list">
+            &lt;ul class="line">&lt;/ul>
+        &lt;/div>
+    &lt;/div>
+&lt;/main>
+&lt;!-- //main -->
+</code></pre>
+                </div>
+
+                <h3 class="t_tit2">JAVASCRIPT</h3>
+                <p class="t_box">
+                    HTML -> search__list에 출력해줄 css 속성을 변수 cssProperty에 저장합니다.<br />
+                    간단하게 전체 속성 갯수를 표시할 script를 작성하고, updateList 함수를 통해 search__list에 css 속성을 출력시킵니다.<br />
+                    별점 버튼에 click 이벤트를 부여하여 별 수에 따라 css 속성이 출력되도록 실행해주면 끝입니다.<br />
+                    (dataset을 사용하여 HTML의 data-star, num 속성값을 가져와 target, target2에 저장)<br />
+                    (cssProperty의 data중에 star 속성값을 target, target2와 비교하여 filterList 변수에 저장)
+                </p>
+                <div class="t_code">
+                    <pre><code class="language-js">const cssProperty = [
+    { star: 5, name: "accent-color", desc: "특정 요소에 색상을 지정할 때 사용됩니다." },
+    { star: 5, name: "align-content", desc: "콘텐츠 아이템의 상하관계 정렬 상태를 설정합니다." },
+    { star: 5, name: "align-items", desc: "콘텐츠 아이템의 내부 상하관계 정렬 상태를 설정합니다." },
+    { star: 5, name: "align-self", desc: "개별적인 콘텐츠 아이템의 정렬 상태를 설정합니다." },
+    { star: 5, name: "all", desc: "요소의 속성을 초기화 또는 상속을 설정합니다." },
+    ...
+];
+
+const searchList = document.querySelector(".search__list ul");
+const searchClick = document.querySelectorAll(".search__click ul li");
+const starA = document.querySelectorAll(".search__click ul li a");
+const searchInfo = document.querySelector(".search__info .num");
+
+searchInfo.textContent = cssProperty.length;
+
+let count = 0;
+
+// 출력하기
+function updateList(list) {
+    listCSS = "";
+    for (const data of list) {
+        listCSS += `&lt;li>${data.name} : ${data.desc}&lt;em>${starA[data.star].innerText}&lt;/em>&lt;/li>`;
+        count++;
+    }
+    searchInfo.textContent = count;
+    count = 0;
+
+    searchList.innerHTML = listCSS;
+}
+updateList(cssProperty);
+
+// 클릭하기
+searchClick.forEach((star) => {
+    star.addEventListener("click", (el) => {
+        const target = star.dataset.star;
+        const target2 = star.dataset.num;
+        // console.log(target2)
+        const filterList = cssProperty.filter((data) => data.star == target || data.star >= target2);
+        // console.log(filterList2);
+
+        updateList(filterList);
+    });
+});
+</code></pre>
+                </div>
+            </div>
+        </main>
+        <!-- //main -->
+
+        <footer id="footer">
+            <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+        </footer>
+        <!-- //footer -->
+
+        <script src="../assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>

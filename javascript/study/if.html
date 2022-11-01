@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 조건문</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">조건문</h2>
+            <p class="t_desc2">
+                조건문은 주어진 조건식의 결과에 따라 별도의 명령을 수행하도록 제어하는 명령문입니다.<br>
+                조건문 중에서도 가장 기본이 되는 명령문은 바로 if 문입니다.
+            </p>
+
+            <h3 class="t_tit2">if문</h3>
+            <p class="t_box">
+                if(조건식){<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;실행문<br>
+                }
+            </p>
+            <p class="t_desc">
+                if 문은 조건식의 결과가 <i>참(true)이면 주어진 명령문을 실행</i>하며, 거짓(false)이면 아무것도 실행하지 않습니다.
+            </p>
+
+            <h3 class="t_tit3">예제</h3>
+            <div class="t_code">
+                <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;if 문&lt;/title&gt;
+    &lt;script&gt;
+        var html = Number(prompt('html 점수입력',''));
+        var css = Number(prompt('css 점수입력', ''));
+        var javascript = Number(prompt('javascript점수입력',''));
+        var avg = (html + css + javascript) / 3;
+        var comment ;
+        if (avg >= 60) {
+                comment = 'HTML' + ' 40점 미만 불합격';
+            } else if (css &lt; 40) {
+                comment = 'CSS' + ' 40점 미만 불합격';
+            } else if (javascript &lt; 40) {
+                comment = 'JAVASCRIPT' + ' 40점 미만 불합격';
+            } else {
+                comment = '평균' + avg + '점 합격';
+            }
+        } else {
+            comment = '평균' + avg + '점 불합격';
+        }
+        document.write(comment);
+    &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+            </div>
+            <p class="t_desc">
+                prompt()는 숫자로 입력한 데이터를 문자로 처리하기 때문에 '+' 연산자를 사용할 경우 더하기 연산이 아니라 <i>연결 연산</i>이 됩니다.
+            </p>
+            <div class="t_result">
+                <details>
+                    <summary>결과 확인하기</summary>
+                    <div class="result_01">
+                        평균 90점 합격<br>
+                        평균 59점 불합격
+                    </div>
+                </details>
+            </div>
+
+            <h3 class="t_tit2">switch문</h3>
+            <p class="t_desc">
+                switch 문은 if / else 문과 마찬가지로 주어진 조건 값의 결과에 따라 프로그램이 다른 명령을 수행하도록 하는 조건문입니다.<br>
+                이러한 switch 문은 if / else 문보다 가독성이 더 좋으며, 컴파일러가 최적화를 쉽게 할 수 있어 속도 또한 빠른 편입니다.
+            </p>
+            <h3 class="t_tit3">예제</h3>
+            <div class="t_code">
+                <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;switch 문&lt;/title&gt;
+    &lt;script&gt;
+        var classification = prompt('아동, 청소년, 성인 중 선택 입력', '');
+        switch (classification) {
+            case '아동':
+                classification += ':입장료 무료';
+                break;
+            case '청소년':
+                classification += ':입장료 2,000원';
+                break;
+            case '성인':
+                classification += ':입장료 5,000원';
+                break;
+            default:
+                classification = '입력 값을 다시 확인하세요';
+        }
+        document.write(classification);
+    &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+            </div>
+            <div class="t_result">
+                <details>
+                    <summary>결과 확인하기</summary>
+                    <div class="result_01">
+                        아동: 입장료 무료<br>
+                        청소년: 입장료 2,000원<br>
+                        성인: 입장료, 5,000원
+                    </div>
+                </details>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>

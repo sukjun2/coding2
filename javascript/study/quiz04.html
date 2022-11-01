@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 퀴즈 이펙트04</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+    </header>
+    <!-- //header -->
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">quizEffect04</h2>
+            <p class="t_desc2">
+                js를 이용한 객관식 기출문제입니다.<br>
+                참고하여 웹디자인기능사 시험을 준비합니다.
+            </p>
+
+            <hr>
+
+            <div class="t_iframe" style="min-height: 950px; padding-top: 0;">
+                <iframe src="https://sukjun2.github.io/coding2/javascript/effect/quizEffect04.html"
+                    frameborder="0"></iframe>
+            </div>
+
+            <div class="t_link">
+                <a href="https://github.com/sukjun2/coding2/blob/main/javascript/effect/quizEffect04.html">원본 소스 보기</a>
+            </div>
+
+            <h3 class="t_tit2">자바스크립트</h3>
+            <p class="t_box">
+                퀴즈 3번의 응용으로 객관식 문제를 만들었습니다.<br>
+                if문 안에 if문 사용과 출력문의 사용 이유 등을 확인해야합니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-js">//선택자
+const quizType = document.querySelector(".quiz__type");                     //퀴즈 종류
+const quizNumber = document.querySelector(".quiz__question .number");       //퀴즈 번호
+const quizAsk = document.querySelector(".quiz__question .ask");             //퀴즈 질문
+const quizConfirm = document.querySelector(".quiz__answer .confirm");       //정답 확인 버튼
+const quizResult = document.querySelector(".quiz__answer .result");         //정답 결과
+const quizView = document.querySelector(".quiz__view");                     //강아지
+const quizSelects = document.querySelector(".quiz__selects");               //객관식 보기
+const quizChoice = quizSelects.querySelectorAll(".choice");                      //객관식 보기
+const quizSelect = quizSelects.querySelectorAll(".select")                        //객관식 보기
+
+//문제 정보
+const quizInfo = [
+    {
+        answerType: "웹디자인기능사 2015년 02회",
+        answerNum: "1",
+        answerAsk: "웹문서 작성을 위한 국제표준언어가 아닌 것은?",
+        answerChoice: ["MS-WORD", "SGML", "HTML", "XML"],
+        answerResult: "1",
+        answerEx: "마이크로소프트 워드(Microsoft Word)는 마이크로소프트에서 개발한 워드 프로세서입니다."
+    }
+];
+
+function updateQuiz() {
+    //문제 출력
+    quizType.textContent = quizInfo[0].answerType;
+    quizNumber.textContent = quizInfo[0].answerNum + ". ";
+    quizAsk.textContent = quizInfo[0].answerAsk;
+    quizResult.textContent = quizInfo[0].answerResult;
+    quizResult.textContent = quizInfo[0].answerEx;
+
+    //보기 출력
+    for (i = 0; i &lt; quizSelect.length; i++) {
+        quizChoice[i].textContent = quizInfo[0].answerChoice[i];
+    }
+
+    // quizInfo.forEach(function (el, i) {
+    //     quizChoice[0].textContent = quizInfo[i].answerChoice[0];
+    //     quizChoice[1].textContent = quizInfo[i].answerChoice[1];
+    //     quizChoice[2].textContent = quizInfo[i].answerChoice[2];
+    //     quizChoice[3].textContent = quizInfo[i].answerChoice[3];
+    // });
+
+    //해설 숨기기
+    quizResult.style.display = "none";
+}
+updateQuiz();
+
+//정답 확인
+function answerQuiz() {
+    //사용자 선택 정답 == 문제 정답
+    //사용자가 클릭한 input --> checked
+
+    for (let i = 0; i &lt; quizSelect.length; i++) {
+        if (quizSelect[i].checked == true) {    //보기에 체크가 된 상태
+            //체크된 번호 == 문제 번호
+            if (quizSelect[i].value == quizInfo[0].answerResult) {
+                // alert("정답");
+                quizView.classList.add("like");
+            } else {
+                // alert("오답");
+                quizView.classList.add("dislike");
+                quizResult.style.display = "block";
+                quizConfirm.style.display = "none";
+            }
+        }
+    }
+}
+quizConfirm.addEventListener("click", answerQuiz);
+</code></pre>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 레이아웃</title>
+    <link rel="stylesheet" href="/javascript/assets/css/style.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">레이아웃</h2>
+            <p class="t_desc2">
+                레이아웃(layout)이란 특정 공간에 여러 구성 요소를 보기 좋게 효과적으로 배치하는 작업을 의미합니다.<br>
+                웹 페이지의 레이아웃은 웹 사이트의 <i>외관을 결정짓는 매우 중요한 요소</i>입니다.
+            </p>
+
+            <hr>
+
+            <h3 class="t_tit2">1. 레이아웃 : float</h3>
+            <p class="t_box">
+                float은 한 요소(element)가 보통 흐름(normal flow)으로부터 빠져 텍스트 및 인라인(inline) 요소가 그 주위를 감싸는 자기
+                컨테이너의 좌우측을 따라 배치되어야 함을 지정합니다.
+            </p>
+
+            <h3 class="t_tit2">1-1. 레이아웃 : float(overflow-hidden)</h3>
+            <p class="t_box">
+                overflow 속성은 요소의 박스에 내용이 더 길 때 어떻게 보일지 선택하는 속성입니다.
+            </p>
+
+            <h3 class="t_tit2">1-2. 레이아웃 : float(clearfix)</h3>
+            <p class="t_box">
+                부모 요소가 다시 자식 요소를 감쌀 수 있게 float을 초기화(clear)하여 버그를 고쳐주는(fix) 코드입니다.
+            </p>
+
+            <hr>
+
+            <h3 class="t_tit2">2. 레이아웃 : media</h3>
+            <p class="t_box">
+                @media CSS @규칙은 스타일 시트의 일부를 하나 이상의 미디어 쿼리 결과에 따라 적용할 때 사용할 수 있습니다.<br>
+                @media를 사용해 미디어 쿼리를 지정하면 <i>해당 쿼리를 만족하는 장치에서만</i> CSS 블록을 적용할 수 있습니다.
+            </p>
+
+            <hr>
+
+            <h3 class="t_tit2">3. 레이아웃 : flex</h3>
+            <p class="t_box">
+                <i>flex</i>는 하나의 플렉스 아이템이 자신의 컨테이너가 차지하는 공간에 맞추기 위해 크기를 키우거나 줄이는 방법을 설정하는 속성입니다.
+            </p>
+
+            <p class="t_box">
+                <i>flex-wrap property</i>는 flex-item 요소들이 강제로 한줄에 배치되게 할 것인지, 또는 가능한 영역 내에서 벗어나지 않고 여러행으로 나누어 표현 할 것인지
+                결정하는
+                속성입니다.<br>
+                만약 영역 내에서 벗어나지 못하게 설정한다면, 동시에 요소의 방향 축을 결정할 수 있습니다.
+            </p>
+
+            <p class="t_box">
+                <i>flex-direction</i>은 플렉스 컨테이너 내의 아이템을 배치할 때 사용할 주축 및 방향(정방향, 역방향)을 지정합니다.
+            </p>
+
+            <hr>
+
+            <h3 class="t_tit2">4. 레이아웃 : flex-media</h3>
+
+            <hr>
+
+            <h3 class="t_tit2">5. 레이아웃 : grid</h3>
+            <p class="t_box">
+                CSS 그리드 레이아웃(Grid Layout)은 페이지를 여러 주요 영역으로 나누거나, 크기와 위치 및 문서 계층 구조의 관점에서 HTML 기본 요소로 작성된 콘트롤 간의 관계를 정의하는
+                데 아주 탁월합니다.
+            </p>
+
+            <br>
+
+            <p class="t_box">
+                <i>grid-template-areas</i>의 속성은 명명된 격자 영역을 지정하고 격자에 셀을 설정하며 이름을 할당합니다.<br>
+                <i>grid-template-columns / grid-template-rows</i>는 공백으로 구분된 값 리스트를 해석하여 그리드 행(Row), 열(Column)을 설정합니다.<br>
+                <i>grid-area</i>로 설정된 그리드 영역의 이름을 참조하여, 그리드 템플릿 영역을 설정할 수 있습니다.
+            </p>
+
+            <hr>
+
+            <h3 class="t_tit2">6. 레이아웃 : grid-media</h3>
+
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+</body>
+
+</html>

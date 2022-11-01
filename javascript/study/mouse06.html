@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>자바스크립트 : 마우스 이펙트06</title>
+        <link rel="stylesheet" href="../assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/dracula.css" />
+    </head>
+
+    <body>
+        <main id="main">
+            <div class="document">
+                <h2 class="t_tit">mouseEffect06</h2>
+                <p class="t_desc2">마우스 이펙트06번 - 텍스트 효과 입니다. 마우스를 따라서 텍스트가 입체적으로 좌, 우로 움직이는 효과를 주었습니다.</p>
+
+                <hr />
+
+                <div class="t_iframe" style="min-height: 650px; padding-top: 0">
+                    <iframe src="https://sukjun2.github.io/coding2/javascript/effect/mouseEffect06.html" frameborder="0"></iframe>
+                </div>
+
+                <div class="t_link" style="display: flex">
+                    <a href="https://github.com/sukjun2/coding2/blob/main/javascript/effect/mouseEffect06.html">원본 소스 보기</a>
+                    <a href="https://sukjun2.github.io/coding2/javascript/effect/mouseEffect06.html">원본 사이트 보기</a>
+                </div>
+
+                <h3 class="t_tit2">HTML</h3>
+                <p class="t_box">
+                    mouse__text영역에 4개의 line 영역을 생성하여 slow, fast 2가지로 나누어주었습니다.<br />
+                    동일한 문장을 2개씩 만든 이유는 좌, 우로 나누어 거울 같은 효과를 유도했습니다.
+                </p>
+                <div class="t_code">
+                    <pre><code class="language-html">&lt;main id="main">
+    &lt;section id="mouseType">
+        &lt;div class="mouse__cursor">&lt;/div>
+        &lt;div class="mouse__wrap">
+            &lt;div class="mouse__img">
+                &lt;figure>
+                    &lt;img src="../assets/img/effect_bg11@2x-min.jpg" alt="이미지" />
+                &lt;/figure>
+            &lt;/div>
+            &lt;div class="mouse__text">
+                &lt;div class="line">
+                    &lt;div class="left">
+                        &lt;div class="spanWrap">
+                            &lt;span class="spanSlow">&lt;em class="style1">Dreams&lt;/em> are&lt;/span>
+                        &lt;/div>
+                    &lt;/div>
+                    &lt;div class="right">
+                        &lt;div class="spanWrap">
+                            &lt;span class="spanSlow">&lt;em class="style1">Dreams&lt;/em> are&lt;/span>
+                        &lt;/div>
+                    &lt;/div>
+                &lt;/div>
+                &lt;div class="line">
+                    &lt;div class="left">
+                        &lt;div class="spanWrap">
+                            &lt;span class="spanFast">tomorrow's &lt;em class="style1">reality.&lt;/em>&lt;/span>
+                        &lt;/div>
+                    &lt;/div>
+                    &lt;div class="right">
+                        &lt;div class="spanWrap">
+                            &lt;span class="spanFast">tomorrow's &lt;em class="style1">reality.&lt;/em>&lt;/span>
+                        &lt;/div>
+                    &lt;/div>
+                &lt;/div>
+                &lt;div class="line">
+                    &lt;div class="left">
+                        &lt;div class="spanWrap">
+                            &lt;span class="spanSlow">&lt;em class="style1">꿈은&lt;/em> 내일의&lt;/span>
+                        &lt;/div>
+                    &lt;/div>
+                    &lt;div class="right">
+                        &lt;div class="spanWrap">
+                            &lt;span class="spanSlow">&lt;em class="style1">꿈은&lt;/em> 내일의&lt;/span>
+                        &lt;/div>
+                    &lt;/div>
+                &lt;/div>
+                &lt;div class="line">
+                    &lt;div class="left">
+                        &lt;div class="spanWrap">
+                            &lt;span class="spanFast">&lt;em class="style1">현실이다.&lt;/em>&lt;/span>
+                        &lt;/div>
+                    &lt;/div>
+                    &lt;div class="right">
+                        &lt;div class="spanWrap">
+                            &lt;span class="spanFast">&lt;em class="style1">현실이다.&lt;/em>&lt;/span>
+                        &lt;/div>
+                    &lt;/div>
+                &lt;/div>
+            &lt;/div>
+        &lt;/div>
+    &lt;/section>
+&lt;/main>
+&lt;!-- //main -->
+</code></pre>
+                </div>
+
+                <h3 class="t_tit2">CSS</h3>
+                <p class="t_box">이미지 중앙 정렬 후 명언글에 기울기 효과와 영역을 설정합니다. 추가적으로 마우스 이벤트를 위한 CSS도 설정해줍니다.</p>
+                <div class="t_code">
+                    <pre><code class="language-css">/* mouseType */
+.mouse__wrap {
+    color: #fff;
+    width: 100%;
+    height: 100vh;
+    cursor: none;
+}
+
+.mouse__img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+.mouse__text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -20%);
+    font-size: 3vw;
+    line-height: 1.5;
+    font-weight: 800;
+}
+
+.mouse__text .line {
+    width: 100%;
+    display: flex;
+}
+
+.mouse__text .line .left {
+    width: 50vw;
+    color: orange;
+    overflow: hidden;
+    transform: skew(0deg, -15deg);
+}
+
+.mouse__text .line .left .spanWrap {
+    width: 100vw;
+    text-align: center;
+}
+
+.mouse__text .line .right {
+    width: 50vw;
+    overflow: hidden;
+    transform: skew(0deg, 15deg);
+}
+
+.mouse__text .line .right .spanWrap {
+    width: 100vw;
+    text-align: center;
+    transform: translateX(-50vw);
+}
+
+.mouse__text span {
+    display: inline-block;
+}
+
+.mouse__cursor {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    z-index: 9999;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.9);
+    user-select: none;
+    pointer-events: none;
+    transition: transform 0.3s;
+}
+
+.mouse__cursor.style1 {
+    transform: scale(5);
+    mix-blend-mode: difference;
+}
+</code></pre>
+                </div>
+
+                <h3 class="t_tit2">JAVASCRIPT</h3>
+                <p class="t_box">
+                    positionSlow, positionFast 마우스 이동에 따라 텍스트가 움직일 속도를 설정합니다.<br />
+                    gsap로 부드러운 이동과 커서의 중앙부를 정렬 후 이벤트를 실행합니다.<br />
+                    명언에 중요 단어에 em태그를 주어 em태그에 mouseenter, mouseleave시 이벤트를 부여합니다.
+                </p>
+                <div class="t_code">
+                    <pre><code class="language-js">const cursor = document.querySelector(".mouse__cursor");
+const em = document.querySelectorAll(".mouse__text em");
+
+const mouseMove = (e) => {
+    let positionSlow = (e.pageX - window.innerWidth / 2) * 0.1;
+    let positionFast = (e.pageX - window.innerWidth / 2) * 0.2;
+
+    gsap.to(".spanSlow", { duration: 0.4, x: positionSlow });
+    gsap.to(".spanFast", { duration: 0.4, x: -positionFast });
+    gsap.to(".mouse__cursor", { duration: 0.3, left: e.pageX - 10, top: e.pageY - 10 });
+};
+window.addEventListener("mousemove", mouseMove);
+
+em.forEach((em) => {
+    em.addEventListener("mouseenter", () => {
+        cursor.classList.add("style1");
+    });
+    em.addEventListener("mouseleave", () => {
+        cursor.classList.remove("style1");
+    });
+});
+</code></pre>
+                </div>
+            </div>
+        </main>
+        <!-- //main -->
+
+        <footer id="footer">
+            <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+        </footer>
+        <!-- //footer -->
+
+        <script src="../assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>

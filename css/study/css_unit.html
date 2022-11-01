@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS : 단위</title>
+    <link rel="stylesheet" href="/javascript/assets/css/style.css">
+    <link rel="stylesheet" href="/javascript/assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">CSS 단위</h2>
+
+            </p>
+
+            <hr>
+
+            <h3 class="t_tit2">font-size, 단위의 고찰</h3>
+            <p class="t_box">
+                문자의 글자 크기를 지정하는 속성으로 글자 크기는 명시하지 않을 경우 16px이 기본값입니다.
+            </p>
+            <h3 class="t_tit2">1. px</h3>
+            <p class="t_box"><i>해상도에 따라</i> 상대적으로 달라지는 기본 단위입니다.</p>
+            <div class="t_code">
+                <pre><code class="language-css">body {
+    text-align: center;
+}
+div {
+    font-size: 14px;
+}
+</code></pre>
+            </div>
+            <div class="t_result">
+                <details>
+                    <summary>결과 확인하기</summary>
+                    <div class="result_01">
+                        <span style="font-size: 14px;">Font size : 14px</span>
+                    </div>
+                </details>
+            </div>
+
+            <h3 class="t_tit2">2. %</h3>
+            <p class="t_box">부모 요소의 글자 크기를 100% 기준으로 계산한 % 단위입니다.</p>
+            <div class="t_code">
+                <pre><code class="language-css">
+    body {
+        font-size: 14px;
+    }
+    div {
+        font-size: 120%; /* 14px * 1.2 = 16.8px */
+    }
+</code></pre>
+            </div>
+            <div class="t_result">
+                <details>
+                    <summary>결과 확인하기</summary>
+                    <div class="result_02">
+                        <span style="font-size: 14px; font-size: 120%;">Font size: 14px * 120% → 16.8px</span>
+                    </div>
+                </details>
+            </div>
+
+            <h3 class="t_tit2">3. em</h3>
+            <p class="t_box">부모 요소의 글자 크기를 100% 기준으로 계산한 <i>1/100 단위</i>입니다.</p>
+            <div class="t_code">
+                <pre><code class="language-css">body {
+    font-size: 14px;
+}
+div {
+    font-size: 1.2em; /* 14px * 1.2 = 16.8px */
+}
+</code></pre>
+            </div>
+            <div class="t_result">
+                <details>
+                    <summary>결과 확인하기</summary>
+                    <div class="result_03">
+                        <span style="font-size: 14px; font-size: 1.2em;">Font size: 1.2em → 14px * 1.2 = 16.8px</span>
+                    </div>
+                </details>
+            </div>
+
+            <h3 class="t_tit2">4. rem</h3>
+            <p class="t_box">
+                부모 요소가 아닌 최상위 요소의 크기를 100% 기준으로 계산합니다.<br>
+                rem의 r은 root 즉, html 요소를 뜻합니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-css">html {
+    font-size: 14px;
+    /* font-size 미지정 시에는 16px */
+}
+div {
+    font-size: 1.2rem; /* html font-size: 14px * 1.2 = 16.8px */
+}
+</code></pre>
+            </div>
+            <div class="t_result">
+                <details>
+                    <summary>결과 확인하기</summary>
+                    <div class="result_04">
+                        <span style="font-size: 14px; font-size: 1.2rem;">Font size: 1.2rem → 14px * 1.2 = 16.8px</span>
+                    </div>
+                </details>
+            </div>
+
+            <h3 class="t_tit2">5. vw, vh</h3>
+            <p class="t_box">
+                vw는 뷰포트 <i>너비값</i>의 1/100 단위이고, vh는 뷰포트 <i>높이값</i>의 1/100 단위입니다.<br>
+                1. 1vw : viewport 너비 1000px의 1%인 10px<br>
+                2. 1vh : viewport 높이 600px의 1%인 6px<br>
+                3. vmin : viewport 높이 600px의 1%인 6px<br>
+                4. vmax : viewport 너비 1000px의 1%인 10px
+            </p>
+
+            <h3 class="t_tit2">단위별 환산표</h3>
+            <table class="t_table">
+                <thead>
+                    <tr>
+                        <th>px</th>
+                        <th>%</th>
+                        <th>em</th>
+                        <th>pt</th>
+                    </tr>
+                </thead>
+                <tbody class="ce">
+                    <tr>
+                        <td class="center">6px</td>
+                        <td class="center">37.50%</td>
+                        <td class="center">0.375em</td>
+                        <td class="center">5pt</td>
+                    </tr>
+                    <tr>
+                        <td class="center">7px</td>
+                        <td class="center">43.80%</td>
+                        <td class="center">0.438em</td>
+                        <td class="center">5pt</td>
+                    </tr>
+                    <tr>
+                        <td class="center">8px</td>
+                        <td class="center">50%</td>
+                        <td class="center">0.500em</td>
+                        <td class="center">6pt</td>
+
+                    </tr>
+                    <tr>
+                        <td class="center">9px</td>
+                        <td class="center">56.30%</td>
+                        <td class="center">0.563em</td>
+                        <td class="center">7pt</td>
+
+                    </tr>
+                    <tr>
+                        <td class="center">10px</td>
+                        <td class="center">62.50%</td>
+                        <td class="center">0.625em</td>
+                        <td class="center">8pt</td>
+
+                    </tr>
+                    <tr>
+                        <td class="center">11px</td>
+                        <td class="center">68.80%</td>
+                        <td class="center">0.688em</td>
+                        <td class="center">8pt</td>
+
+                    </tr>
+                    <tr>
+                        <td class="center">12px</td>
+                        <td class="center">75.00%</td>
+                        <td class="center">0.750em</td>
+                        <td class="center">9pt</td>
+                    </tr>
+                    <tr>
+                        <td class="center">13px</td>
+                        <td class="center">81.30%</td>
+                        <td class="center">0.813em</td>
+                        <td class="center">10pt</td>
+                    </tr>
+                    <tr>
+                        <td class="center">14px</td>
+                        <td class="center">87.50%</td>
+                        <td class="center">0.875em</td>
+                        <td class="center">11pt</td>
+                    </tr>
+                    <tr>
+                        <td class="center">15px</td>
+                        <td class="center">93.80%</td>
+                        <td class="center">0.938em</td>
+                        <td class="center">11pt</td>
+                    </tr>
+                    <tr class="basic">
+                        <td class="center">16px</td>
+                        <td class="center">100%</td>
+                        <td class="center">1.000em</td>
+                        <td class="center">12pt</td>
+                    </tr>
+                    <tr>
+                        <td class="center">17px</td>
+                        <td class="center">106.30%</td>
+                        <td class="center">1.063em</td>
+                        <td class="center">13pt</td>
+                    </tr>
+                    <tr>
+                        <td class="center">18px</td>
+                        <td class="center">112.50%</td>
+                        <td class="center">1.125em</td>
+                        <td class="center">14pt</td>
+                    </tr>
+                    <tr>
+                        <td class="center">19px</td>
+                        <td class="center">118.80%</td>
+                        <td class="center">1.188em</td>
+                        <td class="center">14pt</td>
+                    </tr>
+                    <tr>
+                        <td class="center">20px</td>
+                        <td class="center">125.00%</td>
+                        <td class="center">1.250em</td>
+                        <td class="center">15pt</td>
+                    </tr>
+                    <tr>
+                        <td class="center">21px</td>
+                        <td class="center">131.30%</td>
+                        <td class="center">1.313em</td>
+                        <td class="center">16pt</td>
+                    </tr>
+                    <tr>
+                        <td class="center">22px</td>
+                        <td class="center">137.50%</td>
+                        <td class="center">1.375em</td>
+                        <td class="center">17pt</td>
+                    </tr>
+                    <tr>
+                        <td class="center">23px</td>
+                        <td class="center">143.80%</td>
+                        <td class="center">1.430em</td>
+                        <td class="center">18pt</td>
+                    </tr>
+                    <tr>
+                        <td class="center">24px</td>
+                        <td class="center">150.00%</td>
+                        <td class="center">1.500em</td>
+                        <td class="center">18pt</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="/javascript/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>

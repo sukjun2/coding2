@@ -1,0 +1,72 @@
+body {
+    background-color: #f5f5f5;
+}
+.login_wrap {
+}
+.login_wrap .login_inner {
+    width: 100%;
+}
+.login_Box {
+    margin: 110px auto 0;
+    padding: 50px;
+    box-sizing: border-box;
+    width: 50%;
+    background-color: #fff;
+    box-shadow: 0 0 10px #f1f1f1;
+}
+.login_Box figure {
+    width: 30%;
+    margin: 0 auto 25px;
+}
+.login_Box figure img {
+}
+.login_Box p {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 400;
+    color: #666;
+    margin-bottom: 15px;
+}
+.login_Box span {
+    display: block;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.4;
+    margin-bottom: 20px;
+    word-break: keep-all;
+}
+.login_Box button {
+    cursor: pointer;
+    margin: 0 auto;
+    display: block;
+    font-size: 15px;
+    padding: 10px 110px;
+    color: #fff;
+    border-radius: 10px;
+    background: linear-gradient(94.73deg, #388fc0 9.47%, #195eb1 111.9%);
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+/* --congratulations 반응형-- */
+@media (max-width: 1200px) {
+    .login_Box {
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .login_Box {
+        padding: 20px;
+    }
+    .login_Box p {
+        font-size: 20px;
+    }
+    .login_Box span {
+        font-size: 14px;
+    }
+    .login_Box button {
+        font-size: 13px;
+        padding: 10px 80px;
+    }
+}

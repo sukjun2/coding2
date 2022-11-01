@@ -1,0 +1,204 @@
+/* fonts */
+@import url('https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css');
+
+.nexon {
+    font-family: 'NexonLv1Gothic';
+    font-weight: 400;
+}
+
+
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #666;
+}
+
+li {
+    list-style: none;
+}
+
+/* layout */
+#wrap {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+/* 헤더 영역 */
+
+#header {
+    width: 1200px;
+    height: 100px;
+    overflow: hidden;
+}
+
+#header a img {
+    width: 130px;
+    height: 100px;
+}
+
+#header .nav {
+    float: right;
+}
+
+#header .nav li {
+    display: inline;
+}
+
+#header .nav li a {
+    display: inline-block;
+    padding: 38px 30px 30px 30px;
+    color: #222328;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* 배너 영역 */
+
+#section {
+    position: relative;
+}
+
+#section img.banner {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+#section .sub__section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+#section .sub__section ul {
+    width: 49%;
+    padding: 50px;
+    border: 1px solid #000;
+    box-sizing: border-box;
+}
+
+#section .sub__section ul li.main__news {
+    font-weight: 600;
+    color: #000;
+}
+
+#section .sub__section ul li {
+    font-size: 16px;
+    line-height: 2;
+    color: #666;
+}
+
+#section .sub__section ul li:first-child {
+    font-size: 20px;
+    font-weight: 600;
+    color: #000;
+}
+
+#section .sub__section ul li:last-child {
+    margin-bottom: 0;
+}
+
+#section ul li em {
+    font-size: 18px;
+    font-style: normal;
+    color: #666;
+}
+
+#section .sub__section img.cont {
+    width: 49%;
+}
+
+#section .sub__text {
+    text-align: right;
+    position: absolute;
+    top: 530px;
+    left: 450px;
+    line-height: 2;
+    color: #666;
+}
+
+#section .sub__text li:first-child {
+    text-align: left;
+    position: relative;
+}
+
+#section .sub__text .main__subtext {
+    margin-bottom: 2px;
+    color: #666;
+}
+
+#section .sub__text .main__subtext img {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 2px;
+    right: 0;
+}
+
+#section .section__image {
+    overflow: hidden;
+}
+
+#section .section__banner {
+    display: flex;
+}
+
+
+/* 인포 영역 */
+#info {}
+
+#info h2 {
+    margin-bottom: 20px;
+}
+
+#info .img__info {
+    display: flex;
+    justify-content: space-between;
+}
+
+#info .img__info .card {
+    width: 24%;
+}
+
+#info .img__info .card img {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+#info .img__info .card p {
+    margin-bottom: 70px;
+}
+
+#footer {
+    padding: 40px 0;
+    border-top: 1px solid #ccc;
+    color: #666;
+    font-size: 14px;
+}
+
+#footer .footer__top {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+#footer .footer__top p:first-child {
+    padding-right: 20px;
+    margin-right: 20px;
+    border-right: 1px solid #ccc;
+}
+
+#footer .footer__bom {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+#footer .footer__bom p:nth-child(1),
+#footer .footer__bom p:nth-child(2) {
+    padding-right: 20px;
+    margin-right: 20px;
+    border-right: 1px solid #ccc;
+}

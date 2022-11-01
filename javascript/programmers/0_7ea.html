@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>프로그래머스 0단계 : 7의 개수</title>
+        <link rel="stylesheet" href="../assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/dracula.css" />
+    </head>
+
+    <body>
+        <main id="main">
+            <div class="document">
+                <h2 class="t_tit">프로그래머스 0단계 : 7의 개수</h2>
+                <p class="t_desc2">머쓱이는 행운의 숫자 7을 가장 좋아합니다. 정수 배열 array가 매개변수로 주어질 때, 7이 총 몇 개 있는지 return 하도록 solution 함수를 완성해보세요.</p>
+                <hr />
+                <br />
+                <h3>※ 제한사항</h3>
+                <div class="t_box">
+                    1 ≤ array의 길이 ≤ 100 <br />
+                    0 ≤ array의 원소 ≤ 100,000
+                </div>
+                <br />
+                <h3>※ 입출력 예</h3>
+                <table class="t_table">
+                    <thead>
+                        <tr>
+                            <th>array</th>
+                            <th>result</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>[7, 77, 17]</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <td>[10, 29]</td>
+                            <td>0</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br />
+                <div class="t_code">
+                    <pre><code class="language-js">function solution(array) {
+    return [...array.join('')].filter(a => a === '7').length;
+}
+</code></pre>
+                </div>
+                <br />
+                <div class="t_box">
+                    배열 내부에 매개변수 array변수를 전개하고 join 메서드를 통해 문자로 변환합니다. 다음 filter메서드를 사용하여 속성값이 7과 일치하는 length값을 반환하도록합니다. <br />
+                    [7, 77, 17]의 7은 총 4개이므로 length값은 4를 반환합니다. <br />
+                    [10, 29]의 7은 총 0개로 length값은 0을 반환합니다.
+                </div>
+            </div>
+        </main>
+        <!-- //main -->
+
+        <footer id="footer">
+            <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+        </footer>
+        <!-- //footer -->
+
+        <script src="../assets/js/highlight.min.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>

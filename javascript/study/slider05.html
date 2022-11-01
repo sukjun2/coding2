@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>자바스크립트 : 슬라이드 이펙트05</title>
+
+        <link rel="stylesheet" href="../assets/css/style.css" />
+        <link rel="stylesheet" href="../assets/css/dracula.css" />
+    </head>
+
+    <body>
+        <header id="header"></header>
+        <!-- //header -->
+
+        <main id="main">
+            <div class="document">
+                <h2 class="t_tit">sliderEffect05 - 이미지 슬라이드(버튼, 닷 메뉴)</h2>
+                <p class="t_desc2">버튼으로 다음/이전 이미지로 넘어가는 기능 + 닷 메뉴를 통한 이미지 이동이 가능하도록 하였습니다.</p>
+
+                <hr />
+
+                <h3 class="t_tit2">참고</h3>
+                <p class="t_box">슬라이드 이펙트 05 페이지 우측하단 소스 보기를 클릭하시면 JAVASCRIPT, HTML, CSS를 확인할 수 있습니다.<br /></p>
+
+                <div class="t_iframe" style="min-height: 950px; padding-top: 0">
+                    <iframe src="https://sukjun2.github.io/coding2/javascript/effect/sliderEffect05.html" frameborder="0"></iframe>
+                </div>
+
+                <div class="t_link" style="display: flex">
+                    <a href="https://github.com/sukjun2/coding2/blob/main/javascript/effect/sliderEffect05.html">원본 소스 보기</a>
+                    <a href="https://sukjun2.github.io/coding2/javascript/effect/sliderEffect.html">메인 페이지 보기</a>
+                </div>
+
+                <h3 class="t_tit2">JAVASCRIPT</h3>
+                <p class="t_box">
+                    사용할 선택자를 선언, dotIndex에 빈문자열을 저장하고 init함수로 dot 요소를 생성합니다. firstChild메서드를 사용하여 첫 번째 요소에 active 클래스를 추가하여 활성화 시켜봅니다.<br />
+                    prev, next버튼 클릭시 이미지를 이동시키기 위해 슬라이드이펙트 4번과 동일하게 애니메이션 스타일을 설정, 이동시 현재 이미지값에 매개변수num 값을 넘겨줍니다. 닷 메뉴에 활성화 상태 또한 넘겨주기 위해 dot클래스에 모든 active 클래스를 제거, num값에 따라 active 클래스를 추가해줍니다. prev, next 버튼에 이벤트를 부여하여 if문을 사용 클래스에 prev가 포함되었다면, 이전으로 아니라면
+                    다음으로 기능을 수행하도록 조건을 부여합니다.<br />
+                    마지막으로 닷 버튼을 클릭했을 때 이미지를 이동시키기 위해 .dot에 클릭 이벤트를 부여, 인덱스값에 따른 버튼 클릭시 이미지 이동이 되도록 하였습니다.
+                </p>
+                <div class="t_code">
+                    <pre><code class="language-js">const sliderWrap = document.querySelector(".slider__wrap");
+const sliderImg = document.querySelector(".slider__img"); // 보여지는 영역
+const sliderInner = document.querySelector(".slider__inner"); // 움직이는 영역
+const slider = document.querySelectorAll(".slider"); // 각각 이미지
+const sliderDot = document.querySelector(".slider__dot"); //닷 메뉴
+
+let currentIndex = 0; // 현재 이미지
+let sliderCount = slider.length; // 이미지 갯수
+let sliderWidth = sliderImg.offsetWidth; // 이미지 가로값
+
+let dotIndex = "";
+
+function init() {
+    slider.forEach(() => (dotIndex += "&lt;a href='#' class='dot'>이미지1&lt;/a>"));
+    sliderDot.innerHTML = dotIndex;
+    // 첫 번째 닷 버튼에 활성화 표시(active)
+
+    sliderDot.firstChild.classList.add("active");
+    // firstChild : 첫 번째 요소를 선택
+}
+init();
+
+// 이미지 이동
+function gotoSlider(num) {
+    sliderInner.style.transition = "all 400ms";
+    sliderInner.style.transform = "translateX(" + -sliderWidth * num + "px)";
+    currentIndex = num;
+
+    // 두 번째 이미지 ==> 두 번째 닷 메뉴에 클래스 추가
+    // 1. 닷 메뉴 클래스 모두 삭제
+    // 2. 해당 이미지 해당 닷 메뉴에 클래스 추가
+    let dotActive = document.querySelectorAll(".slider__dot .dot");
+
+    dotActive.forEach((el) => el.classList.remove("active"));
+    dotActive[num].classList.add("active");
+}
+
+// 버튼 클릭했을 때
+document.querySelectorAll(".slider__btn a").forEach((btn, index) => {
+    btn.addEventListener("click", () => {
+        let prevIndex = (currentIndex + (sliderCount - 1)) % sliderCount;
+        let nextIndex = (currentIndex + 1) % sliderCount;
+
+        if (btn.classList.contains("prev")) {
+            gotoSlider(prevIndex);
+        } else {
+            gotoSlider(nextIndex);
+        }
+    });
+});
+
+// 닷 버튼 클릭했을 때
+document.querySelectorAll(".slider__dot .dot").forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+        gotoSlider(index);
+    });
+});
+</code></pre>
+                </div>
+            </div>
+        </main>
+        <!-- //main -->
+
+        <footer id="footer">
+            <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+        </footer>
+        <!-- //footer -->
+
+        <script src="../assets/js/highlight.min.js"></script>
+        <script src="../assets/js/common.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>

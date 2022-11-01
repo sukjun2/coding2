@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>레이아웃3 - grid</title>
+</head>
+<style>
+    * {
+        margin: 0;
+    }
+
+    body {
+        background-color: #E1F5FE;
+    }
+
+    #wrap {
+        width: 1200px;
+        margin: 0 auto;
+    }
+
+    #header {
+        height: 100px;
+        background-color: #B3E5FC;
+    }
+
+    #nav {
+        height: 100px;
+        background-color: #81D4FA;
+    }
+
+    #main {
+        display: grid;
+        grid-template-areas:
+            "aside section1"
+            "aside section2"
+            "aside section3";
+        grid-template-columns: 25% 75%;
+        grid-template-rows: 260px 260px 260px;
+    }
+
+    #aside {
+        grid-area: aside;
+        background-color: #4FC3F7;
+    }
+
+    #section1 {
+        grid-area: section1;
+        background-color: #29B6F6;
+    }
+
+    #section2 {
+        grid-area: section2;
+        background-color: #03A9F4;
+    }
+
+    #section3 {
+        grid-area: section3;
+        background-color: #039BE5;
+    }
+
+    #footer {
+        height: 100px;
+        background-color: #0288D1;
+    }
+
+    @media (max-width:1280px) {}
+
+    @media (max-width:768px) {}
+
+    @media (max-width:480px) {}
+</style>
+
+<body>
+    <div id="wrap">
+        <div id="header"></div>
+        <div id="nav"></div>
+        <div id="main">
+            <div id="aside"></div>
+            <div id="section1"></div>
+            <div id="section2"></div>
+            <div id="section3"></div>
+        </div>
+        <div id="footer"></div>
+    </div>
+</body>
+
+</html>

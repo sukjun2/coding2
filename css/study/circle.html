@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS : circle 애니메이션</title>
+    <link rel="stylesheet" href="/javascript/assets/css/style.css">
+    <link rel="stylesheet" href="/javascript/assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+    </header>
+    <!-- //header -->
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">circle 애니메이션</h2>
+            <p class="t_desc2">
+                Code pen을 사용하여 2개의 circle로 loading 애니메이션을 만들어보았습니다.<br>
+                간단한 코드로 따라 만들어보세요!
+            </p>
+
+            <hr>
+
+            <div class="t_iframe" style="min-height: 600px; padding-top: 0;">
+                <iframe height="300" style="width: 100%;" scrolling="no" title="Untitled"
+                    src="https://codepen.io/sukjun2/embed/poLXQmR?default-tab=result" frameborder="no" loading="lazy"
+                    allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href="https://codepen.io/sukjun2/pen/poLXQmR">
+                        Untitled</a> by sukjun2 (<a href="https://codepen.io/sukjun2">@sukjun2</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                </iframe>
+            </div>
+
+            <h3 class="t_tit2">HTML</h3>
+            <p class="t_box">
+                HTML은 정말 간단합니다. 일직선상의 2개의 원형을 만들기 위한 태그만 작성하여줍니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-html">&lt;div class="loading"&gt;
+    &lt;span class="circle1"&gt;&lt;/span&gt;
+    &lt;span class="circle2"&gt;&lt;/span&gt;
+&lt;/div&gt;
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">CSS</h3>
+            <p class="t_box">
+                먼저 body태그의 높이값을 전체로 잡아주고, 그라데이션 배경색을 입혀줍니다.<br>
+                다음 직사각형을 만들어 화면의 중앙으로 위치를 잡아주고 양 끝 내부에 2개의 원형을 생성 후 직사각형을 숨겨줍니다.<br>
+                @keyframes와 사용할 이름을 함께 생성하여 시작부터 종료까지의 요소의 위치와 회전값을 설정하여줍니다.<br>
+                마지막으로 .loading css로 돌아가 애니메이션 이름 load를 1초 간격으로 1000번 회전하도록 설정하여줍니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-css">body {
+overflow: hidden;
+height: 100vh;
+background-image: linear-gradient(-60deg, #ff5858 0%, #f098 100%);
+}
+
+.loading {
+position: absolute;
+left: 50%;
+top: 50%;
+width: 20px;
+height: 150px;
+animation: load 1s ease 1000;
+}
+
+.loading .circle1 {
+display: block;
+width: 20px;
+height: 20px;
+border-radius: 50%;
+background: #fff;
+}
+
+.loading .circle2 {
+display: block;
+width: 20px;
+height: 20px;
+border-radius: 50%;
+background: #fff;
+margin-top: 110px;
+}
+
+@keyframes load {
+0% {transform: translate(-50%, -50%) rotate(0deg)}
+100% {transform: translate(-50%, -50%) rotate(360deg)}
+}
+</code></pre>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="/javascript/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>

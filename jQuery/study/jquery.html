@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제이쿼리</title>
+    <link rel="stylesheet" href="/javascript/assets/css/style.css">
+    <link rel="stylesheet" href="/javascript/assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">jQuery</h2>
+
+
+            <hr>
+
+            <h3 class="t_tit2">jQuery 연결 방법</h3>
+            <p class="t_box">
+                jQuery를 사용하기 위해서는 jQuery 라이브러리를 웹페이지에 연결해서 사용해야 합니다.<br>
+                jQuery 라이브러리를 연결하는 방식에는 <i>파일을 직접 다운로드</i>받아 연결하는 방식과 <i>CDN(Content Delivery Network) 방식</i>이 있습니다.<br>
+                현재 1.x, 2.x, 3.x 버전을 지원해 주고 있으며 각 버전별로 브라우저 지원이나 기존 메서드들의 지원 여부 등의 차이가 있습니다.
+            </p>
+
+            <h3 class="t_tit3">Download 방식</h3>
+            <p class="t_box">
+                jQuery 라이브러리 다운로드<br>
+                http://jquery.com/download에 접속하여 다운로드 합니다. ctrl + s 로 파일로 저장한 후 파일의 경로를 script:src로 지정하여 사용할 수 있습니다.
+            </p>
+            <h3 class="t_tit3">HTML 문서에서 jQuery 라이브러리 연결하기</h3>
+            <p class="t_box">
+                html문서를 jQuery 라이브러리와 같은 경로에 저장합니다. 라이브러리가 잘 연결되었는지 확인하기 위해 jQuery 명령어 $(document).ready()를 사용해 보도록
+                하겠습니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-js">&lt;script src="jquery-3.3.1.min.js"&gt;&lt;script&gt;
+&lt;script&gt;
+    $(document).ready(function() {
+        console.log("jQuery 시작");
+    });
+&lt;/script&gt;
+</code></pre>
+            </div>
+            <div class="t_result">
+                <details>
+                    <summary>결과 확인하기</summary>
+                    <div class="result_01">
+                        <span>
+                            "jQuery 시작" 이 콘솔에 출력되면 잘 연결된겁니다.
+                        </span>
+                    </div>
+                </details>
+            </div>
+
+            <h3 class="t_tit2">CDN 방식</h3>
+            <h3 class="t_tit3">CDN 카피하기</h3>
+            <p class="t_box">
+                https://code.jquery.com 사이트에 접속하여 본인에게 맞는 버전을 선택하고 CDN을 카피하여 head 태그 안에 추가하여 사용합니다.
+            </p>
+
+            <h3 class="t_tit2">jQuery 기본 형식</h3>
+            <p class="t_box">jQuery는 기본적으로 $(document).ready()로 시작합니다. ready()는 jQuery 이벤트로 앞에서 학습한 자바스크립트의 load 이벤트와 유사한 기능을 가지고 있습니다.</p>
+            <div class="t_code">
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;jQuery 기본형식&lt;/title&gt;
+    &lt;script src="jquery-선택한 버전.min.js"&gt;&lt;/script&gt;
+    &lt;script&gt;
+        $(document).ready(function() {
+            실행문;
+        });
+
+        $(function (){
+            실행문;     //  $(document).ready()를 짧게 표현
+        })
+    &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="/javascript/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>

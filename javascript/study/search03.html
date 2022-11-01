@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 서치 이펙트03</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+    </header>
+    <!-- //header -->
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">searchEffect03</h2>
+            <p class="t_desc2">
+                <i>charAt()</i> 문자열 메서드를 사용하여 CSS 속성의 시작 알파벳 키워드로 검색할 수 있게 코딩하였습니다.
+            </p>
+
+            <hr>
+
+            <div class="t_iframe" style="min-height: 650px; padding-top: 0;">
+                <iframe src="https://sukjun2.github.io/coding2/javascript/effect/searchEffect03.html"
+                    frameborder="0"></iframe>
+            </div>
+
+            <div class="t_link" style="display: flex;">
+                <a href="https://github.com/sukjun2/coding2/blob/main/javascript/effect/searchEffect03.html">원본 소스
+                    보기</a>
+                <a href="https://sukjun2.github.io/coding2/javascript/effect/searchEffect03.html">원본 사이트 보기</a>
+            </div>
+
+            <h3 class="t_tit2">HTML</h3>
+            <p class="t_box">
+                전체적인 HTML 구조는 동일하며, search__list(속성 리스트)에 data-name을 제거하여 중복제거 및 가독성을 좋게하였고, js에 반복문을 통해 동일한 기능이 되도록
+                하였습니다..<br>
+                아래의 HTML코드는 간략하게 필요부분만 표시하였습니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-html">&lt;div class="search__wrap"&gt;
+    &lt;span&gt;charAt()를 이용하여 검색하기&lt;/span&gt;
+    &lt;h1&gt;CSS 속성 첫글자 검색하기&lt;/h1&gt;
+    &lt;div class="search__info"&gt;
+        &lt;div class="keyword"&gt;
+            &lt;span&gt;a&lt;/span&gt;
+            &lt;span&gt;b&lt;/span&gt;
+            &lt;span&gt;c&lt;/span&gt;
+            &lt;span&gt;d&lt;/span&gt;
+            &lt;span&gt;e&lt;/span&gt;
+            &lt;span&gt;f&lt;/span&gt;
+            &lt;span&gt;g&lt;/span&gt;
+            &lt;span&gt;h&lt;/span&gt;
+            &lt;span&gt;i&lt;/span&gt;
+            &lt;span&gt;j&lt;/span&gt;
+            &lt;span&gt;k&lt;/span&gt;
+            &lt;span&gt;l&lt;/span&gt;
+            &lt;span&gt;m&lt;/span&gt;
+            &lt;span&gt;n&lt;/span&gt;
+            &lt;span&gt;o&lt;/span&gt;
+            &lt;span&gt;p&lt;/span&gt;
+            &lt;span&gt;q&lt;/span&gt;
+            &lt;span&gt;r&lt;/span&gt;
+            &lt;span&gt;s&lt;/span&gt;
+            &lt;span&gt;t&lt;/span&gt;
+            &lt;span&gt;u&lt;/span&gt;
+            &lt;span&gt;v&lt;/span&gt;
+            &lt;span&gt;w&lt;/span&gt;
+            &lt;span&gt;x&lt;/span&gt;
+            &lt;span&gt;y&lt;/span&gt;
+            &lt;span&gt;z&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div&gt;전체 속성 갯수&lt;span class="num"&gt;0&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="search__list"&gt;
+        &lt;div class="html"&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;strong&gt;accent-color&lt;/strong&gt; : 특정 요소에 색상을 지정할 때 사용됩니다.&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;align-content&lt;/strong&gt; : 콘텐츠 아이템의 상하관계 정렬 상태를 설정합니다.&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;align-items&lt;/strong&gt; : 콘텐츠 아이템의 내부 상하관계 정렬 상태를 설정합니다.&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;align-self&lt;/strong&gt; : 개별적인 콘텐츠 아이템의 정렬 상태를 설정합니다.&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;all&lt;/strong&gt; : 요소의 속성을 초기화 또는 상속을 설정합니다.&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;animation&lt;/strong&gt; : 애니메이션과 관련된 속성을 일괄적으로 설정합니다.&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;animation-delay&lt;/strong&gt; : 애니메이션 지연 시간을 설정합니다.&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;animation-direction&lt;/strong&gt; : 애니메이션 움직임 방향을 설정합니다.&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;animation-duration&lt;/strong&gt; : 애니메이션 움직임 시간을 설정합니다.&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;animation-fill-mode&lt;/strong&gt; : 애니메이션이 끝난 후의 상태를 설정합니다.&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;animation-iteration-count&lt;/strong&gt; : 애니메이션의 반복 횟수를 설정합니다.&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;animation-name&lt;/strong&gt; : 애니메이션 keyframe 이름을 설정합니다.&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;animation-play-state&lt;/strong&gt; : 애니메이션 진행상태를 설정 합니다.&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;animation-timeline&lt;/strong&gt; : x&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;animation-timing-function&lt;/strong&gt; : 애니메이션 움직임의 속도를 설정 합니다.&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;appearance&lt;/strong&gt; : 운영체제 및 브라우저에 기본적으로 설정되어 있는 테마를 기반으로 요소를 표현합니다.
+                ...
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">JAVASCRIPT</h3>
+            <p class="t_box">
+                charAt()문을 사용하여 js코드를 구성하였습니다.<br>
+                검색 이펙트02번의 전체 속성갯수를 개선하여 검색한 키워드와 관련된 속성들의 갯수가 업데이트 되도록 코드를 수정하였습니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-js">//선택자
+const searchKeyword = document.querySelectorAll(".search__info .keyword span");   //input 박스
+const searchList = document.querySelectorAll(".search__list ul li");    //목록 리스트
+const searchInfo = document.querySelector(".search__info .num");     
+searchInfo.textContent = " : " + searchList.length;     //전체 속성갯수 출력
+let count = 0;
+
+searchKeyword.forEach(el => {
+    el.addEventListener("click", () => {
+        const searchWord = el.innerText;     //사용자가 클릭한 알파벳
+        // console.log(seachWord);
+
+        searchList.forEach(el => {
+            const cssName = el.querySelector("strong").innerText;   // data-name를 제거하여도 strong태그내 속성명으로 동일 기능이 가능합니다.
+            // console.log(cssName);
+
+            //알파벳 첫글자 == CSS 속성의 첫글자
+            if (searchWord.charAt(0) === cssName.charAt(0)) { // searchWord 의 첫글자가 cssName 와 같으면 아래문단을 실행 시킵니다.
+                el.classList.remove("hide"); 
+                count++;    // 갯수를 더합니다.
+            } else {
+                el.classList.add("hide");
+            }
+            searchInfo.textContent = " : " + count;     // class = num 검색한 키워드의 속성갯수를 출력
+        });
+        count = 0;  // 갯수 초기화
+    });
+});
+</code></pre>
+            </div>
+
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제이쿼리 : 속성 관련 메서드</title>
+    <link rel="stylesheet" href="/javascript/assets/css/style.css">
+    <link rel="stylesheet" href="/javascript/assets/css/dracula.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">jQuery 속성 관련 메서드</h2>
+
+            <hr>
+
+            <h3 class="t_tit2">선택한 요소의 attribute(속성)를 선택, 생성, 변경할 수 있습니다.</h3>
+            <table class="t_table">
+                <thead>
+                    <tr>
+                        <th>실행 분류</th>
+                        <th>형식</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="ce">취득</td>
+                        <td>$("a").attr("href");</td>
+                    </tr>
+                    <tr>
+                        <td class="ce" rowspan="2">생성, 변경</td>
+                        <td>$("a").attr("href", "http://icoxpublish.com").attr("target", "_blank");</td>
+                    </tr>
+                    <tr>
+                        <td>$("a").attr({href: "http://icoxpublish.com", target: "_blank"});</td>
+                    </tr>
+                    <tr>
+                        <td class="ce">콜백 함수</td>
+                        <td>
+                            $("a").attr("href", function(index, h) {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;// index는 각 a 요소의 index 0, 1, 2<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;// h는 각 a 요소 href 속성<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;return attribute(속성) // 각 a 요소의 속성을 생성 및 변경합니다.<br>
+                            });<br>
+                            ....<br>
+                            &lt;a href="http://www.daum.net" target="_blank" title="새창"&gt;다음&lt;/a&gt;<br>
+                            &lt;a href="http://www.naver.net" target="_blank" title="새창"&gt;네이버&lt;/a&gt;<br>
+                            &lt;a href="http://www.nate.net" target="_blank" title="새창"&gt;네이트&lt;/a&gt;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3 class="t_tit3">예제</h3>
+            <p class="t_desc">상세한 코드는 아래 코드펜을 확인해주세요.</p>
+            <div class="t_iframe" style="min-height: 400px; padding-top: 0;">
+                <iframe height="300" style="width: 100%;" scrolling="no" title="ex 4-20"
+                    src="https://codepen.io/sukjun2/embed/dyePoyw?default-tab=js%2Cresult" frameborder="no"
+                    loading="lazy" allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href="https://codepen.io/sukjun2/pen/dyePoyw">
+                        ex 4-20</a> by sukjun2 (<a href="https://codepen.io/sukjun2">@sukjun2</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                </iframe>
+            </div>
+
+            <h3 class="t_tit2">prop() 메서드</h3>
+            <p class="t_box">attr() 가 html attribute(속성)에 관련된 메서드라면 prop()는 자바스크립트 property(프로퍼티)에 관련된 메서드입니다. prop()
+                메서드는 요소의 속성을 <i>true, false로 제어</i>할 수 있습니다.</p>
+            <h3 class="t_tit3">예제</h3>
+            <p class="t_desc">attr() 메서드는 checked 속성이 요소에 추가되는 반면 prop() 메서드의 true는 자바스크립트의 프로퍼티로 처리됩니다.</p>
+            <div class="t_iframe" style="min-height: 400px; padding-top: 0;">
+                <iframe height="300" style="width: 100%;" scrolling="no" title="ex 4-21"
+                    src="https://codepen.io/sukjun2/embed/abGzOzG?default-tab=js%2Cresult" frameborder="no"
+                    loading="lazy" allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href="https://codepen.io/sukjun2/pen/abGzOzG">
+                        ex 4-21</a> by sukjun2 (<a href="https://codepen.io/sukjun2">@sukjun2</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                </iframe>
+            </div>
+
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:tjrwns3650@gmail.com">tjrwns3650@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script src="/javascript/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>
